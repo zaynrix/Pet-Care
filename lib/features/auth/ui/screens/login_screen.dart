@@ -63,7 +63,7 @@ class LoginScreen extends StatelessWidget {
                             alignment: Alignment.centerRight,
                             child: TextButton(
                                 onPressed: () {
-                                  RouteService.serviceNavi.pushNamedWidget(RouteGenerator.forgetPassword);
+                                  RouteService.serviceNavi.pushNamedWidget(RouteGenerator.forgetPasswordScreen);
                                 },
                                 child: Text(
                                   "Forgot password",

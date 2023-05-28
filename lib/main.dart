@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pet_care/features/auth/core/auth_provider.dart';
 import 'package:pet_care/features/auth/ui/screens/forget_password_screen.dart';
 import 'package:pet_care/features/auth/ui/screens/main_auth_screen.dart';
+import 'package:pet_care/features/auth/ui/screens/reset_password.dart';
 import 'package:pet_care/locator.dart';
 import 'package:pet_care/resources/theme_manager.dart';
 import 'package:pet_care/routing/route.dart';

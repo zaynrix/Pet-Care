@@ -8,19 +8,18 @@ import 'package:pet_care/routing/route.dart';
 import 'package:pet_care/routing/route_generator.dart';
 import 'package:pet_care/utils/validate_extension.dart';
 
-class ForgetPasswordScreen extends StatelessWidget {
-  ForgetPasswordScreen({Key? key}) : super(key: key);
-
-  TextEditingController phoneController = TextEditingController();
+class ResetPasswordScreen extends StatelessWidget {
+  ResetPasswordScreen({Key? key}) : super(key: key);
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
   GlobalKey<FormState> formKye = GlobalKey<FormState>();
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorManager.soft,
       appBar: AppBar(
-        title: const Text("Forgot password"),
+        title: const Text("Reset Password"),
         leading: IconButton(
           onPressed: () {
             RouteService.serviceNavi.popFunction();
@@ -31,7 +30,7 @@ class ForgetPasswordScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: AppPadding.p24),
+        padding: EdgeInsets.symmetric(horizontal: AppPadding.p24.w),
         child: Form(
           key: formKye,
           child: Column(
@@ -39,25 +38,32 @@ class ForgetPasswordScreen extends StatelessWidget {
             children: [
               addVerticalSpace(AppSize.s45.h),
               Text(
-                "Enter the phone number associated\n with your account and we'll send a\n code to reset your password",
-                textAlign: TextAlign.center,
+                "Enter a new password",
                 style: supTitleRegular(color: ColorManager.primary),
               ),
               addVerticalSpace(AppSize.s33.h),
               CustomTextFormField(
-                keyBoardType: TextInputType.phone,
-                hintText: "Phone Number",
-                controller: phoneController,
-                validator: (String? value) => value!.validatePhoneNumber(),
+                hintText: "New password",
+                controller: passwordController,
+                validator: (String? value) => value!.validatePassword(),
+                keyBoardType: TextInputType.visiblePassword,
               ),
-              const Spacer(flex: 1,),
-              ElevatedButton(onPressed: (){
-                if(formKye.currentState!.validate()){
-                  debugPrint("Its Ok Pro");
-                  RouteService.serviceNavi.pushNamedWidget(RouteGenerator.verifyEmailScreen);
-                }
-              }, child: const Text("Submit")),
-              const Spacer(flex: 2,),
+              addVerticalSpace(AppSize.s20.h),
+              CustomTextFormField(
+                hintText: "Confirm new password",
+                controller: confirmPasswordController,
+                validator: (String? value) => value!.validatePassword(),
+                keyBoardType: TextInputType.visiblePassword,
+              ),
+              addVerticalSpace(AppSize.s120.h),
+              ElevatedButton(
+                  onPressed: () {
+                    if (formKye.currentState!.validate()) {
+                      debugPrint("This is ok");
+                      RouteService.serviceNavi.pushNamedReplacement(RouteGenerator.mainAuthScreen);
+                    }
+                  },
+                  child: const Text("Change")),
             ],
           ),
         ),
