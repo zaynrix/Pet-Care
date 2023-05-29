@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pet_care/features/onboarding/model/onBoardingModel.dart';
+import 'package:pet_care/locator.dart';
 import 'package:pet_care/resources/colors_manager.dart';
+import 'package:pet_care/resources/size_config.dart';
 import 'package:pet_care/resources/styles_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
 
 class DescriptionOnBoarding extends StatelessWidget {
-  const DescriptionOnBoarding({
+  DescriptionOnBoarding({
     Key? key,
     required this.list,
     required int activeIndex,
@@ -14,13 +15,14 @@ class DescriptionOnBoarding extends StatelessWidget {
 
   final List<OnBoardingModel> list;
   final int _activeIndex;
+  final SizeConfig sizeConfig = locator<SizeConfig>();
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  const EdgeInsets.symmetric(horizontal: AppPadding.p32),
+      padding:  EdgeInsets.symmetric(horizontal: sizeConfig.getScreenWidth(AppPadding.p32)),
       child: SizedBox(
-        height: 72,
+        height: sizeConfig.getScreenHeight(72),
         child: Text(
           list[_activeIndex].desc,
           style: supTitleMedium(color: ColorManager.primary),

@@ -35,4 +35,11 @@ class SvgAssets {
   static const String firstOnBoarding = '$svgPath/onboarding/first_onboarding.svg';
   static const String secondOnBoarding = '$svgPath/onboarding/second_onboarding.svg';
   static const String thirdOnBoarding = '$svgPath/onboarding/last_onboarding.svg';
+
+
+  //---------------------------firstShapes-------------------------------------------
+
+  static const String firstScreenFirst = '$svgPath/onboarding/onboarding_screens_shapes/first_screen/first_shape.svg';
+  static const String firstScreenSecond = '$svgPath/onboarding/onboarding_screens_shapes/first_screen/second_shape.svg';
+  static const String firstScreenPet = '$svgPath/onboarding/onboarding_screens_shapes/first_screen/pest_svg.svg';
 }

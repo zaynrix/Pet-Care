@@ -6,13 +6,16 @@ import 'package:pet_care/features/auth/ui/screens/forget_password_screen.dart';
 import 'package:pet_care/features/auth/ui/screens/main_auth_screen.dart';
 import 'package:pet_care/features/auth/ui/screens/reset_password.dart';
 import 'package:pet_care/features/onboarding/core/on_boarding_provider.dart';
-import 'package:pet_care/features/onboarding/ui/onBoardingPages.dart';
+import 'package:pet_care/features/onboarding/ui/onBoardingPage.dart';
+import 'package:pet_care/features/onboarding/ui/sup_pages/first_onboarding.dart';
 import 'package:pet_care/locator.dart';
 import 'package:pet_care/resources/theme_manager.dart';
 import 'package:pet_care/routing/route.dart';
 import 'package:pet_care/routing/routes_generate.dart';
 import 'package:pet_care/utils/helper.dart';
 import 'package:provider/provider.dart';
+
+import 'resources/size_config.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

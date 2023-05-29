@@ -3,15 +3,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pet_care/features/onboarding/core/on_boarding_provider.dart';
 import 'package:pet_care/features/onboarding/model/onBoardingModel.dart';
+import 'package:pet_care/locator.dart';
 import 'package:pet_care/resources/colors_manager.dart';
+import 'package:pet_care/resources/size_config.dart';
 import 'package:pet_care/resources/styles_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
 import 'package:pet_care/routing/route.dart';
 import 'package:pet_care/routing/route_generator.dart';
 import 'package:provider/provider.dart';
-import 'descriptionOnboading.dart';
-import 'sliderIndicator.dart';
-import 'titlOnBoarding.dart';
+import 'onboarding_widgets/descriptionOnboading.dart';
+import 'onboarding_widgets/sliderIndicator.dart';
+import 'onboarding_widgets/titlOnBoarding.dart';
 
 class OnBoardingPage extends StatefulWidget {
   const OnBoardingPage({Key? key}) : super(key: key);
@@ -22,6 +24,7 @@ class OnBoardingPage extends StatefulWidget {
 
 class _OnBoardingPageState extends State<OnBoardingPage> {
   final List<OnBoardingModel> list = OnBoardingModel.data;
+  SizeConfig sizeConfig = locator<SizeConfig>();
 
   @override
   void initState() {
@@ -33,14 +36,14 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
   @override
   Widget build(BuildContext context) {
+    // SizeConfig.init(context);
     return Scaffold(
       body: Consumer<OnBoardingProvider>(
         builder: (context, provider, child) => Column(
           children: [
-            addVerticalSpace(AppSize.s100.h),
             Container(
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.4,
+                height: sizeConfig.getScreenHeight(440),
                 alignment: Alignment.center,
                 child: PageView.builder(
                   onPageChanged: (value) =>
@@ -49,22 +52,26 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                     itemCount: list.length,
                     controller: provider.controller,
                     itemBuilder: (context, index) {
-                      return SvgPicture.asset(
-                        list[provider.activeIndex].svgPath,
-                        fit: BoxFit.scaleDown,
-                      );
+                      return list[provider.activeIndex].screen;
                     })),
-            addVerticalSpace(AppSize.s15.h),
+            addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s18)),
             TitleOnBoarding(list: list, activeIndex: provider.activeIndex),
-            addVerticalSpace(AppSize.s10.h),
+
+
+            addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s5)),
+
             DescriptionOnBoarding(
                 list: list, activeIndex: provider.activeIndex),
-            addVerticalSpace(AppSize.s50.h),
+            addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s40)),
+
+
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(list.length, (index) => SliderIndicator(activeIndex: index, currantPage: provider.currantPage,)),
             ),
-            addVerticalSpace(AppSize.s35.h),
+
+            addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s30)),
+
             if (provider.activeIndex + 1 != list.length)
               ElevatedButton(
                 onPressed: () {
@@ -82,7 +89,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 },
                 child: const Text('Get started'),
               ),
-            addVerticalSpace(AppSize.s20.h),
+            addVerticalSpace(sizeConfig.getScreenHeight(17)),
+
             if (provider.activeIndex + 1 != list.length)
             TextButton(
                 onPressed: () {
@@ -93,7 +101,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                   "Skip",
                   style: bodyRegular(color: ColorManager.secondary),
                 )),
-            addVerticalSpace(AppSize.s20.h)
+            addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s40))
           ],
         ),
       ),

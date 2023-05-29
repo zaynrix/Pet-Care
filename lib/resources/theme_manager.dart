@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pet_care/locator.dart';
 import 'package:pet_care/resources/fonts-manager.dart';
+import 'package:pet_care/resources/size_config.dart';
 import 'package:pet_care/resources/styles_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
 
 import 'colors_manager.dart';
 
 class ThemeManager {
+  final SizeConfig sizeConfig = locator<SizeConfig>();
+
   static ThemeData get lightTheme { //1
     return ThemeData( //2
         primaryColor: ColorManager.mainColor,
