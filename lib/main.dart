@@ -5,6 +5,8 @@ import 'package:pet_care/features/auth/core/auth_provider.dart';
 import 'package:pet_care/features/auth/ui/screens/forget_password_screen.dart';
 import 'package:pet_care/features/auth/ui/screens/main_auth_screen.dart';
 import 'package:pet_care/features/auth/ui/screens/reset_password.dart';
+import 'package:pet_care/features/onboarding/core/on_boarding_provider.dart';
+import 'package:pet_care/features/onboarding/ui/onBoardingPages.dart';
 import 'package:pet_care/locator.dart';
 import 'package:pet_care/resources/theme_manager.dart';
 import 'package:pet_care/routing/route.dart';
@@ -30,7 +32,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider.value(value: locator<AuthProvider>(),)
+        ChangeNotifierProvider.value(value: locator<AuthProvider>(),),
+        ChangeNotifierProvider(create: (_) => OnBoardingProvider())
       ],
       child: ScreenUtilInit(
         designSize: const Size(375, 815),
@@ -39,7 +42,7 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           theme: ThemeManager.lightTheme,
           scaffoldMessengerKey: Helpers.scaffoldKey,
-          home:  const MainAuthScreen(),
+          home:  const OnBoardingPage(),
           navigatorKey: RouteService.serviceNavi.navKey,
           onGenerateRoute: RoutsGenerate.generateRoute,
         ),

@@ -43,6 +43,7 @@ dependencies:
   provider: ^6.0.5
   get_it: ^7.6.0
   pinput: ^2.2.21
+  flutter_slider_indicator: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +73,8 @@ flutter:
     - assets/fonts/
     - assets/icons/navBarIcons/selected/
     - assets/icons/navBarIcons/unSelected/
+    - assets/svg/
+    - assets/svg/onboarding/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

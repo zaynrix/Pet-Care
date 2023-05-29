@@ -34,5 +34,5 @@ const String svgPath = 'assets/svg';
 class SvgAssets {
   static const String firstOnBoarding = '$svgPath/onboarding/first_onboarding.svg';
   static const String secondOnBoarding = '$svgPath/onboarding/second_onboarding.svg';
-  static const String thirdOnBoarding = '$svgPath/onboarding/last_onboarding.svga';
+  static const String thirdOnBoarding = '$svgPath/onboarding/last_onboarding.svg';
 }

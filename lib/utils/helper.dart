@@ -31,7 +31,7 @@ class Helpers {
       content: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SvgPicture.asset(IconAssets.doneIcon),
+          SvgPicture.asset("IconAssets.doneIcon"),
           addHorizontalSpace(AppSize.s10.w),
           Text(
             message,
