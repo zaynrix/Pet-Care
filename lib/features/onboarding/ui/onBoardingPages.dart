@@ -62,7 +62,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
             addVerticalSpace(AppSize.s50.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(list.length, (index) => Indicator(activeIndex: index, currantPage: provider.currantPage,)),
+              children: List.generate(list.length, (index) => SliderIndicator(activeIndex: index, currantPage: provider.currantPage,)),
             ),
             addVerticalSpace(AppSize.s35.h),
             if (provider.activeIndex + 1 != list.length)

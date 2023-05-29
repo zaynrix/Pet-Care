@@ -4,8 +4,8 @@ import 'package:flutter_slider_indicator/flutter_slider_indicator.dart';
 import 'package:pet_care/features/onboarding/model/onBoardingModel.dart';
 import 'package:pet_care/resources/colors_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
-class Indicator extends StatelessWidget {
-  const Indicator({
+class SliderIndicator extends StatelessWidget {
+  const SliderIndicator({
     Key? key,
     required this.activeIndex,
     required this.currantPage,
