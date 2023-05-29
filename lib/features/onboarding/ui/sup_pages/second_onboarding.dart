@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pet_care/locator.dart';
 import 'package:pet_care/resources/assets_manager.dart';
+import 'package:pet_care/resources/colors_manager.dart';
 import 'package:pet_care/resources/size_config.dart';
+import 'package:pet_care/resources/values_manager.dart';
+
 class SecondOnBoardingScreen extends StatelessWidget {
   SecondOnBoardingScreen({Key? key}) : super(key: key);
 
@@ -15,31 +18,38 @@ class SecondOnBoardingScreen extends StatelessWidget {
       body: SizedBox(
         height: sizeConfig.getScreenHeight(450),
         child: Stack(
-
           children: [
-            Positioned(
-              bottom: 0,
-              child: Align(
-                alignment: AlignmentDirectional.centerStart,
-                child: SvgPicture.asset(SvgAssets.firstScreenFirst,
-                  height: sizeConfig.getScreenHeight(393),
-                  width: sizeConfig.getScreenWidth(256),
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: sizeConfig.getScreenHeight(42.64),
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: sizeConfig.getScreenHeight(68)),
-                child: SvgPicture.asset(SvgAssets.firstScreenPet,
-                  // width: sizeConfig.getScreenHeight(232.79),
-                  // height: sizeConfig.getScreenWidth(163.61),
-                ),
+            Align(
+              alignment: AlignmentDirectional.topCenter,
+              child: SvgPicture.asset(
+                SvgAssets.secondScreenFirstShape,
+                height: sizeConfig.getScreenHeight(AppSize.s112),
+                width: sizeConfig.getScreenWidth(225),
               ),
             ),
             Align(
-              alignment: AlignmentDirectional.topEnd,
-              child: SvgPicture.asset(SvgAssets.firstScreenSecond),
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                height: sizeConfig.getScreenHeight(393),
+                decoration: const BoxDecoration(
+                  color: ColorManager.secondaryLight,
+                  shape: BoxShape.circle
+                ),
+              )
+              // SvgPicture.asset(
+              //   SvgAssets.secondScreenSecondShape,
+              //   // height: sizeConfig.getScreenHeight(393),
+              //   // width: sizeConfig.getScreenWidth(393),
+              //   fit: BoxFit.contain,
+              // ),
+            ),
+            Positioned(
+              bottom: sizeConfig.getScreenHeight(AppSize.s22),
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                    horizontal: sizeConfig.getScreenWidth(AppSize.s120)),
+                child: SvgPicture.asset(SvgAssets.secondScreenPet),
+              ),
             ),
           ],
         ),

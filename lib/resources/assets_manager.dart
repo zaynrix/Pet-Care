@@ -39,7 +39,13 @@ class SvgAssets {
 
   //---------------------------firstShapes-------------------------------------------
 
-  static const String firstScreenFirst = '$svgPath/onboarding/onboarding_screens_shapes/first_screen/first_shape.svg';
-  static const String firstScreenSecond = '$svgPath/onboarding/onboarding_screens_shapes/first_screen/second_shape.svg';
+  static const String firstScreenFirstShabe = '$svgPath/onboarding/onboarding_screens_shapes/first_screen/first_shape.svg';
+  static const String firstScreenSecondShabe = '$svgPath/onboarding/onboarding_screens_shapes/first_screen/second_shape.svg';
   static const String firstScreenPet = '$svgPath/onboarding/onboarding_screens_shapes/first_screen/pest_svg.svg';
+
+  //---------------------------secondShapes-------------------------------------
+
+  static const String secondScreenFirstShape = '$svgPath/onboarding/onboarding_screens_shapes/second_screen/first_shape.svg';
+  static const String secondScreenSecondShape = '$svgPath/onboarding/onboarding_screens_shapes/second_screen/second_shape.svg';
+  static const String secondScreenPet = '$svgPath/onboarding/onboarding_screens_shapes/second_screen/second_pet.svg';
 }

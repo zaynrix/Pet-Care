@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:pet_care/features/onboarding/ui/sup_pages/first_onboarding.dart';
+import 'package:pet_care/features/onboarding/ui/sup_pages/second_onboarding.dart';
 import 'package:pet_care/resources/assets_manager.dart';
 
 class OnBoardingModel{
@@ -23,7 +24,7 @@ class OnBoardingModel{
         svgPath: SvgAssets.secondOnBoarding,
         title: 'Shop easily',
         desc: 'Get all pet accessories from one place by this app noe enjoy a hassle-free shopping',
-      screen: FirstOnBoardingScreen()
+      screen: SecondOnBoardingScreen()
     ),
     OnBoardingModel(
         svgPath: SvgAssets.thirdOnBoarding,

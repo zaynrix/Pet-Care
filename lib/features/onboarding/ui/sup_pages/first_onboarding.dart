@@ -21,7 +21,7 @@ class FirstOnBoardingScreen extends StatelessWidget {
               bottom: 0,
               child: Align(
                 alignment: AlignmentDirectional.centerStart,
-                child: SvgPicture.asset(SvgAssets.firstScreenFirst,
+                child: SvgPicture.asset(SvgAssets.firstScreenFirstShabe,
                   height: sizeConfig.getScreenHeight(393),
                   width: sizeConfig.getScreenWidth(256),
                 ),
@@ -39,7 +39,7 @@ class FirstOnBoardingScreen extends StatelessWidget {
             ),
             Align(
               alignment: AlignmentDirectional.topEnd,
-              child: SvgPicture.asset(SvgAssets.firstScreenSecond),
+              child: SvgPicture.asset(SvgAssets.firstScreenSecondShabe),
             ),
           ],
         ),
