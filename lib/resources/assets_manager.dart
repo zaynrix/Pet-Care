@@ -25,36 +25,14 @@ const String iconPath = 'assets/icons';
 class IconAssets {
   static const String appleIcon = '$iconPath/apple_icon.svg';
   static const String googleIcon = '$iconPath/google_icon.svg';
-  static const String unselectedBalanceFreelancerIcon =
-      '$iconPath/freelancer_bottom_bar_icons/unselected_balance_icon.svg';
-  static const String helpFreelancerIcon =
-      '$iconPath/freelancer_bottom_bar_icons/help_icon.svg';
-  static const String homeFreelancerIcon =
-      '$iconPath/freelancer_bottom_bar_icons/home_icon.svg';
-  static const String invoiceFreelancerIcon =
-      '$iconPath/freelancer_bottom_bar_icons/invoice_icon.svg';
-  static const String withdrawIcon = '$iconPath/withdraw_icon.svg';
-  static const String mainIconApp = '$iconPath/main_icon_app.svg';
-  static const String bankIcon = '$iconPath/bank_icon.svg';
-  static const String cashIcon = '$iconPath/cash_icon.svg';
-  static const String doneIcon = '$iconPath/done_icon.svg';
-  static const String pendingIcon = '$iconPath/pending_icon.svg';
-  static const String warningIcon = '$iconPath/warning.svg';
-  static const String closeIcon = '$iconPath/close_icon.svg';
-  static const String deleteIcon = '$iconPath/delete_icon.svg';
-  static const String pencilIcon = '$iconPath/pencil.svg';
-  static const String officeIcon = '$iconPath/office_icon.svg';
-  static const String checkMarkIcon = '$iconPath/checkmark_icon.svg';
-  static const String dawnIcon = '$iconPath/down_icon.svg';
-  static const String checkIcon = '$iconPath/check.svg';
-  static const String filterIcon = '$iconPath/filter_icon.svg';
-  static const String searchIcon = '$iconPath/search.svg';
-  static const String settingsIcon = '$iconPath/settings.svg';
+
 
 
 }
 const String svgPath = 'assets/svg';
 
 class SvgAssets {
-  static const String splashSvg = '$svgPath/splash.svg';
+  static const String firstOnBoarding = '$svgPath/onboarding/first_onboarding.svg';
+  static const String secondOnBoarding = '$svgPath/onboarding/second_onboarding.svg';
+  static const String thirdOnBoarding = '$svgPath/onboarding/last_onboarding.svga';
 }
