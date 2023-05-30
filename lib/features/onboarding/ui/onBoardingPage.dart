@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pet_care/features/onboarding/core/on_boarding_provider.dart';
 import 'package:pet_care/features/onboarding/model/onBoardingModel.dart';
 import 'package:pet_care/locator.dart';
@@ -52,7 +50,16 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                     itemCount: list.length,
                     controller: provider.controller,
                     itemBuilder: (context, index) {
-                      return list[provider.activeIndex].screen;
+                    var item = list[index];
+                    var scale = provider.activeIndex == index ? 1.0 : 0.8;
+                      return TweenAnimationBuilder(
+                          tween: Tween(begin: scale , end: scale),
+                          curve: Curves.ease,
+                          duration: const Duration(milliseconds: 350),
+                          builder: (context , value , child){
+                            return Transform.scale(scale: value,
+                            child: list[provider.activeIndex].screen,);
+                          });
                     })),
             addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s18)),
             TitleOnBoarding(list: list, activeIndex: provider.activeIndex),
@@ -76,8 +83,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               ElevatedButton(
                 onPressed: () {
                   provider.controller.nextPage(
-                      duration: const Duration(milliseconds: 150),
-                      curve: Curves.ease);
+                      duration: const Duration( milliseconds: 300),
+                      curve: Curves.easeInOut);
                 },
                 child: const Text("Next"),
               ),
