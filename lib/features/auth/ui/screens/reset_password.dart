@@ -17,6 +17,7 @@ class ResetPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: ColorManager.soft,
       appBar: AppBar(
         title: const Text("Reset Password"),

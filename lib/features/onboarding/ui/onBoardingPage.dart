@@ -83,7 +83,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               ElevatedButton(
                 onPressed: () {
                   provider.controller.nextPage(
-                      duration: const Duration( milliseconds: 300),
+                      duration: const Duration( milliseconds: 250),
                       curve: Curves.easeInOut);
                 },
                 child: const Text("Next"),
@@ -108,7 +108,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                   "Skip",
                   style: bodyRegular(color: ColorManager.secondary),
                 )),
-            addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s40))
+            addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s33))
           ],
         ),
       ),

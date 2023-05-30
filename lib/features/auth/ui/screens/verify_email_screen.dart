@@ -17,6 +17,7 @@ class VerifyEmailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // resizeToAvoidBottomInset: false,
       backgroundColor: ColorManager.soft,
       appBar: AppBar(
         title: const Text("Verify"),
@@ -86,14 +87,14 @@ class VerifyEmailScreen extends StatelessWidget {
               Text("00:59" , style: bodyRegular(color: ColorManager.secondary),),
               addVerticalSpace(AppSize.s8.h),
               TextButton(onPressed: (){}, child: Text('Resend code', style:  bodyRegular(color: ColorManager.gray),)),
-              addVerticalSpace(AppSize.s128.h),
+              const Spacer(),
               ElevatedButton(onPressed: (){
                 if(formKye.currentState!.validate()){
                   debugPrint("This is ok");
                   RouteService.serviceNavi.pushNamedWidget(RouteGenerator.resetPasswordScreen);
                 }
               }, child: const Text("Next")),
-              const Spacer()
+              const Spacer(flex: 2,)
             ],
           ),
         ),
