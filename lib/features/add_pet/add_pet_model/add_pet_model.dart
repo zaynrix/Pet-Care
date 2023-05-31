@@ -4,9 +4,9 @@ import 'package:pet_care/resources/assets_manager.dart';
 import 'package:pet_care/resources/colors_manager.dart';
 
 class AddPetModel {
-  String name;
-  String iconPath;
-  Color backgroundColor;
+ final String name;
+ final String iconPath;
+ final Color backgroundColor;
   bool isSelect;
 
   AddPetModel(
