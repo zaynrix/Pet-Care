@@ -36,8 +36,7 @@ class AddPetSpeciesScreen extends StatelessWidget {
             SizedBox(
               height: sizeConfig.getScreenHeight(125),
               child: Consumer<AppPetProvider>(
-                builder: (context , provider , child) => ListView.separated(
-                    separatorBuilder: (context , index) => SizedBox(width: sizeConfig.getScreenWidth(AppSize.s10),),
+                builder: (context , provider , child) => ListView.builder(
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     itemCount: provider.types.length,

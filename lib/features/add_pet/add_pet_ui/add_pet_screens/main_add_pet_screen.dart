@@ -78,7 +78,7 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                           ),
                         ),
                         Text(
-                          "1/7",
+                          "${provider.currantPage +1}/7",
                           style: supTitleRegular(color: ColorManager.primary),
                         )
                       ],
@@ -95,7 +95,7 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                         ),
                         AnimatedContainer(
                           height: 6,
-                          width: MediaQuery.of(context).size.width * (0.13),
+                          width: provider.progressBarValue,
                           decoration: BoxDecoration(
                               color: ColorManager.secondary,
                               borderRadius: BorderRadius.circular(AppSize.s50)),

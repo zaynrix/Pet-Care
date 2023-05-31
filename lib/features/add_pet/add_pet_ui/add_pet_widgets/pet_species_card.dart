@@ -32,35 +32,38 @@ class PetSpeciesCard extends StatelessWidget {
         height: sizeConfig.getScreenHeight(116.74),
         child: Column(
           children: [
-            Stack(
-              children: [
-                AnimatedContainer(
-                  duration: const Duration(milliseconds: 100),
-                  padding: isSelected ? const EdgeInsets.all(AppSize.s8) : const EdgeInsets.all(0),
-                  width:  isSelected ? sizeConfig.getScreenWidth(AppSize.s88) : sizeConfig.getScreenWidth(AppSize.s80),
-                  height: isSelected ? sizeConfig.getScreenHeight(AppSize.s88) : sizeConfig.getScreenHeight(AppSize.s80),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: backgroundColor,
-                    border: isSelected ? Border.all(
+            AnimatedContainer(
+              curve: Curves.easeInOut,
+              margin: const EdgeInsetsDirectional.only(end: AppPadding.p10),
+
+              duration: const Duration(milliseconds: 200),
+              padding: isSelected ? const EdgeInsets.all(3) : const EdgeInsets.all(0),
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: ColorManager.transparent,
+                  border: isSelected ? Border.all(
                       color: ColorManager.secondary,
                       width: 2
-                    ) : null
-                  ),
+                  ) : null
+              ),
+              child: AnimatedContainer(
+                curve: Curves.easeInOut,
+                duration: const Duration(milliseconds: 200),
+                width:  isSelected ? sizeConfig.getScreenWidth(AppSize.s86) : sizeConfig.getScreenWidth(AppSize.s80),
+                height: isSelected ? sizeConfig.getScreenHeight(AppSize.s86) : sizeConfig.getScreenHeight(AppSize.s80),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: backgroundColor,
+
                 ),
-                Positioned(
-                  top: sizeConfig.getScreenHeight(AppSize.s20),
-                  left: sizeConfig.getScreenWidth(AppSize.s20),
-                  child: SizedBox(
-                    height: sizeConfig.getScreenHeight(AppSize.s40),
-                    width: sizeConfig.getScreenWidth(AppSize.s40),
+                child: Container(
+                    padding: const EdgeInsets.all(20),
                     child: SvgPicture.asset(
                       iconPath,
-
+                      height: sizeConfig.getScreenHeight(AppSize.s40),
+                      width: sizeConfig.getScreenWidth(AppSize.s40),
                     ),
-                  ),
-                ),
-              ],
+              ),),
             ),
             Text(type, style: bodyRegular(color: ColorManager.primary),)
           ],
