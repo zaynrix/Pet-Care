@@ -34,10 +34,11 @@ class PetSpeciesCard extends StatelessWidget {
           children: [
             Stack(
               children: [
-                Container(
+                AnimatedContainer(
+                  duration: const Duration(milliseconds: 100),
                   padding: isSelected ? const EdgeInsets.all(AppSize.s8) : const EdgeInsets.all(0),
-                  width: sizeConfig.getScreenWidth(AppSize.s80),
-                  height: sizeConfig.getScreenHeight(AppSize.s80),
+                  width:  isSelected ? sizeConfig.getScreenWidth(AppSize.s88) : sizeConfig.getScreenWidth(AppSize.s80),
+                  height: isSelected ? sizeConfig.getScreenHeight(AppSize.s88) : sizeConfig.getScreenHeight(AppSize.s80),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: backgroundColor,

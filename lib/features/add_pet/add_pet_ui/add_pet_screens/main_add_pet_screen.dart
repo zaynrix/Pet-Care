@@ -108,7 +108,7 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
               ),
               Container(
                 width: double.infinity,
-                height: sizeConfig.getScreenHeight(430),
+                height: sizeConfig.getScreenHeight(450),
                 alignment: Alignment.center,
                 child: PageView.builder(
                   onPageChanged: (value) => provider.onPageChange(value),
