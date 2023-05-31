@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pet_care/features/auth/core/auth_provider.dart';
-import 'package:pet_care/features/auth/ui/screens/login_screen.dart';
-import 'package:pet_care/features/auth/ui/screens/sign_up_screen.dart';
+import 'package:pet_care/features/auth/auth_core/auth_provider.dart';
+import 'package:pet_care/features/auth/auth_ui/screens/login_screen.dart';
+import 'package:pet_care/features/auth/auth_ui/screens/sign_up_screen.dart';
 import 'package:pet_care/resources/colors_manager.dart';
 import 'package:pet_care/resources/styles_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';

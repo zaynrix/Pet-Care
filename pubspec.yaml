@@ -78,6 +78,7 @@ flutter:
     - assets/svg/onboarding/onboarding_screens_shapes/
     - assets/svg/onboarding/onboarding_screens_shapes/first_screen/
     - assets/svg/onboarding/onboarding_screens_shapes/second_screen/
+    - assets/icons/pet_types/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
