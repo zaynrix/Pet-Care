@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pet_care/features/add_pet/add_pet_core/add_pet_provider.dart';
+import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/main_add_pet_screen.dart';
 import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/success_add_pet.dart';
 import 'package:pet_care/features/auth/auth_core/auth_provider.dart';
 import 'package:pet_care/features/onboarding/core/on_boarding_provider.dart';
@@ -33,7 +35,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: locator<AuthProvider>(),),
-        ChangeNotifierProvider(create: (_) => OnBoardingProvider())
+        ChangeNotifierProvider(create: (_) => OnBoardingProvider()),
+        ChangeNotifierProvider(create: (_) => AppPetProvider()),
       ],
       child: ScreenUtilInit(
         designSize: const Size(375, 815),
@@ -42,7 +45,7 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           theme: ThemeManager.lightTheme,
           scaffoldMessengerKey: Helpers.scaffoldKey,
-          home: SuccessAddPatScreen(),
+          home: MainAppPetScreen(),
           navigatorKey: RouteService.serviceNavi.navKey,
           onGenerateRoute: RoutsGenerate.generateRoute,
         ),

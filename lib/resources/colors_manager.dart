@@ -4,6 +4,7 @@ class ColorManager {
   static const Color mainColor = Color(0xFFF3F4F6);
   static const Color white = Color(0xFFFFFFFF);
   static const Color primary = Color(0xFF323232);
+  static Color primaryWithTransparent = const Color(0xFF323232).withOpacity(10);
   static const Color secondary = Color(0xFF0BA011);
   static const Color secondaryLight = Color(0xFFC3E4F2);
   static const Color tertiary = Color(0xFFF5E5C0);

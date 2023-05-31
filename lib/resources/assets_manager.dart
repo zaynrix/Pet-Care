@@ -20,7 +20,6 @@ class ImageAssets {
       "$imagePaht/bottomNavigationBar/user.png";
 }
 
-
 //--------------------------------iconAssets------------------------------------
 
 const String iconPath = 'assets/icons';
@@ -34,8 +33,12 @@ class IconAssets {
   static const String birdType = "$iconPath/pet_types/bird.svg";
   static const String catType = "$iconPath/pet_types/cat.svg";
   static const String dogType = "$iconPath/pet_types/dog.svg";
-  static const String otherType = "$iconPath/pet_types/other.png";
+  static const String otherType = "$iconPath/pet_types/other.svg";
 
+  //---------------------------------gender-------------------------------------
+
+  static const String female = "$iconPath/gender_female.svg";
+  static const String male = "$iconPath/gender_male.svg";
 }
 
 //--------------------------------SvgAssets-------------------------------------
@@ -71,5 +74,4 @@ class SvgAssets {
   //----------------------------------------------------------------------------
 
   static const successAddPet = "$svgPath/success_add_pet.svg";
-
 }
