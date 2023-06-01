@@ -3,6 +3,7 @@ import 'package:pet_care/features/add_pet/add_pet_model/add_pet_model.dart';
 import 'package:pet_care/features/add_pet/add_pet_model/pet_gender_model.dart';
 import 'package:pet_care/locator.dart';
 import 'package:pet_care/resources/size_config.dart';
+import 'package:pet_care/utils/enums.dart';
 import 'package:pet_care/utils/helper.dart';
 
 class AppPetProvider extends ChangeNotifier {
@@ -24,12 +25,18 @@ class AppPetProvider extends ChangeNotifier {
     });
   }
 
+
+  //----------------------------onPageChange------------------------------------
+
   onPageChange(int value) {
     currantPage = value;
     progressBarValue += progressValue;
     debugPrint("This is inside onPageChange");
     notifyListeners();
   }
+
+
+  //-----------------------------selectPetType----------------------------------
 
   selectPetType({required String type}) {
     for (var item in types) {
@@ -40,6 +47,8 @@ class AppPetProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+
+  //-----------------------selectPetGender-------------------------------------
   selectPetGender({required String type}) {
     for (var item in genders) {
       item.isSelect = false;
@@ -48,32 +57,6 @@ class AppPetProvider extends ChangeNotifier {
     genders[index].isSelect = true;
     notifyListeners();
   }
-
-  // static double? progressBarStatus(int page) {
-  //   switch (page) {
-  //     case 0:
-  //       {
-  //         return MediaQuery.of(Helpers.scaffoldKey.currentState!.context).size.width * (0.13);
-  //       }
-  //     case 1:
-  //       {
-  //         return MediaQuery.of(Helpers.scaffoldKey.currentState!.context).size.width * (0.26);
-  //       }
-  //     case 2:
-  //       {
-  //         return MediaQuery.of(Helpers.scaffoldKey.currentState!.context).size.width * (0.39);
-  //       }
-  //     case 3:
-  //       {
-  //         return MediaQuery.of(Helpers.scaffoldKey.currentState!.context).size.width * (0.52);
-  //       }
-  //     case 4:
-  //       {
-  //         return MediaQuery.of(Helpers.scaffoldKey.currentState!.context).size.width * (0.65);
-  //       }
-  //   }
-  //   return MediaQuery.of(Helpers.scaffoldKey.currentState!.context).size.width;
-  // }
 
 
   static double? progressBarStatus(int page) {
@@ -85,5 +68,14 @@ class AppPetProvider extends ChangeNotifier {
     return screenWidth;
   }
 
+
+  //----------------------------selectIsPetNeuter-------------------------------
+
+  PetNeuterOption selectedOption = PetNeuterOption.notSelected;
+
+  void selectOption(PetNeuterOption option) {
+    selectedOption = option;
+    notifyListeners();
+  }
 
 }

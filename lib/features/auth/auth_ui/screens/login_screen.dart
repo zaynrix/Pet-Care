@@ -98,6 +98,7 @@ class LoginScreen extends StatelessWidget {
                                     onPressed: () {
                                       if(formKye.currentState!.validate()){
                                         debugPrint("Its ok pro");
+                                        RouteService.serviceNavi.pushNamedWidget(RouteGenerator.mainAddPetScreen);
                                       }
                                     }, child: const Text("Sign in")))
                           ],

@@ -3,6 +3,7 @@ import 'package:pet_care/features/add_pet/add_pet_core/add_pet_provider.dart';
 import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/addPetNameScreen.dart';
 import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/add_pet_gender.dart';
 import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/add_pet_preed.dart';
+import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/is_pat_neuter_screen.dart';
 import 'package:pet_care/locator.dart';
 import 'package:pet_care/resources/colors_manager.dart';
 import 'package:pet_care/resources/size_config.dart';
@@ -39,7 +40,8 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
     AddPetNameScreen(),
     AddPetSpeciesScreen(),
     AddPetBreedScreen(),
-    AddPetGenderScreen()
+    AddPetGenderScreen(),
+    IsPetNeuterScreen()
   ];
 
   @override
@@ -70,7 +72,11 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                         InkWell(
                           focusColor: ColorManager.mainBorderColor,
                           onTap: () {
-                            RouteService.serviceNavi.popFunction();
+                            provider.currantPage == 0 ?
+                            RouteService.serviceNavi.popFunction() :
+                            provider.controller.previousPage(
+                                duration: const Duration( milliseconds: 250),
+                                curve: Curves.easeInOut);
                           },
                           child: const Icon(
                             Icons.arrow_back,
@@ -109,7 +115,7 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
               ),
               Container(
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.8,
+                height: MediaQuery.of(context).size.height * 0.5,
                 alignment: Alignment.center,
                 child: PageView.builder(
                   onPageChanged: (value) => provider.onPageChange(value),

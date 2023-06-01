@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pet_care/common_widgets/customTextFormField.dart';
 import 'package:pet_care/features/add_pet/add_pet_core/add_pet_provider.dart';
-import 'package:pet_care/features/add_pet/add_pet_model/pet_gender_model.dart';
 import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_widgets/gender_card.dart';
 import 'package:pet_care/locator.dart';
-import 'package:pet_care/resources/assets_manager.dart';
 import 'package:pet_care/resources/colors_manager.dart';
 import 'package:pet_care/resources/size_config.dart';
 import 'package:pet_care/resources/styles_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
-import 'package:pet_care/utils/validate_extension.dart';
 import 'package:provider/provider.dart';
 
 class AddPetGenderScreen extends StatelessWidget {

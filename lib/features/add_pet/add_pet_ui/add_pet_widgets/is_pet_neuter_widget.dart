@@ -3,20 +3,21 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pet_care/locator.dart';
 import 'package:pet_care/resources/colors_manager.dart';
 import 'package:pet_care/resources/size_config.dart';
+import 'package:pet_care/resources/styles_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
 
-class GenderCard extends StatelessWidget {
-  GenderCard({
+class IsPetNeuterWidget extends StatelessWidget {
+  IsPetNeuterWidget({
     Key? key,
     required this.onTap,
     required this.isSelected,
-    required this.iconPath,
+    required this.title,
   }) : super(key: key);
 
- final SizeConfig sizeConfig = locator<SizeConfig>();
+  final SizeConfig sizeConfig = locator<SizeConfig>();
   final bool isSelected;
   final void Function()? onTap;
-  final String iconPath;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -42,21 +43,13 @@ class GenderCard extends StatelessWidget {
         child: AnimatedContainer(
           curve: Curves.easeInOut,
           duration: const Duration(milliseconds: 200),
-          // padding: isSelected ? const EdgeInsets.all(AppSize.s8) : const EdgeInsets.all(0),
           width: isSelected ? sizeConfig.getScreenWidth(AppSize.s86) : sizeConfig.getScreenWidth(AppSize.s80),
           height: isSelected ? sizeConfig.getScreenWidth(AppSize.s86) : sizeConfig.getScreenWidth(AppSize.s80),
           decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: isSelected ? ColorManager.secondaryLight : ColorManager.transparent,
+            shape: BoxShape.circle,
+            color: isSelected ? ColorManager.secondaryLight : ColorManager.transparent,
           ),
-          child: Container(
-            padding: const EdgeInsets.all(20),
-            child: SvgPicture.asset(
-              iconPath,
-              height: sizeConfig.getScreenHeight(AppSize.s40),
-              width: sizeConfig.getScreenWidth(AppSize.s40),
-            ),
-          ),
+          child: Center(child: Text(title ,style: bodyRegular(color: ColorManager.primary),)),
         ),
       ),
     );
