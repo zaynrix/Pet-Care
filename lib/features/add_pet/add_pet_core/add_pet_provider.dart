@@ -49,4 +49,41 @@ class AppPetProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  // static double? progressBarStatus(int page) {
+  //   switch (page) {
+  //     case 0:
+  //       {
+  //         return MediaQuery.of(Helpers.scaffoldKey.currentState!.context).size.width * (0.13);
+  //       }
+  //     case 1:
+  //       {
+  //         return MediaQuery.of(Helpers.scaffoldKey.currentState!.context).size.width * (0.26);
+  //       }
+  //     case 2:
+  //       {
+  //         return MediaQuery.of(Helpers.scaffoldKey.currentState!.context).size.width * (0.39);
+  //       }
+  //     case 3:
+  //       {
+  //         return MediaQuery.of(Helpers.scaffoldKey.currentState!.context).size.width * (0.52);
+  //       }
+  //     case 4:
+  //       {
+  //         return MediaQuery.of(Helpers.scaffoldKey.currentState!.context).size.width * (0.65);
+  //       }
+  //   }
+  //   return MediaQuery.of(Helpers.scaffoldKey.currentState!.context).size.width;
+  // }
+
+
+  static double? progressBarStatus(int page) {
+    double factor = 0.13;
+    double screenWidth = MediaQuery.of(Helpers.scaffoldKey.currentState!.context).size.width;
+    if (page >= 0 && page <= 7) {
+      return screenWidth * (page + 1) * factor;
+    }
+    return screenWidth;
+  }
+
+
 }

@@ -95,7 +95,7 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                         ),
                         AnimatedContainer(
                           height: 6,
-                          width: provider.progressBarValue,
+                          width: AppPetProvider.progressBarStatus(provider.currantPage),
                           decoration: BoxDecoration(
                               color: ColorManager.secondary,
                               borderRadius: BorderRadius.circular(AppSize.s50)),
@@ -118,8 +118,6 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                   return pages[provider.activeIndex];
                 } ),
               )
-              // AddPetNameScreen(),
-              // AddPetSpeciesScreen()
             ],
           ),
         ),

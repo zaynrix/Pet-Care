@@ -45,7 +45,8 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           theme: ThemeManager.lightTheme,
           scaffoldMessengerKey: Helpers.scaffoldKey,
-          home: MainAppPetScreen(),
+          home:
+          MainAppPetScreen(),
           navigatorKey: RouteService.serviceNavi.navKey,
           onGenerateRoute: RoutsGenerate.generateRoute,
         ),
