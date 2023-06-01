@@ -44,6 +44,7 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint("This is inside main add pet page");
     return Consumer<AppPetProvider>(
       builder: (context , provider , child) => Scaffold(
         // resizeToAvoidBottomInset: false,
@@ -108,7 +109,7 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
               ),
               Container(
                 width: double.infinity,
-                height: sizeConfig.getScreenHeight(450),
+                height: MediaQuery.of(context).size.height * 0.8,
                 alignment: Alignment.center,
                 child: PageView.builder(
                   onPageChanged: (value) => provider.onPageChange(value),
