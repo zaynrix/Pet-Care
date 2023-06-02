@@ -54,7 +54,7 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
         floatingActionButton: ElevatedButton(
             onPressed: () {
               provider.controller.nextPage(
-                  duration: const Duration( milliseconds: 250),
+                  duration: const Duration( milliseconds: 300),
                   curve: Curves.easeInOut);
             },
             child: const Text("Next")),
@@ -118,6 +118,7 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                 height: MediaQuery.of(context).size.height * 0.5,
                 alignment: Alignment.center,
                 child: PageView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
                   onPageChanged: (value) => provider.onPageChange(value),
                   itemCount: pages.length,
                 controller: provider.controller,
