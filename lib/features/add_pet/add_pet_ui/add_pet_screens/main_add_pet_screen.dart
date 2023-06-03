@@ -53,13 +53,17 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
       builder: (context , provider , child) => Scaffold(
         // resizeToAvoidBottomInset: false,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: ElevatedButton(
-            onPressed: () {
-              provider.controller.nextPage(
-                  duration: const Duration( milliseconds: 500),
-                  curve: Curves.easeInOut);
-            },
-            child: const Text("Next")),
+        floatingActionButton: Container(
+          margin: provider.currantPage > 1 ? const EdgeInsets.only(bottom: AppSize.s60)
+              : const EdgeInsets.only(bottom: AppPadding.p24),
+          child: ElevatedButton(
+              onPressed: () {
+                provider.controller.nextPage(
+                    duration: const Duration( milliseconds: 500),
+                    curve: Curves.easeInOut);
+              },
+              child: const Text("Next")),
+        ),
         body: SafeArea(
           child: Column(
             children: [
@@ -127,7 +131,19 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                     itemBuilder: (context , index){
                   return pages[provider.activeIndex];
                 } ),
-              )
+              ),
+              const Spacer(),
+              Visibility(
+                visible: provider.currantPage > 1,
+                child: TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    "I don’t know",
+                    style: bodyRegular(color: ColorManager.secondary),
+                  ),
+                ),
+              ),
+              addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s20)),
             ],
           ),
         ),

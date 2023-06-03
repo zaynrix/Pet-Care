@@ -42,8 +42,9 @@ class AppOldPetScreen extends StatelessWidget {
           Text("years",style: bodyRegular(color: ColorManager.primary)),
           addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s16)),
           const GradientCircleLine(),
+          addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s16)),
           SizedBox(
-            height: 80,
+            height: sizeConfig.getScreenHeight(AppSize.s48),
             child: WheelChooser.integer(
               onValueChanged: (s) {},
               maxValue: 12,
