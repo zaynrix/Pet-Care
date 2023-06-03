@@ -54,7 +54,7 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
         floatingActionButton: ElevatedButton(
             onPressed: () {
               provider.controller.nextPage(
-                  duration: const Duration( milliseconds: 300),
+                  duration: const Duration( milliseconds: 500),
                   curve: Curves.easeInOut);
             },
             child: const Text("Next")),

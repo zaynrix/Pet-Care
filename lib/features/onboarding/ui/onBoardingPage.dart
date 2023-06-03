@@ -83,8 +83,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               ElevatedButton(
                 onPressed: () {
                   provider.controller.nextPage(
-                      duration: const Duration( milliseconds: 250),
-                      curve: Curves.easeInOut);
+                      duration: const Duration( milliseconds: 500),
+                      curve: Curves.linear);
                 },
                 child: const Text("Next"),
               ),
