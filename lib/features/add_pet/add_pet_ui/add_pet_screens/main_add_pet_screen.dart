@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pet_care/features/add_pet/add_pet_core/add_pet_provider.dart';
 import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/addPetNameScreen.dart';
+import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/add_old_pet.dart';
 import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/add_pet_gender.dart';
 import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/add_pet_preed.dart';
 import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/is_pat_neuter_screen.dart';
@@ -41,7 +42,8 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
     AddPetSpeciesScreen(),
     AddPetBreedScreen(),
     AddPetGenderScreen(),
-    IsPetNeuterScreen()
+    IsPetNeuterScreen(),
+    AppOldPetScreen()
   ];
 
   @override
