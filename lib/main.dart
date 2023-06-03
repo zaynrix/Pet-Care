@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeManager.lightTheme,
           scaffoldMessengerKey: Helpers.scaffoldKey,
           home:
-          const OnBoardingPage(),
+           MainAppPetScreen(),
           navigatorKey: RouteService.serviceNavi.navKey,
           onGenerateRoute: RoutsGenerate.generateRoute,
         ),

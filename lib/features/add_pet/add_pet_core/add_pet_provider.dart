@@ -31,7 +31,7 @@ class AppPetProvider extends ChangeNotifier {
   onPageChange(int value) {
     currantPage = value;
     progressBarValue += progressValue;
-    debugPrint("This is inside onPageChange");
+    debugPrint("This is inside onPageChange $currantPage");
     notifyListeners();
   }
 

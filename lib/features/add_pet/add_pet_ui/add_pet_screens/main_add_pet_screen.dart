@@ -4,6 +4,7 @@ import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/addPetNameS
 import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/add_old_pet.dart';
 import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/add_pet_gender.dart';
 import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/add_pet_preed.dart';
+import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/add_photo_for_pet.dart';
 import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/is_pat_neuter_screen.dart';
 import 'package:pet_care/locator.dart';
 import 'package:pet_care/resources/colors_manager.dart';
@@ -23,14 +24,13 @@ class MainAppPetScreen extends StatefulWidget {
 }
 
 class _MainAppPetScreenState extends State<MainAppPetScreen> {
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    Provider.of<AppPetProvider>(context, listen: false)
-        .initStateAddPet();
+    Provider.of<AppPetProvider>(context, listen: false).initStateAddPet();
   }
+
   final SizeConfig sizeConfig = locator<SizeConfig>();
 
   final PageController controllerPages = PageController();
@@ -43,23 +43,24 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
     AddPetBreedScreen(),
     AddPetGenderScreen(),
     IsPetNeuterScreen(),
-    AppOldPetScreen()
+    AppOldPetScreen(),
+    AddPhotoForPetScreen()
   ];
 
   @override
   Widget build(BuildContext context) {
     debugPrint("This is inside main add pet page");
     return Consumer<AppPetProvider>(
-      builder: (context , provider , child) => Scaffold(
-        // resizeToAvoidBottomInset: false,
+      builder: (context, provider, child) => Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: Container(
-          margin: provider.currantPage > 1 ? const EdgeInsets.only(bottom: AppSize.s60)
-              : const EdgeInsets.only(bottom: AppPadding.p24),
+          margin: provider.currantPage <= 1 || provider.currantPage == 6
+              ? const EdgeInsets.only(bottom: AppPadding.p24)
+              : const EdgeInsets.only(bottom: AppSize.s60),
           child: ElevatedButton(
               onPressed: () {
                 provider.controller.nextPage(
-                    duration: const Duration( milliseconds: 500),
+                    duration: const Duration(milliseconds: 500),
                     curve: Curves.easeInOut);
               },
               child: const Text("Next")),
@@ -69,7 +70,8 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
             children: [
               addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s9)),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: sizeConfig.getScreenWidth(AppSize.s24) ),
+                padding: EdgeInsets.symmetric(
+                    horizontal: sizeConfig.getScreenWidth(AppSize.s24)),
                 child: Column(
                   children: [
                     Row(
@@ -78,11 +80,11 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                         InkWell(
                           focusColor: ColorManager.mainBorderColor,
                           onTap: () {
-                            provider.currantPage == 0 ?
-                            RouteService.serviceNavi.popFunction() :
-                            provider.controller.previousPage(
-                                duration: const Duration( milliseconds: 250),
-                                curve: Curves.easeInOut);
+                            provider.currantPage == 0
+                                ? RouteService.serviceNavi.popFunction()
+                                : provider.controller.previousPage(
+                                    duration: const Duration(milliseconds: 250),
+                                    curve: Curves.easeInOut);
                           },
                           child: const Icon(
                             Icons.arrow_back,
@@ -91,7 +93,7 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                           ),
                         ),
                         Text(
-                          "${provider.currantPage +1}/7",
+                          "${provider.currantPage + 1}/7",
                           style: supTitleRegular(color: ColorManager.primary),
                         )
                       ],
@@ -108,7 +110,8 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                         ),
                         AnimatedContainer(
                           height: 6,
-                          width: AppPetProvider.progressBarStatus(provider.currantPage),
+                          width: AppPetProvider.progressBarStatus(
+                              provider.currantPage),
                           decoration: BoxDecoration(
                               color: ColorManager.secondary,
                               borderRadius: BorderRadius.circular(AppSize.s50)),
@@ -121,20 +124,20 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
               ),
               Container(
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.5,
+                height: provider.currantPage < 6 ? MediaQuery.of(context).size.height * 0.48 : MediaQuery.of(context).size.height * 0.7,
                 alignment: Alignment.center,
                 child: PageView.builder(
                     physics: const NeverScrollableScrollPhysics(),
-                  onPageChanged: (value) => provider.onPageChange(value),
-                  itemCount: pages.length,
-                controller: provider.controller,
-                    itemBuilder: (context , index){
-                  return pages[provider.activeIndex];
-                } ),
+                    onPageChanged: (value) => provider.onPageChange(value),
+                    itemCount: pages.length,
+                    controller: provider.controller,
+                    itemBuilder: (context, index) {
+                      return pages[provider.activeIndex];
+                    }),
               ),
               const Spacer(),
               Visibility(
-                visible: provider.currantPage > 1,
+                visible: provider.currantPage > 1 && provider.currantPage < 6,
                 child: TextButton(
                   onPressed: () {},
                   child: Text(
@@ -151,4 +154,3 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
     );
   }
 }
-
