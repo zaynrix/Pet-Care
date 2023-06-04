@@ -70,7 +70,7 @@ class VerifyEmailScreen extends StatelessWidget {
                     textStyle: bodyBoldPrimary,
                     // margin: EdgeInsets.symmetric(horizontal: 5.w),
                     decoration: BoxDecoration(
-                      color: ColorManager.whiteColor,
+                      color: ColorManager.white,
                       borderRadius: BorderRadius.circular(AppSize.s16.r),
                       boxShadow: [
                         BoxShadow(

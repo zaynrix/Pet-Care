@@ -17,38 +17,38 @@ class ThemeManager {
 
         scaffoldBackgroundColor: ColorManager.mainColor,
         fontFamily: 'Inter', //3
-        buttonTheme: ButtonThemeData( // 4
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
-          buttonColor: ColorManager.blueColor,
-        ),
+        // buttonTheme: ButtonThemeData( // 4
+        //   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
+        //   buttonColor: ColorManager.blueColor,
+        // ),
         appBarTheme: const AppBarTheme(
           toolbarHeight: AppSize.s58,
             elevation: 0,
             iconTheme: IconThemeData(
               size: AppSize.s35,
-              color: ColorManager.primaryFontColor,
+              color: ColorManager.primary,
             ),
             centerTitle: true,
             // titleSpacing: 30,
             actionsIconTheme: IconThemeData(
               size: AppSize.s35,
-              color:  ColorManager.primaryFontColor,
+              color:  ColorManager.primary,
             ),
             backgroundColor: ColorManager.soft,
             titleTextStyle: titleBold
         ),
       textTheme: const TextTheme(
-        headline1: TextStyle(fontSize: 30, fontFamily: FontConstants.fontFamily,fontWeight: FontWeight.w600, color: ColorManager.primaryFontColor),
-        headline2: TextStyle(fontSize: 20.0,fontFamily: FontConstants.fontFamily, fontWeight: FontWeight.w600, color: ColorManager.primaryFontColor),
-        headline3: TextStyle(fontSize: 15.0,fontFamily: FontConstants.fontFamily, fontWeight: FontWeight.w600, color: ColorManager.primaryFontColor),
-        headline4: TextStyle(fontSize: 16.0,fontFamily: FontConstants.fontFamily, fontWeight: FontWeight.w600, color: ColorManager.thirdFontColor),
-        headline5: TextStyle(fontSize: 13.0,fontFamily: FontConstants.fontFamily, fontWeight: FontWeight.normal, color: ColorManager.blackColor ),
-        headline6: TextStyle(fontSize: 13.0,fontFamily: FontConstants.fontFamily, fontWeight: FontWeight.normal, color: ColorManager.thirdFontColor),
-        subtitle1: TextStyle(fontSize: 16,fontFamily:   FontConstants.fontFamily , fontWeight: FontWeight.normal, color: ColorManager.secondaryFontColor),
-        subtitle2: TextStyle(fontSize: 20,fontFamily:    FontConstants.fontFamily, fontWeight: FontWeight.normal, color: ColorManager.secondaryFontColor),
-        bodyText2: TextStyle(fontSize: 13.0,fontFamily: FontConstants.fontFamily, fontWeight: FontWeight.normal, color: ColorManager.secondaryFontColor ),
-        bodyText1: TextStyle(fontSize: 10.0,fontFamily: FontConstants.fontFamily, fontWeight: FontWeight.normal, color: ColorManager.anotherFontColor ),
-        labelMedium: TextStyle(fontSize: 14.0,fontFamily: FontConstants.fontFamily, fontWeight: FontWeight.normal, color: ColorManager.labelFontColor ),
+        headline1: TextStyle(fontSize: 30, fontFamily: FontConstants.fontFamily,fontWeight: FontWeight.w600, color: ColorManager.primary),
+        headline2: TextStyle(fontSize: 20.0,fontFamily: FontConstants.fontFamily, fontWeight: FontWeight.w600, color: ColorManager.primary),
+        headline3: TextStyle(fontSize: 15.0,fontFamily: FontConstants.fontFamily, fontWeight: FontWeight.w600, color: ColorManager.primary),
+        headline4: TextStyle(fontSize: 16.0,fontFamily: FontConstants.fontFamily, fontWeight: FontWeight.w600, color: ColorManager.primary),
+        headline5: TextStyle(fontSize: 13.0,fontFamily: FontConstants.fontFamily, fontWeight: FontWeight.normal, color: ColorManager.primary ),
+        headline6: TextStyle(fontSize: 13.0,fontFamily: FontConstants.fontFamily, fontWeight: FontWeight.normal, color: ColorManager.primary),
+        subtitle1: TextStyle(fontSize: 16,fontFamily:   FontConstants.fontFamily , fontWeight: FontWeight.normal, color: ColorManager.primary),
+        subtitle2: TextStyle(fontSize: 20,fontFamily:    FontConstants.fontFamily, fontWeight: FontWeight.normal, color: ColorManager.primary),
+        bodyText2: TextStyle(fontSize: 13.0,fontFamily: FontConstants.fontFamily, fontWeight: FontWeight.normal, color: ColorManager.primary ),
+        bodyText1: TextStyle(fontSize: 10.0,fontFamily: FontConstants.fontFamily, fontWeight: FontWeight.normal, color: ColorManager.primary ),
+        labelMedium: TextStyle(fontSize: 14.0,fontFamily: FontConstants.fontFamily, fontWeight: FontWeight.normal, color: ColorManager.primary ),
       ),
 
       elevatedButtonTheme: ElevatedButtonThemeData(

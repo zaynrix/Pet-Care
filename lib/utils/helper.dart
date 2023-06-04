@@ -40,7 +40,7 @@ class Helpers {
                 fontSize: 14,
                 fontWeight: FontWeight.normal,
                 fontFamily: "Segoe UI",
-                color: ColorManager.blackColor),
+                color: ColorManager.primary),
           )
         ],
       ),
@@ -72,7 +72,7 @@ class alertDialog extends StatelessWidget {
     return AlertDialog(
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(20.0.r))),
-      backgroundColor: ColorManager.whiteColor,
+      backgroundColor: ColorManager.white,
       actionsPadding: EdgeInsets.symmetric(horizontal: AppPadding.p22.w),
       title: Row(
         children: [
@@ -101,7 +101,7 @@ class alertDialog extends StatelessWidget {
             ElevatedButton(
               onPressed: onPressed,
               style: ElevatedButton.styleFrom(
-                  backgroundColor: ColorManager.redColor,
+                  backgroundColor: ColorManager.redLight,
                   fixedSize: Size(112.w, 40.h)),
               child: const Text("Ok"),
             ),
@@ -109,8 +109,8 @@ class alertDialog extends StatelessWidget {
               onPressed: () => RouteService.serviceNavi.popFunction(),
               style: ElevatedButton.styleFrom(
                   side: const BorderSide(
-                      color: ColorManager.mainBorderColor, width: 1),
-                  backgroundColor: ColorManager.whiteColor,
+                      color: ColorManager.primary, width: 1),
+                  backgroundColor: ColorManager.white,
                   fixedSize: Size(112.w, 40.h)),
               child: const Text("Cancel"),
             ),
@@ -174,9 +174,9 @@ class BalanceAlertDialog extends StatelessWidget {
                             style: ElevatedButton.styleFrom(
                               elevation: 0,
                               side: const BorderSide(
-                                  color: ColorManager.mainBorderColor,
+                                  color: ColorManager.primary,
                                   width: 1),
-                              backgroundColor: ColorManager.whiteColor,
+                              backgroundColor: ColorManager.white,
                             ),
                             onPressed: () {
                               RouteService.serviceNavi.popFunction();
@@ -191,8 +191,8 @@ class BalanceAlertDialog extends StatelessWidget {
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             elevation: 0,
-                            backgroundColor: ColorManager.redColor,
-                            disabledBackgroundColor: ColorManager.redColor.withOpacity(0.4)
+                            backgroundColor: ColorManager.redLight,
+                            disabledBackgroundColor: ColorManager.redLight.withOpacity(0.4)
                           ),
                           onPressed: isLoading ? null : onPressed ,
                           child: isLoading ? const CircularProgressIndicator() : Text(
