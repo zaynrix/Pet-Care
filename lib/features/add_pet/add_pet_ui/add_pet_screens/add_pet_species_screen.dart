@@ -22,7 +22,7 @@ class AddPetSpeciesScreen extends StatelessWidget {
     debugPrint("This is inside the add pet species build page ");
     return SizedBox(
       width: MediaQuery.of(context).size.width,
-      height: sizeConfig.getScreenHeight(350),
+      // height: sizeConfig.getScreenHeight(350),
       child: OverflowBox(
         maxWidth: MediaQuery.of(context).size.width,
         child: Column(
@@ -34,8 +34,8 @@ class AddPetSpeciesScreen extends StatelessWidget {
               style: h3Bold(color: ColorManager.primary),
             ),
             addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s64)),
-            SizedBox(
-              height: sizeConfig.getScreenHeight(125),
+            Expanded(
+              // height: sizeConfig.getScreenHeight(125),
               child: Consumer<AppPetProvider>(
                 builder: (context , provider , child) => ListView.builder(
                     shrinkWrap: true,

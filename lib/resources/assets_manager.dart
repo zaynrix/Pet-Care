@@ -27,6 +27,7 @@ const String iconPath = 'assets/icons';
 class IconAssets {
   static const String appleIcon = '$iconPath/apple_icon.svg';
   static const String googleIcon = '$iconPath/google_icon.svg';
+  static const String plus = '$iconPath/plus.svg';
 
   //---------------------------------addPet-------------------------------------
 
@@ -39,6 +40,7 @@ class IconAssets {
 
   static const String female = "$iconPath/gender_female.svg";
   static const String male = "$iconPath/gender_male.svg";
+
 }
 
 //--------------------------------SvgAssets-------------------------------------

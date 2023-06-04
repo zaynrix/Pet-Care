@@ -31,10 +31,39 @@ class AddPhotoForPetScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(AppSize.s25)
               ),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SvgPicture.asset(IconAssets.dogType,
-                  height: sizeConfig.getScreenHeight(178),
-                  width: sizeConfig.getScreenWidth(178),)
+                  Padding(padding: EdgeInsetsDirectional.only(start: sizeConfig.getScreenWidth(AppSize.s25),
+                      top:sizeConfig.getScreenHeight(AppSize.s25) ),
+                  child: Column(
+                    children: [
+                     Text("Ghost" , style: h2Bold(color: ColorManager.primary),),
+                      Text("3 years old" , style: supTitleMedium(color: ColorManager.primary),)
+                    ],
+                  ),),
+                  addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s70)),
+                  Align(
+                    alignment: Alignment.center,
+                    child: SvgPicture.asset(IconAssets.dogType,
+                    height: sizeConfig.getScreenHeight(178),
+                    width: sizeConfig.getScreenWidth(178),),
+                  ),
+                  addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s66)),
+                  Align(
+                    alignment: Alignment.center,
+                    child: Container(
+                      height: sizeConfig.getScreenHeight(AppSize.s44),
+                      width: sizeConfig.getScreenWidth(AppSize.s44),
+                      padding: const EdgeInsets.all(10),
+                      decoration:  BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: ColorManager.primary
+                        )
+                      ),
+                      child: SvgPicture.asset(IconAssets.plus),
+                    ),
+                  )
                 ],
               ),
             )

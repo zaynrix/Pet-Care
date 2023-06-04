@@ -27,34 +27,31 @@ class PetSpeciesCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child: SizedBox(
-        width: sizeConfig.getScreenWidth(AppSize.s80),
-        height: sizeConfig.getScreenHeight(116.74),
+      child: Container(
+        margin:  EdgeInsets.symmetric(horizontal: sizeConfig.getScreenWidth(AppSize.s15)),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             AnimatedContainer(
-              curve: Curves.easeInOut,
-              margin: const EdgeInsetsDirectional.only(end: AppPadding.p10),
-
-              duration: const Duration(milliseconds: 200),
               padding: isSelected ? const EdgeInsets.all(3) : const EdgeInsets.all(0),
+              curve: Curves.linear,
+              duration: const Duration(milliseconds: 200),
               decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: ColorManager.transparent,
+                shape: BoxShape.circle,
                   border: isSelected ? Border.all(
                       color: ColorManager.secondary,
                       width: 2
                   ) : null
               ),
               child: AnimatedContainer(
-                curve: Curves.easeInOut,
+
+                curve: Curves.linear,
                 duration: const Duration(milliseconds: 200),
                 width:  isSelected ? sizeConfig.getScreenWidth(AppSize.s86) : sizeConfig.getScreenWidth(AppSize.s80),
                 height: isSelected ? sizeConfig.getScreenHeight(AppSize.s86) : sizeConfig.getScreenHeight(AppSize.s80),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: backgroundColor,
-
                 ),
                 child: Container(
                     padding: const EdgeInsets.all(20),
@@ -65,6 +62,7 @@ class PetSpeciesCard extends StatelessWidget {
                     ),
               ),),
             ),
+            SizedBox(height: sizeConfig.getScreenHeight(AppSize.s10),),
             Text(type, style: bodyRegular(color: ColorManager.primary),)
           ],
         ),
