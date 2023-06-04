@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pet_care/features/onboarding/model/onBoardingModel.dart';
-import 'package:pet_care/resources/colors_manager.dart';
 import 'package:pet_care/resources/styles_manager.dart';
 
 class TitleOnBoarding extends StatelessWidget {
@@ -23,7 +22,7 @@ class TitleOnBoarding extends StatelessWidget {
       width: 288.w,
       child: Text(
         list[_activeIndex].title,
-        style: h3Bold(color: ColorManager.primary),
+        style: h3Bold,
         textAlign: TextAlign.center,
         overflow: TextOverflow.visible,
       ),

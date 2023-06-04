@@ -17,15 +17,16 @@ class AddPetNameScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint("This is indie build in add name");
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: sizeConfig.getScreenWidth(AppSize.s32)),
       child: Column(
         children: [
           addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s32)),
-          Text(
+          const Text(
             "What’s the name\n of your pet?",
             textAlign: TextAlign.center,
-            style: h3Bold(color: ColorManager.primary),
+            style: h3Bold,
           ),
           addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s24)),
           CustomTextFormField(

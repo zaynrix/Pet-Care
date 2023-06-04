@@ -17,16 +17,17 @@ class AddPetGenderScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint("This is indie build in add gender");
     return Padding(
       padding: EdgeInsets.symmetric(
           horizontal: sizeConfig.getScreenWidth(AppSize.s32)),
       child: Column(
         children: [
           addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s32)),
-          Text(
+          const Text(
             "What about\n your pet’s breed?",
             textAlign: TextAlign.center,
-            style: h3Bold(color: ColorManager.primary),
+            style: h3Bold,
           ),
           addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s48)),
           Consumer<AppPetProvider>(

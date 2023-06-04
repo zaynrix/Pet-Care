@@ -44,9 +44,9 @@ class LoginScreen extends StatelessWidget {
                           "Welcome back",
                           style: h2Regular(color: ColorManager.primary),
                         ),
-                        Text(
+                        const Text(
                           "pet lover...",
-                          style: h2Bold(color: ColorManager.primary),
+                          style: h2Bold,
                         ),
                         addVerticalSpace(AppSize.s35.h),
                         CustomTextFormField(

@@ -14,6 +14,7 @@ class AddPhotoForPetScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint("This is indie build in add photo");
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: AppPadding.p44),
@@ -21,7 +22,7 @@ class AddPhotoForPetScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s32)),
-            Text("Add a photo of your pet" , style: h3Bold(color: ColorManager.primary),),
+            const Text("Add a photo of your pet" , style: h3Bold,),
             addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s32)),
             Container(
               height: sizeConfig.getScreenHeight(472),
@@ -37,7 +38,7 @@ class AddPhotoForPetScreen extends StatelessWidget {
                       top:sizeConfig.getScreenHeight(AppSize.s25) ),
                   child: Column(
                     children: [
-                     Text("Ghost" , style: h2Bold(color: ColorManager.primary),),
+                     const Text("Ghost" , style: h2Bold,),
                       Text("3 years old" , style: supTitleMedium(color: ColorManager.primary),)
                     ],
                   ),),

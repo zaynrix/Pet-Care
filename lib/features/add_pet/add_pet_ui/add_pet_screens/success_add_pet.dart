@@ -23,9 +23,9 @@ class SuccessAddPatScreen extends StatelessWidget {
             addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s130)),
             SvgPicture.asset(SvgAssets.successAddPet),
             addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s32)),
-            Text(
+            const Text(
               "Successfully added!",
-              style: h3Bold(color: ColorManager.primary),
+              style: h3Bold,
             ),
             addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s10)),
             Text("Now you can enjoy\n our all services.",

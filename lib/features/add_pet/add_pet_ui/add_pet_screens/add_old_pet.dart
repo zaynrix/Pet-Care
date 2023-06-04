@@ -14,12 +14,13 @@ class AppOldPetScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint("This is indie build in add old");
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s32)),
-          Text("How old is your pet?" ,style: h3Bold(color: ColorManager.primary),),
+          const Text("How old is your pet?" ,style: h3Bold,),
           addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s25)),
           const GradientCircleLine(),
           addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s16)),
@@ -34,8 +35,8 @@ class AppOldPetScreen extends StatelessWidget {
               initValue: 2,
               horizontal: true,
               itemSize: 70,
-              selectTextStyle: h3Bold(color: ColorManager.primary),
-              unSelectTextStyle: h3Bold(color: ColorManager.primary.withOpacity(0.5))
+              selectTextStyle: h3Bold,
+              unSelectTextStyle: h3BoldWithOpacity
             ),
           ),
           addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s5)),
@@ -52,8 +53,8 @@ class AppOldPetScreen extends StatelessWidget {
               initValue: 8,
               horizontal: true,
               itemSize: 70,
-                selectTextStyle: h3Bold(color: ColorManager.primary),
-                unSelectTextStyle:h3Bold(color: ColorManager.primary.withOpacity(0.5)),
+                selectTextStyle: h3Bold,
+                unSelectTextStyle:h3BoldWithOpacity,
             ),
           ),
           addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s5)),
