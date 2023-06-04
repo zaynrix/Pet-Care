@@ -19,7 +19,6 @@ class AppOldPetScreen extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s32)),
           const Text("How old is your pet?" ,style: h3Bold,),
           addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s25)),
           const GradientCircleLine(),

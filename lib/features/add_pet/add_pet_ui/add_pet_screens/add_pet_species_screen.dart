@@ -22,7 +22,6 @@ class AddPetSpeciesScreen extends StatelessWidget {
       // height: sizeConfig.getScreenHeight(350),
       child: Column(
         children: [
-          addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s32)),
           const Text(
             "What’s your pet’s\n species?",
             textAlign: TextAlign.center,

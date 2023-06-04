@@ -22,7 +22,6 @@ class AddPetNameScreen extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: sizeConfig.getScreenWidth(AppSize.s32)),
       child: Column(
         children: [
-          addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s32)),
           const Text(
             "What’s the name\n of your pet?",
             textAlign: TextAlign.center,

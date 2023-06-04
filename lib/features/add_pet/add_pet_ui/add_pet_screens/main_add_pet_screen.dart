@@ -61,7 +61,7 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
               onPressed: () {
                 provider.controller.nextPage(
                     duration: const Duration(milliseconds: 500),
-                    curve: Curves.easeInOut);
+                    curve: Curves.linear);
               },
               child: const Text("Next")),
         ),
@@ -122,6 +122,7 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                   ],
                 ),
               ),
+              addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s32)),
               Container(
                 width: double.infinity,
                 height: provider.currantPage < 6 ? MediaQuery.of(context).size.height * 0.48 : MediaQuery.of(context).size.height * 0.7,

@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pet_care/resources/values_manager.dart';
 import 'package:pet_care/routing/route.dart';
-import '../resources/assets_manager.dart';
 import '../resources/colors_manager.dart';
 
 class Helpers {

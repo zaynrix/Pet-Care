@@ -24,7 +24,6 @@ class IsPetNeuterScreen extends StatelessWidget {
           horizontal: sizeConfig.getScreenWidth(AppSize.s32)),
       child: Column(
         children: [
-          addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s32)),
           const Text(
             "Is your pet neuter?",
             textAlign: TextAlign.center,

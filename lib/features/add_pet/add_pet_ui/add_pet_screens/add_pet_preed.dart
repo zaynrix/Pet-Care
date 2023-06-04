@@ -22,7 +22,6 @@ class AddPetBreedScreen extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: sizeConfig.getScreenWidth(AppSize.s32)),
       child: Column(
         children: [
-          addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s32)),
           const Text(
             "What about\n your pet’s breed?",
             textAlign: TextAlign.center,

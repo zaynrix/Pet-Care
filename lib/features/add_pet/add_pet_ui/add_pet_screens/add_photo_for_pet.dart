@@ -21,7 +21,7 @@ class AddPhotoForPetScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s32)),
+
             const Text("Add a photo of your pet" , style: h3Bold,),
             addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s32)),
             Container(
