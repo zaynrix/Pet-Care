@@ -6,6 +6,7 @@ import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/add_pet_gen
 import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/add_pet_preed.dart';
 import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/add_photo_for_pet.dart';
 import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/is_pat_neuter_screen.dart';
+import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_widgets/linear_progress_status_bar.dart';
 import 'package:pet_care/locator.dart';
 import 'package:pet_care/resources/colors_manager.dart';
 import 'package:pet_care/resources/size_config.dart';
@@ -99,35 +100,17 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                       ],
                     ),
                     addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s24)),
-                    Stack(
-                      children: [
-                        Container(
-                          height: 6,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                              color: const Color(0xFF3232321A),
-                              borderRadius: BorderRadius.circular(AppSize.s50)),
-                        ),
-                        AnimatedContainer(
-                          height: 6,
-                          width: AppPetProvider.progressBarStatus(
-                              provider.currantPage),
-                          decoration: BoxDecoration(
-                              color: ColorManager.secondary,
-                              borderRadius: BorderRadius.circular(AppSize.s50)),
-                          duration: const Duration(milliseconds: 500),
-                        )
-                      ],
-                    ),
+                    const LinearProgressStatusBar(),
                   ],
                 ),
               ),
               addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s32)),
-              Container(
+              SizedBox(
                 width: double.infinity,
                 height: provider.currantPage < 6 ? MediaQuery.of(context).size.height * 0.48 : MediaQuery.of(context).size.height * 0.7,
-                alignment: Alignment.center,
+                // alignment: Alignment.center,
                 child: PageView.builder(
+                    scrollDirection: Axis.horizontal,
                     physics: const NeverScrollableScrollPhysics(),
                     onPageChanged: (value) => provider.onPageChange(value),
                     itemCount: pages.length,
@@ -155,3 +138,4 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
     );
   }
 }
+

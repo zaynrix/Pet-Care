@@ -20,9 +20,9 @@ class CustomTextFormField extends StatelessWidget {
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-            color: ColorManager.gray.withOpacity(0.1),
-            spreadRadius: 1,
-            blurRadius: 6,
+            color: ColorManager.gray.withOpacity(0.05),
+            // spreadRadius: 1,
+            blurRadius: 15,
             offset: const Offset(0, 3), // changes position of shadow
           ),
         ],
