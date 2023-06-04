@@ -38,9 +38,9 @@ class ResetPasswordScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               addVerticalSpace(AppSize.s45.h),
-              Text(
+              const Text(
                 "Enter a new password",
-                style: supTitleRegular(color: ColorManager.primary),
+                style: supTitleRegular,
               ),
               addVerticalSpace(AppSize.s33.h),
               CustomTextFormField(

@@ -21,21 +21,21 @@ class ThemeManager {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
           buttonColor: ColorManager.blueColor,
         ),
-        appBarTheme:   AppBarTheme(
+        appBarTheme: const AppBarTheme(
           toolbarHeight: AppSize.s58,
             elevation: 0,
-            iconTheme: const IconThemeData(
+            iconTheme: IconThemeData(
               size: AppSize.s35,
               color: ColorManager.primaryFontColor,
             ),
             centerTitle: true,
             // titleSpacing: 30,
-            actionsIconTheme: const IconThemeData(
+            actionsIconTheme: IconThemeData(
               size: AppSize.s35,
               color:  ColorManager.primaryFontColor,
             ),
             backgroundColor: ColorManager.soft,
-            titleTextStyle: titleBold(color: ColorManager.primary)
+            titleTextStyle: titleBold
         ),
       textTheme: const TextTheme(
         headline1: TextStyle(fontSize: 30, fontFamily: FontConstants.fontFamily,fontWeight: FontWeight.w600, color: ColorManager.primaryFontColor),
@@ -56,7 +56,7 @@ class ThemeManager {
           backgroundColor: ColorManager.primary,
           disabledBackgroundColor: ColorManager.secondGray,
           disabledForegroundColor: ColorManager.white,
-          textStyle: bodyBold(color: ColorManager.white),
+          textStyle: bodyBoldWhite,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppSize.s16),
           ),

@@ -28,8 +28,8 @@ class SuccessAddPatScreen extends StatelessWidget {
               style: h3Bold,
             ),
             addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s10)),
-            Text("Now you can enjoy\n our all services.",
-                style: supTitleMedium(color: ColorManager.primary),
+            const Text("Now you can enjoy\n our all services.",
+                style: supTitleMedium,
                 textAlign: TextAlign.center),
             const Spacer(),
             ElevatedButton(

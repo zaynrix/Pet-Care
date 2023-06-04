@@ -38,10 +38,10 @@ class ForgetPasswordScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               addVerticalSpace(AppSize.s45.h),
-              Text(
+              const Text(
                 "Enter the phone number associated\n with your account and we'll send a\n code to reset your password",
                 textAlign: TextAlign.center,
-                style: supTitleRegular(color: ColorManager.primary),
+                style: supTitleRegular,
               ),
               addVerticalSpace(AppSize.s33.h),
               CustomTextFormField(

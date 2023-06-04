@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pet_care/features/onboarding/model/onBoardingModel.dart';
 import 'package:pet_care/locator.dart';
-import 'package:pet_care/resources/colors_manager.dart';
 import 'package:pet_care/resources/size_config.dart';
 import 'package:pet_care/resources/styles_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
@@ -25,7 +24,7 @@ class DescriptionOnBoarding extends StatelessWidget {
         height: sizeConfig.getScreenHeight(72),
         child: Text(
           list[_activeIndex].desc,
-          style: supTitleMedium(color: ColorManager.primary),
+          style: supTitleMedium,
           textAlign: TextAlign.center,
         ),
         // textAlign: TextAlign.center,

@@ -38,7 +38,7 @@ class VerifyEmailScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               addVerticalSpace(AppSize.s45.h),
-              Text("Enter the code we just sent" , style: supTitleRegular(color: ColorManager.primary),),
+              const Text("Enter the code we just sent" , style: supTitleRegular),
               addVerticalSpace(AppSize.s28.h),
               Pinput(
                 androidSmsAutofillMethod: AndroidSmsAutofillMethod.smsRetrieverApi,
@@ -67,7 +67,7 @@ class VerifyEmailScreen extends StatelessWidget {
                     // margin: EdgeInsetsDirectional.only(end: AppMargin.m12.w),
                     width: AppSize.s56.w,
                     height: AppSize.s56.h,
-                    textStyle: bodyBold(color: ColorManager.primary),
+                    textStyle: bodyBoldPrimary,
                     // margin: EdgeInsets.symmetric(horizontal: 5.w),
                     decoration: BoxDecoration(
                       color: ColorManager.whiteColor,

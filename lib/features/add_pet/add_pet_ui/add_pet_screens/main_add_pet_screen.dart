@@ -94,7 +94,7 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                         ),
                         Text(
                           "${provider.currantPage + 1}/7",
-                          style: supTitleRegular(color: ColorManager.primary),
+                          style: supTitleRegular,
                         )
                       ],
                     ),

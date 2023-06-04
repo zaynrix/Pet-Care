@@ -52,18 +52,16 @@ class MainAuthScreen extends StatelessWidget {
                             "Sign in",
                             maxLines: 1,
                             style: auth.currantAuthTap == 0
-                                ? titleSemiBold(color: ColorManager.secondary)
-                                : titleRegular(
-                                    color: ColorManager.primary,
-                                  ),
+                                ? titleSemiBold
+                                : titleRegular,
                           ),
                         ),
                         Tab(
                           child: Text("Sign up",
                               maxLines: 1,
                               style: auth.currantAuthTap == 1
-                                  ? titleSemiBold(color: ColorManager.secondary)
-                                  : titleRegular(color: ColorManager.primary)),
+                                  ? titleSemiBold
+                                  : titleRegular),
                         ),
                       ]),
                 ),

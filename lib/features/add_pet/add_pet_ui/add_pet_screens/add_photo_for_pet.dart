@@ -37,9 +37,9 @@ class AddPhotoForPetScreen extends StatelessWidget {
                   Padding(padding: EdgeInsetsDirectional.only(start: sizeConfig.getScreenWidth(AppSize.s25),
                       top:sizeConfig.getScreenHeight(AppSize.s25) ),
                   child: Column(
-                    children: [
-                     const Text("Ghost" , style: h2Bold,),
-                      Text("3 years old" , style: supTitleMedium(color: ColorManager.primary),)
+                    children: const [
+                     Text("Ghost" , style: h2Bold,),
+                      Text("3 years old" , style: supTitleMedium,)
                     ],
                   ),),
                   addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s70)),
