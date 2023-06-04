@@ -43,8 +43,9 @@ dependencies:
   provider: ^6.0.5
   get_it: ^7.6.0
   pinput: ^2.2.21
-  flutter_slider_indicator: ^1.0.0
+#  flutter_slider_indicator: ^1.0.0
   wheel_chooser: ^1.1.2
+  lottie: ^2.3.2
 
 dev_dependencies:
   flutter_test:
