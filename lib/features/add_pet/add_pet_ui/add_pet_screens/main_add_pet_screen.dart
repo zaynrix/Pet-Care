@@ -64,18 +64,13 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                 provider.pageController!.nextPage(
                     duration: const Duration(milliseconds: 350),
                     curve: Curves.linear);
-                if (provider.currantPage >= 0 && provider.currantPage < pages.length) {
+                if (provider.currantPage >= 0 &&
+                    provider.currantPage < pages.length) {
                   final currentPageWidget = pages[provider.currantPage];
                   if (currentPageWidget is PageWidget) {
                     currentPageWidget.onPressedFunction();
                   }
-                  // final currentPageWidget =
-                  // provider.pageController!.page!.round() == provider.currantPage
-                  //     ? provider.pageController!.page!.round()
-                  //     : null;
-                  // currentPageWidget?.o;
                 }
-
               },
               child: const Text("Next")),
         ),
@@ -120,7 +115,9 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
               addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s32)),
               SizedBox(
                 width: double.infinity,
-                height: provider.currantPage < 6 ? MediaQuery.of(context).size.height * 0.48 : MediaQuery.of(context).size.height * 0.7,
+                height: provider.currantPage < 6
+                    ? MediaQuery.of(context).size.height * 0.48
+                    : MediaQuery.of(context).size.height * 0.7,
                 // alignment: Alignment.center,
                 child: PageView.builder(
                     scrollDirection: Axis.horizontal,
@@ -129,7 +126,23 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                     itemCount: pages.length,
                     controller: provider.pageController,
                     itemBuilder: (context, index) {
-                      return pages[provider.activeIndex];
+                      return AnimatedBuilder(
+                        animation: provider.pageController!,
+                        builder: (context, child) {
+                          double value = 1.0;
+                          if (provider
+                              .pageController!.position.haveDimensions) {
+                            value = provider.pageController!.page! - index;
+                            value = (1 - (value.abs() * 0.5)).clamp(0.0, 1.0);
+                          }
+                          return Transform.scale(
+                            scale: Curves.easeInOut.transform(value),
+                            child: child,
+                          );
+                        },
+                        child: pages[index],
+                      );
+                      // pages[provider.activeIndex];
                     }),
               ),
               const Spacer(),
@@ -151,4 +164,3 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
     );
   }
 }
-
