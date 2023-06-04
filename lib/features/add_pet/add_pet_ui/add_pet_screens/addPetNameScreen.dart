@@ -7,14 +7,20 @@ import 'package:pet_care/resources/styles_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
 import 'package:pet_care/utils/validate_extension.dart';
 
-class AddPetNameScreen extends StatelessWidget {
+import 'abstract_page_widget.dart';
+
+class AddPetNameScreen extends StatelessWidget implements PageWidget{
   AddPetNameScreen({
     Key? key,
   }) : super(key: key);
 
   SizeConfig sizeConfig = locator<SizeConfig>();
   TextEditingController petNameController = TextEditingController();
-
+  @override
+  void onPressedFunction() {
+    debugPrint('Page AddPetNameScreen action');
+    // Add your custom functionality for Page 1 here
+  }
   @override
   Widget build(BuildContext context) {
     debugPrint("This is indie build in add name");

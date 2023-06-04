@@ -9,7 +9,7 @@ import 'package:pet_care/utils/helper.dart';
 class AppPetProvider extends ChangeNotifier {
   final SizeConfig sizeConfig = locator<SizeConfig>();
 
-  final PageController controller = PageController();
+   PageController? pageController ;
   int activeIndex = 0;
   int currantPage = 0;
   double progressValue = MediaQuery.of(Helpers.scaffoldKey.currentState!.context).size.width * (0.13);
@@ -19,8 +19,9 @@ class AppPetProvider extends ChangeNotifier {
 
 
   void initStateAddPet() {
-    controller.addListener(() {
-      activeIndex = controller.page!.round();
+    pageController = PageController(initialPage: currantPage);
+    pageController!.addListener(() {
+      activeIndex = pageController!.page!.round();
       notifyListeners();
     });
   }

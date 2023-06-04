@@ -9,12 +9,19 @@ import 'package:pet_care/resources/values_manager.dart';
 import 'package:pet_care/utils/enums.dart';
 import 'package:provider/provider.dart';
 
-class IsPetNeuterScreen extends StatelessWidget {
+import 'abstract_page_widget.dart';
+
+class IsPetNeuterScreen extends StatelessWidget implements PageWidget{
   IsPetNeuterScreen({
     Key? key,
   }) : super(key: key);
 
   SizeConfig sizeConfig = locator<SizeConfig>();
+  @override
+  void onPressedFunction() {
+    debugPrint('Page IsPetNeuterScreen action');
+    // Add your custom functionality for Page 1 here
+  }
 
   @override
   Widget build(BuildContext context) {

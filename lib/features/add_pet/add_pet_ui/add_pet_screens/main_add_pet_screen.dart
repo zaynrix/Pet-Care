@@ -15,6 +15,7 @@ import 'package:pet_care/resources/values_manager.dart';
 import 'package:pet_care/routing/route.dart';
 import 'package:provider/provider.dart';
 
+import 'abstract_page_widget.dart';
 import 'add_pet_species_screen.dart';
 
 class MainAppPetScreen extends StatefulWidget {
@@ -60,9 +61,21 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
               : const EdgeInsets.only(bottom: AppSize.s60),
           child: ElevatedButton(
               onPressed: () {
-                provider.controller.nextPage(
-                    duration: const Duration(milliseconds: 500),
+                provider.pageController!.nextPage(
+                    duration: const Duration(milliseconds: 350),
                     curve: Curves.linear);
+                if (provider.currantPage >= 0 && provider.currantPage < pages.length) {
+                  final currentPageWidget = pages[provider.currantPage];
+                  if (currentPageWidget is PageWidget) {
+                    currentPageWidget.onPressedFunction();
+                  }
+                  // final currentPageWidget =
+                  // provider.pageController!.page!.round() == provider.currantPage
+                  //     ? provider.pageController!.page!.round()
+                  //     : null;
+                  // currentPageWidget?.o;
+                }
+
               },
               child: const Text("Next")),
         ),
@@ -83,8 +96,8 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                           onTap: () {
                             provider.currantPage == 0
                                 ? RouteService.serviceNavi.popFunction()
-                                : provider.controller.previousPage(
-                                    duration: const Duration(milliseconds: 250),
+                                : provider.pageController!.previousPage(
+                                    duration: const Duration(milliseconds: 350),
                                     curve: Curves.easeInOut);
                           },
                           child: const Icon(
@@ -114,7 +127,7 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                     physics: const NeverScrollableScrollPhysics(),
                     onPageChanged: (value) => provider.onPageChange(value),
                     itemCount: pages.length,
-                    controller: provider.controller,
+                    controller: provider.pageController,
                     itemBuilder: (context, index) {
                       return pages[provider.activeIndex];
                     }),

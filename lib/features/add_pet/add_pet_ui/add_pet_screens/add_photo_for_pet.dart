@@ -7,9 +7,15 @@ import 'package:pet_care/resources/size_config.dart';
 import 'package:pet_care/resources/styles_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
 
-class AddPhotoForPetScreen extends StatelessWidget {
+import 'abstract_page_widget.dart';
+
+class AddPhotoForPetScreen extends StatelessWidget implements PageWidget{
   AddPhotoForPetScreen({Key? key}) : super(key: key);
   final SizeConfig sizeConfig = locator<SizeConfig>();
+  void onPressedFunction() {
+    debugPrint('Page AddPhotoForPetScreen action');
+    // Add your custom functionality for Page 1 here
+  }
 
 
   @override

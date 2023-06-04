@@ -27,7 +27,7 @@ class LinearProgressStatusBar extends StatelessWidget {
             decoration: BoxDecoration(
                 color: ColorManager.secondary,
                 borderRadius: BorderRadius.circular(AppSize.s50)),
-            duration: const Duration(milliseconds: 500),
+            duration: const Duration(milliseconds: 350),
           ),
         )
       ],

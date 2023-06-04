@@ -7,13 +7,20 @@ import 'package:pet_care/resources/styles_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
 import 'package:pet_care/utils/validate_extension.dart';
 
-class AddPetBreedScreen extends StatelessWidget {
+import 'abstract_page_widget.dart';
+
+class AddPetBreedScreen extends StatelessWidget implements PageWidget{
   AddPetBreedScreen({
     Key? key,
   }) : super(key: key);
 
   SizeConfig sizeConfig = locator<SizeConfig>();
   TextEditingController petNameController = TextEditingController();
+  @override
+  void onPressedFunction() {
+    debugPrint('Page AddPetBreedScreen action');
+    // Add your custom functionality for Page 1 here
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -8,12 +8,19 @@ import 'package:pet_care/resources/styles_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
 import 'package:provider/provider.dart';
 
-class AddPetGenderScreen extends StatelessWidget {
+import 'abstract_page_widget.dart';
+
+class AddPetGenderScreen extends StatelessWidget implements PageWidget{
   AddPetGenderScreen({
     Key? key,
   }) : super(key: key);
 
   SizeConfig sizeConfig = locator<SizeConfig>();
+  @override
+  void onPressedFunction() {
+    debugPrint('Page AddPetGenderScreen action');
+    // Add your custom functionality for Page 1 here
+  }
 
   @override
   Widget build(BuildContext context) {
