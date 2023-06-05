@@ -61,7 +61,8 @@ class LoginScreen extends StatelessWidget {
                       CustomTextFormField(
                           hintText: "Password",
                           controller: passwordController,
-                          validator: (String? value) => value!.validatePassword(), keyBoardType: TextInputType.visiblePassword,),
+                          validator: (String? value) => value!.validatePassword(),
+                        keyBoardType: TextInputType.visiblePassword,),
                       addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s10)),
                       Align(
                           alignment: Alignment.centerRight,

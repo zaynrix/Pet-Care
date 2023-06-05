@@ -4,6 +4,8 @@ import 'package:pet_care/resources/colors_manager.dart';
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({super.key,
     required this.hintText,
+    this.suffixIcon,
+    this.suffixPressed,
     required this.controller,
     required this.validator,
     required this.keyBoardType
@@ -13,6 +15,10 @@ class CustomTextFormField extends StatelessWidget {
   final TextEditingController controller;
   final String? Function(String?)? validator;
   final TextInputType keyBoardType;
+  final IconData? suffixIcon;
+  final Function()? suffixPressed;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +39,9 @@ class CustomTextFormField extends StatelessWidget {
         controller: controller,
         decoration: InputDecoration(
           hintText: hintText,
+          suffixIcon: suffixIcon != null ? IconButton(
+              icon: Icon(suffixIcon, ),
+              onPressed: suffixPressed) : null,
         ),
       ),
     );
