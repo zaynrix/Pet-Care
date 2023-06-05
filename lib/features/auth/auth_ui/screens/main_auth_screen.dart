@@ -19,7 +19,8 @@ class MainAuthScreen extends StatelessWidget {
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: ColorManager.soft,
-        appBar: AppBar(
+        appBar:
+        AppBar(
           elevation: 0,
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(AppSize.s20.h),

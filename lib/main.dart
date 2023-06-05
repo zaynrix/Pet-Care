@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pet_care/features/add_pet/add_pet_core/add_pet_provider.dart';
 import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/main_add_pet_screen.dart';
 import 'package:pet_care/features/auth/auth_core/auth_provider.dart';
+import 'package:pet_care/features/auth/auth_ui/screens/main_auth_screen.dart';
+import 'package:pet_care/features/auth/testDiolgState.dart';
 import 'package:pet_care/features/onboarding/core/on_boarding_provider.dart';
 import 'package:pet_care/features/onboarding/ui/onBoardingPage.dart';
 import 'package:pet_care/locator.dart';
@@ -43,7 +45,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeManager.lightTheme,
           scaffoldMessengerKey: Helpers.scaffoldKey,
           home:
-           MainAppPetScreen(),
+          const MainAuthScreen(),
           navigatorKey: RouteService.serviceNavi.navKey,
           onGenerateRoute: RoutsGenerate.generateRoute,
         ),
