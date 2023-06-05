@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pet_care/features/add_pet/add_pet_core/add_pet_provider.dart';
 import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/main_add_pet_screen.dart';
-import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/success_add_pet.dart';
 import 'package:pet_care/features/auth/auth_core/auth_provider.dart';
 import 'package:pet_care/features/onboarding/core/on_boarding_provider.dart';
 import 'package:pet_care/features/onboarding/ui/onBoardingPage.dart';
@@ -13,8 +12,6 @@ import 'package:pet_care/routing/route.dart';
 import 'package:pet_care/routing/routes_generate.dart';
 import 'package:pet_care/utils/helper.dart';
 import 'package:provider/provider.dart';
-
-import 'resources/size_config.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,7 +33,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider.value(value: locator<AuthProvider>(),),
         ChangeNotifierProvider(create: (_) => OnBoardingProvider()),
-        ChangeNotifierProvider(create: (_) => AppPetProvider()),
+        ChangeNotifierProvider(create: (_) => AddPetProvider()),
       ],
       child: ScreenUtilInit(
         designSize: const Size(375, 815),

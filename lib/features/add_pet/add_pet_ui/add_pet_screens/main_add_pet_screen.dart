@@ -30,7 +30,7 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Provider.of<AppPetProvider>(context, listen: false).initStateAddPet();
+    Provider.of<AddPetProvider>(context, listen: false).initStateAddPet();
   }
 
   final SizeConfig sizeConfig = locator<SizeConfig>();
@@ -52,7 +52,7 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
   @override
   Widget build(BuildContext context) {
     debugPrint("This is inside main add pet page");
-    return Consumer<AppPetProvider>(
+    return Consumer<AddPetProvider>(
       builder: (context, provider, child) => Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: Container(

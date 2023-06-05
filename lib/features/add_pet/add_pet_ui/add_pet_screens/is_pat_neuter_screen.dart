@@ -37,7 +37,7 @@ class IsPetNeuterScreen extends StatelessWidget implements PageWidget{
             style: h3Bold,
           ),
           addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s48)),
-          Consumer<AppPetProvider>(
+          Consumer<AddPetProvider>(
             builder: (context, provider, child) => SizedBox(
                 width: sizeConfig.getScreenWidth(220),
                 height: sizeConfig.getScreenHeight(100),

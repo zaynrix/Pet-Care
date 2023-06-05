@@ -20,10 +20,10 @@ class LinearProgressStatusBar extends StatelessWidget {
               color: const Color(0xFF3232321A),
               borderRadius: BorderRadius.circular(AppSize.s50)),
         ),
-        Consumer<AppPetProvider>(
+        Consumer<AddPetProvider>(
           builder: (context, provider, child) => AnimatedContainer(
             height: 6,
-            width: AppPetProvider.progressBarStatus(provider.currantPage),
+            width: AddPetProvider.progressBarStatus(provider.currantPage),
             decoration: BoxDecoration(
                 color: ColorManager.secondary,
                 borderRadius: BorderRadius.circular(AppSize.s50)),

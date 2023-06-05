@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:pet_care/features/add_pet/add_pet_model/add_pet_model.dart';
 import 'package:pet_care/features/add_pet/add_pet_model/pet_gender_model.dart';
 import 'package:pet_care/locator.dart';
@@ -6,7 +9,7 @@ import 'package:pet_care/resources/size_config.dart';
 import 'package:pet_care/utils/enums.dart';
 import 'package:pet_care/utils/helper.dart';
 
-class AppPetProvider extends ChangeNotifier {
+class AddPetProvider extends ChangeNotifier {
   final SizeConfig sizeConfig = locator<SizeConfig>();
 
    PageController? pageController ;
@@ -17,6 +20,8 @@ class AppPetProvider extends ChangeNotifier {
   final List<AddPetModel> types = AddPetModel.petSpecies;
   final List<PetGenderModel> genders = PetGenderModel.genderType;
 
+  bool isFile = false;
+  File? fileImage;
 
   void initStateAddPet() {
     pageController = PageController(initialPage: currantPage);
@@ -76,6 +81,17 @@ class AppPetProvider extends ChangeNotifier {
 
   void selectOption(PetNeuterOption option) {
     selectedOption = option;
+    notifyListeners();
+  }
+
+  //----------------------------pickImage---------------------------------------
+
+Future<dynamic> pickImage() async {
+  final picker = ImagePicker();
+  final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+  if (pickedFile == null) return;
+    final file = File(pickedFile.path);
+    fileImage = file;
     notifyListeners();
   }
 

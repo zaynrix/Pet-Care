@@ -36,7 +36,7 @@ class AddPetSpeciesScreen extends StatelessWidget implements PageWidget{
           ),
           addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s64)),
           Expanded(
-            child: Consumer<AppPetProvider>(
+            child: Consumer<AddPetProvider>(
               builder: (context, provider, child) => ListView.builder(
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,

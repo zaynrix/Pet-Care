@@ -46,6 +46,7 @@ dependencies:
 #  flutter_slider_indicator: ^1.0.0
   wheel_chooser: ^1.1.2
   lottie: ^2.3.2
+  image_picker: ^0.8.7+5
 
 dev_dependencies:
   flutter_test:
