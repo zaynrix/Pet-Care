@@ -51,8 +51,15 @@ const TextStyle titleRegular = TextStyle(
     color: ColorManager.primary,
     height: 1.35);
 
-const TextStyle titleSemiBold = TextStyle(
+const TextStyle titleSemiBoldSecondary = TextStyle(
   color: ColorManager.secondary,
+    fontWeight: FontWeightManager.semiBold,
+    fontFamily: FontConstants.fontFamily,
+    fontSize: FontSize.s20,
+    height: 1.35);
+
+const TextStyle titleSemiBoldPrimary = TextStyle(
+  color: ColorManager.primary,
     fontWeight: FontWeightManager.semiBold,
     fontFamily: FontConstants.fontFamily,
     fontSize: FontSize.s20,
@@ -132,6 +139,14 @@ const TextStyle bodyMedium = TextStyle(
 //     fontFamily: FontConstants.fontFamily,
 //     fontSize: FontSize.s13,
 //     height: 1.38);
+
+const TextStyle oldPriceStyle =  TextStyle(
+    color: ColorManager.gray,
+    fontSize: AppSize.s9,
+    fontWeight: FontWeightManager.regular,
+    decoration: TextDecoration.lineThrough,
+    fontFamily: FontConstants.fontFamily);
+
 
 const TextStyle footNoteBold = TextStyle(
     fontWeight: FontWeightManager.bold,

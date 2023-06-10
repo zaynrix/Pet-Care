@@ -1,23 +1,8 @@
-const String imagePaht = "assets/images";
+const String imagePath = "assets/images";
 
 class ImageAssets {
-  static const String mainImage = "$imagePaht/mainimage.png";
-  static const String successImage = "$imagePaht/success.png";
-  static const String emailImage = "$imagePaht/email.png";
-  static const String mobileSuccessImage = "$imagePaht/mobile_success.png";
-  static const String idVerificationImage = "$imagePaht/id_verification.png";
-  static const String addressVerificationImage =
-      "$imagePaht/adress_verification.png";
-  static const String homeBottomBarImage =
-      "$imagePaht/bottomNavigationBar/home.png";
-  static const String cashBottomBarImage =
-      "$imagePaht/bottomNavigationBar/cash.png";
-  static const String invoiceBottomBarImage =
-      "$imagePaht/bottomNavigationBar/invoice.png";
-  static const String analyticsBottomBarImage =
-      "$imagePaht/bottomNavigationBar/google-analytics.png";
-  static const String userBottomBarImage =
-      "$imagePaht/bottomNavigationBar/user.png";
+  static const String dogMedicine = "$imagePath/dog_medicine.png";
+
 }
 
 //--------------------------------iconAssets------------------------------------
@@ -44,6 +29,7 @@ class IconAssets {
   //------------------------bottomAppBar----------------------------------------
 
   static const String unSelectedCart = "$iconPath/navBarIcons/unSelected/shop_unselected.svg";
+
 }
 //--------------------------------SvgAssets-------------------------------------
 
@@ -78,4 +64,13 @@ class SvgAssets {
   //----------------------------------------------------------------------------
 
   static const successAddPet = "$svgPath/success_add_pet.svg";
+
+  //--------------------------pannerSvg-----------------------------------------
+
+  static const firstBanner = "$svgPath/banner_svg.svg";
+  static const List banners = [
+    SvgAssets.firstBanner,
+    SvgAssets.firstBanner,
+    SvgAssets.firstBanner,
+  ];
 }

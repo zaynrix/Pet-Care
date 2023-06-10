@@ -54,7 +54,7 @@ class MainAuthScreen extends StatelessWidget {
                             "Sign in",
                             maxLines: 1,
                             style: auth.currantAuthTap == 0
-                                ? titleSemiBold
+                                ? titleSemiBoldSecondary
                                 : titleRegular,
                           ),
                         ),
@@ -62,7 +62,7 @@ class MainAuthScreen extends StatelessWidget {
                           child: Text("Sign up",
                               maxLines: 1,
                               style: auth.currantAuthTap == 1
-                                  ? titleSemiBold
+                                  ? titleSemiBoldSecondary
                                   : titleRegular),
                         ),
                       ]),

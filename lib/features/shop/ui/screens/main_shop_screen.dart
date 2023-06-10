@@ -9,6 +9,8 @@ import 'package:pet_care/resources/size_config.dart';
 import 'package:pet_care/resources/styles_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
 
+import 'pharmacy_shop_screen.dart';
+
 class MainShopScreen extends StatelessWidget {
   MainShopScreen({Key? key}) : super(key: key);
 
@@ -96,7 +98,7 @@ class MainShopScreen extends StatelessWidget {
 
           // physics: const NeverScrollableScrollPhysics(),
           children: [
-            LoginScreen(),
+            PharmacyShopScreen(),
             SignUpScreen(),
             SignUpScreen(),
             LoginScreen(),
