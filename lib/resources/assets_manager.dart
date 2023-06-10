@@ -41,8 +41,10 @@ class IconAssets {
   static const String female = "$iconPath/gender_female.svg";
   static const String male = "$iconPath/gender_male.svg";
 
-}
+  //------------------------bottomAppBar----------------------------------------
 
+  static const String unSelectedCart = "$iconPath/navBarIcons/unSelected/shop_unselected.svg";
+}
 //--------------------------------SvgAssets-------------------------------------
 
 const String svgPath = 'assets/svg';

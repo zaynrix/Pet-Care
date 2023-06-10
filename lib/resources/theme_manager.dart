@@ -22,7 +22,7 @@ class ThemeManager {
         //   buttonColor: ColorManager.blueColor,
         // ),
         appBarTheme: const AppBarTheme(
-          toolbarHeight: AppSize.s58,
+          toolbarHeight: AppSize.s80,
             elevation: 0,
             iconTheme: IconThemeData(
               size: AppSize.s35,

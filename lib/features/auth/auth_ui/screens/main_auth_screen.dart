@@ -26,7 +26,8 @@ class MainAuthScreen extends StatelessWidget {
             preferredSize: Size.fromHeight(AppSize.s20.h),
             child: Align(
               alignment: AlignmentDirectional.centerStart,
-              child: Container(
+              child:
+              Container(
                 width: AppSize.s210.w,
                 padding: const EdgeInsets.all(0),
                 margin: EdgeInsetsDirectional.only(
