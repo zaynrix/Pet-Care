@@ -11,6 +11,7 @@ class OnBoardingModel{
   final String svgPath;
   final String title;
   final String desc;
+
   final Widget screen;
 
   static List<OnBoardingModel> data = [
@@ -24,7 +25,7 @@ class OnBoardingModel{
         svgPath: SvgAssets.secondOnBoarding,
         title: 'Shop easily',
         desc: 'Get all pet accessories from one place by this app noe enjoy a hassle-free shopping',
-      screen: SecondOnBoardingScreen()
+      screen: const SecondOnBoardingScreen()
     ),
     OnBoardingModel(
         svgPath: SvgAssets.thirdOnBoarding,

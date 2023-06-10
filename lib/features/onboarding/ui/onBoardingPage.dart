@@ -55,7 +55,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                       return TweenAnimationBuilder(
                           tween: Tween(begin: scale , end: scale),
                           curve: Curves.ease,
-                          duration: const Duration(milliseconds: 350),
+                          duration: const Duration(milliseconds: 500),
                           builder: (context , value , child){
                             return Transform.scale(scale: value,
                             child: list[provider.activeIndex].screen,);
