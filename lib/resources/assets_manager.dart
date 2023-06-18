@@ -2,9 +2,9 @@ const String imagePath = "assets/images";
 
 class ImageAssets {
   static const String dogMedicine = "$imagePath/dog_medicine.png";
-
+  static const String productDetails = "$imagePath/product_details_image.png";
+  static const String bannerImage = "$imagePath/banner_image.png";
 }
-
 //--------------------------------iconAssets------------------------------------
 
 const String iconPath = 'assets/icons';
@@ -20,6 +20,9 @@ class IconAssets {
   static const String catType = "$iconPath/pet_types/cat.svg";
   static const String dogType = "$iconPath/pet_types/dog.svg";
   static const String otherType = "$iconPath/pet_types/other.svg";
+  static const String likeSelected = "$iconPath/like_selected.svg";
+  static const String likeUnselected = "$iconPath/like_unselected.svg";
+  static const String edit = "$iconPath/edit.svg";
 
   //---------------------------------gender-------------------------------------
 

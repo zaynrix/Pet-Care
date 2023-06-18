@@ -65,6 +65,7 @@ class _PharmacyShopScreenState extends State<PharmacyShopScreen> {
             textButton: "See all",
             onPressed: () {},
           ),
+          Image.asset(ImageAssets.bannerImage),
         ],
       ),
     );

@@ -9,7 +9,9 @@ import 'package:pet_care/features/auth/auth_ui/screens/main_auth_screen.dart';
 import 'package:pet_care/features/auth/testDiolgState.dart';
 import 'package:pet_care/features/onboarding/core/on_boarding_provider.dart';
 import 'package:pet_care/features/onboarding/ui/onBoardingPage.dart';
+import 'package:pet_care/features/profile/ui/screens/profile_screen.dart';
 import 'package:pet_care/features/shop/ui/screens/main_shop_screen.dart';
+import 'package:pet_care/features/shop/ui/screens/product_details.dart';
 import 'package:pet_care/locator.dart';
 import 'package:pet_care/resources/theme_manager.dart';
 import 'package:pet_care/routing/route.dart';
@@ -47,7 +49,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeManager.lightTheme,
           scaffoldMessengerKey: Helpers.scaffoldKey,
           home:
-           MainShopScreen(),
+          ProfileScreen(),
           navigatorKey: RouteService.serviceNavi.navKey,
           onGenerateRoute: RoutsGenerate.generateRoute,
         ),

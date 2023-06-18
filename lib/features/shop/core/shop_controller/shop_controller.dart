@@ -16,9 +16,12 @@ class ShopController extends GetxController {
     currantBannerCard(page);
   }
   initPharmacyShopState(){
+    debugPrint("This is inside init in controller");
     timer = Timer.periodic(const Duration(seconds: 5), (Timer timer) {
+      debugPrint("This is inside timer in controller");
       if (currantBannerCard < 2) {
-        currantBannerCard(currantBannerCard.value++);
+        debugPrint("This is inside if in controller");
+        currantBannerCard(currantBannerCard.value +1);
       } else {
         currantBannerCard.value = 0;
       }
