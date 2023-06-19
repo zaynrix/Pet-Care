@@ -1,12 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pet_care/locator.dart';
-import 'package:pet_care/resources/assets_manager.dart';
-import 'package:pet_care/resources/colors_manager.dart';
-import 'package:pet_care/resources/size_config.dart';
-import 'package:pet_care/resources/styles_manager.dart';
-import 'package:pet_care/resources/values_manager.dart';
-
+part of add_shop_screens;
 class SuccessAddPatScreen extends StatelessWidget {
   SuccessAddPatScreen({Key? key}) : super(key: key);
   SizeConfig sizeConfig = locator<SizeConfig>();

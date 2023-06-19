@@ -1,13 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:pet_care/common_widgets/common_widgets.dart';
-import 'package:pet_care/locator.dart';
-import 'package:pet_care/resources/colors_manager.dart';
-import 'package:pet_care/resources/size_config.dart';
-import 'package:pet_care/resources/styles_manager.dart';
-import 'package:pet_care/resources/values_manager.dart';
-import 'package:pet_care/utils/validate_extension.dart';
-
-import 'abstract_page_widget.dart';
+part of add_shop_screens;
 
 class AddPetBreedScreen extends StatelessWidget implements PageWidget{
   AddPetBreedScreen({

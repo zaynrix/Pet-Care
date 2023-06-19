@@ -1,13 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:pet_care/features/add_pet/add_pet_core/add_pet_provider.dart';
-import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_widgets/pet_species_card.dart';
-import 'package:pet_care/locator.dart';
-import 'package:pet_care/resources/size_config.dart';
-import 'package:pet_care/resources/styles_manager.dart';
-import 'package:pet_care/resources/values_manager.dart';
-import 'package:provider/provider.dart';
-
-import 'abstract_page_widget.dart';
+part of add_shop_screens;
 
 class AddPetSpeciesScreen extends StatelessWidget implements PageWidget{
   AddPetSpeciesScreen({

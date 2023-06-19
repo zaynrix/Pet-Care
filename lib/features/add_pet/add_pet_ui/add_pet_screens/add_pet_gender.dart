@@ -1,20 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:pet_care/features/add_pet/add_pet_core/add_pet_provider.dart';
-import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_widgets/gender_card.dart';
-import 'package:pet_care/locator.dart';
-import 'package:pet_care/resources/size_config.dart';
-import 'package:pet_care/resources/styles_manager.dart';
-import 'package:pet_care/resources/values_manager.dart';
-import 'package:provider/provider.dart';
+part of add_shop_screens;
 
-import 'abstract_page_widget.dart';
-
-class AddPetGenderScreen extends StatelessWidget implements PageWidget{
+class AddPetGenderScreen extends StatelessWidget implements PageWidget {
   AddPetGenderScreen({
     Key? key,
   }) : super(key: key);
 
   SizeConfig sizeConfig = locator<SizeConfig>();
+
   @override
   void onPressedFunction() {
     debugPrint('Page AddPetGenderScreen action');

@@ -1,22 +1,12 @@
-import 'package:flutter/material.dart';
+part of add_shop_screens;
 
-import 'package:pet_care/features/add_pet/add_pet_core/add_pet_provider.dart';
-import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_widgets/is_pet_neuter_widget.dart';
-import 'package:pet_care/locator.dart';
-import 'package:pet_care/resources/size_config.dart';
-import 'package:pet_care/resources/styles_manager.dart';
-import 'package:pet_care/resources/values_manager.dart';
-import 'package:pet_care/utils/enums.dart';
-import 'package:provider/provider.dart';
-
-import 'abstract_page_widget.dart';
-
-class IsPetNeuterScreen extends StatelessWidget implements PageWidget{
+class IsPetNeuterScreen extends StatelessWidget implements PageWidget {
   IsPetNeuterScreen({
     Key? key,
   }) : super(key: key);
 
   SizeConfig sizeConfig = locator<SizeConfig>();
+
   @override
   void onPressedFunction() {
     debugPrint('Page IsPetNeuterScreen action');

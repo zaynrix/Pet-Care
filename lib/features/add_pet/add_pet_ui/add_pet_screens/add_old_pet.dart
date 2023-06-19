@@ -1,13 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_widgets/gradient_circle_line.dart';
-import 'package:pet_care/locator.dart';
-import 'package:pet_care/resources/colors_manager.dart';
-import 'package:pet_care/resources/size_config.dart';
-import 'package:pet_care/resources/styles_manager.dart';
-import 'package:pet_care/resources/values_manager.dart';
-import 'package:wheel_chooser/wheel_chooser.dart';
-
-import 'abstract_page_widget.dart';
+part of add_shop_screens;
 
 class AppOldPetScreen extends StatelessWidget implements PageWidget{
   AppOldPetScreen({Key? key}) : super(key: key);

@@ -1,17 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pet_care/features/add_pet/add_pet_core/add_pet_provider.dart';
-import 'package:pet_care/locator.dart';
-import 'package:pet_care/resources/assets_manager.dart';
-import 'package:pet_care/resources/colors_manager.dart';
-import 'package:pet_care/resources/size_config.dart';
-import 'package:pet_care/resources/styles_manager.dart';
-import 'package:pet_care/resources/values_manager.dart';
-import 'package:pet_care/utils/flutter_state_render_dialog.dart';
-import 'package:pet_care/utils/helper.dart';
-import 'package:provider/provider.dart';
-
-import 'abstract_page_widget.dart';
+part of add_shop_screens;
 
 class AddPhotoForPetScreen extends StatelessWidget implements PageWidget {
   AddPhotoForPetScreen({Key? key}) : super(key: key);
@@ -20,7 +7,7 @@ class AddPhotoForPetScreen extends StatelessWidget implements PageWidget {
   @override
   void onPressedFunction() {
     debugPrint('Page AddPhotoForPetScreen action');
-    
+
     // Add your custom functionality for Page 1 here
   }
 
@@ -44,7 +31,6 @@ class AddPhotoForPetScreen extends StatelessWidget implements PageWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                       color: ColorManager.secondaryLight,
-
                       borderRadius: BorderRadius.circular(AppSize.s25)),
                   child: provider.fileImage == null
                       ? Column(
@@ -101,13 +87,13 @@ class AddPhotoForPetScreen extends StatelessWidget implements PageWidget {
                           ],
                         )
                       : ClipRRect(
-                    borderRadius: BorderRadius.circular(AppSize.s25),
-                        child: Image.file(
-                          provider.fileImage!,
-                          fit: BoxFit.cover,
-                          // height: sizeConfig.getScreenHeight(472),
-                        ),
-                      )),
+                          borderRadius: BorderRadius.circular(AppSize.s25),
+                          child: Image.file(
+                            provider.fileImage!,
+                            fit: BoxFit.cover,
+                            // height: sizeConfig.getScreenHeight(472),
+                          ),
+                        )),
             )
           ],
         ),
