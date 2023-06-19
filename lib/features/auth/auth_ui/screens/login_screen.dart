@@ -1,18 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pet_care/common_widgets/customTextFormField.dart';
-import 'package:pet_care/common_widgets/loading_status_widget.dart';
-import 'package:pet_care/locator.dart';
-import 'package:pet_care/resources/assets_manager.dart';
-import 'package:pet_care/resources/colors_manager.dart';
-import 'package:pet_care/resources/size_config.dart';
-import 'package:pet_care/resources/styles_manager.dart';
-import 'package:pet_care/resources/values_manager.dart';
-import 'package:pet_care/routing/route.dart';
-import 'package:pet_care/routing/route_generator.dart';
-import 'package:pet_care/utils/enums.dart';
-import 'package:pet_care/utils/validate_extension.dart';
+part of auth_screens;
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);

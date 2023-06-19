@@ -1,12 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pet_care/common_widgets/customTextFormField.dart';
-import 'package:pet_care/resources/colors_manager.dart';
-import 'package:pet_care/resources/styles_manager.dart';
-import 'package:pet_care/resources/values_manager.dart';
-import 'package:pet_care/routing/route.dart';
-import 'package:pet_care/routing/route_generator.dart';
-import 'package:pet_care/utils/validate_extension.dart';
+part of auth_screens;
 
 class ForgetPasswordScreen extends StatelessWidget {
   ForgetPasswordScreen({Key? key}) : super(key: key);

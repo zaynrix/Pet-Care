@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/main_add_pet_screen.dart';
-import 'package:pet_care/features/auth/auth_ui/screens/forget_password_screen.dart';
-import 'package:pet_care/features/auth/auth_ui/screens/main_auth_screen.dart';
-import 'package:pet_care/features/auth/auth_ui/screens/reset_password.dart';
-import 'package:pet_care/features/auth/auth_ui/screens/verify_email_screen.dart';
-import 'package:pet_care/routing/route_generator.dart';
+part of routing_imports;
 
 
 class RoutsGenerate{

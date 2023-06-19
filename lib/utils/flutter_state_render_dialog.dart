@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pet_care/resources/colors_manager.dart';
-import 'package:pet_care/routing/route.dart';
 
 final GlobalKey<State> keyLoader = GlobalKey<State>();
 

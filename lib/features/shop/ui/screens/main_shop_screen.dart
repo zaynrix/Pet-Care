@@ -1,15 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pet_care/features/auth/auth_ui/screens/login_screen.dart';
-import 'package:pet_care/features/auth/auth_ui/screens/sign_up_screen.dart';
-import 'package:pet_care/locator.dart';
-import 'package:pet_care/resources/assets_manager.dart';
-import 'package:pet_care/resources/colors_manager.dart';
-import 'package:pet_care/resources/size_config.dart';
-import 'package:pet_care/resources/styles_manager.dart';
-import 'package:pet_care/resources/values_manager.dart';
-
-import 'pharmacy_shop_screen.dart';
+part of shop_screens;
 
 class MainShopScreen extends StatelessWidget {
   MainShopScreen({Key? key}) : super(key: key);

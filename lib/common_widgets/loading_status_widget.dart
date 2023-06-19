@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
-import 'package:pet_care/utils/enums.dart';
+part of common_widgets;
+
 
 class LoadingStatusWidget extends StatelessWidget {
   const LoadingStatusWidget({

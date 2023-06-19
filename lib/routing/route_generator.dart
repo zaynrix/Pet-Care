@@ -1,3 +1,4 @@
+part of routing_imports;
 class RouteGenerator {
 
   static const String forgetPasswordScreen = '/forgetPassword';

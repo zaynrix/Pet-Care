@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:pet_care/resources/colors_manager.dart';
+part of common_widgets;
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({super.key,

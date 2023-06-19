@@ -1,14 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:pet_care/features/shop/core/shop_controller/shop_controller.dart';
-import 'package:pet_care/features/shop/ui/widgets/banner_card.dart';
-import 'package:pet_care/features/shop/ui/widgets/divider_shop_card.dart';
-import 'package:pet_care/features/shop/ui/widgets/shop_card.dart';
-import 'package:pet_care/locator.dart';
-import 'package:pet_care/resources/assets_manager.dart';
-import 'package:pet_care/resources/colors_manager.dart';
-import 'package:pet_care/resources/size_config.dart';
-import 'package:pet_care/resources/values_manager.dart';
+part of shop_screens;
 
 class PharmacyShopScreen extends StatefulWidget {
   const PharmacyShopScreen({Key? key}) : super(key: key);

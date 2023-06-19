@@ -12,7 +12,7 @@ import 'package:pet_care/resources/colors_manager.dart';
 import 'package:pet_care/resources/size_config.dart';
 import 'package:pet_care/resources/styles_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
-import 'package:pet_care/routing/route.dart';
+import 'package:pet_care/routing/routing_imports.dart';
 import 'package:provider/provider.dart';
 
 import 'abstract_page_widget.dart';

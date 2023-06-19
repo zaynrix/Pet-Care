@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pet_care/common_widgets/custom_icon_button.dart';
+import 'package:pet_care/common_widgets/common_widgets.dart';
 import 'package:pet_care/locator.dart';
 import 'package:pet_care/resources/assets_manager.dart';
 import 'package:pet_care/resources/colors_manager.dart';

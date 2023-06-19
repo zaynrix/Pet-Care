@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of routing_imports;
 
 class RouteService {
   RouteService._();
