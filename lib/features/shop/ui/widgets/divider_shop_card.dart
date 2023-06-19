@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:pet_care/locator.dart';
-import 'package:pet_care/resources/colors_manager.dart';
-import 'package:pet_care/resources/size_config.dart';
-import 'package:pet_care/resources/styles_manager.dart';
-import 'package:pet_care/resources/values_manager.dart';
+part of shop_widgets;
 
 class DividerShopCard extends StatelessWidget {
    DividerShopCard({
