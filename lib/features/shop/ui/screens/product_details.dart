@@ -2,8 +2,8 @@ part of shop_screens;
 
 class ProductDetailsScreen extends StatelessWidget {
   ProductDetailsScreen({Key? key}) : super(key: key);
-  final SizeConfig sizeConfig = locator<SizeConfig>();
 
+  final SizeConfig sizeConfig = locator<SizeConfig>();
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,10 @@ class ProductDetailsScreen extends StatelessWidget {
       backgroundColor: ColorManager.soft,
       appBar: AppBar(
         title: const Text("Details"),
-        leading: IconButton(onPressed: (){}, icon: const Icon(Icons.arrow_back),),
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.arrow_back),
+        ),
         actions: [
           InkWell(
             child: Container(
@@ -20,24 +23,23 @@ class ProductDetailsScreen extends StatelessWidget {
               width: sizeConfig.getScreenWidth(AppSize.s44),
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  border: Border.all(color: ColorManager.primaryWithTransparent30  , width: 1)
-              ),
+                  border: Border.all(
+                      color: ColorManager.primaryWithTransparent30, width: 1)),
               child: SvgPicture.asset(IconAssets.unSelectedCart),
             ),
           ),
-          addHorizontalSpace(sizeConfig.getScreenWidth(AppSize.s20)),
+          const RHorizontalSpace(width: AppSize.s20),
         ],
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.symmetric(horizontal: sizeConfig.getScreenWidth(AppSize.s24)),
+              padding: EdgeInsets.symmetric(
+                  horizontal: sizeConfig.getScreenWidth(AppSize.s24)),
               height: sizeConfig.getScreenHeight(AppSize.s300),
               width: double.infinity,
-              decoration: const BoxDecoration(
-                color: ColorManager.soft
-              ),
+              decoration: const BoxDecoration(color: ColorManager.soft),
               child: Stack(
                 children: [
                   Center(child: Image.asset(ImageAssets.productDetails)),
@@ -49,7 +51,10 @@ class ProductDetailsScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           CustomIconButton(iconPath: IconAssets.plus),
-                          const Text("1" , style: titleBold,),
+                          const Text(
+                            "1",
+                            style: titleBold,
+                          ),
                           CustomIconButton(iconPath: IconAssets.plus),
                         ],
                       ),
@@ -59,39 +64,44 @@ class ProductDetailsScreen extends StatelessWidget {
               ),
             ),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: sizeConfig.getScreenWidth(AppSize.s24)),
+              padding: EdgeInsets.symmetric(
+                  horizontal: sizeConfig.getScreenWidth(AppSize.s24)),
               width: double.infinity,
               height: Get.height * 0.5,
               decoration: BoxDecoration(
-                color: ColorManager.white,
-                borderRadius: BorderRadius.circular(AppSize.s30)
-              ),
+                  color: ColorManager.white,
+                  borderRadius: BorderRadius.circular(AppSize.s30)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
-                    children:  [
-                     const Expanded(
-                        child: Text("Pro-Sense Itch & Allergy Solutions" , style: supTitleBold,
-                        maxLines: 2,),
+                    children: [
+                      const Expanded(
+                        child: Text(
+                          "Pro-Sense Itch & Allergy Solutions",
+                          style: supTitleBold,
+                          maxLines: 2,
+                        ),
                       ),
                       const Spacer(),
                       CustomIconButton(iconPath: IconAssets.likeUnselected)
                     ],
                   ),
-                  addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s10)),
-                 const Text("Choose the pharmacy", style: captionRegular,),
+                  const RVerticalSpace(height: AppSize.s10),
+                  const Text(
+                    "Choose the pharmacy",
+                    style: captionRegular,
+                  ),
                   Container(
                     width: double.infinity,
                     height: sizeConfig.getScreenHeight(AppSize.s60),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(AppSize.s8),
-                      border: Border.all(color: ColorManager.primaryWithTransparent30)
-                    ),
+                        borderRadius: BorderRadius.circular(AppSize.s8),
+                        border: Border.all(
+                            color: ColorManager.primaryWithTransparent30)),
                   )
                 ],
               ),
-
             )
           ],
         ),
@@ -99,4 +109,3 @@ class ProductDetailsScreen extends StatelessWidget {
     );
   }
 }
-

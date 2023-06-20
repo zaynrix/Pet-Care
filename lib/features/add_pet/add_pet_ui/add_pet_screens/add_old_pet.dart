@@ -18,9 +18,9 @@ class AppOldPetScreen extends StatelessWidget implements PageWidget{
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Text("How old is your pet?" ,style: h3Bold,),
-          addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s25)),
+          const RVerticalSpace(height: AppSize.s25),
           const GradientCircleLine(),
-          addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s16)),
+          const RVerticalSpace(height: AppSize.s16),
           SizedBox(
             height: sizeConfig.getScreenHeight(AppSize.s48),
             child: WheelChooser.integer(
@@ -36,11 +36,11 @@ class AppOldPetScreen extends StatelessWidget implements PageWidget{
               unSelectTextStyle: h3BoldWithOpacity
             ),
           ),
-          addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s5)),
+          const RVerticalSpace(height: AppSize.s5),
           Text("years",style: bodyRegular(color: ColorManager.primary)),
-          addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s16)),
+          const RVerticalSpace(height: AppSize.s16),
           const GradientCircleLine(),
-          addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s16)),
+          const RVerticalSpace(height: AppSize.s16),
           SizedBox(
             height: sizeConfig.getScreenHeight(AppSize.s48),
             child: WheelChooser.integer(
@@ -54,9 +54,9 @@ class AppOldPetScreen extends StatelessWidget implements PageWidget{
                 unSelectTextStyle:h3BoldWithOpacity,
             ),
           ),
-          addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s5)),
+          const RVerticalSpace(height: AppSize.s5),
           const Text("months",style: TextStyle(fontSize: 15),),
-          addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s16)),
+          const RVerticalSpace(height: AppSize.s16),
           const GradientCircleLine(),
         ],
       ),

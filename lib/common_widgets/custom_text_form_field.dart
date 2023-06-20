@@ -24,12 +24,7 @@ class CustomTextFormField extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         boxShadow: [
-          BoxShadow(
-            color: ColorManager.gray.withOpacity(0.05),
-            // spreadRadius: 1,
-            blurRadius: 15,
-            offset: const Offset(0, 3), // changes position of shadow
-          ),
+          customShadow(),
         ],
       ),
       child: TextFormField(
@@ -45,4 +40,6 @@ class CustomTextFormField extends StatelessWidget {
       ),
     );
   }
+
+
 }
