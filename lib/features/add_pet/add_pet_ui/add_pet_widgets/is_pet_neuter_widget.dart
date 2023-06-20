@@ -1,5 +1,6 @@
 part of add_pet_widgets;
 
+
 class IsPetNeuterWidget extends StatelessWidget {
   IsPetNeuterWidget({
     Key? key,
@@ -15,7 +16,7 @@ class IsPetNeuterWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: onTap,
       child: AnimatedContainer(
         curve: Curves.easeInOut,

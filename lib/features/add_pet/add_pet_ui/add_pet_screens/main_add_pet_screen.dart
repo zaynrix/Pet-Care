@@ -68,8 +68,8 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        InkWell(
-                          focusColor: ColorManager.secondGray,
+                        GestureDetector(
+                          // focusColor: ColorManager.secondGray,
                           onTap: () {
                             provider.currantPage == 0
                                 ? RouteService.serviceNavi.popFunction()
