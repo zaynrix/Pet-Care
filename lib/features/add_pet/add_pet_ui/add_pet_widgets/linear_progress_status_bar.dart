@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:pet_care/features/add_pet/add_pet_core/add_pet_provider.dart';
-import 'package:pet_care/resources/colors_manager.dart';
-import 'package:pet_care/resources/values_manager.dart';
-import 'package:provider/provider.dart';
+part of add_pet_widgets;
 
 class LinearProgressStatusBar extends StatelessWidget {
   const LinearProgressStatusBar({
