@@ -21,6 +21,7 @@ class VerifyEmailScreen extends StatelessWidget {
           ),
         ),
       ),
+
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: AppPadding.p24.w),
         child: Form(
@@ -28,9 +29,9 @@ class VerifyEmailScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              addVerticalSpace(AppSize.s45.h),
+              const RVerticalSpace(height: AppSize.s45),
               const Text("Enter the code we just sent" , style: supTitleRegular),
-              addVerticalSpace(AppSize.s28.h),
+              const RVerticalSpace(height: AppSize.s28),
               Pinput(
                 androidSmsAutofillMethod: AndroidSmsAutofillMethod.smsRetrieverApi,
                 validator: (String? value) => value!.validateCode(),
@@ -74,9 +75,9 @@ class VerifyEmailScreen extends StatelessWidget {
                       ],
                     )),
               ),
-              addVerticalSpace(AppSize.s28.h),
+              const RVerticalSpace(height: AppSize.s28),
               Text("00:59" , style: bodyRegular(color: ColorManager.secondary),),
-              addVerticalSpace(AppSize.s8.h),
+              const RVerticalSpace(height: AppSize.s8),
               TextButton(onPressed: (){}, child: Text('Resend code', style:  bodyRegular(color: ColorManager.gray),)),
               const Spacer(),
               ElevatedButton(onPressed: (){

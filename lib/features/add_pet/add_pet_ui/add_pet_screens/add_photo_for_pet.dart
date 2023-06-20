@@ -17,6 +17,7 @@ class AddPhotoForPetScreen extends StatelessWidget implements PageWidget {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: AppPadding.p44),
+
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -64,6 +65,7 @@ class AddPhotoForPetScreen extends StatelessWidget implements PageWidget {
                                   IconAssets.dogType,
                                   height: sizeConfig.getScreenHeight(178),
                                   width: sizeConfig.getScreenWidth(178),
+
                                 ),
                               ),
                               addVerticalSpace(

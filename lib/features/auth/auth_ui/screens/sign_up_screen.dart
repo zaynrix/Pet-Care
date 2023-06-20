@@ -21,7 +21,7 @@ class SignUpScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  addVerticalSpace(AppSize.s100.h),
+                  const RVerticalSpace(height: AppSize.s100),
                   Text(
                     "Welcome aboard!",
                     style: h2Regular(color: ColorManager.primary),
@@ -30,29 +30,29 @@ class SignUpScreen extends StatelessWidget {
                     "Please sign up to continue ",
                     style: bodyRegular(color: ColorManager.primary),
                   ),
-                  addVerticalSpace(AppSize.s40.h),
+                  const RVerticalSpace(height: AppSize.s40),
                   CustomTextFormField(
                       hintText: "Name",
                       controller: emailController,
                       validator: (String? value) => value!.validateUserName(), keyBoardType: TextInputType.name,),
-                  addVerticalSpace(AppSize.s20.h),
+                  const RVerticalSpace(height: AppSize.s20),
                   CustomTextFormField(
                     keyBoardType: TextInputType.emailAddress,
                       hintText: "E-mail",
                       controller: passwordController,
                       validator: (String? value) => value!.validatePassword()),
-                  addVerticalSpace(AppSize.s20.h),
+                  const RVerticalSpace(height: AppSize.s20),
                   CustomTextFormField(
                     keyBoardType: TextInputType.phone,
                       hintText: "Phone number",
                       controller: emailController,
                       validator: (String? value) => value!.validatePhoneNumber()),
-                  addVerticalSpace(AppSize.s20.h),
+                  const RVerticalSpace(height: AppSize.s20),
                   CustomTextFormField(
                       hintText: "Password",
                       controller: emailController,
                       validator: (String? value) => value!.validatePassword(), keyBoardType: TextInputType.visiblePassword,),
-                  addVerticalSpace(AppSize.s80.h),
+                  const RVerticalSpace(height: AppSize.s80),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -82,7 +82,7 @@ class SignUpScreen extends StatelessWidget {
                               }, child: const Text("Sign un")))
                     ],
                   ),
-                  addVerticalSpace(AppSize.s40.h),
+                 const RVerticalSpace(height: AppSize.s40),
                 ],
               ),
             ),

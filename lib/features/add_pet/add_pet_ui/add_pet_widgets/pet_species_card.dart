@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pet_care/locator.dart';
-import 'package:pet_care/resources/colors_manager.dart';
-import 'package:pet_care/resources/size_config.dart';
-import 'package:pet_care/resources/styles_manager.dart';
-import 'package:pet_care/resources/values_manager.dart';
+part of add_pet_widgets;
 
 class PetSpeciesCard extends StatelessWidget {
   PetSpeciesCard({
@@ -21,6 +15,7 @@ class PetSpeciesCard extends StatelessWidget {
   final String iconPath;
   final Color backgroundColor;
   final bool isSelected;
+
   final void Function()? onTap;
 
   @override

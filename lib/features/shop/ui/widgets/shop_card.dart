@@ -14,12 +14,7 @@ class ShodCard extends StatelessWidget {
       margin: EdgeInsetsDirectional.only(start: sizeConfig.getScreenWidth(AppSize.s18)),
       decoration: BoxDecoration(
         boxShadow: [
-          BoxShadow(
-            color: ColorManager.gray.withOpacity(0.05),
-            // spreadRadius: 1,
-            blurRadius: 15,
-            offset: const Offset(0, 3), // changes position of shadow
-          ),
+          customShadow()
         ],
       ),
       child: Card(
@@ -38,7 +33,7 @@ class ShodCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.asset(ImageAssets.dogMedicine),
-              addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s10)),
+              const RVerticalSpace(height: AppSize.s10),
               Text(
                 "Pro-Sense Itch & Allergy Solutions",
                 style: footNoteRegular(color: ColorManager.primary),
@@ -46,14 +41,14 @@ class ShodCard extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
               ),
-              addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s10)),
+              const RVerticalSpace(height: AppSize.s10),
               Row(
                 children: [
                   const Text(
                     "\$14.36",
                     style: footNoteBold,
                   ),
-                  addHorizontalSpace(sizeConfig.getScreenWidth(AppSize.s5)),
+                  const RHorizontalSpace(width: AppSize.s5),
                   const  Text(
                     "\$16.90",
                     style: oldPriceStyle,

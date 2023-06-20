@@ -25,7 +25,7 @@ class AddPetBreedScreen extends StatelessWidget implements PageWidget{
             textAlign: TextAlign.center,
             style: h3Bold,
           ),
-          addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s24)),
+          const RVerticalSpace(height: AppSize.s24),
           CustomTextFormField(
             hintText: "Type pet's breed",
             validator: (String? value) => value!.validateUserName(),

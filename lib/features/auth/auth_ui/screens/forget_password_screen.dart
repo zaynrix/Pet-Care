@@ -6,7 +6,6 @@ class ForgetPasswordScreen extends StatelessWidget {
   TextEditingController phoneController = TextEditingController();
   GlobalKey<FormState> formKye = GlobalKey<FormState>();
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,27 +28,34 @@ class ForgetPasswordScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              addVerticalSpace(AppSize.s45.h),
+              const RVerticalSpace(height: AppSize.s45),
               const Text(
                 "Enter the phone number associated\n with your account and we'll send a\n code to reset your password",
                 textAlign: TextAlign.center,
                 style: supTitleRegular,
               ),
-              addVerticalSpace(AppSize.s33.h),
+              const RVerticalSpace(height: AppSize.s33),
               CustomTextFormField(
                 keyBoardType: TextInputType.phone,
                 hintText: "Phone Number",
                 controller: phoneController,
                 validator: (String? value) => value!.validatePhoneNumber(),
               ),
-              const Spacer(flex: 1,),
-              ElevatedButton(onPressed: (){
-                if(formKye.currentState!.validate()){
-                  debugPrint("Its Ok Pro");
-                  RouteService.serviceNavi.pushNamedWidget(RouteGenerator.verifyEmailScreen);
-                }
-              }, child: const Text("Submit")),
-              const Spacer(flex: 2,),
+              const Spacer(
+                flex: 1,
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    if (formKye.currentState!.validate()) {
+                      debugPrint("Its Ok Pro");
+                      RouteService.serviceNavi
+                          .pushNamedWidget(RouteGenerator.verifyEmailScreen);
+                    }
+                  },
+                  child: const Text("Submit")),
+              const Spacer(
+                flex: 2,
+              ),
             ],
           ),
         ),

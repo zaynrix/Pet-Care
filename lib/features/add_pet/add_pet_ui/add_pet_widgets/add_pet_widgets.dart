@@ -1,16 +1,17 @@
-library shop_widgets;
+library add_pet_widgets;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pet_care/common_widgets/common_widgets.dart';
+import 'package:pet_care/features/add_pet/add_pet_core/add_pet_provider.dart';
 import 'package:pet_care/locator.dart';
-import 'package:pet_care/resources/assets_manager.dart';
 import 'package:pet_care/resources/colors_manager.dart';
 import 'package:pet_care/resources/size_config.dart';
 import 'package:pet_care/resources/styles_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
+import 'package:provider/provider.dart';
 
-
-part 'banner_card.dart';
-part 'divider_shop_card.dart';
-part 'shop_card.dart';
+part 'gender_card.dart';
+part 'gradient_circle_line.dart';
+part 'is_pet_neuter_widget.dart';
+part 'linear_progress_status_bar.dart';
+part 'pet_species_card.dart';

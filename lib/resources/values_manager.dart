@@ -8,8 +8,7 @@ import 'package:flutter/cupertino.dart';
  return SizedBox(width: width,);
 }
 
-const gSH5 = SizedBox(width: AppSize.s5,);
-const gSV5 = SizedBox(height: AppSize.s5,);
+
 
 class AppMargin {
   static const double m8 = 8.0;
