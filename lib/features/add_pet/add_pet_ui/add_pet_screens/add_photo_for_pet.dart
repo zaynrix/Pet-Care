@@ -24,7 +24,7 @@ class AddPhotoForPetScreen extends StatelessWidget implements PageWidget {
               "Add a photo of your pet",
               style: h3Bold,
             ),
-            addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s32)),
+            const RVerticalSpace(height: AppSize.s32),
             Consumer<AddPetProvider>(
               builder: (context, provider, child) => Container(
                   height: sizeConfig.getScreenHeight(472),
@@ -53,8 +53,7 @@ class AddPhotoForPetScreen extends StatelessWidget implements PageWidget {
                                 ],
                               ),
                             ),
-                            addVerticalSpace(
-                                sizeConfig.getScreenHeight(AppSize.s70)),
+                            const RVerticalSpace(height: AppSize.s70),
                             Align(
                               alignment: Alignment.center,
                               child: SvgPicture.asset(
@@ -63,8 +62,7 @@ class AddPhotoForPetScreen extends StatelessWidget implements PageWidget {
                                 width: sizeConfig.getScreenWidth(178),
                               ),
                             ),
-                            addVerticalSpace(
-                                sizeConfig.getScreenHeight(AppSize.s66)),
+                            const RVerticalSpace(height: AppSize.s66),
                             Align(
                               alignment: Alignment.center,
                               child: InkWell(
