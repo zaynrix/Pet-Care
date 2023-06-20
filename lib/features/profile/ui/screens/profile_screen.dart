@@ -34,12 +34,7 @@ class ProfileScreen extends StatelessWidget {
                 color: ColorManager.white,
                 borderRadius: BorderRadius.circular(AppSize.s16),
                 boxShadow: [
-                  BoxShadow(
-                    color: ColorManager.gray.withOpacity(0.05),
-                    // spreadRadius: 1,
-                    blurRadius: 15,
-                    offset: const Offset(0, 3), // changes position of shadow
-                  ),
+                  customShadow()
                 ]
               ),
               child: Column(

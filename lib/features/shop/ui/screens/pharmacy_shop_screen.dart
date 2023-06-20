@@ -29,19 +29,19 @@ class _PharmacyShopScreenState extends State<PharmacyShopScreen> {
       backgroundColor: ColorManager.soft,
       body: Column(
         children: [
-          addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s25)),
+          const RVerticalSpace(height: AppSize.s25),
           BannerCard(
             controller: shopController.bannerCardController,
             onTap: (int index) => shopController.updateCurrantBannerCard(index),
             listSvg: SvgAssets.banners,
           ),
-          addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s32)),
+          const RVerticalSpace(height: AppSize.s32),
           DividerShopCard(
             title: 'Best Seller',
             textButton: "See all",
             onPressed: () {},
           ),
-          addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s16)),
+          const RVerticalSpace(height: AppSize.s16),
           SizedBox(
             height: sizeConfig.getScreenHeight(AppSize.s220),
               child: ListView.builder(
@@ -49,7 +49,7 @@ class _PharmacyShopScreenState extends State<PharmacyShopScreen> {
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) => ShodCard())),
-          addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s32)),
+          const RVerticalSpace(height: AppSize.s32),
           DividerShopCard(
             title: 'Top brands',
             textButton: "See all",

@@ -30,7 +30,7 @@ class MainShopScreen extends StatelessWidget {
                 child: SvgPicture.asset(IconAssets.unSelectedCart),
               ),
             ),
-            addHorizontalSpace(sizeConfig.getScreenWidth(AppSize.s20)),
+            const RHorizontalSpace(width: AppSize.s20),
           ],
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(sizeConfig.getScreenHeight(AppSize.s40)),
@@ -87,7 +87,7 @@ class MainShopScreen extends StatelessWidget {
 
           // physics: const NeverScrollableScrollPhysics(),
           children: [
-            PharmacyShopScreen(),
+            const PharmacyShopScreen(),
             SignUpScreen(),
             SignUpScreen(),
             LoginScreen(),
