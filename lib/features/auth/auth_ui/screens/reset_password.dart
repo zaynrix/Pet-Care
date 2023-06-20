@@ -28,26 +28,26 @@ class ResetPasswordScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              addVerticalSpace(AppSize.s45.h),
+             const RVerticalSpace(height: AppSize.s45),
               const Text(
                 "Enter a new password",
                 style: supTitleRegular,
               ),
-              addVerticalSpace(AppSize.s33.h),
+              const RVerticalSpace(height: AppSize.s33),
               CustomTextFormField(
                 hintText: "New password",
                 controller: passwordController,
                 validator: (String? value) => value!.validatePassword(),
                 keyBoardType: TextInputType.visiblePassword,
               ),
-              addVerticalSpace(AppSize.s20.h),
+              const RVerticalSpace(height: AppSize.s20),
               CustomTextFormField(
                 hintText: "Confirm new password",
                 controller: confirmPasswordController,
                 validator: (String? value) => value!.validatePassword(),
                 keyBoardType: TextInputType.visiblePassword,
               ),
-              addVerticalSpace(AppSize.s120.h),
+             const RVerticalSpace(height: AppSize.s120),
               ElevatedButton(
                   onPressed: () {
                     if (formKye.currentState!.validate()) {
