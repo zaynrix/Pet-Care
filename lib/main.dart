@@ -30,7 +30,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider.value(value: locator<AuthProvider>(),),
+        ChangeNotifierProvider.value(
+          value: locator<AuthProvider>(),
+        ),
         ChangeNotifierProvider(create: (_) => OnBoardingProvider()),
         ChangeNotifierProvider(create: (_) => AddPetProvider()),
       ],
@@ -41,8 +43,7 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           theme: ThemeManager.lightTheme,
           scaffoldMessengerKey: Helpers.scaffoldKey,
-          home:
-          ProfileScreen(),
+          home: ProfileScreen(),
           navigatorKey: RouteService.serviceNavi.navKey,
           onGenerateRoute: RoutsGenerate.generateRoute,
         ),
@@ -51,3 +52,4 @@ class MyApp extends StatelessWidget {
   }
 }
 
+//  Commit test
