@@ -5,7 +5,7 @@ class AddPetGenderScreen extends StatelessWidget implements PageWidget {
     Key? key,
   }) : super(key: key);
 
-  SizeConfig sizeConfig = locator<SizeConfig>();
+  final sizeConfig = locator<SizeConfig>();
 
   @override
   void onPressedFunction() {

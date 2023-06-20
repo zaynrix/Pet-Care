@@ -5,12 +5,13 @@ import 'package:get/get.dart';
 import 'package:pet_care/features/add_pet/add_pet_core/add_pet_provider.dart';
 import 'package:pet_care/features/auth/auth_core/auth_provider.dart';
 import 'package:pet_care/features/onboarding/core/on_boarding_provider.dart';
-import 'package:pet_care/features/profile/ui/screens/profile_screen.dart';
 import 'package:pet_care/locator.dart';
 import 'package:pet_care/resources/theme_manager.dart';
 import 'package:pet_care/routing/routing_imports.dart';
 import 'package:pet_care/utils/helper.dart';
 import 'package:provider/provider.dart';
+
+import 'features/add_pet/add_pet_ui/add_pet_screens/add_pet_screens.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,7 +44,7 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           theme: ThemeManager.lightTheme,
           scaffoldMessengerKey: Helpers.scaffoldKey,
-          home: ProfileScreen(),
+          home: MainAppPetScreen(),
           navigatorKey: RouteService.serviceNavi.navKey,
           onGenerateRoute: RoutsGenerate.generateRoute,
         ),
