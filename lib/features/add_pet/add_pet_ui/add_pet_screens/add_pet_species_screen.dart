@@ -25,7 +25,7 @@ class AddPetSpeciesScreen extends StatelessWidget implements PageWidget{
             textAlign: TextAlign.center,
             style: h3Bold,
           ),
-          addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s64)),
+          const RVerticalSpace(height: AppSize.s64),
           Expanded(
             child: Consumer<AddPetProvider>(
               builder: (context, provider, child) => ListView.builder(

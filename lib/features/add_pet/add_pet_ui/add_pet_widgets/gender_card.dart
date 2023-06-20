@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pet_care/locator.dart';
-import 'package:pet_care/resources/colors_manager.dart';
-import 'package:pet_care/resources/size_config.dart';
-import 'package:pet_care/resources/values_manager.dart';
+part of add_pet_widgets;
 
 class GenderCard extends StatelessWidget {
   GenderCard({
@@ -13,7 +8,7 @@ class GenderCard extends StatelessWidget {
     required this.iconPath,
   }) : super(key: key);
 
- final SizeConfig sizeConfig = locator<SizeConfig>();
+  final SizeConfig sizeConfig = locator<SizeConfig>();
   final bool isSelected;
   final void Function()? onTap;
   final String iconPath;
@@ -30,24 +25,25 @@ class GenderCard extends StatelessWidget {
         decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: ColorManager.transparent,
-            border: isSelected ? Border.all(
-                color: ColorManager.secondary,
-                width: 2
-            ) :  Border.all(
-                color: const Color(0xFFC4C4C4),
-                width: 1
-            )
-        ),
+            border: isSelected
+                ? Border.all(color: ColorManager.secondary, width: 2)
+                : Border.all(color: const Color(0xFFC4C4C4), width: 1)),
         // color: ColorManager.transparent,
         child: AnimatedContainer(
           curve: Curves.easeInOut,
           duration: const Duration(milliseconds: 200),
           // padding: isSelected ? const EdgeInsets.all(AppSize.s8) : const EdgeInsets.all(0),
-          width: isSelected ? sizeConfig.getScreenWidth(AppSize.s86) : sizeConfig.getScreenWidth(AppSize.s80),
-          height: isSelected ? sizeConfig.getScreenWidth(AppSize.s86) : sizeConfig.getScreenWidth(AppSize.s80),
+          width: isSelected
+              ? sizeConfig.getScreenWidth(AppSize.s86)
+              : sizeConfig.getScreenWidth(AppSize.s80),
+          height: isSelected
+              ? sizeConfig.getScreenWidth(AppSize.s86)
+              : sizeConfig.getScreenWidth(AppSize.s80),
           decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: isSelected ? ColorManager.secondaryLight : ColorManager.transparent,
+            shape: BoxShape.circle,
+            color: isSelected
+                ? ColorManager.secondaryLight
+                : ColorManager.transparent,
           ),
           child: Container(
             padding: const EdgeInsets.all(20),

@@ -59,7 +59,7 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
         body: SafeArea(
           child: Column(
             children: [
-              addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s9)),
+              const RVerticalSpace(height: AppSize.s9),
               Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: sizeConfig.getScreenWidth(AppSize.s24)),
@@ -89,12 +89,12 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                         )
                       ],
                     ),
-                    addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s24)),
+                    const RVerticalSpace(height: AppSize.s24),
                     const LinearProgressStatusBar(),
                   ],
                 ),
               ),
-              addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s32)),
+              const RVerticalSpace(height: AppSize.s32),
               SizedBox(
                 width: double.infinity,
                 height: provider.currantPage < 6
@@ -138,7 +138,7 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                   ),
                 ),
               ),
-              addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s20)),
+             const RVerticalSpace(height: AppSize.s20),
             ],
           ),
         ),
