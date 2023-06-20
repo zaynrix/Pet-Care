@@ -20,13 +20,14 @@ class ProfileScreen extends StatelessWidget {
         title: const Text("profile"),
         actions: [
           CustomIconButton(iconPath: IconAssets.edit,),
-          addHorizontalSpace(sizeConfig.getScreenWidth(AppSize.s20)),],
+          const RHorizontalSpace(width: AppSize.s20),
+        ],
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: sizeConfig.getScreenWidth(AppSize.s20)),
         child: Column(
           children: [
-            addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s30)),
+            const RVerticalSpace(height: AppSize.s30),
             Container(
               height: sizeConfig.getScreenHeight(AppSize.s180),
               padding: const EdgeInsets.all(AppSize.s24),
