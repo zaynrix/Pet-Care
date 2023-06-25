@@ -1,4 +1,4 @@
-part of auth_screens;
+part of auth_module;
 
 class MainAuthScreen extends StatelessWidget {
   const MainAuthScreen({Key? key}) : super(key: key);

@@ -7,7 +7,7 @@ class DividerShopCard extends StatelessWidget {
      required this.textButton,
     Key? key,
   }) : super(key: key);
-  final SizeConfig sizeConfig = locator<SizeConfig>();
+  final SizeConfig sizeConfig = sl<SizeConfig>();
   final String title;
   final String textButton;
   final void Function()? onPressed;

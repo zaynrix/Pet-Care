@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pet_care/common_widgets/common_widgets.dart';
-import 'package:pet_care/features/auth/auth_ui/screens/auth_screens.dart';
+import 'package:pet_care/features/auth/auth_ui/screens/auth_module.dart';
 import 'package:pet_care/features/shop/core/shop_controller/shop_controller.dart';
 import 'package:pet_care/features/shop/ui/widgets/shop_widgets.dart';
 import 'package:pet_care/locator.dart';

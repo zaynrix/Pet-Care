@@ -1,4 +1,4 @@
-library add_shop_screens;
+library add_shop_module;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -11,9 +11,9 @@ import 'package:pet_care/resources/colors_manager.dart';
 import 'package:pet_care/resources/size_config.dart';
 import 'package:pet_care/resources/styles_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
-import 'package:pet_care/routing/routing_imports.dart';
+import 'package:pet_care/routing/routing_module.dart';
 import 'package:pet_care/utils/enums.dart';
-import 'package:pet_care/utils/validate_extension.dart';
+import 'package:pet_care/utils/extension/validate_extension.dart';
 import 'package:provider/provider.dart';
 import 'package:wheel_chooser/wheel_chooser.dart';
 

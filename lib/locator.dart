@@ -2,9 +2,9 @@ import 'package:get_it/get_it.dart';
 import 'package:pet_care/features/auth/auth_core/auth_provider.dart';
 import 'package:pet_care/resources/size_config.dart';
 
-final locator = GetIt.instance;
+final sl = GetIt.instance;
 
 void setup() {
-  locator.registerLazySingleton(() => AuthProvider());
-  locator.registerLazySingleton(() => SizeConfig());
+  sl.registerLazySingleton(() => AuthProvider());
+  sl.registerLazySingleton(() => SizeConfig());
 }

@@ -1,4 +1,4 @@
-part of auth_screens;
+part of auth_module;
 
 class ForgetPasswordScreen extends StatelessWidget {
   ForgetPasswordScreen({Key? key}) : super(key: key);

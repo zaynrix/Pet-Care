@@ -1,6 +1,6 @@
 part of common_widgets;
 
-final SizeConfig sizeConfig = locator<SizeConfig>();
+final SizeConfig sizeConfig = sl<SizeConfig>();
 
 class RVerticalSpace extends StatelessWidget {
   const RVerticalSpace({

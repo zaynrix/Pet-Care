@@ -1,11 +1,11 @@
-part of add_shop_screens;
+part of add_shop_module;
 
 class AddPetSpeciesScreen extends StatelessWidget implements PageWidget{
   AddPetSpeciesScreen({
     Key? key,
   }) : super(key: key);
 
-  final SizeConfig sizeConfig = locator<SizeConfig>();
+  final SizeConfig sizeConfig = sl<SizeConfig>();
 
   void onPressedFunction() {
     debugPrint('Page AddPhotoForPetScreen action');

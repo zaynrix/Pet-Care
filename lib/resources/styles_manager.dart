@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pet_care/resources/colors_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
-
 import 'fonts-manager.dart';
 
 const TextStyle h1Bold = TextStyle(

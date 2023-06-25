@@ -9,7 +9,7 @@ import 'package:pet_care/resources/values_manager.dart';
 import 'colors_manager.dart';
 
 class ThemeManager {
-  final SizeConfig sizeConfig = locator<SizeConfig>();
+  final SizeConfig sizeConfig = sl<SizeConfig>();
 
   static ThemeData get lightTheme { //1
     return ThemeData( //2

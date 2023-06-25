@@ -8,7 +8,7 @@ class GenderCard extends StatelessWidget {
     required this.iconPath,
   }) : super(key: key);
 
-  final SizeConfig sizeConfig = locator<SizeConfig>();
+  final SizeConfig sizeConfig = sl<SizeConfig>();
   final bool isSelected;
   final void Function()? onTap;
   final String iconPath;

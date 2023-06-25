@@ -6,7 +6,7 @@ import 'package:pet_care/resources/colors_manager.dart';
 import 'package:pet_care/resources/size_config.dart';
 import 'package:pet_care/resources/styles_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
-import 'package:pet_care/routing/routing_imports.dart';
+import 'package:pet_care/routing/routing_module.dart';
 import 'package:provider/provider.dart';
 import 'onboarding_widgets/descriptionOnboading.dart';
 import 'onboarding_widgets/sliderIndicator.dart';
@@ -21,7 +21,7 @@ class OnBoardingPage extends StatefulWidget {
 
 class _OnBoardingPageState extends State<OnBoardingPage> {
   final List<OnBoardingModel> list = OnBoardingModel.data;
-  SizeConfig sizeConfig = locator<SizeConfig>();
+  SizeConfig sizeConfig = sl<SizeConfig>();
 
   @override
   void initState() {

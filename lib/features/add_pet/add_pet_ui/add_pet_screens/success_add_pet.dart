@@ -1,8 +1,8 @@
-part of add_shop_screens;
+part of add_shop_module;
 
 class SuccessAddPatScreen extends StatelessWidget {
   SuccessAddPatScreen({Key? key}) : super(key: key);
-  SizeConfig sizeConfig = locator<SizeConfig>();
+  SizeConfig sizeConfig = sl<SizeConfig>();
 
   @override
   Widget build(BuildContext context) {

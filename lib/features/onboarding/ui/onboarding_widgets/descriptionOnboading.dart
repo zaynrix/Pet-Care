@@ -14,7 +14,7 @@ class DescriptionOnBoarding extends StatelessWidget {
 
   final List<OnBoardingModel> list;
   final int _activeIndex;
-  final SizeConfig sizeConfig = locator<SizeConfig>();
+  final SizeConfig sizeConfig = sl<SizeConfig>();
 
   @override
   Widget build(BuildContext context) {

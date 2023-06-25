@@ -9,7 +9,7 @@ class BannerCard extends StatelessWidget {
  final List listSvg;
   PageController controller;
   Function(int x) onTap;
-  final SizeConfig sizeConfig = locator<SizeConfig>();
+  final SizeConfig sizeConfig = sl<SizeConfig>();
 
 
   @override

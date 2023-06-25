@@ -1,4 +1,4 @@
-library auth_screens;
+library auth_module;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,8 +11,8 @@ import 'package:pet_care/resources/colors_manager.dart';
 import 'package:pet_care/resources/size_config.dart';
 import 'package:pet_care/resources/styles_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
-import 'package:pet_care/routing/routing_imports.dart';
-import 'package:pet_care/utils/validate_extension.dart';
+import 'package:pet_care/routing/routing_module.dart';
+import 'package:pet_care/utils/extension/validate_extension.dart';
 import 'package:pinput/pinput.dart';
 import 'package:provider/provider.dart';
 

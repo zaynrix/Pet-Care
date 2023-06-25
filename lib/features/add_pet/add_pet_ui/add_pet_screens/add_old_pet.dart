@@ -1,9 +1,9 @@
-part of add_shop_screens;
+part of add_shop_module;
 
 class AppOldPetScreen extends StatelessWidget implements PageWidget{
   AppOldPetScreen({Key? key}) : super(key: key);
 
-  final SizeConfig sizeConfig = locator<SizeConfig>();
+  final SizeConfig sizeConfig = sl<SizeConfig>();
   @override
   void onPressedFunction() {
     debugPrint('Page AppOldPetScreen action');

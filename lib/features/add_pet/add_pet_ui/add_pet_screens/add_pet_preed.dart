@@ -1,11 +1,11 @@
-part of add_shop_screens;
+part of add_shop_module;
 
 class AddPetBreedScreen extends StatelessWidget implements PageWidget{
   AddPetBreedScreen({
     Key? key,
   }) : super(key: key);
 
-  SizeConfig sizeConfig = locator<SizeConfig>();
+  SizeConfig sizeConfig = sl<SizeConfig>();
   TextEditingController petNameController = TextEditingController();
   @override
   void onPressedFunction() {

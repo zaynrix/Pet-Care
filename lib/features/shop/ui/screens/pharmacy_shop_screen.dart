@@ -9,7 +9,7 @@ class PharmacyShopScreen extends StatefulWidget {
 
 class _PharmacyShopScreenState extends State<PharmacyShopScreen> {
   final shopController = Get.put(ShopController());
-  final SizeConfig sizeConfig = locator<SizeConfig>();
+  final SizeConfig sizeConfig = sl<SizeConfig>();
 
   @override
   void initState() {

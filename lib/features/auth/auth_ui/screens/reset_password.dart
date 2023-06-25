@@ -1,4 +1,4 @@
-part of auth_screens;
+part of auth_module;
 class ResetPasswordScreen extends StatelessWidget {
   ResetPasswordScreen({Key? key}) : super(key: key);
   TextEditingController passwordController = TextEditingController();

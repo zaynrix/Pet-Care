@@ -9,7 +9,7 @@ import 'package:pet_care/resources/values_manager.dart';
 class ProfileScreen extends StatelessWidget {
    ProfileScreen({Key? key}) : super(key: key);
 
-  final SizeConfig sizeConfig = locator<SizeConfig>();
+  final SizeConfig sizeConfig = sl<SizeConfig>();
 
 
   @override

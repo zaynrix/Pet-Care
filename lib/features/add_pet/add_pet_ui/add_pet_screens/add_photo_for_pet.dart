@@ -1,8 +1,8 @@
-part of add_shop_screens;
+part of add_shop_module;
 
 class AddPhotoForPetScreen extends StatelessWidget implements PageWidget {
   AddPhotoForPetScreen({Key? key}) : super(key: key);
-  final SizeConfig sizeConfig = locator<SizeConfig>();
+  final SizeConfig sizeConfig = sl<SizeConfig>();
 
   @override
   void onPressedFunction() {
@@ -15,7 +15,8 @@ class AddPhotoForPetScreen extends StatelessWidget implements PageWidget {
   Widget build(BuildContext context) {
     debugPrint("This is indie build in add photo");
     return Scaffold(
-      body: Padding(
+      body:
+      Padding(
         padding: const EdgeInsets.symmetric(horizontal: AppPadding.p44),
 
         child: SingleChildScrollView(

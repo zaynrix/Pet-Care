@@ -1,4 +1,4 @@
-part of routing_imports;
+part of routing_module;
 
 
 class RoutsGenerate{
