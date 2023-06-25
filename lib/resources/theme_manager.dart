@@ -25,7 +25,7 @@ class ThemeManager {
           toolbarHeight: AppSize.s80,
             elevation: 0,
             iconTheme: IconThemeData(
-              size: AppSize.s35,
+              size: AppSize.s32,
               color: ColorManager.primary,
             ),
             centerTitle: true,
