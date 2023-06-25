@@ -2,8 +2,15 @@ part of profile_module;
 
 class PaymentCard extends StatelessWidget {
   const PaymentCard({
+    required this.iconPath,
+    required this.supTitle,
+    required this.title,
     Key? key,
   }) : super(key: key);
+
+  final String title;
+  final String supTitle;
+  final String iconPath;
 
   @override
   Widget build(BuildContext context) {
@@ -11,6 +18,9 @@ class PaymentCard extends StatelessWidget {
       padding: AppPadding.p24.paddingBottom,
       margin: AppMargin.m24.marginBottom,
       width: double.infinity,
+      decoration: BoxDecoration(
+        border: Border(bottom: BorderSide(color: ColorManager.primaryWithTransparent10))
+      ),
       child: Row(
         children: [
           Container(
@@ -22,14 +32,14 @@ class PaymentCard extends StatelessWidget {
                 shape: BoxShape.rectangle,
                 borderRadius: AppSize.s10.circularRadius
             ),
-            child: SvgPicture.asset(IconAssets.mastercard),
+            child: SvgPicture.asset(iconPath),
           ),
           AppSize.s16.addHorizontalSpace,
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text("Ace Mastercard" ,style: supTitleMedium,),
-              Text("....1994" ,style: footNoteRegular(color: ColorManager.gray),)
+              Text(title ,style: supTitleMedium,),
+              Text(supTitle ,style: footNoteRegular(color: ColorManager.gray),)
             ],
           )
         ],
