@@ -9,6 +9,18 @@ extension FlutterSizes on num {
   static const designWidth = 375;
   static const designHeight = 815;
 
+  SizedBox get addHorizontalSpace {
+    return SizedBox(
+      width: screenDeviceWidth * (toDouble() / designHeight),
+    );
+  }
+
+  SizedBox get addVerticalSpace {
+    return SizedBox(
+      height: screenDeviceHeight * (toDouble() / screenDeviceHeight),
+    );
+  }
+
   double get dp {
     return toDouble();
   }

@@ -4,5 +4,6 @@ class AppStrings{
   static const signUp = 'Sign Up';
   static const email = 'email';
   static const password = 'password';
+  static const profile = 'profile';
 }
 

@@ -1,49 +1,100 @@
-import 'package:flutter/material.dart';
-import 'package:pet_care/common_widgets/common_widgets.dart';
-import 'package:pet_care/locator.dart';
-import 'package:pet_care/resources/assets_manager.dart';
-import 'package:pet_care/resources/colors_manager.dart';
-import 'package:pet_care/resources/size_config.dart';
-import 'package:pet_care/resources/values_manager.dart';
+part of profile_module;
 
 class ProfileScreen extends StatelessWidget {
-   ProfileScreen({Key? key}) : super(key: key);
+  ProfileScreen({Key? key}) : super(key: key);
 
   final SizeConfig sizeConfig = sl<SizeConfig>();
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorManager.soft,
       appBar: AppBar(
-        title: const Text("profile"),
+        title: const Text(AppStrings.profile),
         actions: [
-          CustomIconButton(iconPath: IconAssets.edit,),
+          CustomIconButton(
+            iconPath: IconAssets.edit,
+          ),
           const RHorizontalSpace(width: AppSize.s20),
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: sizeConfig.getScreenWidth(AppSize.s20)),
+        padding: EdgeInsets.symmetric(
+            horizontal: sizeConfig.getScreenWidth(AppSize.s20)),
         child: Column(
           children: [
             const RVerticalSpace(height: AppSize.s30),
             Container(
-              height: sizeConfig.getScreenHeight(AppSize.s180),
-              padding: const EdgeInsets.all(AppSize.s24),
+              width: double.infinity,
+              padding: AppSize.s24.paddingAll,
               decoration: BoxDecoration(
-                color: ColorManager.white,
-                borderRadius: BorderRadius.circular(AppSize.s16),
-                boxShadow: [
-                  customShadow()
-                ]
-              ),
+                  color: ColorManager.white,
+                  borderRadius: AppSize.s16.circularRadius,
+                  boxShadow: [customShadow()]),
               child: Column(
                 children: [
-
+                  ProfileTile(
+                    iconPath: IconAssets.unSelectedProfile,
+                    title: "Ace Ventura",
+                    iconColor: ColorManager.primaryWithTransparent10,
+                  ),
+                 Row(
+                   children: [
+                     AppSize.s20.addHorizontalSpace,
+                     SvgPicture.asset(IconAssets.email),
+                     AppSize.s24.addHorizontalSpace,
+                     Text("acevent@mail.com", style: bodyRegular(color: ColorManager.primary),)
+                   ],
+                 ),
+                 AppSize.s16.addVerticalSpace,
+                 Row(
+                   children: [
+                     AppSize.s20.addHorizontalSpace,
+                     SvgPicture.asset(IconAssets.mobile),
+                     AppSize.s24.addHorizontalSpace,
+                     Text("434-1234567", style: bodyRegular(color: ColorManager.primary),)
+                   ],
+                 ),
                 ],
               ),
-            )
+            ),
+            AppSize.s24.addVerticalSpace,
+            Container(
+              padding: AppSize.s24.paddingAll,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  color: ColorManager.white,
+                  borderRadius: AppSize.s16.circularRadius,
+                  boxShadow: [customShadow()]),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const ProfileTile(
+                    iconPath: IconAssets.unSelectedProfile,
+                    title: "Payment methods",
+                    iconColor: ColorManager.secondaryLight,
+                  ),
+                  const ProfileTile(
+                    iconPath: IconAssets.unSelectedProfile,
+                    title: "Addresses",
+                    iconColor: ColorManager.tertiary,
+                  ),
+                  const ProfileTile(
+                    iconPath: IconAssets.unSelectedProfile,
+                    title: "Orders",
+                    iconColor: ColorManager.quaternary,
+                  ),
+                  const ProfileTile(
+                    iconPath: IconAssets.unSelectedProfile,
+                    title: "Apointments",
+                    iconColor: ColorManager.greenLight,
+                  ),
+                  AppSize.s16.addVerticalSpace,
+                  TextButton(onPressed: (){}, child: Text("Log out" , style: bodyRegular(color: ColorManager.error),
+                  ))
+                ],
+              ),
+            ),
           ],
         ),
       ),
