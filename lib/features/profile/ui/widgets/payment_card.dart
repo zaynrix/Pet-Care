@@ -23,17 +23,17 @@ class PaymentCard extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Container(
-            padding: AppPadding.p8.paddingAll,
-            height: AppSize.s40.height,
-            width: AppSize.s40.width,
-            decoration: BoxDecoration(
-                color: ColorManager.secondaryWithTransparent50,
-                shape: BoxShape.rectangle,
-                borderRadius: AppSize.s10.circularRadius
+            Container(
+              padding: AppPadding.p8.paddingAll,
+              height: AppSize.s40.height,
+              width: AppSize.s40.width,
+              decoration: BoxDecoration(
+                  color: ColorManager.secondaryWithTransparent50,
+                  shape: BoxShape.rectangle,
+                  borderRadius: AppSize.s10.circularRadius
+              ),
+              child: SvgPicture.asset(iconPath),
             ),
-            child: SvgPicture.asset(iconPath),
-          ),
           AppSize.s16.addHorizontalSpace,
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
