@@ -15,7 +15,7 @@ class ProfileScreen extends StatelessWidget {
           CustomIconButton(
             iconPath: IconAssets.edit,
           ),
-          const RHorizontalSpace(width: AppSize.s20),
+          const RHorizontalSpace(width: AppSize.s30),
         ],
       ),
       body: Padding(
@@ -38,23 +38,29 @@ class ProfileScreen extends StatelessWidget {
                     title: "Ace Ventura",
                     iconColor: ColorManager.primaryWithTransparent10,
                   ),
-                 Row(
-                   children: [
-                     AppSize.s20.addHorizontalSpace,
-                     SvgPicture.asset(IconAssets.email),
-                     AppSize.s24.addHorizontalSpace,
-                     Text("acevent@mail.com", style: bodyRegular(color: ColorManager.primary),)
-                   ],
-                 ),
-                 AppSize.s16.addVerticalSpace,
-                 Row(
-                   children: [
-                     AppSize.s20.addHorizontalSpace,
-                     SvgPicture.asset(IconAssets.mobile),
-                     AppSize.s24.addHorizontalSpace,
-                     Text("434-1234567", style: bodyRegular(color: ColorManager.primary),)
-                   ],
-                 ),
+                  Row(
+                    children: [
+                      AppSize.s20.addHorizontalSpace,
+                      SvgPicture.asset(IconAssets.email),
+                      AppSize.s24.addHorizontalSpace,
+                      Text(
+                        "acevent@mail.com",
+                        style: bodyRegular(color: ColorManager.primary),
+                      )
+                    ],
+                  ),
+                  AppSize.s16.addVerticalSpace,
+                  Row(
+                    children: [
+                      AppSize.s20.addHorizontalSpace,
+                      SvgPicture.asset(IconAssets.mobile),
+                      AppSize.s24.addHorizontalSpace,
+                      Text(
+                        "434-1234567",
+                        style: bodyRegular(color: ColorManager.primary),
+                      )
+                    ],
+                  ),
                 ],
               ),
             ),
@@ -71,27 +77,31 @@ class ProfileScreen extends StatelessWidget {
                 children: [
                   const ProfileTile(
                     iconPath: IconAssets.unSelectedProfile,
-                    title: "Payment methods",
+                    title: AppStrings.paymentMethod,
                     iconColor: ColorManager.secondaryLight,
                   ),
                   const ProfileTile(
                     iconPath: IconAssets.unSelectedProfile,
-                    title: "Addresses",
+                    title: AppStrings.addresses,
                     iconColor: ColorManager.tertiary,
                   ),
                   const ProfileTile(
                     iconPath: IconAssets.unSelectedProfile,
-                    title: "Orders",
+                    title: AppStrings.orders,
                     iconColor: ColorManager.quaternary,
                   ),
                   const ProfileTile(
                     iconPath: IconAssets.unSelectedProfile,
-                    title: "Apointments",
+                    title: AppStrings.apointments,
                     iconColor: ColorManager.greenLight,
                   ),
                   AppSize.s16.addVerticalSpace,
-                  TextButton(onPressed: (){}, child: Text("Log out" , style: bodyRegular(color: ColorManager.error),
-                  ))
+                  TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        AppStrings.logOut,
+                        style: bodyRegular(color: ColorManager.error),
+                      ))
                 ],
               ),
             ),

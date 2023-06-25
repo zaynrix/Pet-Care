@@ -13,9 +13,9 @@ class ThemeManager {
 
   static ThemeData get lightTheme { //1
     return ThemeData( //2
-        primaryColor: ColorManager.mainColor,
+        primaryColor: ColorManager.soft,
 
-        scaffoldBackgroundColor: ColorManager.mainColor,
+        scaffoldBackgroundColor: ColorManager.soft,
         fontFamily: 'Inter', //3
         // buttonTheme: ButtonThemeData( // 4
         //   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),

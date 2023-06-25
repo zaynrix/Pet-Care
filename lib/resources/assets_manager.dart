@@ -25,6 +25,7 @@ class IconAssets {
   static const String edit = "$iconPath/edit.svg";
   static const String email = "$iconPath/email.svg";
   static const String mobile = "$iconPath/mobile.svg";
+  static const String cancel = "$iconPath/cancel.svg";
 
   //---------------------------------gender-------------------------------------
 
