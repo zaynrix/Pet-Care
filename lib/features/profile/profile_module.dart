@@ -17,3 +17,4 @@ part 'ui/screens/profile_screen.dart';
 part 'ui/widgets/profile_tile.dart';
 part 'ui/screens/edit_profile_screen.dart';
 part 'ui/screens/payment_methods.dart';
+part 'ui/widgets/payment_card.dart';

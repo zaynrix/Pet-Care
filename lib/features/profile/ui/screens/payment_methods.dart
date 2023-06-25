@@ -20,7 +20,7 @@ class PaymentMethods extends StatelessWidget {
           AppSize.s32.addVerticalSpace,
           Expanded(
             child: Container(
-              padding: AppPadding.p24.paddingHorizontal,
+              padding: AppPadding.p24.paddingAll,
               width: double.infinity,
               decoration: BoxDecoration(
                 color: ColorManager.white,
@@ -29,25 +29,7 @@ class PaymentMethods extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  Container(
-                      padding: AppPadding.p24.paddingBottom,
-                    width: double.infinity,
-                    child: Row(
-                      children: [
-                        Container(
-                          padding: AppPadding.p8.paddingAll,
-                          height: AppSize.s40.height,
-                          width: AppSize.s40.width,
-                          decoration: BoxDecoration(
-                            color: ColorManager.secondaryWithTransparent50,
-                            shape: BoxShape.rectangle,
-                            borderRadius: AppSize.s10.circularRadius
-                          ),
-                          child: SvgPicture.asset(IconAssets.mastercard),
-                        )
-                      ],
-                    ),
-                  ),
+                  PaymentCard(),
                 ],
               ),
             ),
@@ -57,3 +39,4 @@ class PaymentMethods extends StatelessWidget {
     );
   }
 }
+
