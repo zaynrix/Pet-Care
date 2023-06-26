@@ -23,6 +23,17 @@ class IconAssets {
   static const String likeSelected = "$iconPath/like_selected.svg";
   static const String likeUnselected = "$iconPath/like_unselected.svg";
   static const String edit = "$iconPath/edit.svg";
+  static const String email = "$iconPath/email.svg";
+  static const String mobile = "$iconPath/mobile.svg";
+  static const String cancel = "$iconPath/cancel.svg";
+  static const String visa = "$iconPath/visa.svg";
+  static const String mastercard = "$iconPath/mastercard.svg";
+  static const String paypal = "$iconPath/paypal.svg";
+  static const String location = "$iconPath/location.svg";
+  static const String homeAddress = "$iconPath/home_address.svg";
+  static const String workAddress = "$iconPath/work_address.svg";
+  static const String delete = "$iconPath/delete.svg";
+  static const String rightBack = "$iconPath/right_back.svg";
 
   //---------------------------------gender-------------------------------------
 
@@ -32,7 +43,7 @@ class IconAssets {
   //------------------------bottomAppBar----------------------------------------
 
   static const String unSelectedCart = "$iconPath/navBarIcons/unSelected/shop_unselected.svg";
-
+  static const String unSelectedProfile = "$iconPath/navBarIcons/unSelected/person_unselected.svg";
 }
 //--------------------------------SvgAssets-------------------------------------
 
@@ -68,7 +79,7 @@ class SvgAssets {
 
   static const successAddPet = "$svgPath/success_add_pet.svg";
 
-  //--------------------------pannerSvg-----------------------------------------
+  //--------------------------bannerSvg-----------------------------------------
 
   static const firstBanner = "$svgPath/banner_svg.svg";
   static const List banners = [

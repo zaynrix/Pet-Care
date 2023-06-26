@@ -10,7 +10,7 @@ import 'package:pet_care/utils/enums.dart';
 import 'package:pet_care/utils/helper.dart';
 
 class AddPetProvider extends ChangeNotifier {
-  final SizeConfig sizeConfig = locator<SizeConfig>();
+  final SizeConfig sizeConfig = sl<SizeConfig>();
 
    PageController? pageController ;
   int activeIndex = 0;

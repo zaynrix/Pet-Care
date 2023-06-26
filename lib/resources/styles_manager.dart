@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pet_care/resources/colors_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
-
 import 'fonts-manager.dart';
 
 const TextStyle h1Bold = TextStyle(
@@ -131,7 +130,7 @@ const TextStyle bodyMedium = TextStyle(
     fontWeight: FontWeightManager.medium,
     fontFamily: FontConstants.fontFamily,
     fontSize: FontSize.s15,
-    color: ColorManager.secondary,
+    color: ColorManager.primary,
     height: 1.4);
 
 // const TextStyle footNoteRegular = TextStyle(
@@ -167,6 +166,13 @@ const TextStyle captionRegular = TextStyle(
     fontFamily: FontConstants.fontFamily,
     fontSize: FontSize.s11,
     color: ColorManager.gray,
+    height: 1.45);
+
+const TextStyle captionRegularPrimary = TextStyle(
+    fontWeight: FontWeightManager.regular,
+    fontFamily: FontConstants.fontFamily,
+    fontSize: FontSize.s11,
+    color: ColorManager.primary,
     height: 1.45);
 
 const TextStyle captionMedium = TextStyle(

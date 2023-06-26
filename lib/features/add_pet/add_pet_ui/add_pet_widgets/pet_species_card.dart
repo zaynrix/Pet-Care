@@ -10,7 +10,7 @@ class PetSpeciesCard extends StatelessWidget {
     required this.onTap,
   }) : super(key: key);
 
-  final SizeConfig sizeConfig = locator<SizeConfig>();
+  final SizeConfig sizeConfig = sl<SizeConfig>();
   final String type;
   final String iconPath;
   final Color backgroundColor;

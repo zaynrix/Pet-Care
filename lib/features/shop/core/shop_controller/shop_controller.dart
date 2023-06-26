@@ -15,6 +15,7 @@ class ShopController extends GetxController {
   updateCurrantBannerCard(int page){
     currantBannerCard(page);
   }
+
   initPharmacyShopState(){
     debugPrint("This is inside init in controller");
     timer = Timer.periodic(const Duration(seconds: 5), (Timer timer) {
@@ -36,6 +37,4 @@ class ShopController extends GetxController {
   disposePharmacyState(){
     timer!.cancel();
   }
-
-
 }

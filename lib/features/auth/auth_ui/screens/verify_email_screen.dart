@@ -1,4 +1,4 @@
-part of auth_screens;
+part of auth_module;
 class VerifyEmailScreen extends StatelessWidget {
   VerifyEmailScreen({Key? key}) : super(key: key);
   TextEditingController optController = TextEditingController();

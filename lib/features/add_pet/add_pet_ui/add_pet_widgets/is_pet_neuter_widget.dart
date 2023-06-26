@@ -9,7 +9,7 @@ class IsPetNeuterWidget extends StatelessWidget {
     required this.title,
   }) : super(key: key);
 
-  final SizeConfig sizeConfig = locator<SizeConfig>();
+  final SizeConfig sizeConfig = sl<SizeConfig>();
   final bool isSelected;
   final void Function()? onTap;
   final String title;

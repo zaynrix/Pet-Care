@@ -5,7 +5,7 @@ class ShodCard extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final SizeConfig sizeConfig = locator<SizeConfig>();
+  final SizeConfig sizeConfig = sl<SizeConfig>();
 
 
   @override

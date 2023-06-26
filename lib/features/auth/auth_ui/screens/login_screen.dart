@@ -1,4 +1,4 @@
-part of auth_screens;
+part of auth_module;
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
@@ -6,7 +6,7 @@ class LoginScreen extends StatelessWidget {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   GlobalKey<FormState> formKye = GlobalKey<FormState>();
-  final SizeConfig sizeConfig = locator<SizeConfig>();
+  final SizeConfig sizeConfig = sl<SizeConfig>();
 
   //
   // top: MediaQuery.of(context).size.height * 0.25,

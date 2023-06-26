@@ -1,11 +1,11 @@
-part of add_shop_screens;
+part of add_shop_module;
 
 class IsPetNeuterScreen extends StatelessWidget implements PageWidget {
   IsPetNeuterScreen({
     Key? key,
   }) : super(key: key);
 
-  SizeConfig sizeConfig = locator<SizeConfig>();
+  SizeConfig sizeConfig = sl<SizeConfig>();
 
   @override
   void onPressedFunction() {

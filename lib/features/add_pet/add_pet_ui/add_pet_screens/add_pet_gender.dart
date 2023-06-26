@@ -1,11 +1,11 @@
-part of add_shop_screens;
+part of add_shop_module;
 
 class AddPetGenderScreen extends StatelessWidget implements PageWidget {
   AddPetGenderScreen({
     Key? key,
   }) : super(key: key);
 
-  final sizeConfig = locator<SizeConfig>();
+  final sizeConfig = sl<SizeConfig>();
 
   @override
   void onPressedFunction() {

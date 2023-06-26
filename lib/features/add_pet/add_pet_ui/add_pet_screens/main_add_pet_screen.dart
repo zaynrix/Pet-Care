@@ -1,4 +1,4 @@
-part of add_shop_screens;
+part of add_shop_module;
 
 class MainAppPetScreen extends StatefulWidget {
   MainAppPetScreen({Key? key}) : super(key: key);
@@ -15,7 +15,7 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
     Provider.of<AddPetProvider>(context, listen: false).initStateAddPet();
   }
 
-  final SizeConfig sizeConfig = locator<SizeConfig>();
+  final SizeConfig sizeConfig = sl<SizeConfig>();
 
   final PageController controllerPages = PageController();
 

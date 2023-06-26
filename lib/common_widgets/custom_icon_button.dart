@@ -1,7 +1,7 @@
 part of common_widgets;
 
 class CustomIconButton extends StatelessWidget {
-  final SizeConfig sizeConfig = locator<SizeConfig>();
+  final SizeConfig sizeConfig = sl<SizeConfig>();
 
   CustomIconButton({
     required this.iconPath,

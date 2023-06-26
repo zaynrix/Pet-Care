@@ -9,13 +9,13 @@ import 'package:pet_care/resources/values_manager.dart';
 import 'colors_manager.dart';
 
 class ThemeManager {
-  final SizeConfig sizeConfig = locator<SizeConfig>();
+  final SizeConfig sizeConfig = sl<SizeConfig>();
 
   static ThemeData get lightTheme { //1
     return ThemeData( //2
-        primaryColor: ColorManager.mainColor,
+        primaryColor: ColorManager.soft,
 
-        scaffoldBackgroundColor: ColorManager.mainColor,
+        scaffoldBackgroundColor: ColorManager.soft,
         fontFamily: 'Inter', //3
         // buttonTheme: ButtonThemeData( // 4
         //   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
@@ -25,7 +25,7 @@ class ThemeManager {
           toolbarHeight: AppSize.s80,
             elevation: 0,
             iconTheme: IconThemeData(
-              size: AppSize.s35,
+              size: AppSize.s32,
               color: ColorManager.primary,
             ),
             centerTitle: true,

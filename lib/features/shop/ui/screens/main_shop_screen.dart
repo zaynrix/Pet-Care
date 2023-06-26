@@ -3,7 +3,7 @@ part of shop_screens;
 class MainShopScreen extends StatelessWidget {
   MainShopScreen({Key? key}) : super(key: key);
 
-  final SizeConfig sizeConfig = locator<SizeConfig>();
+  final SizeConfig sizeConfig = sl<SizeConfig>();
 
 
   @override

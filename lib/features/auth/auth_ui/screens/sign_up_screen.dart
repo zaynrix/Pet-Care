@@ -1,4 +1,4 @@
-part of auth_screens;
+part of auth_module;
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({Key? key}) : super(key: key);
 
