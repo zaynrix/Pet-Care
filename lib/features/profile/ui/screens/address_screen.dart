@@ -55,7 +55,8 @@ class AddressScreen extends StatelessWidget {
                       color: ColorManager.quaternary,
                     ),
                     const Spacer(),
-                    ElevatedButton(onPressed: (){}, child: const Text("+ Add new address"))
+                    ElevatedButton(onPressed: (){}, child: const Text("+ Add new address")),
+                    AppSize.s20.addVerticalSpace
                   ],
                 ),
               ),

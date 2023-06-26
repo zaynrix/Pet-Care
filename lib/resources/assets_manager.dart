@@ -33,6 +33,7 @@ class IconAssets {
   static const String homeAddress = "$iconPath/home_address.svg";
   static const String workAddress = "$iconPath/work_address.svg";
   static const String delete = "$iconPath/delete.svg";
+  static const String rightBack = "$iconPath/right_back.svg";
 
   //---------------------------------gender-------------------------------------
 

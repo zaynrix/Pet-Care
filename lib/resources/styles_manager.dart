@@ -168,6 +168,13 @@ const TextStyle captionRegular = TextStyle(
     color: ColorManager.gray,
     height: 1.45);
 
+const TextStyle captionRegularPrimary = TextStyle(
+    fontWeight: FontWeightManager.regular,
+    fontFamily: FontConstants.fontFamily,
+    fontSize: FontSize.s11,
+    color: ColorManager.primary,
+    height: 1.45);
+
 const TextStyle captionMedium = TextStyle(
     fontWeight: FontWeightManager.medium,
     fontFamily: FontConstants.fontFamily,

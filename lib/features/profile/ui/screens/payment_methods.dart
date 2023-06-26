@@ -28,10 +28,13 @@ class PaymentMethods extends StatelessWidget {
                 boxShadow: [customShadow()]
               ),
               child: Column(
-                children: const [
-                  PaymentCard(iconPath: IconAssets.mastercard, supTitle: "**** 1994", title: "Ace Mastercard",),
-                  PaymentCard(iconPath: IconAssets.visa, supTitle: "**** 1994", title: "My Visa Card",),
-                  PaymentCard(iconPath: IconAssets.paypal, supTitle: "acevent@mail.com", title: "My lovely Paypal",),
+                children:  [
+                  const PaymentCard(iconPath: IconAssets.mastercard, supTitle: "**** 1994", title: "Ace Mastercard",),
+                  const PaymentCard(iconPath: IconAssets.visa, supTitle: "**** 1994", title: "My Visa Card",),
+                  const PaymentCard(iconPath: IconAssets.paypal, supTitle: "acevent@mail.com", title: "My lovely Paypal",),
+                  const Spacer(),
+                  ElevatedButton(onPressed: (){}, child: const Text("+ Add new method")),
+                  AppSize.s35.addVerticalSpace
                 ],
               ),
             ),
