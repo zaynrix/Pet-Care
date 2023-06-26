@@ -25,3 +25,5 @@ part 'ui/widgets/choose_payment_method_card.dart';
 part 'ui/screens/address_screen.dart';
 part "ui/widgets/address_card.dart";
 part 'ui/screens/orders_screen.dart';
+part 'ui/screens/order_detail_screen.dart';
+part "ui/widgets/order_detail_card.dart";
