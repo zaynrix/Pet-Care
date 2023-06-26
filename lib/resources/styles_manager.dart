@@ -130,7 +130,7 @@ const TextStyle bodyMedium = TextStyle(
     fontWeight: FontWeightManager.medium,
     fontFamily: FontConstants.fontFamily,
     fontSize: FontSize.s15,
-    color: ColorManager.secondary,
+    color: ColorManager.primary,
     height: 1.4);
 
 // const TextStyle footNoteRegular = TextStyle(

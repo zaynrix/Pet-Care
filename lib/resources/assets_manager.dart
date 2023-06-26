@@ -29,6 +29,10 @@ class IconAssets {
   static const String visa = "$iconPath/visa.svg";
   static const String mastercard = "$iconPath/mastercard.svg";
   static const String paypal = "$iconPath/paypal.svg";
+  static const String location = "$iconPath/location.svg";
+  static const String homeAddress = "$iconPath/home_address.svg";
+  static const String workAddress = "$iconPath/work_address.svg";
+  static const String delete = "$iconPath/delete.svg";
 
   //---------------------------------gender-------------------------------------
 
