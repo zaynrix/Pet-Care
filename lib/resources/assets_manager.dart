@@ -15,8 +15,6 @@ class IconAssets {
   static const String googleIcon = '$iconPath/google_icon.svg';
   static const String plus = '$iconPath/plus.svg';
 
-  //---------------------------------addPet-------------------------------------
-
   static const String birdType = "$iconPath/pet_types/bird.svg";
   static const String catType = "$iconPath/pet_types/cat.svg";
   static const String dogType = "$iconPath/pet_types/dog.svg";
@@ -35,6 +33,8 @@ class IconAssets {
   static const String workAddress = "$iconPath/work_address.svg";
   static const String delete = "$iconPath/delete.svg";
   static const String rightBack = "$iconPath/right_back.svg";
+  static const String clock = "$iconPath/clock.svg";
+  static const String notificationSelected = "$iconPath/navBarIcons/selected/notification_selected.svg";
 
   //---------------------------------gender-------------------------------------
 
