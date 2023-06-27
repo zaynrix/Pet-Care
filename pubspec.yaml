@@ -50,6 +50,7 @@ dependencies:
   get: ^4.6.5
   get_storage: ^2.1.1
   flutter_slidable: ^2.0.0
+  table_calendar: ^3.0.9
 #  flutter_state_render_dialog: ^1.0.3
 
 dev_dependencies:

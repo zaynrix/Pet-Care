@@ -1,5 +1,6 @@
 library profile_module;
 
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -14,6 +15,7 @@ import 'package:pet_care/resources/styles_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
 import 'package:pet_care/utils/extension/responsive_extension.dart';
 import 'package:pet_care/utils/extension/validate_extension.dart';
+import 'package:table_calendar/table_calendar.dart';
 
 part 'ui/screens/profile_screen.dart';
 part 'ui/widgets/profile_tile.dart';
@@ -27,3 +29,4 @@ part "ui/widgets/address_card.dart";
 part 'ui/screens/orders_screen.dart';
 part 'ui/screens/order_detail_screen.dart';
 part "ui/widgets/order_detail_card.dart";
+part "ui/screens/appointments_screen.dart";

@@ -4,6 +4,7 @@ class ImageAssets {
   static const String dogMedicine = "$imagePath/dog_medicine.png";
   static const String productDetails = "$imagePath/product_details_image.png";
   static const String bannerImage = "$imagePath/banner_image.png";
+  static const String dog = "$imagePath/dog.png";
 }
 //--------------------------------iconAssets------------------------------------
 

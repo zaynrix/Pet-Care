@@ -153,13 +153,20 @@ const TextStyle footNoteBold = TextStyle(
     fontSize: FontSize.s13,
     color: ColorManager.primary,
     height: 1.38);
+// //
+// const TextStyle footNoteSemiBold = TextStyle(
+//     fontWeight: FontWeightManager.semiBold,
+//     fontFamily: FontConstants.fontFamily,
+//     fontSize: FontSize.s13,
+//     color: ColorManager.primary,
+//     height: 1.38);
 //
-const TextStyle footNoteSemiBold = TextStyle(
-    fontWeight: FontWeightManager.semiBold,
-    fontFamily: FontConstants.fontFamily,
-    fontSize: FontSize.s13,
-    color: ColorManager.primary,
-    height: 1.38);
+// const TextStyle footNoteSemiBoldSecondary = TextStyle(
+//     fontWeight: FontWeightManager.semiBold,
+//     fontFamily: FontConstants.fontFamily,
+//     fontSize: FontSize.s13,
+//     color: ColorManager.secondary,
+//     height: 1.38);
 
 const TextStyle captionRegular = TextStyle(
     fontWeight: FontWeightManager.regular,
@@ -335,6 +342,15 @@ TextStyle footNoteRegular({required Color color}) {
       fontWeight: FontWeightManager.regular,
       fontFamily: FontConstants.fontFamily,
       fontSize: FontSize.s13.sp,
+      height: 1.38);
+}
+
+TextStyle footNoteSemiBold({required Color color}) {
+  return TextStyle(
+      fontWeight: FontWeightManager.semiBold,
+      fontFamily: FontConstants.fontFamily,
+      fontSize: FontSize.s13,
+      color: color,
       height: 1.38);
 }
 
