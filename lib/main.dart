@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:pet_care/features/add_pet/add_pet_core/add_pet_provider.dart';
 import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/add_pet_screens.dart';
 import 'package:pet_care/features/auth/auth_core/auth_provider.dart';
+import 'package:pet_care/features/home/ui/home_ui_module.dart';
+import 'package:pet_care/features/notification/ui/notification_module.dart';
 import 'package:pet_care/features/onboarding/core/on_boarding_provider.dart';
 import 'package:pet_care/features/profile/profile_module.dart';
 import 'package:pet_care/locator.dart';
@@ -46,7 +48,7 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           theme: ThemeManager.lightTheme,
           scaffoldMessengerKey: Helpers.scaffoldKey,
-          home: AppointmentsScreen(),
+          home: NotificationScreen(),
           navigatorKey: RouteService.serviceNavi.navKey,
           onGenerateRoute: RoutsGenerate.generateRoute,
         ),

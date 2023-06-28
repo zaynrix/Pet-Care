@@ -35,6 +35,8 @@ class IconAssets {
   static const String rightBack = "$iconPath/right_back.svg";
   static const String clock = "$iconPath/clock.svg";
   static const String notificationSelected = "$iconPath/navBarIcons/selected/notification_selected.svg";
+  static const String search = "$iconPath/search.svg";
+  static const String vaccine = "$iconPath/vaccine.svg";
 
   //---------------------------------gender-------------------------------------
 
