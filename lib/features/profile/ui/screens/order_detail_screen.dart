@@ -2,7 +2,7 @@ part of profile_module;
 
 class OrderDetailScreen extends StatelessWidget {
   const OrderDetailScreen({Key? key}) : super(key: key);
-
+  final int listCount = 10;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,14 +31,13 @@ class OrderDetailScreen extends StatelessWidget {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    borderRadius: AppSize.s15.circularRadius,
-                    color: ColorManager.white
-                  ),
+                      borderRadius: AppSize.s15.circularRadius,
+                      color: ColorManager.white),
                   padding: AppSize.s16.paddingAll,
                   child: Container(
                     padding: AppSize.s10.paddingHorizontal,
                     decoration: const BoxDecoration(
-                      color: ColorManager.white,
+                        color: ColorManager.white,
                         border: Border(
                             left: BorderSide(
                                 color: ColorManager.secondaryLight, width: 3))),
@@ -79,80 +78,70 @@ class OrderDetailScreen extends StatelessWidget {
                       borderRadius: AppSize.s16.circularRadius,
                       color: ColorManager.white,
                     ),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          const OrderDetailCard(
-                            title: "1x Pro-Sense Itch & Allergy Solutions",
-                            imagePath: ImageAssets.productDetails,
-                            price: "14.36",
-                          ),
-                          const OrderDetailCard(
-                            title:
-                                "1x Naturel Promise Fresh Dental Water Additive18 fl oz",
-                            imagePath: ImageAssets.productDetails,
-                            price: "29.98",
-                          ),
-                          const OrderDetailCard(
-                            title:
-                                "1x Jinx Chicken, Brown Rice & Sweet Potato Dry Dog Food, 23.5 lb. Bag",
-                            imagePath: ImageAssets.productDetails,
-                            price: "45.88",
-                          ),
-                          const OrderDetailCard(
-                            title:
-                                "1x Jinx Chicken, Brown Rice & Sweet Potato Dry Dog Food, 23.5 lb. Bag",
-                            imagePath: ImageAssets.productDetails,
-                            price: "45.88",
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                "Sub Total",
-                                style: footNoteRegular(
-                                    color: ColorManager.primary),
-                              ),
-                              const Spacer(),
-                              const Text(
-                                "\$90.22",
-                                style: bodyBoldPrimary,
-                              )
-                            ],
-                          ),
-                          AppSize.s12.addVerticalSpace,
-                          Row(
-                            children: [
-                              Text(
-                                "Delivery",
-                                style: footNoteRegular(
-                                    color: ColorManager.primary),
-                              ),
-                              const Spacer(),
-                              const Text(
-                                "Free",
-                                style: bodyBoldSecondary,
-                              )
-                            ],
-                          ),
-                          AppSize.s12.addVerticalSpace,
-                          Row(
-                            children: [
-                              Text(
-                                "Total",
-                                style: footNoteRegular(
-                                    color: ColorManager.primary),
-                              ),
-                              const Spacer(),
-                              const Text(
-                                "\$90.22",
-                                style: bodyBoldPrimary,
-                              )
-                            ],
-                          ),
-                          AppSize.s100.addVerticalSpace
-                        ],
-                      ),
-                    ),
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: listCount + 1,
+                        itemBuilder: (context, index) {
+                          // if(){
+                          //
+                          // }
+                          return index != listCount
+                              ? const OrderDetailCard(
+                                  title:
+                                      "1x Naturel Promise Fresh Dental Water Additive18 fl oz",
+                                  imagePath: ImageAssets.productDetails,
+                                  price: "29.98",
+                                )
+                              : Column(
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "Sub Total",
+                                          style: footNoteRegular(
+                                              color: ColorManager.primary),
+                                        ),
+                                        const Spacer(),
+                                        const Text(
+                                          "\$90.22",
+                                          style: bodyBoldPrimary,
+                                        )
+                                      ],
+                                    ),
+                                    AppSize.s12.addVerticalSpace,
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "Delivery",
+                                          style: footNoteRegular(
+                                              color: ColorManager.primary),
+                                        ),
+                                        const Spacer(),
+                                        const Text(
+                                          "Free",
+                                          style: bodyBoldSecondary,
+                                        )
+                                      ],
+                                    ),
+                                    AppSize.s12.addVerticalSpace,
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "Total",
+                                          style: footNoteRegular(
+                                              color: ColorManager.primary),
+                                        ),
+                                        const Spacer(),
+                                        const Text(
+                                          "\$90.22",
+                                          style: bodyBoldPrimary,
+                                        )
+                                      ],
+                                    ),
+                                    AppSize.s100.addVerticalSpace
+                                  ],
+                                );
+                        }),
                   ),
                 ),
               ],
