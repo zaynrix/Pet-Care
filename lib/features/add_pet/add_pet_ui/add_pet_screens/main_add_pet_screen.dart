@@ -1,7 +1,7 @@
 part of add_shop_module;
 
 class MainAppPetScreen extends StatefulWidget {
-  MainAppPetScreen({Key? key}) : super(key: key);
+  const MainAppPetScreen({Key? key}) : super(key: key);
 
   @override
   State<MainAppPetScreen> createState() => _MainAppPetScreenState();
@@ -138,7 +138,7 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                   ),
                 ),
               ),
-             const RVerticalSpace(height: AppSize.s20),
+              const RVerticalSpace(height: AppSize.s20),
             ],
           ),
         ),
