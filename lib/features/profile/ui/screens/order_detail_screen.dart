@@ -82,9 +82,6 @@ class OrderDetailScreen extends StatelessWidget {
                         shrinkWrap: true,
                         itemCount: listCount + 1,
                         itemBuilder: (context, index) {
-                          // if(){
-                          //
-                          // }
                           return index != listCount
                               ? const OrderDetailCard(
                                   title:
@@ -152,7 +149,6 @@ class OrderDetailScreen extends StatelessWidget {
             child: Container(
               width: 375.width,
               height: 200.height,
-              // color: Colors.white.withOpacity(0.5),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: const Alignment(0.00, -1.00),
