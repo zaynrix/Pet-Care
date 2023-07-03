@@ -3,8 +3,13 @@ part of profile_module;
 class AddNewPaymentMethodScreen extends StatelessWidget {
   AddNewPaymentMethodScreen({Key? key}) : super(key: key);
 
-  static List<String> paymentMethods = ["Credit Card" , "Paypal" , "Google Pay", "Apple Pay"];
-  String currentMethod = paymentMethods[0];
+  static List<String> paymentMethods = [
+    "Credit Card",
+    "Paypal",
+    "Google Pay",
+    "Apple Pay"
+  ];
+  final String currentMethod = paymentMethods[0];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +18,7 @@ class AddNewPaymentMethodScreen extends StatelessWidget {
         leading: Row(
           children: [
             AppSize.s15.addHorizontalSpace,
-            IconButton(onPressed: (){}, icon: const Icon(Icons.arrow_back)),
+            IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
           ],
         ),
       ),
@@ -27,35 +32,42 @@ class AddNewPaymentMethodScreen extends StatelessWidget {
               decoration: BoxDecoration(
                   color: ColorManager.white,
                   borderRadius: AppSize.s30.circularRadius,
-                  boxShadow: [customShadow()]
-              ),
+                  boxShadow: [customShadow()]),
               child: Column(
-                children:  [
-                  ChoosePaymentMethodCard(currentMethod: currentMethod, iconPath: IconAssets.mastercard,
+                children: [
+                  ChoosePaymentMethodCard(
+                    currentMethod: currentMethod,
+                    iconPath: IconAssets.mastercard,
                     methodType: 'Credit Card',
                     value: paymentMethods[0],
-                    onChange: (value){},
+                    onChange: (value) {},
                   ),
                   AppSize.s20.addVerticalSpace,
-                  ChoosePaymentMethodCard(currentMethod: currentMethod, iconPath: IconAssets.paypal,
+                  ChoosePaymentMethodCard(
+                    currentMethod: currentMethod,
+                    iconPath: IconAssets.paypal,
                     methodType: 'PayPal',
                     value: paymentMethods[1],
-                    onChange: (value){},
+                    onChange: (value) {},
                   ),
                   AppSize.s20.addVerticalSpace,
-                  ChoosePaymentMethodCard(currentMethod: currentMethod, iconPath: IconAssets.googleIcon,
+                  ChoosePaymentMethodCard(
+                    currentMethod: currentMethod,
+                    iconPath: IconAssets.googleIcon,
                     methodType: 'PayPal',
                     value: paymentMethods[2],
-                    onChange: (value){},
+                    onChange: (value) {},
                   ),
                   AppSize.s20.addVerticalSpace,
-                  ChoosePaymentMethodCard(currentMethod: currentMethod, iconPath: IconAssets.appleIcon,
+                  ChoosePaymentMethodCard(
+                    currentMethod: currentMethod,
+                    iconPath: IconAssets.appleIcon,
                     methodType: 'PayPal',
                     value: paymentMethods[3],
-                    onChange: (value){},
+                    onChange: (value) {},
                   ),
                   const Spacer(),
-                  ElevatedButton(onPressed: (){}, child: const Text("Next")),
+                  ElevatedButton(onPressed: () {}, child: const Text("Next")),
                   AppSize.s16.addVerticalSpace
                 ],
               ),
@@ -66,5 +78,3 @@ class AddNewPaymentMethodScreen extends StatelessWidget {
     );
   }
 }
-
-

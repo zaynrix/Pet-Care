@@ -18,6 +18,7 @@ class ChoosePaymentMethodCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool selected = currentMethod == value;
     return Row(
       children: [
         Container(
@@ -25,18 +26,26 @@ class ChoosePaymentMethodCard extends StatelessWidget {
           height: AppSize.s40.height,
           width: AppSize.s40.width,
           decoration: BoxDecoration(
-              color: ColorManager.secondaryWithTransparent50,
-              shape: BoxShape.rectangle,
-              borderRadius: AppSize.s10.circularRadius
+            color: selected
+                ? ColorManager.secondaryWithTransparent50
+                : Colors.transparent,
+            shape: BoxShape.rectangle,
+            borderRadius: AppSize.s10.circularRadius,
           ),
           child: SvgPicture.asset(iconPath),
         ),
         AppSize.s16.addHorizontalSpace,
-         Text(methodType , style: supTitleMedium,),
+        Text(
+          methodType,
+          style: supTitleMedium,
+        ),
         const Spacer(),
         Radio(
-            activeColor: ColorManager.primary,
-            value: value, groupValue: currentMethod, onChanged: onChange)
+          activeColor: ColorManager.primary,
+          value: value,
+          groupValue: currentMethod,
+          onChanged: onChange,
+        ),
       ],
     );
   }

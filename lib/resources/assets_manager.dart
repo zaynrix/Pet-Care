@@ -42,12 +42,15 @@ class IconAssets {
 
   //------------------------bottomAppBar----------------------------------------
 
-  static const String unSelectedCart = "$iconPath/navBarIcons/unSelected/shop_unselected.svg";
-  static const String unSelectedProfile = "$iconPath/navBarIcons/unSelected/person_unselected.svg";
+  static const String unSelectedCart =
+      "$iconPath/navBarIcons/unSelected/shop_unselected.svg";
+  static const String unSelectedProfile =
+      "$iconPath/navBarIcons/unSelected/person_unselected.svg";
 }
 //--------------------------------SvgAssets-------------------------------------
 
 const String svgPath = 'assets/svg';
+const String pngPath = 'assets/images';
 
 class SvgAssets {
   static const String firstOnBoarding =
@@ -82,9 +85,16 @@ class SvgAssets {
   //--------------------------bannerSvg-----------------------------------------
 
   static const firstBanner = "$svgPath/banner_svg.svg";
+  static const firstBannerPng = "$pngPath/banner1.png";
   static const List banners = [
     SvgAssets.firstBanner,
     SvgAssets.firstBanner,
     SvgAssets.firstBanner,
+  ];
+
+  static const List bannersPng = [
+    SvgAssets.firstBannerPng,
+    SvgAssets.firstBannerPng,
+    SvgAssets.firstBannerPng,
   ];
 }
