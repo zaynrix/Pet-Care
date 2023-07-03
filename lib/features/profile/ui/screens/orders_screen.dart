@@ -1,7 +1,44 @@
 part of profile_module;
 
 class OrderScreen extends StatelessWidget {
-  const OrderScreen({Key? key}) : super(key: key);
+  OrderScreen({Key? key}) : super(key: key);
+  final List<Map<String, dynamic>> _orders = [
+    {
+      'status': 'Shipped',
+      'date': 'Jul 3, 2023 • 04:48 PM',
+      'address': '5616 Artesian Dr Derwood, Maryland(MD) 20855',
+      'price': '\$64.95',
+      'elements': [
+        {'id': 1, 'url': 'assets/images/dog_medicine.png'},
+        {'id': 2001, 'url': 'assets/images/dog_medicine.png'},
+      ],
+    },
+    {
+      'status': 'Completed',
+      'date': 'Jul 2, 2023 • 04:48 PM',
+      'address': '5616 Artesian Dr Derwood, Maryland(MD) 20855',
+      'price': '\$64.95',
+      'elements': [
+        {'id': 3, 'url': 'assets/images/dog_medicine.png'},
+        {'id': 4, 'url': 'assets/images/dog_medicine.png'},
+        {'id': 45, 'url': 'assets/images/dog_medicine.png'},
+        {'id': 46, 'url': 'assets/images/dog_medicine.png'},
+      ],
+    },
+    {
+      'status': 'Canceled',
+      'date': 'Jul 2, 2023 • 04:48 PM',
+      'address': '5616 Artesian Dr Derwood, Maryland(MD) 20855',
+      'price': '\$64.95',
+      'elements': [
+        {'id': 45, 'url': 'assets/images/dog_medicine.png'},
+        {'id': 45, 'url': 'assets/images/dog_medicine.png'},
+        {'id': 45, 'url': 'assets/images/dog_medicine.png'},
+        {'id': 45, 'url': 'assets/images/dog_medicine.png'},
+      ],
+    },
+    // Add more order items here
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -15,85 +52,59 @@ class OrderScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: AppPadding.p24.paddingHorizontal,
-            child: Container(
-              padding: AppPadding.p16.paddingAll,
-              decoration: BoxDecoration(
-                borderRadius: AppSize.s16.circularRadius,
-                color: ColorManager.white
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    padding: AppSize.s10.paddingHorizontal,
-                    decoration: const BoxDecoration(
-                      border: Border(left: BorderSide(color: ColorManager.secondaryLight ,width: 3))
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Text("Shipped", style: bodyMedium,),
-                            Spacer(),
-                            SvgPicture.asset(IconAssets.rightBack)
-                          ],
-                        ),
-                        const Text("May 21, 2022 • 04:48 PM", style: captionRegularPrimary,),
-                        Text("5616 Artesian Dr Derwood, Maryland(MD) 20855", maxLines: 1, overflow: TextOverflow.ellipsis, style: captionRegular,)
-                      ],
-                    ),
-                  ),
-                  AppSize.s16.addVerticalSpace,
-                  Row(
-                    children: [
-                      Container(
-                        padding: AppSize.s6.paddingAll,
-                        height: AppSize.s40.height,
-                        width: AppSize.s40.width,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(color: ColorManager.secondGray)
-                        ),
-                        child: Image.asset(ImageAssets.productDetails),
-                      ),
-                      Container(
-                        padding: AppSize.s6.paddingAll,
-                        height: AppSize.s40.height,
-                        width: AppSize.s40.width,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(color: ColorManager.secondGray)
-                        ),
-                        child: Image.asset(ImageAssets.productDetails),
-                      ),
-                    ],
-                  ),
-                  AppSize.s10.addVerticalSpace,
-                  Row(
-                    children: [
-                      const Text("\$64.95" , style: bodyBoldPrimary,),
-                      const Spacer(),
-                      SizedBox(
-                        height: AppSize.s32.height,
-                        width: AppSize.s115.width,
-                        child: ElevatedButton(
-                          onPressed: (){},
-                          child: Text("Reorder", style: footNoteRegular(color: ColorManager.white),),
-                        ),
-                      )
-                    ],
-                  )
-                ],
+      body: GroupedListView<dynamic, String>(
+        elements: _orders,
+        groupBy: (element) => _getGroupingLabel(element['date']),
+        groupComparator: (value1, value2) => value2.compareTo(value1),
+        order: GroupedListOrder.ASC,
+        // useStickyGroupSeparators: true,
+        groupSeparatorBuilder: (value) => Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8),
+              child: Text(
+                value,
+                textAlign: TextAlign.left,
+                style:
+                    const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
-          )
-        ],
+            Divider(
+              color: ColorManager.primaryWithTransparent10,
+            )
+          ],
+        ),
+        itemBuilder: (context, element) => Column(
+          children: [
+            Padding(
+              padding: AppPadding.p24.paddingHorizontal,
+              child: OrdersItem(
+                element: element,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+          ],
+        ),
       ),
     );
+  }
+
+  String _getGroupingLabel(String dateString) {
+    final DateFormat format = DateFormat('MMM d, yyyy • hh:mm a');
+    final DateTime date = format.parse(dateString);
+    final DateTime today = DateTime.now();
+    final DateTime monthStart = DateTime(today.year, today.month);
+    if (date.year == today.year && date.month == today.month) {
+      if (date.day == today.day) {
+        return 'Today';
+      }
+      return 'This Month';
+    } else {
+      return DateFormat('MMMM d, yyyy').format(date);
+    }
   }
 }
