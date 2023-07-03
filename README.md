@@ -2,7 +2,7 @@
 ## Design
 
 
-Pet Care [Mobile]((https://www.figma.com/file/jMdYnGJmZ61VYUrSxkRly4/Petito-Pet-Care-App?type=design&node-id=2%3A8865&mode=design&t=2AnSjZS5e20gYykS-1)) .
+Pet Care [Mobile](([https://www.figma.com/file/jMdYnGJmZ61VYUrSxkRly4/Petito-Pet-Care-App?type=design&node-id=2%3A8865&mode=design&t=2AnSjZS5e20gYykS-1](https://www.figma.com/file/jMdYnGJmZ61VYUrSxkRly4/Petito-Pet-Care-App?type=design&node-id=1-4&mode=design&t=R8nl4DIWNdBUgihL-0))) .
 
  
 
