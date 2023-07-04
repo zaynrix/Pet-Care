@@ -59,6 +59,7 @@ class SvgAssets {
       '$svgPath/onboarding/second_onboarding.svg';
   static const String thirdOnBoarding =
       '$svgPath/onboarding/last_onboarding.svg';
+  static const String delivery = '$svgPath/delivery.svg';
 
   //---------------------------firstShapes-------------------------------------------
 

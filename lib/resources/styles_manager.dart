@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pet_care/resources/colors_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
+
 import 'fonts-manager.dart';
 
 const TextStyle h1Bold = TextStyle(
@@ -12,7 +13,7 @@ const TextStyle h1Bold = TextStyle(
     height: 1.075);
 
 const TextStyle h2Bold = TextStyle(
-  color: ColorManager.primary,
+    color: ColorManager.primary,
     fontWeight: FontWeightManager.bold,
     fontFamily: FontConstants.fontFamily,
     fontSize: FontSize.s32);
@@ -37,7 +38,7 @@ TextStyle h3BoldWithOpacity = TextStyle(
     height: AppSize.s1_3);
 
 const TextStyle h3Medium = TextStyle(
-  color: ColorManager.primary,
+    color: ColorManager.primary,
     fontWeight: FontWeightManager.medium,
     fontFamily: FontConstants.fontFamily,
     fontSize: FontSize.s24,
@@ -51,21 +52,21 @@ const TextStyle titleRegular = TextStyle(
     height: 1.35);
 
 const TextStyle titleSemiBoldSecondary = TextStyle(
-  color: ColorManager.secondary,
+    color: ColorManager.secondary,
     fontWeight: FontWeightManager.semiBold,
     fontFamily: FontConstants.fontFamily,
     fontSize: FontSize.s20,
     height: 1.35);
 
 const TextStyle titleSemiBoldPrimary = TextStyle(
-  color: ColorManager.primary,
+    color: ColorManager.primary,
     fontWeight: FontWeightManager.semiBold,
     fontFamily: FontConstants.fontFamily,
     fontSize: FontSize.s20,
     height: 1.35);
 
 const TextStyle titleBold = TextStyle(
-  color: ColorManager.primary,
+    color: ColorManager.primary,
     fontWeight: FontWeightManager.bold,
     fontFamily: FontConstants.fontFamily,
     fontSize: FontSize.s20,
@@ -139,13 +140,12 @@ const TextStyle bodyMedium = TextStyle(
 //     fontSize: FontSize.s13,
 //     height: 1.38);
 
-const TextStyle oldPriceStyle =  TextStyle(
+const TextStyle oldPriceStyle = TextStyle(
     color: ColorManager.gray,
     fontSize: AppSize.s9,
     fontWeight: FontWeightManager.regular,
     decoration: TextDecoration.lineThrough,
     fontFamily: FontConstants.fontFamily);
-
 
 const TextStyle footNoteBold = TextStyle(
     fontWeight: FontWeightManager.bold,
@@ -168,6 +168,13 @@ const TextStyle captionRegular = TextStyle(
     color: ColorManager.gray,
     height: 1.45);
 
+const TextStyle captionRegularLine = TextStyle(
+    fontWeight: FontWeightManager.regular,
+    fontFamily: FontConstants.fontFamily,
+    fontSize: FontSize.s11,
+    color: ColorManager.gray,
+    decoration: TextDecoration.lineThrough,
+    height: 1.45);
 const TextStyle captionRegularPrimary = TextStyle(
     fontWeight: FontWeightManager.regular,
     fontFamily: FontConstants.fontFamily,

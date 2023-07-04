@@ -43,7 +43,7 @@ dependencies:
   provider: ^6.0.5
   get_it: ^7.6.0
   pinput: ^2.2.31
-#  flutter_slider_indicator: ^1.0.0
+#  flutter_slider_indicator: ^1.0.0animations
   wheel_chooser: ^1.1.2
   lottie: ^2.3.2
   image_picker: ^0.8.7+5
@@ -52,6 +52,7 @@ dependencies:
   flutter_slidable: ^2.0.0
   grouped_list: ^5.1.2
   carousel_slider: ^4.2.1
+  animations: ^2.0.7
 #  flutter_state_render_dialog: ^1.0.3
 
 dev_dependencies:
