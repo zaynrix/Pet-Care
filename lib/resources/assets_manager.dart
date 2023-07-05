@@ -34,6 +34,10 @@ class IconAssets {
   static const String workAddress = "$iconPath/work_address.svg";
   static const String delete = "$iconPath/delete.svg";
   static const String rightBack = "$iconPath/right_back.svg";
+  static const String delivery = '$iconPath/delivery.svg';
+  static const String plusButton = '$iconPath/plusButton.svg';
+  static const String incrementButton = '$iconPath/increment.svg';
+  static const String decrementButton = '$iconPath/decrement.svg';
 
   //---------------------------------gender-------------------------------------
 
@@ -59,7 +63,6 @@ class SvgAssets {
       '$svgPath/onboarding/second_onboarding.svg';
   static const String thirdOnBoarding =
       '$svgPath/onboarding/last_onboarding.svg';
-  static const String delivery = '$svgPath/delivery.svg';
 
   //---------------------------firstShapes-------------------------------------------
 

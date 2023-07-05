@@ -198,7 +198,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                         Row(
                                           children: [
                                             SvgPicture.asset(
-                                              SvgAssets.delivery,
+                                              IconAssets.delivery,
                                               color: pharmacy.deliveryAvailable
                                                   ? ColorManager.secondary
                                                   : Colors.grey,

@@ -26,111 +26,202 @@ class CartScreen extends StatelessWidget {
       imagePath: ImageAssets.dogMedicine,
     ),
     Product(
-      name: 'Product 2',
-      price: 15.00,
+      name: 'Naturel Promise Fresh Dental Water Additive18 fl oz',
+      price: 12.00,
       originalPrice: 18.00,
       quantity: 1,
       imagePath: ImageAssets.dogMedicine,
     ),
     Product(
-      name: 'Product 3',
+      name:
+          'Jinx Chicken, Brown Rice & Sweet Potato Dry Dog Food, 23.5 lb. Bag',
       price: 20.00,
       originalPrice: 25.00,
       quantity: 3,
       imagePath: ImageAssets.dogMedicine,
     ),
-    // Add more products as needed
+    Product(
+      name:
+          'Jinx Chicken, Brown Rice & Sweet Potato Dry Dog Food, 23.5 lb. Bag',
+      price: 20.00,
+      originalPrice: 25.00,
+      quantity: 3,
+      imagePath: ImageAssets.dogMedicine,
+    ),
+    Product(
+      name:
+          'Jinx Chicken, Brown Rice & Sweet Potato Dry Dog Food, 23.5 lb. Bag',
+      price: 20.00,
+      originalPrice: 25.00,
+      quantity: 3,
+      imagePath: ImageAssets.dogMedicine,
+    ),
+    Product(
+      name:
+          'Jinx Chicken, Brown Rice & Sweet Potato Dry Dog Food, 23.5 lb. Bag',
+      price: 20.00,
+      originalPrice: 25.00,
+      quantity: 3,
+      imagePath: ImageAssets.dogMedicine,
+    ),
+    Product(
+      name:
+          'Jinx Chicken, Brown Rice & Sweet Potato Dry Dog Food, 23.5 lb. Bag',
+      price: 20.00,
+      originalPrice: 25.00,
+      quantity: 3,
+      imagePath: ImageAssets.dogMedicine,
+    ),
+    Product(
+      name:
+          'Jinx Chicken, Brown Rice & Sweet Potato Dry Dog Food, 23.5 lb. Bag',
+      price: 20.00,
+      originalPrice: 25.00,
+      quantity: 3,
+      imagePath: ImageAssets.dogMedicine,
+    ),
+    Product(
+      name:
+          'Jinx Chicken, Brown Rice & Sweet Potato Dry Dog Food, 23.5 lb. Bag',
+      price: 20.00,
+      originalPrice: 25.00,
+      quantity: 3,
+      imagePath: ImageAssets.dogMedicine,
+    ),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffF8F8F8),
+      backgroundColor: const Color(0xffF8F8F8),
       appBar: AppBar(
-        backgroundColor: Color(0xffF8F8F8),
+        backgroundColor: const Color(0xffF8F8F8),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             // Handle back button press
           },
         ),
-        title: Text('Your Cart'),
+        title: const Text('Your Cart'),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
+            20.addVerticalSpace,
             Container(
+              // margin: 10.marginVertical,
               height: MediaQuery.of(context).size.height,
-              padding: EdgeInsets.all(20),
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
+              padding: 20.paddingAll,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(30.0),
                   topRight: Radius.circular(30.0),
                 ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.2),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: Offset(0, 3), // changes position of shadow
+                  ),
+                ],
                 color: Colors.white,
               ),
               child: ListView.builder(
                 shrinkWrap: true,
-                itemCount: products.length,
+                itemCount: products.length + 1,
                 itemBuilder: (context, index) {
-                  final product = products[index];
-                  return Row(
-                    children: [
-                      Image.asset(ImageAssets.dogMedicine),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                  return index != products.length
+                      ? Column(
                           children: [
-                            Text(
-                              product.name,
-                              style:
-                                  footNoteRegular(color: ColorManager.primary),
-                            ),
-                            20.addVerticalSpace,
                             Row(
                               children: [
-                                Text(
-                                  '\$${product.price.toStringAsFixed(2)}',
-                                  style: bodyBoldPrimary,
+                                Image.asset(
+                                  ImageAssets.dogMedicine,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.25,
                                 ),
-                                5.horizontalSpace,
-                                Text(
-                                  '\$${(product.originalPrice - product.price).toStringAsFixed(2)}',
-                                  style: captionRegularLine,
+                                Expanded(
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        products[index].name,
+                                        style: footNoteRegular(
+                                            color: ColorManager.primary),
+                                      ),
+                                      20.addVerticalSpace,
+                                      Row(
+                                        children: [
+                                          Text(
+                                            '\$${products[index].price.toStringAsFixed(2)}',
+                                            style: bodyBoldPrimary,
+                                          ),
+                                          5.horizontalSpace,
+                                          Text(
+                                            '\$${(products[index].originalPrice - products[index].price).toStringAsFixed(2)}',
+                                            style: captionRegularLine,
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    SvgPicture.asset(
+                                      IconAssets.incrementButton,
+                                    ),
+                                    10.addVerticalSpace,
+                                    Text('${products[index].quantity}'),
+                                    10.addVerticalSpace,
+                                    SvgPicture.asset(
+                                      IconAssets.decrementButton,
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
+                            5.addVerticalSpace,
+                            Divider(
+                              color: ColorManager.primaryWithTransparent10,
+                            ),
                           ],
-                        ),
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          IconButton(
-                            icon: Icon(Icons.add_circle_outline),
-                            onPressed: () {
-                              // Handle increment button press
-                            },
-                          ),
-                          Text('${product.quantity}'),
-                          IconButton(
-                            icon: Icon(Icons.remove_circle_outline_rounded),
-                            onPressed: () {
-                              // Handle decrement button press
-                            },
-                          ),
-                        ],
-                      )
-                    ],
-                  );
+                        )
+                      : Column(
+                          children: [
+                            Divider(
+                              color: ColorManager.primaryWithTransparent10,
+                            ),
+                            20.addVerticalSpace,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text('Subtotal',
+                                    style: footNoteRegular(
+                                        color: ColorManager.primary)),
+                                Text(
+                                    '\$${calculateSubtotal().toStringAsFixed(2)}',
+                                    style: bodyBoldPrimary),
+                              ],
+                            ),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.35,
+                            )
+                          ],
+                        );
                 },
               ),
             ),
-            Text(
-              'Subtotal: \$${calculateSubtotal().toStringAsFixed(2)}',
-              style: TextStyle(fontSize: 18.0, color: Colors.green),
-            ),
+            50.addVerticalSpace,
+            Text("one")
           ],
         ),
       ),
@@ -138,17 +229,13 @@ class CartScreen extends StatelessWidget {
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          IconButton(
+          FloatingActionButton(
+            backgroundColor: ColorManager.secondary,
             onPressed: () {},
-            icon: Icon(
-              Icons.add_circle_outline,
-              color: Colors.green,
-              size: 36.0,
-            ),
-            color: ColorManager.primary,
+            child: const Icon(Icons.add),
           ),
           ElevatedButton(
-            child: Text("Checkout"),
+            child: const Text("Checkout"),
             onPressed: () {},
           ),
         ],
