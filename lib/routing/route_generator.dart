@@ -10,4 +10,5 @@ class RouteGenerator {
   static const String mainAddPetScreen = '/mainAddPetScreen';
   static const String productDetailsScreen = 'productDetailsScreen';
   static const String cartScreen = 'cartScreen';
+  static const String orderInformationScreen = 'orderInformationScreen';
 }
