@@ -20,8 +20,10 @@ import 'package:pet_care/utils/extension/responsive_extension.dart';
 import 'package:provider/provider.dart';
 
 import '../../models/pharmacy_model.dart';
+import '../../models/product_model.dart';
 
 part 'cart_screen.dart';
 part 'main_shop_screen.dart';
+part 'order_information.dart';
 part 'pharmacy_shop_screen.dart';
 part 'product_details.dart';
