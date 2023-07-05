@@ -8,4 +8,6 @@ class RouteGenerator {
   static const String verifyEmailScreen = '/verifyEmail';
   static const String mainAuthScreen = '/mainAuthScreen';
   static const String mainAddPetScreen = '/mainAddPetScreen';
+  static const String productDetailsScreen = 'productDetailsScreen';
+  static const String cartScreen = 'cartScreen';
 }

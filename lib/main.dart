@@ -3,17 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pet_care/features/add_pet/add_pet_core/add_pet_provider.dart';
-import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/add_pet_screens.dart';
 import 'package:pet_care/features/auth/auth_core/auth_provider.dart';
 import 'package:pet_care/features/onboarding/core/on_boarding_provider.dart';
-import 'package:pet_care/features/profile/profile_module.dart';
+import 'package:pet_care/features/shop/controllers/product_cotroller.dart';
 import 'package:pet_care/locator.dart';
 import 'package:pet_care/resources/theme_manager.dart';
 import 'package:pet_care/routing/routing_module.dart';
 import 'package:pet_care/utils/helper.dart';
 import 'package:provider/provider.dart';
-
-import 'features/add_pet/add_pet_ui/add_pet_screens/add_pet_screens.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,15 +35,17 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(create: (_) => OnBoardingProvider()),
         ChangeNotifierProvider(create: (_) => AddPetProvider()),
+        ChangeNotifierProvider(create: (_) => ProductController()),
       ],
       child: ScreenUtilInit(
         designSize: const Size(375, 815),
         builder: (BuildContext context, Widget? child) => GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
+          title: 'Pet Care',
           theme: ThemeManager.lightTheme,
           scaffoldMessengerKey: Helpers.scaffoldKey,
-          home: OrderDetailScreen(),
+          // home: ProductDetailsScreen(),
+          initialRoute: RouteGenerator.cartScreen,
           navigatorKey: RouteService.serviceNavi.navKey,
           onGenerateRoute: RoutsGenerate.generateRoute,
         ),
@@ -54,4 +53,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
