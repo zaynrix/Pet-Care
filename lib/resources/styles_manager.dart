@@ -43,7 +43,12 @@ const TextStyle h3Medium = TextStyle(
     fontFamily: FontConstants.fontFamily,
     fontSize: FontSize.s24,
     height: AppSize.s1_3);
-
+const TextStyle h3Medium2 = TextStyle(
+    color: ColorManager.gray,
+    fontWeight: FontWeightManager.medium,
+    fontFamily: FontConstants.fontFamily,
+    fontSize: FontSize.s24,
+    height: AppSize.s1_3);
 const TextStyle titleRegular = TextStyle(
     fontWeight: FontWeightManager.regular,
     fontFamily: FontConstants.fontFamily,
