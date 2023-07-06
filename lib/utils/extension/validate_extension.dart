@@ -1,11 +1,9 @@
 import 'dart:core';
 import 'dart:io';
 
-
-extension ExtendedString  on String {
-
+extension ExtendedString on String {
   String? validateEmail() {
-    if(trim().isEmpty){
+    if (trim().isEmpty) {
       return 'Please enter your email address';
     }
     // Check if the entered email has the right format
@@ -16,7 +14,7 @@ extension ExtendedString  on String {
     return null;
   }
 
-  String? validatePassword(){
+  String? validatePassword() {
     RegExp hasUpper = RegExp(r'[A-Z]');
     RegExp hasLower = RegExp(r'[a-z]');
     RegExp hasDigit = RegExp(r'\d');
@@ -45,9 +43,8 @@ extension ExtendedString  on String {
     return null;
   }
 
-
   String? validateAccountNumber() {
-    if(trim().isEmpty){
+    if (trim().isEmpty) {
       return 'Please enter your Account Number';
     }
     // Check if the entered email has the right format
@@ -58,15 +55,15 @@ extension ExtendedString  on String {
     return null;
   }
 
-  String? validateBankAmount(){
-    if(trim().isEmpty){
+  String? validateBankAmount() {
+    if (trim().isEmpty) {
       return 'Please enter amount';
     }
-    if(length < 2){
+    if (length < 2) {
       return "please enter valid amount";
     }
 
-    if(int.parse(this) < 10){
+    if (int.parse(this) < 10) {
       return "The minimum amount to withdraw 10 \$";
     }
     return null;
@@ -94,7 +91,7 @@ extension ExtendedString  on String {
     return null;
   }
 
-  String? validateCode(){
+  String? validateCode() {
     if (trim().isEmpty) {
       return 'This field is required';
     }
@@ -114,9 +111,6 @@ extension ExtendedString  on String {
     }
     return null;
   }
-
-
-
 }
 
 class Validate {
@@ -132,6 +126,7 @@ class Validate {
     // Return null if the entered email is valid
     return null;
   }
+
   static String? validatePassword(value) {
     RegExp hasUpper = RegExp(r'[A-Z]');
     RegExp hasLower = RegExp(r'[a-z]');
@@ -170,8 +165,8 @@ class Validate {
     // return null;
   }
 
-  static String? validateRePassword(value, String password){
-    if(value != password){
+  static String? validateRePassword(value, String password) {
+    if (value != password) {
       return 'password does not match';
     }
     return null;
@@ -212,10 +207,69 @@ class Validate {
     return null;
   }
 
-  static dynamic validateFile(File? value){
-    if(value == null){
+  static dynamic validateFile(File? value) {
+    if (value == null) {
       return "Upload a File";
     }
     return null;
+  }
+}
+
+extension PaymentCardValidation on String {
+  bool get isValidCardNumber {
+    String cardNumber =
+        this.replaceAll(RegExp(r'\s+\b|\b\s'), ''); // Remove spaces
+
+    int sum = 0;
+    bool isSecondDigit = false;
+
+    for (int i = cardNumber.length - 1; i >= 0; i--) {
+      int? digit = int.tryParse(cardNumber[i]);
+      if (digit == null) {
+        // Invalid character found
+        return false;
+      }
+
+      if (isSecondDigit) {
+        digit *= 2;
+        if (digit > 9) {
+          digit = digit % 10 + 1;
+        }
+      }
+
+      sum += digit;
+      isSecondDigit = !isSecondDigit;
+    }
+
+    return sum % 10 == 0;
+  }
+}
+
+extension ExpirationDateValidation on DateTime {
+  bool get isValidExpirationDate {
+    DateTime currentDate = DateTime.now();
+
+    if (this.isBefore(currentDate)) {
+      // Date is in the past
+      return false;
+    }
+
+    return true;
+  }
+}
+
+extension CVCValidation on String {
+  bool get isValidCVC {
+    if (this.length < 3 || this.length > 4) {
+      // Invalid length
+      return false;
+    }
+
+    if (!RegExp(r'^\d+$').hasMatch(this)) {
+      // Non-numeric characters found
+      return false;
+    }
+
+    return true;
   }
 }

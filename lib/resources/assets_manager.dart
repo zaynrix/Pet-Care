@@ -35,6 +35,10 @@ class IconAssets {
   static const String workAddress = "$iconPath/work_address.svg";
   static const String delete = "$iconPath/delete.svg";
   static const String rightBack = "$iconPath/right_back.svg";
+  static const String delivery = '$iconPath/delivery.svg';
+  static const String plusButton = '$iconPath/plusButton.svg';
+  static const String incrementButton = '$iconPath/increment.svg';
+  static const String decrementButton = '$iconPath/decrement.svg';
 
   //---------------------------------gender-------------------------------------
 
@@ -43,12 +47,15 @@ class IconAssets {
 
   //------------------------bottomAppBar----------------------------------------
 
-  static const String unSelectedCart = "$iconPath/navBarIcons/unSelected/shop_unselected.svg";
-  static const String unSelectedProfile = "$iconPath/navBarIcons/unSelected/person_unselected.svg";
+  static const String unSelectedCart =
+      "$iconPath/navBarIcons/unSelected/shop_unselected.svg";
+  static const String unSelectedProfile =
+      "$iconPath/navBarIcons/unSelected/person_unselected.svg";
 }
 //--------------------------------SvgAssets-------------------------------------
 
 const String svgPath = 'assets/svg';
+const String pngPath = 'assets/images';
 
 class SvgAssets {
   static const String firstOnBoarding =
@@ -83,9 +90,16 @@ class SvgAssets {
   //--------------------------bannerSvg-----------------------------------------
 
   static const firstBanner = "$svgPath/banner_svg.svg";
+  static const firstBannerPng = "$pngPath/banner1.png";
   static const List banners = [
     SvgAssets.firstBanner,
     SvgAssets.firstBanner,
     SvgAssets.firstBanner,
+  ];
+
+  static const List bannersPng = [
+    SvgAssets.firstBannerPng,
+    SvgAssets.firstBannerPng,
+    SvgAssets.firstBannerPng,
   ];
 }
