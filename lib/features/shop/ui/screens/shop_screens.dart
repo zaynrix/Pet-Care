@@ -28,5 +28,6 @@ part 'add_new_card.dart';
 part 'cart_screen.dart';
 part 'main_shop_screen.dart';
 part 'order_information.dart';
+part 'order_success.dart';
 part 'pharmacy_shop_screen.dart';
 part 'product_details.dart';
