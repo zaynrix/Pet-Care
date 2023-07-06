@@ -16,7 +16,7 @@ import 'package:pet_care/resources/values_manager.dart';
 import 'package:pet_care/utils/extension/responsive_extension.dart';
 import 'package:pet_care/utils/extension/validate_extension.dart';
 
-part 'ui/screens/add-new_payment_method_screen.dart';
+part 'ui/screens/add_new_payment_method_screen.dart';
 part 'ui/screens/address_screen.dart';
 part 'ui/screens/edit_profile_screen.dart';
 part 'ui/screens/order_detail_screen.dart';
