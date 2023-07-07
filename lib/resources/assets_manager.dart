@@ -4,6 +4,7 @@ class ImageAssets {
   static const String dogMedicine = "$imagePath/dog_medicine.png";
   static const String productDetails = "$imagePath/product_details_image.png";
   static const String bannerImage = "$imagePath/banner_image.png";
+  static const String dog = "$imagePath/dog.png";
 }
 //--------------------------------iconAssets------------------------------------
 
@@ -33,11 +34,15 @@ class IconAssets {
   static const String homeAddress = "$iconPath/home_address.svg";
   static const String workAddress = "$iconPath/work_address.svg";
   static const String delete = "$iconPath/delete.svg";
+  static const String search = "$iconPath/search.svg";
+  static const String vaccine = "$iconPath/vaccine.svg";
   static const String rightBack = "$iconPath/right_back.svg";
   static const String delivery = '$iconPath/delivery.svg';
   static const String plusButton = '$iconPath/plusButton.svg';
   static const String incrementButton = '$iconPath/increment.svg';
   static const String decrementButton = '$iconPath/decrement.svg';
+  static const String clock = "$iconPath/clock.svg";
+  static const String notificationSelected = "$iconPath/navBarIcons/selected/notification_selected.svg";
 
   //---------------------------------gender-------------------------------------
 

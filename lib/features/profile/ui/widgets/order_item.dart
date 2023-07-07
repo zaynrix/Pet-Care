@@ -68,24 +68,28 @@ class OrdersItem extends StatelessWidget {
             ),
           ),
           AppSize.s16.addVerticalSpace,
-          const SizedBox(height: 16),
+           SizedBox(height: 10.height),
           Row(
             children: [
-              Container(
-                height: 40,
+              SizedBox(
+                height: 50,
                 child: ListView.builder(
+                  padding: EdgeInsets.zero,
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   itemCount: element['elements'].length > 3
                       ? 3
                       : element['elements'].length,
                   itemBuilder: (context, index) {
-                    return Transform.translate(
-                      offset: Offset(index * -30, 0), // Update the offset here
+                    return
+                      Transform.translate(
+                      offset: Offset(index * -33, 0), // Update the offset here
                       child: Container(
-                        margin: const EdgeInsets.all(6),
-                        width: 40,
+                        padding: AppSize.s6.paddingAll,
+                        margin: const EdgeInsets.all(8),
+                        width: 40.width,
                         decoration: BoxDecoration(
+                          color: ColorManager.white,
                           shape: BoxShape.circle,
                           border: Border.all(color: ColorManager.secondGray),
                         ),
@@ -100,16 +104,18 @@ class OrdersItem extends StatelessWidget {
                   offset: Offset(((element['elements'].length - 3) * -30.0),
                       0), // Update the offset here
                   child: Container(
+
                     margin: const EdgeInsets.symmetric(horizontal: 4),
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.green,
-                      borderRadius: BorderRadius.circular(10),
+                      shape: BoxShape.circle
+                      // borderRadius: BorderRadius.circular(10),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(3.0),
+                      padding: AppSize.s6.paddingAll,
                       child: Text(
                         '+${element['elements'].length - 3}',
-                        style: TextStyle(color: Colors.white),
+                        style: captionBold.copyWith(color: ColorManager.white),
                       ),
                     ),
                   ),

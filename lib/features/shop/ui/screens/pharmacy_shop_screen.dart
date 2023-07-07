@@ -30,7 +30,7 @@ class _PharmacyShopScreenState extends State<PharmacyShopScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const RVerticalSpace(height: AppSize.s25),
+            (Get.height * 0.03).addVerticalSpace,
             BannerCard(
               controller: shopController.bannerCardController,
               onTap: (int index) =>

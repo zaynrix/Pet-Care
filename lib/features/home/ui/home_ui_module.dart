@@ -1,16 +1,13 @@
-library shop_widgets;
+library home_ui_module;
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pet_care/common_widgets/common_widgets.dart';
-import 'package:pet_care/locator.dart';
+import 'package:pet_care/features/profile/profile_module.dart';
+import 'package:pet_care/features/shop/ui/screens/shop_screens.dart';
 import 'package:pet_care/resources/assets_manager.dart';
-import 'package:pet_care/resources/colors_manager.dart';
-import 'package:pet_care/resources/size_config.dart';
 import 'package:pet_care/resources/styles_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
 import 'package:pet_care/utils/extension/responsive_extension.dart';
 
-part 'banner_card.dart';
-part 'divider_shop_card.dart';
-part 'shop_card.dart';
+part 'screens/main-screen_app.dart';
+part 'screens/home_screen.dart';

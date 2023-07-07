@@ -15,7 +15,7 @@ class ProfileScreen extends StatelessWidget {
           CustomIconButton(
             iconPath: IconAssets.edit,
           ),
-          const RHorizontalSpace(width: AppSize.s30),
+          const RHorizontalSpace(width: AppSize.s20),
         ],
       ),
       body: SingleChildScrollView(

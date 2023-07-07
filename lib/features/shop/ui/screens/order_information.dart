@@ -122,7 +122,7 @@ class OrderInformationScreen extends StatelessWidget {
                     children: [
                       Text('Subtotal',
                           style: footNoteRegular(color: ColorManager.primary)),
-                      Text('\$200', style: bodyBoldPrimary),
+                      const Text('\$200', style: bodyBoldPrimary),
                     ],
                   ),
                   20.addVerticalSpace,
@@ -140,7 +140,7 @@ class OrderInformationScreen extends StatelessWidget {
                     children: [
                       Text('Total',
                           style: footNoteRegular(color: ColorManager.primary)),
-                      Text('\$200', style: h3Bold),
+                      const Text('\$200', style: h3Bold),
                     ],
                   ),
                 ],
