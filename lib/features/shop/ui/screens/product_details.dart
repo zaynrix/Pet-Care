@@ -14,6 +14,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorManager.soft,
+      // New Sliver Appbar
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
