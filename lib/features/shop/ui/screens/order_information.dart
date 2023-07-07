@@ -1,7 +1,22 @@
 part of shop_screens;
 
-class OrderInformationScreen extends StatelessWidget {
+class OrderInformationScreen extends StatefulWidget {
   OrderInformationScreen({super.key});
+
+  @override
+  State<OrderInformationScreen> createState() => _OrderInformationScreenState();
+}
+
+class _OrderInformationScreenState extends State<OrderInformationScreen> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<ProductController>(context, listen: false).visaList =
+          Provider.of<ProductController>(context, listen: false)
+              .parseJsonData();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -90,6 +105,82 @@ class OrderInformationScreen extends StatelessWidget {
                   ),
 
                   /// TODO: Payments Card Creating left
+                  SizedBox(
+                    height: Get.height * 0.25,
+                    // width: Get.width * 0.70,
+                    child: Consumer<ProductController>(
+                      builder: (context, value, child) => ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: value.visaList.length,
+                        itemBuilder: (context, index) => GestureDetector(
+                          onTap: () {
+                            value.selectVisa(index);
+                            // setState(() {
+                            //   value.visaList[index].isSelected =
+                            //       !value.visaList[index].isSelected;
+                            // });
+                          },
+                          child: Card(
+                            margin: 12.marginAll,
+                            elevation: 0,
+                            shape: RoundedRectangleBorder(
+                              side: BorderSide(
+                                color: value.selectedIndexPayment == index
+                                    ? ColorManager.secondary
+                                    : ColorManager.primaryWithTransparent10,
+                                width:
+                                    value.visaList[index].isSelected ? 2.0 : 1,
+                              ),
+                              borderRadius: BorderRadius.circular(16.0.r),
+                            ),
+                            color: ColorManager.primary,
+                            child: Container(
+                              padding: 24.paddingAll,
+                              width: 204,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      SvgPicture.asset(
+                                        IconAssets.mastercard,
+                                        width: 39,
+                                        height: 39,
+                                      ),
+                                      Text(
+                                        " ${value.visaList[index].paymentMethod}",
+                                        style: bodyMedium.copyWith(
+                                            color: Colors.white),
+                                      ),
+                                    ],
+                                  ),
+                                  const Spacer(),
+                                  // 32.addVerticalSpace,
+                                  Row(
+                                    children: [
+                                      Text(
+                                        "•••• ${value.visaList[index].visaLastFour}",
+                                        style: bodyMedium.copyWith(
+                                            color: Colors.white),
+                                      ),
+                                      const Spacer(),
+                                      Visibility(
+                                          visible: value.selectedIndexPayment ==
+                                              index,
+                                          child: const Icon(
+                                            Icons.check_box_rounded,
+                                            color: Colors.white,
+                                          ))
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                   Card(
                     elevation: 0,
                     shape: RoundedRectangleBorder(
