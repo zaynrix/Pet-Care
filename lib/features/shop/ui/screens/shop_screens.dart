@@ -21,6 +21,7 @@ import 'package:pet_care/utils/extension/responsive_extension.dart';
 import 'package:pet_care/utils/extension/validate_extension.dart';
 import 'package:provider/provider.dart';
 
+import '../../../profile/profile_module.dart';
 import '../../models/pharmacy_model.dart';
 import '../../models/product_model.dart';
 
