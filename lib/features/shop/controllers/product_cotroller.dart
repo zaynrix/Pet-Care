@@ -1,8 +1,13 @@
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:pet_care/features/shop/models/pharmacy_model.dart';
+import 'package:pet_care/features/shop/models/product_model.dart';
+import 'package:pet_care/features/shop/repositories/product_repository.dart';
+import 'package:pet_care/locator.dart';
 import 'package:pet_care/resources/assets_manager.dart';
+import 'package:pet_care/routing/routing_module.dart';
 
 import '../models/payment_method_model.dart';
 
@@ -73,5 +78,37 @@ class ProductController extends ChangeNotifier {
       selectedIndexPayment = index; // Select the new item
       notifyListeners();
     }
+  }
+
+  Product? products;
+  bool isLoading = false;
+  Future<void> getUserdataProvider() async {
+    isLoading = true;
+    notifyListeners();
+    try {
+      Product res = await sl<ProductRepository>().getBestSellerRepo();
+      products = res;
+      notifyListeners();
+    } on DioException catch (e) {
+      debugPrint("$e");
+    } finally {
+      isLoading = false;
+      notifyListeners();
+    }
+  }
+
+  SingleProduct? singleProduct;
+  void setProductObject({SingleProduct? current}) {
+    print("${current!.inCart}");
+    isLoading = true;
+    notifyListeners();
+    singleProduct = current;
+    isLoading = false;
+    notifyListeners();
+
+    print(singleProduct!.originalPrice);
+    RouteService.serviceNavi.pushNamedWidget(
+      RouteGenerator.productDetailsScreen,
+    );
   }
 }

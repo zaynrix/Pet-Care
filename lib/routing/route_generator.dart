@@ -13,4 +13,5 @@ class RouteGenerator {
   static const String orderInformationScreen = 'orderInformationScreen';
   static const String addNewCardScreen = 'addNewCardScreen';
   static const String orderSuccess = 'orderSuccess';
+  static const String mainShopScreen = 'mainShopScreen';
 }
