@@ -42,9 +42,9 @@ class AddressCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: AppSize.s36.height,
+                // height: AppSize.s36.height,
                 width: AppSize.s100.width,
-                padding: AppSize.s12.paddingHorizontal,
+                padding: EdgeInsets.symmetric(horizontal: AppPadding.p12.width, vertical: AppSize.s6.height),
                 decoration: BoxDecoration(
                     color: color, borderRadius: AppSize.s10.circularRadius),
                 child: Row(

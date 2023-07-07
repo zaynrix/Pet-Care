@@ -37,6 +37,19 @@ class OrderScreen extends StatelessWidget {
         {'id': 45, 'url': 'assets/images/dog_medicine.png'},
       ],
     },
+    {
+      'status': 'Canceled',
+      'date': 'Jul 2, 2023 • 04:48 PM',
+      'address': '5616 Artesian Dr Derwood, Maryland(MD) 20855',
+      'price': '\$64.95',
+      'elements': [
+        {'id': 45, 'url': 'assets/images/dog_medicine.png'},
+        {'id': 45, 'url': 'assets/images/dog_medicine.png'},
+        {'id': 45, 'url': 'assets/images/dog_medicine.png'},
+        {'id': 45, 'url': 'assets/images/dog_medicine.png'},
+        {'id': 45, 'url': 'assets/images/dog_medicine.png'},
+      ],
+    },
     // Add more order items here
   ];
 
@@ -97,7 +110,7 @@ class OrderScreen extends StatelessWidget {
     final DateFormat format = DateFormat('MMM d, yyyy • hh:mm a');
     final DateTime date = format.parse(dateString);
     final DateTime today = DateTime.now();
-    final DateTime monthStart = DateTime(today.year, today.month);
+    // final DateTime monthStart = DateTime(today.year, today.month);
     if (date.year == today.year && date.month == today.month) {
       if (date.day == today.day) {
         return 'Today';

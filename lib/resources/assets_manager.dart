@@ -39,6 +39,8 @@ class IconAssets {
   static const String plusButton = '$iconPath/plusButton.svg';
   static const String incrementButton = '$iconPath/increment.svg';
   static const String decrementButton = '$iconPath/decrement.svg';
+  static const String clock = "$iconPath/clock.svg";
+  static const String notificationSelected = "$iconPath/navBarIcons/selected/notification_selected.svg";
 
   //---------------------------------gender-------------------------------------
 

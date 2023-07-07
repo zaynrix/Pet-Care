@@ -43,7 +43,8 @@ class MainShopScreen extends StatelessWidget {
                   )
                 )
               ),
-              child: TabBar(
+              child:
+              TabBar(
                       onTap: (index) {},
                     unselectedLabelColor: ColorManager.primary,
                     indicatorSize: TabBarIndicatorSize.label,

@@ -95,7 +95,7 @@ class CartScreen extends StatelessWidget {
             20.addVerticalSpace,
             Container(
               // margin: 10.marginVertical,
-              height: MediaQuery.of(context).size.height,
+              height: Get.height,
               padding: 20.paddingAll,
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.only(
@@ -112,7 +112,8 @@ class CartScreen extends StatelessWidget {
                 ],
                 color: Colors.white,
               ),
-              child: ListView.builder(
+              child:
+              ListView.builder(
                 shrinkWrap: true,
                 itemCount: products.length + 1,
                 itemBuilder: (context, index) {
@@ -124,7 +125,7 @@ class CartScreen extends StatelessWidget {
                                 Image.asset(
                                   ImageAssets.dogMedicine,
                                   width:
-                                      MediaQuery.of(context).size.width * 0.25,
+                                      Get.width * 0.25,
                                 ),
                                 Expanded(
                                   child: Column(
@@ -133,10 +134,15 @@ class CartScreen extends StatelessWidget {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Text(
-                                        products[index].name,
-                                        style: footNoteRegular(
-                                            color: ColorManager.primary),
+                                      SizedBox(
+                                        width: Get.width * 0.4,
+                                        child: Text(
+                                          products[index].name,
+                                          style: footNoteRegular(
+                                              color: ColorManager.primary),
+                                          maxLines: 3,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
                                       ),
                                       20.addVerticalSpace,
                                       Row(
@@ -179,11 +185,9 @@ class CartScreen extends StatelessWidget {
                             ),
                           ],
                         )
-                      : Column(
+                      :
+                  Column(
                           children: [
-                            Divider(
-                              color: ColorManager.primaryWithTransparent10,
-                            ),
                             20.addVerticalSpace,
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -197,7 +201,7 @@ class CartScreen extends StatelessWidget {
                               ],
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.35,
+                              height: Get.height * 0.35,
                             )
                           ],
                         );

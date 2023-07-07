@@ -59,16 +59,18 @@ class ShodCard extends StatelessWidget {
                   ),
                 ],
               ),
-              RVerticalSpace(height: AppSize.s10.sp),
+              const RVerticalSpace(height: AppSize.s10),
+
               Flexible(
                 child: Text(
                   "Pro-Sense Itch & Allergy SolutionsllergySolutionsllergySolutionsllergy Solutions",
                   style: footNoteRegular(color: ColorManager.primary),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.start,
                 ),
               ),
+              AppSize.s10.addVerticalSpace,
               Row(
                 children: [
                   const Text(

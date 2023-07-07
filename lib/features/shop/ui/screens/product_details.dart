@@ -16,8 +16,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: Consumer<ProductController>(
         builder: (context, instance, child) => ElevatedButton(
-          child: const Text("Add to cart"),
           onPressed: instance.isFloatingActionButtonEnabled() ? () {} : null,
+          child: const Text("Add to cart"),
         ),
       ),
       backgroundColor: ColorManager.soft,
@@ -48,16 +48,18 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
           const RHorizontalSpace(width: AppSize.s20),
         ],
       ),
-      body: SingleChildScrollView(
+      body:
+      SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
-              height: sizeConfig.getScreenHeight(350),
+              height: sizeConfig.getScreenHeight(412),
+              width: Get.width,
               decoration: const BoxDecoration(color: ColorManager.soft),
               child: CarouselSlider(
                 options: CarouselOptions(
-                  aspectRatio: 16 / 14,
+                  aspectRatio: 1 / 1,
                   viewportFraction: 1.0,
                   enableInfiniteScroll: false,
                 ),
@@ -68,7 +70,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       builder: (BuildContext context) {
                         return Image.asset(
                           imagePath,
-                          fit: BoxFit.cover,
+                          fit: BoxFit.fill,
                           width: double.infinity,
                         );
                       },
@@ -87,160 +89,265 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                 color: ColorManager.white,
                 borderRadius: BorderRadius.circular(AppSize.s30),
               ),
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    50.verticalSpace,
-                    Row(
-                      children: [
-                        const Expanded(
-                          child: Text(
-                            "Pro-Sense Itch & Allergy Solutions",
-                            style: supTitleBold,
-                            maxLines: 2,
-                          ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  50.verticalSpace,
+                  Row(
+                    children: [
+                      const Expanded(
+                        child: Text(
+                          "Pro-Sense Itch & Allergy Solutions",
+                          style: supTitleBold,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                         ),
-                        const Spacer(),
-                        CustomIconButton(iconPath: IconAssets.likeUnselected),
-                      ],
-                    ),
-                    const RVerticalSpace(height: AppSize.s10),
-                    const Text(
-                      "Choose the pharmacy",
-                      style: captionRegular,
-                    ),
-                    Consumer<ProductController>(
-                      builder: (context, instance, child) => ListView.separated(
-                        separatorBuilder: (context, index) => const SizedBox(),
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: instance.pharmacies.length,
-                        itemBuilder: (context, index) {
-                          Pharmacy pharmacy = instance.pharmacies[index];
-                          bool isSelected = instance.selectedCardIndex == index;
-                          return Padding(
-                            padding: EdgeInsets.symmetric(
-                              vertical: sizeConfig.getScreenHeight(AppSize.s8),
-                            ),
-                            child: InkWell(
-                              onTap: () {
-                                setState(() {
-                                  if (isSelected) {
-                                    instance.selectedCardIndex = -1;
-                                  } else {
-                                    instance.selectedCardIndex = index;
-                                  }
-                                });
-                              },
-                              child: Container(
-                                padding: const EdgeInsets.all(AppSize.s16),
-                                decoration: BoxDecoration(
-                                  color: Colors.transparent,
-                                  borderRadius:
-                                      BorderRadius.circular(AppSize.s8),
-                                  border: Border.all(
-                                    color:
-                                        isSelected ? Colors.green : Colors.grey,
-                                    width: isSelected ? 2 : 1,
-                                  ),
-                                ),
-                                child: Row(
-                                  children: [
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          pharmacy.title,
-                                          style: const TextStyle(
-                                            fontSize: AppSize.s16,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                          ),
-                                        ),
-                                        const SizedBox(height: AppSize.s8),
-                                        Row(
-                                          children: [
-                                            const Text(
-                                              "Arrives:",
-                                              style: TextStyle(
-                                                fontSize: AppSize.s14,
-                                                color: Colors.grey,
-                                              ),
-                                            ),
-                                            5.horizontalSpace,
-                                            Text(
-                                              "${pharmacy.estimatedArrival}",
-                                              style: const TextStyle(
-                                                  fontSize: AppSize.s14,
-                                                  color: Colors.black,
-                                                  fontWeight: FontWeight.w400),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                    const Spacer(),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.end,
-                                      children: [
-                                        Text(
-                                          "\$${pharmacy.price.toStringAsFixed(2)}",
-                                          style: const TextStyle(
-                                            fontSize: AppSize.s16,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.black,
-                                          ),
-                                        ),
-                                        const SizedBox(height: AppSize.s8),
-                                        Row(
-                                          children: [
-                                            SvgPicture.asset(
-                                              IconAssets.delivery,
-                                              color: pharmacy.deliveryAvailable
-                                                  ? ColorManager.secondary
-                                                  : Colors.grey,
-                                            ),
-                                            5.horizontalSpace,
-                                            Text(
-                                              pharmacy.deliveryFee > 0.0
-                                                  ? "Delivery Fee: \$${pharmacy.deliveryFee.toStringAsFixed(2)}"
-                                                  : "Free Delivery",
-                                              // Display the delivery fee or "Free Delivery"
-                                              style: TextStyle(
-                                                fontSize: AppSize.s14,
-                                                color:
-                                                    pharmacy.deliveryAvailable
-                                                        ? ColorManager.secondary
-                                                        : Colors.grey,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ],
+                      ),
+                      const Spacer(),
+                      CustomIconButton(iconPath: IconAssets.likeUnselected),
+                    ],
+                  ),
+                  const RVerticalSpace(height: AppSize.s10),
+                  const Text(
+                    "Choose the pharmacy",
+                    style: captionRegular,
+                  ),
+                  Consumer<ProductController>(
+                    builder: (context, instance, child) =>
+                        ListView.builder(
+                          padding: EdgeInsets.zero,
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: instance.pharmacies.length,
+                      itemBuilder: (context, index) {
+                        Pharmacy pharmacy = instance.pharmacies[index];
+                        bool isSelected = instance.selectedCardIndex == index;
+                        return Padding(
+                          padding: EdgeInsets.symmetric(
+                            vertical: sizeConfig.getScreenHeight(AppSize.s8),
+                          ),
+                          child:
+                          InkWell(
+                            onTap: () {
+                              setState(() {
+                                if (isSelected) {
+                                  instance.selectedCardIndex = -1;
+                                } else {
+                                  instance.selectedCardIndex = index;
+                                }
+                              });
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.all(AppSize.s16),
+                              decoration: BoxDecoration(
+                                color: Colors.transparent,
+                                borderRadius:
+                                    BorderRadius.circular(AppSize.s8),
+                                border: Border.all(
+                                  color:
+                                      isSelected ? Colors.green : Colors.grey,
+                                  width: isSelected ? 2 : 1,
                                 ),
                               ),
+                              child: Row(
+                                children: [
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        pharmacy.title,
+                                        style: const TextStyle(
+                                          fontSize: AppSize.s16,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                      const SizedBox(height: AppSize.s8),
+                                      Row(
+                                        children: [
+                                          const Text(
+                                            "Arrives:",
+                                            style: TextStyle(
+                                              fontSize: AppSize.s14,
+                                              color: Colors.grey,
+                                            ),
+                                          ),
+                                          5.horizontalSpace,
+                                          Text(
+                                            pharmacy.estimatedArrival,
+                                            style: const TextStyle(
+                                                fontSize: AppSize.s14,
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w400),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  const Spacer(),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.end,
+                                    children: [
+                                      Text(
+                                        "\$${pharmacy.price.toStringAsFixed(2)}",
+                                        style: const TextStyle(
+                                          fontSize: AppSize.s16,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                      const SizedBox(height: AppSize.s8),
+                                      Row(
+                                        children: [
+                                          SvgPicture.asset(
+                                            IconAssets.delivery,
+                                            color: pharmacy.deliveryAvailable
+                                                ? ColorManager.secondary
+                                                : Colors.grey,
+                                          ),
+                                          5.horizontalSpace,
+                                          Text(
+                                            pharmacy.deliveryFee > 0.0
+                                                ? "Delivery Fee: \$${pharmacy.deliveryFee.toStringAsFixed(2)}"
+                                                : "Free Delivery",
+                                            // Display the delivery fee or "Free Delivery"
+                                            style: TextStyle(
+                                              fontSize: AppSize.s14,
+                                              color:
+                                                  pharmacy.deliveryAvailable
+                                                      ? ColorManager.secondary
+                                                      : Colors.grey,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
-                          );
-                        },
-                      ),
+                          ),
+                        );
+                      },
                     ),
-                    20.addVerticalSpace,
-                    const Text(
-                      "Details",
-                      style: supTitleBold,
-                    ),
-                    const Text(
-                      "Pro-Sense brand offers a variety of proactive, sensible solutions for all of your pet’s healthcare and wellness needs. We know pet parenting can be tough, which is why we’ve improved our ingredients and benefits to make it easier than ever to care for them like any other member of your family. Your pet can experience allergies just ",
-                      style: bodyMedium,
-                    ),
-                    100.addVerticalSpace,
-                  ],
-                ),
+                  ),
+
+                  // Padding(
+                  //   padding: EdgeInsets.symmetric(
+                  //     vertical: sizeConfig.getScreenHeight(AppSize.s8),
+                  //   ),
+                  //   child:
+                  //   InkWell(
+                  //     onTap: () {
+                  //       setState(() {
+                  //
+                  //         // if (isSelected) {
+                  //         //   instance.selectedCardIndex = -1;
+                  //         // } else {
+                  //         //   instance.selectedCardIndex = index;
+                  //         // }
+                  //       });
+                  //     },
+                  //     child: Container(
+                  //       padding: const EdgeInsets.all(AppSize.s16),
+                  //       decoration: BoxDecoration(
+                  //         color: Colors.transparent,
+                  //         borderRadius:
+                  //         BorderRadius.circular(AppSize.s8),
+                  //         border: Border.all(
+                  //           color:
+                  //            Colors.grey,
+                  //           width:  1,
+                  //         ),
+                  //       ),
+                  //       child: Row(
+                  //         children: [
+                  //           Column(
+                  //             crossAxisAlignment:
+                  //             CrossAxisAlignment.start,
+                  //             children: [
+                  //               const Text(
+                  //                 "Care Pharmacy",
+                  //                 style: TextStyle(
+                  //                   fontSize: AppSize.s16,
+                  //                   fontWeight: FontWeight.bold,
+                  //                   color: Colors.black,
+                  //                 ),
+                  //               ),
+                  //               const SizedBox(height: AppSize.s8),
+                  //               Row(
+                  //                 children: [
+                  //                   const Text(
+                  //                     "Arrives:",
+                  //                     style: TextStyle(
+                  //                       fontSize: AppSize.s14,
+                  //                       color: Colors.grey,
+                  //                     ),
+                  //                   ),
+                  //                   5.horizontalSpace,
+                  //                   const Text(
+                  //                     "13 min",
+                  //                     style: TextStyle(
+                  //                         fontSize: AppSize.s14,
+                  //                         color: Colors.black,
+                  //                         fontWeight: FontWeight.w400),
+                  //                   ),
+                  //                 ],
+                  //               ),
+                  //             ],
+                  //           ),
+                  //           const Spacer(),
+                  //           Column(
+                  //             crossAxisAlignment:
+                  //             CrossAxisAlignment.end,
+                  //             children: [
+                  //               const Text(
+                  //                 "\$14.36",
+                  //                 style: TextStyle(
+                  //                   fontSize: AppSize.s16,
+                  //                   fontWeight: FontWeight.bold,
+                  //                   color: Colors.black,
+                  //                 ),
+                  //               ),
+                  //               const SizedBox(height: AppSize.s8),
+                  //               Row(
+                  //                 children: [
+                  //                   SvgPicture.asset(
+                  //                     IconAssets.delivery,
+                  //                     color: Colors.grey,
+                  //                   ),
+                  //                   5.horizontalSpace,
+                  //                   const Text(
+                  //                          "Delivery Fee: ",
+                  //                     // Display the delivery fee or "Free Delivery"
+                  //                     style: TextStyle(
+                  //                       fontSize: AppSize.s14,
+                  //                       color:
+                  //                       Colors.grey,
+                  //                     ),
+                  //                   ),
+                  //                 ],
+                  //               ),
+                  //             ],
+                  //           ),
+                  //         ],
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
+                  20.addVerticalSpace,
+                  const Text(
+                    "Details",
+                    style: supTitleBold,
+                  ),
+                  const Text(
+                    "Pro-Sense brand offers a variety of proactive, sensible solutions for all of your pet’s healthcare and wellness needs. We know pet parenting can be tough, which is why we’ve improved our ingredients and benefits to make it easier than ever to care for them like any other member of your family. Your pet can experience allergies just ",
+                    style: bodyMedium,
+                  ),
+                  100.addVerticalSpace,
+                ],
               ),
             ),
           ],
