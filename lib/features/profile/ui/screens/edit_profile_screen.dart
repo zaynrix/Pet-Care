@@ -17,9 +17,13 @@ class EditProfileScreen extends StatelessWidget {
       floatingActionButton:
           ElevatedButton(onPressed: () {}, child: const Text("Save")),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text(AppStrings.profile),
         actions: [
           CustomIconButton(
+            onTap: (){
+              RouteService.serviceNavi.pop();
+            },
             iconPath: IconAssets.cancel,
           ),
           AppSize.s30.addHorizontalSpace

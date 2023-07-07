@@ -21,14 +21,10 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Appointments"),
-        leading: Row(
-          children: [
-            AppSize.s15.addHorizontalSpace,
-            IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
-          ],
-        ),
+
         actions: [
           CustomIconButton(
+            onTap: (){},
             iconPath: IconAssets.edit,
           ),
           const RHorizontalSpace(width: AppSize.s20),

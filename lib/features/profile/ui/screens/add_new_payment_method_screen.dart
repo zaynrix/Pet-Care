@@ -15,12 +15,6 @@ class AddNewPaymentMethodScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Add new method"),
-        leading: Row(
-          children: [
-            AppSize.s15.addHorizontalSpace,
-            IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
-          ],
-        ),
       ),
       body: Column(
         children: [

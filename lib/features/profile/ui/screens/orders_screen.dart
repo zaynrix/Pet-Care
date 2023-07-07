@@ -1,7 +1,7 @@
 part of profile_module;
 
-class OrderScreen extends StatelessWidget {
-  OrderScreen({Key? key}) : super(key: key);
+class OrdersScreen extends StatelessWidget {
+  OrdersScreen({Key? key}) : super(key: key);
   final List<Map<String, dynamic>> _orders = [
     {
       'status': 'Shipped',
@@ -58,12 +58,6 @@ class OrderScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Orders"),
-        leading: Row(
-          children: [
-            AppSize.s15.addHorizontalSpace,
-            IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
-          ],
-        ),
       ),
       body: GroupedListView<dynamic, String>(
         elements: _orders,
@@ -91,10 +85,13 @@ class OrderScreen extends StatelessWidget {
         ),
         itemBuilder: (context, element) => Column(
           children: [
-            Padding(
-              padding: AppPadding.p24.paddingHorizontal,
-              child: OrdersItem(
-                element: element,
+            InkWell(
+              onTap: (){RouteService.serviceNavi.pushNamedWidget(RouteGenerator.orderDetailScreen);},
+              child: Padding(
+                padding: AppPadding.p24.paddingHorizontal,
+                child: OrdersItem(
+                  element: element,
+                ),
               ),
             ),
             const SizedBox(

@@ -72,7 +72,7 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                           // focusColor: ColorManager.secondGray,
                           onTap: () {
                             provider.currantPage == 0
-                                ? RouteService.serviceNavi.popFunction()
+                                ? RouteService.serviceNavi.pop()
                                 : provider.pageController!.previousPage(
                                     duration: const Duration(milliseconds: 350),
                                     curve: Curves.easeInOut);

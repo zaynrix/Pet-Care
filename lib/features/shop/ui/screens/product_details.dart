@@ -104,7 +104,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         ),
                       ),
                       const Spacer(),
-                      CustomIconButton(iconPath: IconAssets.likeUnselected),
+                      CustomIconButton(
+                          onTap: (){},
+                          iconPath: IconAssets.likeUnselected),
                     ],
                   ),
                   const RVerticalSpace(height: AppSize.s10),

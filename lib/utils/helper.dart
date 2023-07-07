@@ -78,7 +78,7 @@ class alertDialog extends StatelessWidget {
           const Spacer(),
           IconButton(
             onPressed: () {
-              RouteService.serviceNavi.popFunction();
+              RouteService.serviceNavi.pop();
             },
             icon: const Icon(
               Icons.cancel,
@@ -105,7 +105,7 @@ class alertDialog extends StatelessWidget {
               child: const Text("Ok"),
             ),
             ElevatedButton(
-              onPressed: () => RouteService.serviceNavi.popFunction(),
+              onPressed: () => RouteService.serviceNavi.pop(),
               style: ElevatedButton.styleFrom(
                   side: const BorderSide(
                       color: ColorManager.primary, width: 1),
@@ -145,7 +145,7 @@ class BalanceAlertDialog extends StatelessWidget {
             alignment: Alignment.topRight,
             child: IconButton(
                 onPressed: () {
-                  RouteService.serviceNavi.popFunction();
+                  RouteService.serviceNavi.pop();
                 },
                 icon: const Icon(
                   Icons.cancel,
@@ -178,7 +178,7 @@ class BalanceAlertDialog extends StatelessWidget {
                               backgroundColor: ColorManager.white,
                             ),
                             onPressed: () {
-                              RouteService.serviceNavi.popFunction();
+                              RouteService.serviceNavi.pop();
                             },
                             child: Text(
                               "Cancel",

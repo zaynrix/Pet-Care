@@ -1,7 +1,7 @@
 part of profile_module;
 
-class PaymentMethods extends StatelessWidget {
-  PaymentMethods({Key? key}) : super(key: key);
+class PaymentMethodsScreen extends StatelessWidget {
+  PaymentMethodsScreen({Key? key}) : super(key: key);
   final List<PaymentMethod> paymentMethods = [
     PaymentMethod(
       iconPath: IconAssets.mastercard,
@@ -24,15 +24,13 @@ class PaymentMethods extends StatelessWidget {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: ElevatedButton(
-          onPressed: () {}, child: const Text("+ Add new method")),
+          onPressed: () {
+            RouteService.serviceNavi.pushNamedWidget(RouteGenerator.addNewPaymentMethodScreen);
+          },
+          child: const Text("+ Add new method")),
       appBar: AppBar(
         title: const Text("Payment methods"),
-        leading: Row(
-          children: [
-            AppSize.s15.addHorizontalSpace,
-            IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
-          ],
-        ),
+
       ),
       body: Column(
         children: [

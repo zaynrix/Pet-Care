@@ -14,7 +14,7 @@ class ResetPasswordScreen extends StatelessWidget {
         title: const Text("Reset Password"),
         leading: IconButton(
           onPressed: () {
-            RouteService.serviceNavi.popFunction();
+            RouteService.serviceNavi.pop();
           },
           icon: const Icon(
             Icons.arrow_back,
