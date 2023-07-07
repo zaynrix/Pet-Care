@@ -13,78 +13,71 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Consumer<ProductController>(
-        builder: (context, instance, child) => ElevatedButton(
-          onPressed: instance.isFloatingActionButtonEnabled() ? () {} : null,
-          child: const Text("Add to cart"),
-        ),
-      ),
       backgroundColor: ColorManager.soft,
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: ColorManager.transparent,
-        title: const Text("Details"),
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.arrow_back),
-        ),
-        actions: [
-          InkWell(
-            child: Container(
-              padding: const EdgeInsets.all(AppSize.s10),
-              height: sizeConfig.getScreenHeight(AppSize.s44),
-              width: sizeConfig.getScreenWidth(AppSize.s44),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(
-                  color: ColorManager.primaryWithTransparent30,
-                  width: 1,
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            backgroundColor: ColorManager.transparent,
+            title: const Text("Details"),
+            leading: IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.arrow_back),
+            ),
+            actions: [
+              InkWell(
+                child: Container(
+                  padding: const EdgeInsets.all(AppSize.s10),
+                  height: sizeConfig.getScreenHeight(AppSize.s44),
+                  width: sizeConfig.getScreenWidth(AppSize.s44),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: ColorManager.primaryWithTransparent30,
+                      width: 1,
+                    ),
+                  ),
+                  child: SvgPicture.asset(IconAssets.unSelectedCart),
                 ),
               ),
-              child: SvgPicture.asset(IconAssets.unSelectedCart),
+              const RHorizontalSpace(width: AppSize.s20),
+            ],
+            floating: true,
+            expandedHeight: sizeConfig.getScreenHeight(412),
+            flexibleSpace: FlexibleSpaceBar(
+              background: Container(
+                height: sizeConfig.getScreenHeight(412),
+                width: Get.width,
+                decoration: const BoxDecoration(color: ColorManager.soft),
+                child: CarouselSlider(
+                  options: CarouselOptions(
+                    aspectRatio: 1 / 1,
+                    viewportFraction: 1.0,
+                    enableInfiniteScroll: false,
+                  ),
+                  items: Provider.of<ProductController>(context)
+                      .productImages
+                      .map(
+                        (String imagePath) => Builder(
+                          builder: (BuildContext context) {
+                            return Image.asset(
+                              imagePath,
+                              fit: BoxFit.fill,
+                              width: double.infinity,
+                            );
+                          },
+                        ),
+                      )
+                      .toList(),
+                ),
+              ),
             ),
           ),
-          const RHorizontalSpace(width: AppSize.s20),
-        ],
-      ),
-      body:
-      SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Container(
-              height: sizeConfig.getScreenHeight(412),
-              width: Get.width,
-              decoration: const BoxDecoration(color: ColorManager.soft),
-              child: CarouselSlider(
-                options: CarouselOptions(
-                  aspectRatio: 1 / 1,
-                  viewportFraction: 1.0,
-                  enableInfiniteScroll: false,
-                ),
-                items:
-                    Provider.of<ProductController>(context).productImages.map(
-                  (String imagePath) {
-                    return Builder(
-                      builder: (BuildContext context) {
-                        return Image.asset(
-                          imagePath,
-                          fit: BoxFit.fill,
-                          width: double.infinity,
-                        );
-                      },
-                    );
-                  },
-                ).toList(),
-              ),
-            ),
-            Container(
+          SliverToBoxAdapter(
+            child: Container(
               padding: EdgeInsets.symmetric(
                 horizontal: sizeConfig.getScreenWidth(AppSize.s24),
               ),
               width: double.infinity,
-              // height: Get.height * 0.5,
               decoration: BoxDecoration(
                 color: ColorManager.white,
                 borderRadius: BorderRadius.circular(AppSize.s30),
@@ -113,9 +106,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     style: captionRegular,
                   ),
                   Consumer<ProductController>(
-                    builder: (context, instance, child) =>
-                        ListView.builder(
-                          padding: EdgeInsets.zero,
+                    builder: (context, instance, child) => ListView.builder(
+                      padding: EdgeInsets.zero,
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: instance.pharmacies.length,
@@ -126,8 +118,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           padding: EdgeInsets.symmetric(
                             vertical: sizeConfig.getScreenHeight(AppSize.s8),
                           ),
-                          child:
-                          InkWell(
+                          child: InkWell(
                             onTap: () {
                               setState(() {
                                 if (isSelected) {
@@ -141,8 +132,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                               padding: const EdgeInsets.all(AppSize.s16),
                               decoration: BoxDecoration(
                                 color: Colors.transparent,
-                                borderRadius:
-                                    BorderRadius.circular(AppSize.s8),
+                                borderRadius: BorderRadius.circular(AppSize.s8),
                                 border: Border.all(
                                   color:
                                       isSelected ? Colors.green : Colors.grey,
@@ -187,8 +177,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                   ),
                                   const Spacer(),
                                   Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.end,
+                                    crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
                                       Text(
                                         "\$${pharmacy.price.toStringAsFixed(2)}",
@@ -215,10 +204,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                             // Display the delivery fee or "Free Delivery"
                                             style: TextStyle(
                                               fontSize: AppSize.s14,
-                                              color:
-                                                  pharmacy.deliveryAvailable
-                                                      ? ColorManager.secondary
-                                                      : Colors.grey,
+                                              color: pharmacy.deliveryAvailable
+                                                  ? ColorManager.secondary
+                                                  : Colors.grey,
                                             ),
                                           ),
                                         ],
@@ -233,110 +221,6 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       },
                     ),
                   ),
-
-                  // Padding(
-                  //   padding: EdgeInsets.symmetric(
-                  //     vertical: sizeConfig.getScreenHeight(AppSize.s8),
-                  //   ),
-                  //   child:
-                  //   InkWell(
-                  //     onTap: () {
-                  //       setState(() {
-                  //
-                  //         // if (isSelected) {
-                  //         //   instance.selectedCardIndex = -1;
-                  //         // } else {
-                  //         //   instance.selectedCardIndex = index;
-                  //         // }
-                  //       });
-                  //     },
-                  //     child: Container(
-                  //       padding: const EdgeInsets.all(AppSize.s16),
-                  //       decoration: BoxDecoration(
-                  //         color: Colors.transparent,
-                  //         borderRadius:
-                  //         BorderRadius.circular(AppSize.s8),
-                  //         border: Border.all(
-                  //           color:
-                  //            Colors.grey,
-                  //           width:  1,
-                  //         ),
-                  //       ),
-                  //       child: Row(
-                  //         children: [
-                  //           Column(
-                  //             crossAxisAlignment:
-                  //             CrossAxisAlignment.start,
-                  //             children: [
-                  //               const Text(
-                  //                 "Care Pharmacy",
-                  //                 style: TextStyle(
-                  //                   fontSize: AppSize.s16,
-                  //                   fontWeight: FontWeight.bold,
-                  //                   color: Colors.black,
-                  //                 ),
-                  //               ),
-                  //               const SizedBox(height: AppSize.s8),
-                  //               Row(
-                  //                 children: [
-                  //                   const Text(
-                  //                     "Arrives:",
-                  //                     style: TextStyle(
-                  //                       fontSize: AppSize.s14,
-                  //                       color: Colors.grey,
-                  //                     ),
-                  //                   ),
-                  //                   5.horizontalSpace,
-                  //                   const Text(
-                  //                     "13 min",
-                  //                     style: TextStyle(
-                  //                         fontSize: AppSize.s14,
-                  //                         color: Colors.black,
-                  //                         fontWeight: FontWeight.w400),
-                  //                   ),
-                  //                 ],
-                  //               ),
-                  //             ],
-                  //           ),
-                  //           const Spacer(),
-                  //           Column(
-                  //             crossAxisAlignment:
-                  //             CrossAxisAlignment.end,
-                  //             children: [
-                  //               const Text(
-                  //                 "\$14.36",
-                  //                 style: TextStyle(
-                  //                   fontSize: AppSize.s16,
-                  //                   fontWeight: FontWeight.bold,
-                  //                   color: Colors.black,
-                  //                 ),
-                  //               ),
-                  //               const SizedBox(height: AppSize.s8),
-                  //               Row(
-                  //                 children: [
-                  //                   SvgPicture.asset(
-                  //                     IconAssets.delivery,
-                  //                     color: Colors.grey,
-                  //                   ),
-                  //                   5.horizontalSpace,
-                  //                   const Text(
-                  //                          "Delivery Fee: ",
-                  //                     // Display the delivery fee or "Free Delivery"
-                  //                     style: TextStyle(
-                  //                       fontSize: AppSize.s14,
-                  //                       color:
-                  //                       Colors.grey,
-                  //                     ),
-                  //                   ),
-                  //                 ],
-                  //               ),
-                  //             ],
-                  //           ),
-                  //         ],
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
                   20.addVerticalSpace,
                   const Text(
                     "Details",
@@ -350,7 +234,14 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                 ],
               ),
             ),
-          ],
+          ),
+        ],
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Consumer<ProductController>(
+        builder: (context, instance, child) => ElevatedButton(
+          onPressed: instance.isFloatingActionButtonEnabled() ? () {} : null,
+          child: const Text("Add to cart"),
         ),
       ),
     );
