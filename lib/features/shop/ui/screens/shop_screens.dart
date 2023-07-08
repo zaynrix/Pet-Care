@@ -3,6 +3,7 @@ library shop_screens;
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -18,15 +19,11 @@ import 'package:pet_care/resources/colors_manager.dart';
 import 'package:pet_care/resources/size_config.dart';
 import 'package:pet_care/resources/styles_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
-import 'package:pet_care/routing/routing_module.dart';
 import 'package:pet_care/utils/extension/responsive_extension.dart';
 import 'package:pet_care/utils/extension/validate_extension.dart';
 import 'package:provider/provider.dart';
 
-import '../../models/pharmacy_model.dart';
-
 part 'add_new_card.dart';
-// part 'cart_screen.dart';
 part 'main_shop_screen.dart';
 part 'order_information.dart';
 part 'order_success.dart';

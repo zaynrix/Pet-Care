@@ -39,6 +39,83 @@ class ProductRepository {
               "deliveryAvailable": true,
               "deliveryFee": 2.99,
               "details": "Product 1 details from Pharmacy 1"
+            },{
+              "name": "Pharmacy 1",
+              "price": 10.99,
+              "arriveTime": "2 days",
+              "deliveryAvailable": true,
+              "deliveryFee": 2.99,
+              "details": "Product 1 details from Pharmacy 1"
+            },{
+              "name": "Pharmacy 1",
+              "price": 10.99,
+              "arriveTime": "2 days",
+              "deliveryAvailable": true,
+              "deliveryFee": 2.99,
+              "details": "Product 1 details from Pharmacy 1"
+            },{
+              "name": "Pharmacy 1",
+              "price": 10.99,
+              "arriveTime": "2 days",
+              "deliveryAvailable": true,
+              "deliveryFee": 2.99,
+              "details": "Product 1 details from Pharmacy 1"
+            },{
+              "name": "Pharmacy 1",
+              "price": 10.99,
+              "arriveTime": "2 days",
+              "deliveryAvailable": true,
+              "deliveryFee": 2.99,
+              "details": "Product 1 details from Pharmacy 1"
+            },{
+              "name": "Pharmacy 1",
+              "price": 10.99,
+              "arriveTime": "2 days",
+              "deliveryAvailable": true,
+              "deliveryFee": 2.99,
+              "details": "Product 1 details from Pharmacy 1"
+            },{
+              "name": "Pharmacy 1",
+              "price": 10.99,
+              "arriveTime": "2 days",
+              "deliveryAvailable": true,
+              "deliveryFee": 2.99,
+              "details": "Product 1 details from Pharmacy 1"
+            },{
+              "name": "Pharmacy 1",
+              "price": 10.99,
+              "arriveTime": "2 days",
+              "deliveryAvailable": true,
+              "deliveryFee": 2.99,
+              "details": "Product 1 details from Pharmacy 1"
+            },{
+              "name": "Pharmacy 1",
+              "price": 10.99,
+              "arriveTime": "2 days",
+              "deliveryAvailable": true,
+              "deliveryFee": 2.99,
+              "details": "Product 1 details from Pharmacy 1"
+            },{
+              "name": "Pharmacy 1",
+              "price": 10.99,
+              "arriveTime": "2 days",
+              "deliveryAvailable": true,
+              "deliveryFee": 2.99,
+              "details": "Product 1 details from Pharmacy 1"
+            },{
+              "name": "Pharmacy 1",
+              "price": 10.99,
+              "arriveTime": "2 days",
+              "deliveryAvailable": true,
+              "deliveryFee": 2.99,
+              "details": "Product 1 details from Pharmacy 1"
+            },{
+              "name": "Pharmacy 1",
+              "price": 10.99,
+              "arriveTime": "2 days",
+              "deliveryAvailable": true,
+              "deliveryFee": 2.99,
+              "details": "Product 1 details from Pharmacy 1"
             },
             {
               "name": "Pharmacy 2",

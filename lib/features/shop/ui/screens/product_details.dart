@@ -5,7 +5,8 @@ class ProductDetailsScreen extends StatefulWidget {
   _ProductDetailsScreenState createState() => _ProductDetailsScreenState();
 }
 
-class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
+class _ProductDetailsScreenState extends State<ProductDetailsScreen>
+    with TickerProviderStateMixin {
   final SizeConfig sizeConfig = sl<SizeConfig>();
   bool likeSelected = false;
 
@@ -44,7 +45,6 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           child: SvgPicture.asset(IconAssets.unSelectedCart),
                         ),
                       ),
-
                       const RHorizontalSpace(width: AppSize.s20),
                     ],
                     floating: true,
@@ -55,26 +55,29 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         width: Get.width,
                         decoration:
                             const BoxDecoration(color: ColorManager.soft),
-                        child: CarouselSlider(
-                          options: CarouselOptions(
-                            aspectRatio: 1 / 1,
-                            viewportFraction: 1.0,
-                            enableInfiniteScroll: false,
+                        child: Hero(
+                          tag: value.singleProduct!.name!,
+                          child: CarouselSlider(
+                            options: CarouselOptions(
+                              aspectRatio: 1 / 1,
+                              viewportFraction: 1.0,
+                              enableInfiniteScroll: false,
+                            ),
+                            items: Provider.of<ProductController>(context)
+                                .productImages
+                                .map(
+                                  (String imagePath) => Builder(
+                                    builder: (BuildContext context) {
+                                      return Image.asset(
+                                        imagePath,
+                                        fit: BoxFit.fill,
+                                        width: double.infinity,
+                                      );
+                                    },
+                                  ),
+                                )
+                                .toList(),
                           ),
-                          items: Provider.of<ProductController>(context)
-                              .productImages
-                              .map(
-                                (String imagePath) => Builder(
-                                  builder: (BuildContext context) {
-                                    return Image.asset(
-                                      imagePath,
-                                      fit: BoxFit.fill,
-                                      width: double.infinity,
-                                    );
-                                  },
-                                ),
-                              )
-                              .toList(),
                         ),
                       ),
                     ),
@@ -124,6 +127,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                             style: captionRegular,
                           ),
                           ListView.builder(
+                            cacheExtent: 1,
                             padding: EdgeInsets.zero,
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
@@ -197,7 +201,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                               ],
                                             ),
                                           ],
-                                        ),
+                                        )
+                                            .animate()
+                                            .scaleXY(begin: 0.1, delay: 350.ms),
                                         const Spacer(),
                                         Column(
                                           crossAxisAlignment:
@@ -238,12 +244,21 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                               ],
                                             ),
                                           ],
-                                        ),
+                                        )
+                                            .animate(delay: 200.ms)
+                                            .moveX(begin: -100)
+                                            .then()
+                                            .shakeX(hz: 4, amount: 3),
                                       ],
                                     ),
                                   ),
                                 ),
-                              );
+                              )
+                                  .animate()
+                                  .fadeIn()
+                                  .slideX()
+                                  .scaleXY(begin: 0.5)
+                                  .then();
                             },
                           ),
                           20.addVerticalSpace,
