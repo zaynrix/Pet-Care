@@ -7,15 +7,15 @@ class Product {
     if (json['products'] != null) {
       products = <SingleProduct>[];
       json['products'].forEach((v) {
-        products!.add(new SingleProduct.fromJson(v));
+        products!.add(SingleProduct.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.products != null) {
-      data['products'] = this.products!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (products != null) {
+      data['products'] = products!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -23,55 +23,64 @@ class Product {
 
 class SingleProduct {
   String? name;
-  String? image;
+  String? coverImage;
+  List<String>? images;
   double? price;
   double? originalPrice;
   int? discountPercentage;
   bool? inCart;
   int? cartQuantity;
   bool? isFavorite;
+  String? details;
   List<Pharmacies>? pharmacies;
 
-  SingleProduct(
-      {this.name,
-      this.image,
-      this.price,
-      this.originalPrice,
-      this.discountPercentage,
-      this.inCart,
-      this.cartQuantity,
-      this.isFavorite,
-      this.pharmacies});
+  SingleProduct({
+    this.name,
+    this.coverImage,
+    this.images,
+    this.price,
+    this.originalPrice,
+    this.discountPercentage,
+    this.inCart,
+    this.cartQuantity,
+    this.isFavorite,
+    this.details,
+    this.pharmacies,
+  });
 
   SingleProduct.fromJson(Map<String, dynamic> json) {
     name = json['name'];
-    image = json['image'];
+    coverImage = json['coverImage'];
+    images = json['images'].cast<String>();
     price = json['price'];
     originalPrice = json['originalPrice'];
     discountPercentage = json['discountPercentage'];
     inCart = json['inCart'];
     cartQuantity = json['cartQuantity'];
     isFavorite = json['isFavorite'];
+    details = json['details'];
     if (json['pharmacies'] != null) {
       pharmacies = <Pharmacies>[];
       json['pharmacies'].forEach((v) {
-        pharmacies!.add(new Pharmacies.fromJson(v));
+        pharmacies!.add(Pharmacies.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['image'] = this.image;
-    data['price'] = this.price;
-    data['originalPrice'] = this.originalPrice;
-    data['discountPercentage'] = this.discountPercentage;
-    data['inCart'] = this.inCart;
-    data['cartQuantity'] = this.cartQuantity;
-    data['isFavorite'] = this.isFavorite;
-    if (this.pharmacies != null) {
-      data['pharmacies'] = this.pharmacies!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['name'] = name;
+    data['coverImage'] = coverImage;
+    data['images'] = images;
+    data['price'] = price;
+    data['originalPrice'] = originalPrice;
+    data['discountPercentage'] = discountPercentage;
+    data['inCart'] = inCart;
+    data['cartQuantity'] = cartQuantity;
+    data['isFavorite'] = isFavorite;
+    data['details'] = details;
+    if (pharmacies != null) {
+      data['pharmacies'] = pharmacies!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -83,15 +92,14 @@ class Pharmacies {
   String? arriveTime;
   bool? deliveryAvailable;
   double? deliveryFee;
-  String? details;
 
-  Pharmacies(
-      {this.name,
-      this.price,
-      this.arriveTime,
-      this.deliveryAvailable,
-      this.deliveryFee,
-      this.details});
+  Pharmacies({
+    this.name,
+    this.price,
+    this.arriveTime,
+    this.deliveryAvailable,
+    this.deliveryFee,
+  });
 
   Pharmacies.fromJson(Map<String, dynamic> json) {
     name = json['name'];
@@ -99,17 +107,15 @@ class Pharmacies {
     arriveTime = json['arriveTime'];
     deliveryAvailable = json['deliveryAvailable'];
     deliveryFee = json['deliveryFee'];
-    details = json['details'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['price'] = this.price;
-    data['arriveTime'] = this.arriveTime;
-    data['deliveryAvailable'] = this.deliveryAvailable;
-    data['deliveryFee'] = this.deliveryFee;
-    data['details'] = this.details;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['name'] = name;
+    data['price'] = price;
+    data['arriveTime'] = arriveTime;
+    data['deliveryAvailable'] = deliveryAvailable;
+    data['deliveryFee'] = deliveryFee;
     return data;
   }
 }
