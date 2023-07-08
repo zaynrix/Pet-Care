@@ -75,7 +75,7 @@ class _OrderInformationScreenState extends State<OrderInformationScreen> {
                           ))
                     ],
                   ),
-                  const Text(
+                  Text(
                     "5616 Artesian Dr Derwood,Maryland(MD), 20855",
                     style: footNoteBold,
                   ),

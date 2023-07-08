@@ -152,10 +152,10 @@ const TextStyle oldPriceStyle = TextStyle(
     decoration: TextDecoration.lineThrough,
     fontFamily: FontConstants.fontFamily);
 
-const TextStyle footNoteBold = TextStyle(
+ TextStyle footNoteBold = TextStyle(
     fontWeight: FontWeightManager.bold,
     fontFamily: FontConstants.fontFamily,
-    fontSize: FontSize.s13,
+    fontSize: FontSize.s11.sp,
     color: ColorManager.primary,
     height: 1.38);
 // //
