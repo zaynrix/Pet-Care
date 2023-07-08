@@ -17,6 +17,7 @@ class HomeScreen extends StatelessWidget {
         ),
         actions: [
           CustomIconButton(
+            onTap: (){},
             iconPath: IconAssets.search,
           ),
           AppSize.s35.addHorizontalSpace

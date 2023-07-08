@@ -8,12 +8,6 @@ class OrderDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Order detail"),
-        leading: Row(
-          children: [
-            AppSize.s15.addHorizontalSpace,
-            IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
-          ],
-        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Container(

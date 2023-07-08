@@ -20,8 +20,23 @@ class RoutsGenerate {
       case RouteGenerator.orderInformationScreen:
         return MaterialPageRoute(builder: (_) => OrderInformationScreen());
       case RouteGenerator.addNewCardScreen:
-        return MaterialPageRoute(builder: (_) => AddNewCard());
+        return MaterialPageRoute(builder: (_) => const AddNewCard());
       case RouteGenerator.orderSuccess:
+        return MaterialPageRoute(builder: (_) => const OrderSuccess());
+      case RouteGenerator.editProfileScreen:
+        return MaterialPageRoute(builder: (_) => EditProfileScreen());
+      case RouteGenerator.paymentMethodScreen:
+        return MaterialPageRoute(builder: (_) => PaymentMethodsScreen());
+      case RouteGenerator.addressScreen:
+        return MaterialPageRoute(builder: (_) => AddressScreen());
+      case RouteGenerator.ordersScreen:
+        return MaterialPageRoute(builder: (_) => OrdersScreen());
+      case RouteGenerator.appointmentsScreen:
+        return MaterialPageRoute(builder: (_) => AppointmentsScreen());
+      case RouteGenerator.addNewPaymentMethodScreen:
+        return MaterialPageRoute(builder: (_) => AddNewPaymentMethodScreen());
+      case RouteGenerator.orderDetailScreen:
+        return MaterialPageRoute(builder: (_) => const OrderDetailScreen());
         return MaterialPageRoute(builder: (_) => OrderSuccess());
       case RouteGenerator.mainShopScreen:
         return MaterialPageRoute(builder: (_) => MainShopScreen());

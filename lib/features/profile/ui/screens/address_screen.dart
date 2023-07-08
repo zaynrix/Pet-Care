@@ -10,12 +10,6 @@ class AddressScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Address"),
-        leading: Row(
-          children: [
-            AppSize.s15.addHorizontalSpace,
-            IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back)),
-          ],
-        ),
       ),
       body: Column(
         children: [

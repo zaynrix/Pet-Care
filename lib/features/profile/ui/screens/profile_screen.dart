@@ -13,6 +13,9 @@ class ProfileScreen extends StatelessWidget {
         title: const Text(AppStrings.profile),
         actions: [
           CustomIconButton(
+            onTap: (){
+              RouteService.serviceNavi.pushNamedWidget(RouteGenerator.editProfileScreen);
+            },
             iconPath: IconAssets.edit,
           ),
           const RHorizontalSpace(width: AppSize.s20),
@@ -35,6 +38,8 @@ class ProfileScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     ProfileTile(
+                      onTap: (){
+                      },
                       iconPath: IconAssets.unSelectedProfile,
                       title: "Ace Ventura",
                       iconColor: ColorManager.primaryWithTransparent10,
@@ -76,23 +81,35 @@ class ProfileScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const ProfileTile(
-                      iconPath: IconAssets.unSelectedProfile,
+                     ProfileTile(
+                      onTap: (){
+                        RouteService.serviceNavi.pushNamedWidget(RouteGenerator.paymentMethodScreen);
+                      },
+                      iconPath: IconAssets.payment,
                       title: AppStrings.paymentMethod,
                       iconColor: ColorManager.secondaryLight,
                     ),
-                    const ProfileTile(
-                      iconPath: IconAssets.unSelectedProfile,
+                    ProfileTile(
+                      onTap: (){
+                        RouteService.serviceNavi.pushNamedWidget(RouteGenerator.addressScreen);
+                      },
+                      iconPath: IconAssets.unSelectedHome,
                       title: AppStrings.addresses,
                       iconColor: ColorManager.tertiary,
                     ),
-                    const ProfileTile(
-                      iconPath: IconAssets.unSelectedProfile,
+                    ProfileTile(
+                      onTap: (){
+                        RouteService.serviceNavi.pushNamedWidget(RouteGenerator.ordersScreen);
+                      },
+                      iconPath: IconAssets.unSelectedCart,
                       title: AppStrings.orders,
                       iconColor: ColorManager.quaternary,
                     ),
-                    const ProfileTile(
-                      iconPath: IconAssets.unSelectedProfile,
+                    ProfileTile(
+                      onTap: (){
+                        RouteService.serviceNavi.pushNamedWidget(RouteGenerator.appointmentsScreen);
+                      },
+                      iconPath: IconAssets.calendar,
                       title: AppStrings.apointments,
                       iconColor: ColorManager.greenLight,
                     ),

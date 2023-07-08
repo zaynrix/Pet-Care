@@ -44,6 +44,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           child: SvgPicture.asset(IconAssets.unSelectedCart),
                         ),
                       ),
+
                       const RHorizontalSpace(width: AppSize.s20),
                     ],
                     floating: true,
