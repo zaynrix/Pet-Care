@@ -5,7 +5,7 @@ class CustomIconButton extends StatelessWidget {
 
   CustomIconButton({
 
-    required this.onTap,
+    // required this.onTap,
     this.onTap,
     required this.iconPath,
     Key? key,
