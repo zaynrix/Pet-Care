@@ -35,10 +35,13 @@ class ShodCard extends StatelessWidget {
             children: [
               Stack(
                 children: [
-                  Image.network(
-                    singleProduct!.coverImage!,
-                    fit: BoxFit.fitWidth,
-                    width: MediaQuery.of(context).size.width - 12,
+                  Hero(
+                    tag: singleProduct!.coverImage!,
+                    child: Image.network(
+                      singleProduct!.coverImage!,
+                      fit: BoxFit.fitWidth,
+                      width: MediaQuery.of(context).size.width - 12,
+                    ),
                   ),
                   Positioned(
                     bottom: 0,
