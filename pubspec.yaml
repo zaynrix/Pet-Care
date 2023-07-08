@@ -55,6 +55,7 @@ dependencies:
   animations: ^2.0.7
   table_calendar: ^3.0.9
   dio: ^5.2.1+1
+  google_maps_flutter: ^2.3.0
 #  flutter_state_render_dialog: ^1.0.3
 
 dev_dependencies:
