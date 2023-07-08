@@ -56,6 +56,7 @@ dependencies:
   table_calendar: ^3.0.9
   dio: ^5.2.1+1
   google_maps_flutter: ^2.3.0
+  geolocator: ^9.0.2
 #  flutter_state_render_dialog: ^1.0.3
 
 dev_dependencies:
