@@ -62,30 +62,30 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                         width: Get.width,
                         decoration:
                             const BoxDecoration(color: ColorManager.soft),
-                        child: Hero(
-                          tag: value.singleProduct!.name!,
-                          child: CarouselSlider(
-                            options: CarouselOptions(
-                              aspectRatio: 1 / 1,
-                              viewportFraction: 1.0,
-                              enableInfiniteScroll: false,
-                            ),
-                            items: Provider.of<ProductController>(context)
-                                .singleProduct!
-                                .images!
-                                .map(
-                                  (String imagePath) => Builder(
-                                    builder: (BuildContext context) {
-                                      return Image.network(
+                        child: CarouselSlider(
+                          options: CarouselOptions(
+                            aspectRatio: 1 / 1,
+                            viewportFraction: 1.0,
+                            enableInfiniteScroll: false,
+                          ),
+                          items: Provider.of<ProductController>(context)
+                              .singleProduct!
+                              .images!
+                              .map(
+                                (String imagePath) => Builder(
+                                  builder: (BuildContext context) {
+                                    return Hero(
+                                      tag: value.singleProduct!.coverImage!,
+                                      child: Image.network(
                                         imagePath,
                                         fit: BoxFit.fill,
                                         width: double.infinity,
-                                      );
-                                    },
-                                  ),
-                                )
-                                .toList(),
-                          ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              )
+                              .toList(),
                         ),
                       ),
                     ),

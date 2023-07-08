@@ -62,13 +62,9 @@ class _PharmacyShopScreenState extends State<PharmacyShopScreen> {
                                     current: productProvider
                                         .products!.products![index]);
                               },
-                              child: Hero(
-                                tag: productProvider
-                                    .products!.products![index].name!,
-                                child: ShodCard(
-                                  singleProduct: productProvider
-                                      .products!.products![index],
-                                ),
+                              child: ShodCard(
+                                singleProduct:
+                                    productProvider.products!.products![index],
                               ),
                             ))),
             const RVerticalSpace(height: AppSize.s32),
