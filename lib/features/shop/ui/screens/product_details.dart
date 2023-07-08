@@ -6,9 +6,16 @@ class ProductDetailsScreen extends StatefulWidget {
 }
 
 class _ProductDetailsScreenState extends State<ProductDetailsScreen>
-    with TickerProviderStateMixin {
+    with SingleTickerProviderStateMixin {
   final SizeConfig sizeConfig = sl<SizeConfig>();
   bool likeSelected = false;
+  late final AnimationController _controller = AnimationController(
+      duration: const Duration(milliseconds: 200), vsync: this, value: 1.0);
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,11 +71,12 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                               enableInfiniteScroll: false,
                             ),
                             items: Provider.of<ProductController>(context)
-                                .productImages
+                                .singleProduct!
+                                .images!
                                 .map(
                                   (String imagePath) => Builder(
                                     builder: (BuildContext context) {
-                                      return Image.asset(
+                                      return Image.network(
                                         imagePath,
                                         fit: BoxFit.fill,
                                         width: double.infinity,
@@ -107,17 +115,25 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                 ),
                               ),
                               const Spacer(),
-                              CustomIconButton(
-                                onTap: () {
-                                  setState(() {
-                                    value.singleProduct?.isFavorite =
-                                        !value.singleProduct!.isFavorite!;
-                                  });
-                                },
-                                iconPath:
-                                    value.singleProduct?.isFavorite == true
-                                        ? IconAssets.likeSelected
-                                        : IconAssets.likeUnselected,
+                              ScaleTransition(
+                                scale: Tween(begin: 0.3, end: 1.0).animate(
+                                    CurvedAnimation(
+                                        parent: _controller,
+                                        curve: Curves.easeOut)),
+                                child: CustomIconButton(
+                                  onTap: () {
+                                    setState(() {
+                                      value.singleProduct?.isFavorite =
+                                          !value.singleProduct!.isFavorite!;
+                                      _controller.reverse().then(
+                                          (value) => _controller.forward());
+                                    });
+                                  },
+                                  iconPath:
+                                      value.singleProduct?.isFavorite == true
+                                          ? IconAssets.likeSelected
+                                          : IconAssets.likeUnselected,
+                                ),
                               ),
                             ],
                           ),
@@ -265,11 +281,11 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                           const Text(
                             "Details",
                             style: supTitleBold,
-                          ),
+                          ).animate().scaleXY(begin: 0.1, delay: 350.ms),
                           const Text(
                             "Pro-Sense brand offers a variety of proactive, sensible solutions for all of your pet’s healthcare and wellness needs. We know pet parenting can be tough, which is why we’ve improved our ingredients and benefits to make it easier than ever to care for them like any other member of your family. Your pet can experience allergies just ",
                             style: bodyMedium,
-                          ),
+                          ).animate().scaleXY(begin: 0.1, delay: 350.ms),
                           100.addVerticalSpace,
                         ],
                       ),
