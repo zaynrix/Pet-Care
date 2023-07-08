@@ -1,6 +1,15 @@
+import 'dart:convert';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:pet_care/features/shop/models/pharmacy_model.dart';
+import 'package:pet_care/features/shop/models/product_model.dart';
+import 'package:pet_care/features/shop/repositories/product_repository.dart';
+import 'package:pet_care/locator.dart';
 import 'package:pet_care/resources/assets_manager.dart';
+import 'package:pet_care/routing/routing_module.dart';
+
+import '../models/payment_method_model.dart';
 
 class ProductController extends ChangeNotifier {
   List<String> productImages = [
@@ -41,5 +50,65 @@ class ProductController extends ChangeNotifier {
 
   bool isFloatingActionButtonEnabled() {
     return selectedCardIndex != -1;
+  }
+
+  final String jsonString = '''
+    [
+      {"visatype": "Type A", "id": 1, "visa_last_four": "1234", "payment_method": "Mastercard"},
+      {"visatype": "Type B", "id": 2, "visa_last_four": "5678", "payment_method": "Visa"},
+      {"visatype": "Type C", "id": 3, "visa_last_four": "9012", "payment_method": "Mastercard"}
+    ]
+  ''';
+  List<PaymentMethodModel> visaList = [];
+  int selectedIndexPayment = -1;
+
+  List<PaymentMethodModel> parseJsonData() {
+    final parsed = json.decode(jsonString).cast<Map<String, dynamic>>();
+    return parsed
+        .map<PaymentMethodModel>((json) => PaymentMethodModel.fromJson(json))
+        .toList();
+  }
+
+  void selectVisa(int index) {
+    if (selectedIndexPayment == index) {
+      selectedIndexPayment =
+          -1; // Clear selection if the same item is tapped again
+      notifyListeners();
+    } else {
+      selectedIndexPayment = index; // Select the new item
+      notifyListeners();
+    }
+  }
+
+  Product? products;
+  bool isLoading = false;
+  Future<void> getUserdataProvider() async {
+    isLoading = true;
+    notifyListeners();
+    try {
+      Product res = await sl<ProductRepository>().getBestSellerRepo();
+      products = res;
+      notifyListeners();
+    } on DioException catch (e) {
+      debugPrint("$e");
+    } finally {
+      isLoading = false;
+      notifyListeners();
+    }
+  }
+
+  SingleProduct? singleProduct;
+  void setProductObject({SingleProduct? current}) {
+    print("${current!.inCart}");
+    isLoading = true;
+    notifyListeners();
+    singleProduct = current;
+    isLoading = false;
+    notifyListeners();
+
+    print(singleProduct!.originalPrice);
+    RouteService.serviceNavi.pushNamedWidget(
+      RouteGenerator.productDetailsScreen,
+    );
   }
 }

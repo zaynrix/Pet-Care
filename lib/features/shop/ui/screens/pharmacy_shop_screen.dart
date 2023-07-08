@@ -9,11 +9,13 @@ class PharmacyShopScreen extends StatefulWidget {
 
 class _PharmacyShopScreenState extends State<PharmacyShopScreen> {
   final shopController = Get.put(ShopController());
+  final productProvider = sl<ProductController>();
   final SizeConfig sizeConfig = sl<SizeConfig>();
 
   @override
   void initState() {
     super.initState();
+    productProvider.getUserdataProvider();
     shopController.initPharmacyShopState();
   }
 
@@ -46,11 +48,25 @@ class _PharmacyShopScreenState extends State<PharmacyShopScreen> {
             const RVerticalSpace(height: AppSize.s16),
             SizedBox(
                 height: sizeConfig.getScreenHeight(250),
-                child: ListView.builder(
-                    itemCount: 4,
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) => ShodCard())),
+                child: productProvider.products == null
+                    ? Center(
+                        child: CircularProgressIndicator(),
+                      )
+                    : ListView.builder(
+                        itemCount: productProvider.products!.products!.length,
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) => GestureDetector(
+                              onTap: () {
+                                productProvider.setProductObject(
+                                    current: productProvider
+                                        .products!.products![index]);
+                              },
+                              child: ShodCard(
+                                singleProduct:
+                                    productProvider.products!.products![index],
+                              ),
+                            ))),
             const RVerticalSpace(height: AppSize.s32),
             DividerShopCard(
               title: 'Top brands',

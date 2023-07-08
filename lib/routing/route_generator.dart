@@ -13,6 +13,7 @@ class RouteGenerator {
   static const String orderInformationScreen = 'orderInformationScreen';
   static const String addNewCardScreen = 'addNewCardScreen';
   static const String orderSuccess = 'orderSuccess';
+
   static const String editProfileScreen = 'editProfile';
   static const String paymentMethodScreen = 'paymentMethod';
   static const String addNewPaymentMethodScreen = 'addNewPaymentMethod';
@@ -20,4 +21,7 @@ class RouteGenerator {
   static const String ordersScreen = 'ordersScreen';
   static const String orderDetailScreen = 'orderDetailScreen';
   static const String appointmentsScreen = 'appointmentsScreen';
+
+  static const String mainShopScreen = 'mainShopScreen';
+
 }

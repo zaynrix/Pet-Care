@@ -14,9 +14,9 @@ class RoutsGenerate {
       case RouteGenerator.mainAddPetScreen:
         return MaterialPageRoute(builder: (_) => const MainAppPetScreen());
       case RouteGenerator.productDetailsScreen:
-        return MaterialPageRoute(builder: (_) => const ProductDetailsScreen());
-      case RouteGenerator.cartScreen:
-        return MaterialPageRoute(builder: (_) => CartScreen());
+        return MaterialPageRoute(builder: (_) => ProductDetailsScreen());
+      // case RouteGenerator.cartScreen:
+      //   return MaterialPageRoute(builder: (_) => CartScreen());
       case RouteGenerator.orderInformationScreen:
         return MaterialPageRoute(builder: (_) => OrderInformationScreen());
       case RouteGenerator.addNewCardScreen:
@@ -37,6 +37,9 @@ class RoutsGenerate {
         return MaterialPageRoute(builder: (_) => AddNewPaymentMethodScreen());
       case RouteGenerator.orderDetailScreen:
         return MaterialPageRoute(builder: (_) => const OrderDetailScreen());
+        return MaterialPageRoute(builder: (_) => OrderSuccess());
+      case RouteGenerator.mainShopScreen:
+        return MaterialPageRoute(builder: (_) => MainShopScreen());
       default:
         throw const FormatException("Route not found");
     }
