@@ -4,7 +4,9 @@ class CustomIconButton extends StatelessWidget {
   final SizeConfig sizeConfig = sl<SizeConfig>();
 
   CustomIconButton({
+
     required this.onTap,
+    this.onTap,
     required this.iconPath,
     Key? key,
   }) : super(key: key);
@@ -14,7 +16,8 @@ class CustomIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+
+    return GestureDetector(
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(

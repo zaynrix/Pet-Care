@@ -2,9 +2,10 @@ part of shop_widgets;
 
 class ShodCard extends StatelessWidget {
   ShodCard({
+    this.singleProduct,
     Key? key,
   }) : super(key: key);
-
+  final SingleProduct? singleProduct;
   final SizeConfig sizeConfig = sl<SizeConfig>();
 
   @override
@@ -47,9 +48,9 @@ class ShodCard extends StatelessWidget {
                         color: const Color(0xFFDFD4FB),
                         borderRadius: BorderRadius.circular(5.0),
                       ),
-                      child: const Text(
-                        "%15 OFF",
-                        style: TextStyle(
+                      child: Text(
+                        "%${singleProduct!.discountPercentage} OFF ",
+                        style: const TextStyle(
                           color: ColorManager.primary,
                           fontSize: 10.0,
                           fontWeight: FontWeight.bold,
@@ -60,10 +61,9 @@ class ShodCard extends StatelessWidget {
                 ],
               ),
               const RVerticalSpace(height: AppSize.s10),
-
               Flexible(
                 child: Text(
-                  "Pro-Sense Itch & Allergy SolutionsllergySolutionsllergySolutionsllergy Solutions",
+                  "${singleProduct!.name}",
                   style: footNoteRegular(color: ColorManager.primary),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
@@ -73,13 +73,13 @@ class ShodCard extends StatelessWidget {
               AppSize.s10.addVerticalSpace,
               Row(
                 children: [
-                  const Text(
-                    "\$14.36",
+                  Text(
+                    "\$${singleProduct!.price}",
                     style: footNoteBold,
                   ),
                   const RHorizontalSpace(width: AppSize.s5),
-                  const Text(
-                    "\$16.90",
+                  Text(
+                    "\$${singleProduct!.originalPrice}",
                     style: oldPriceStyle,
                   ),
                   const Spacer(),
@@ -94,7 +94,9 @@ class ShodCard extends StatelessWidget {
                         shape: BoxShape.circle,
                       ),
                       child: SvgPicture.asset(
-                        IconAssets.plus,
+                        singleProduct!.inCart == true
+                            ? IconAssets.plus
+                            : IconAssets.decrementButton,
                         color: ColorManager.white,
                       ),
                     ),
