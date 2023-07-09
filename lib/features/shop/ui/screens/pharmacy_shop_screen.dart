@@ -49,7 +49,7 @@ class _PharmacyShopScreenState extends State<PharmacyShopScreen> {
             SizedBox(
                 height: sizeConfig.getScreenHeight(250),
                 child: productProvider.products == null
-                    ? Center(
+                    ? const Center(
                         child: CircularProgressIndicator(),
                       )
                     : ListView.builder(

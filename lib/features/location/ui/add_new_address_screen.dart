@@ -3,10 +3,8 @@ part of location_module;
 class AddNewAddressScreen extends StatelessWidget {
   AddNewAddressScreen({Key? key}) : super(key: key);
 
-  late GoogleMapController googleMapController;
-  static const CameraPosition initialCameraPosition = CameraPosition(
-      target: LatLng(37.42796133580664, -122.085749655962), zoom: 15);
-  Set<Marker> markers = {};
+  final locationController = Get.put(LocationController());
+
 
   @override
   Widget build(BuildContext context) {
@@ -22,15 +20,15 @@ class AddNewAddressScreen extends StatelessWidget {
               child: Stack(
                 children: [
                   GoogleMap(
-                    initialCameraPosition: initialCameraPosition,
-                    markers: markers,
+                    initialCameraPosition: locationController.initialCameraPosition,
+                    markers: locationController.markers,
                     zoomControlsEnabled: false,
                     mapType: MapType.normal,
                     myLocationEnabled: true,
                     onMapCreated: (GoogleMapController controller) async {
-                      googleMapController = controller;
+                      locationController.googleMapController = controller;
                       String value = await DefaultAssetBundle.of(context).loadString(JsonAssets.mapStyle);
-                      googleMapController.setMapStyle(value);
+                      locationController.googleMapController.setMapStyle(value);
                     },
                   ),
                   Positioned(
@@ -69,9 +67,7 @@ class AddNewAddressScreen extends StatelessWidget {
                   AppSize.s16.addVerticalSpace,
                   ElevatedButton(onPressed: (){},
                       child: const Text("Use this address")),
-                  AppSize.s20.addVerticalSpace,
                   TextButton(onPressed: (){}, child: Text("Add location manually" , style: bodyRegular(color: ColorManager.secondary),)),
-                  AppSize.s20.addVerticalSpace,
                 ],
               ),
             ),
