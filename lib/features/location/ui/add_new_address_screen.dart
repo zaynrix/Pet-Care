@@ -52,23 +52,25 @@ class AddNewAddressScreen extends StatelessWidget {
               width: Get.width * 1,
               height: Get.height * 0.28,
               color: ColorManager.white,
-              child: Column(
-                children: [
-                  Container(
-                    padding: AppSize.s16.paddingAll,
-                    width: 279.width,
-                    decoration: BoxDecoration(
-                        color: ColorManager.white,
-                        borderRadius: AppSize.s16.circularRadius,
-                        border: Border.all(color: ColorManager.secondGray)
+              child: GetBuilder<LocationController>(
+                builder: (GetxController controller) => Column(
+                  children: [
+                    Container(
+                      padding: AppSize.s16.paddingAll,
+                      width: 279.width,
+                      decoration: BoxDecoration(
+                          color: ColorManager.white,
+                          borderRadius: AppSize.s16.circularRadius,
+                          border: Border.all(color: ColorManager.secondGray)
+                      ),
+                      child: Text(locationController.currantAddress , style: footNoteBold,maxLines: 2, textAlign: TextAlign.center,),
                     ),
-                    child: Text("3212 Bridge Street,\nMaryland(MD), 20855" , style: footNoteBold,maxLines: 2, textAlign: TextAlign.center,),
-                  ),
-                  AppSize.s16.addVerticalSpace,
-                  ElevatedButton(onPressed: (){},
-                      child: const Text("Use this address")),
-                  TextButton(onPressed: (){}, child: Text("Add location manually" , style: bodyRegular(color: ColorManager.secondary),)),
-                ],
+                    AppSize.s16.addVerticalSpace,
+                    ElevatedButton(onPressed: (){},
+                        child: const Text("Use this address")),
+                    TextButton(onPressed: (){}, child: Text("Add location manually" , style: bodyRegular(color: ColorManager.secondary),)),
+                  ],
+                ),
               ),
             ),
           ],

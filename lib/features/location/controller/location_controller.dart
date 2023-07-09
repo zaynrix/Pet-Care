@@ -8,25 +8,27 @@ class LocationController extends GetxController {
   static const LatLng latLng = LatLng(37.42796133580664, -122.085749655962);
 
   CameraPosition initialCameraPosition =
-      const CameraPosition(target: latLng, zoom: 15);
+      const CameraPosition(target: latLng, zoom: 14);
 
   Set<Marker> markers = {};
 
   late GoogleMapController googleMapController;
+  late Position currentPosition;
+  String currantAddress = "";
 
+  // List<Placemark> placeMarks =  placemarkFromCoordinates(52.2165157, 6.9437819);
 
   @override
   void onReady() async {
     super.onReady();
     debugPrint("This is inside init \n ************* ");
-    Position position = await determinePosition();
-    debugPrint("This is position: \n ${position.altitude} ************* ");
+    currentPosition = await determinePosition();
     googleMapController.animateCamera(CameraUpdate.newCameraPosition(
         CameraPosition(
-            target: LatLng(position.latitude, position.longitude), zoom: 18)));
-    determinePosition();
+            target: LatLng(currentPosition.latitude, currentPosition.longitude),
+            zoom: 18)));
+    getAddressFromLatLng(currentPosition);
     update();
-
   }
 
   Future<Position> determinePosition() async {
@@ -57,5 +59,19 @@ class LocationController extends GetxController {
         desiredAccuracy: LocationAccuracy.high);
 
     return position;
+  }
+
+  Future<void> getAddressFromLatLng(Position position) async {
+    await placemarkFromCoordinates(
+        position.latitude, position.longitude)
+        .then((List<Placemark> placeMarks) {
+      Placemark place = placeMarks[0];
+      currantAddress =
+          "${place.street}, ${place.subLocality}\n ${place.subAdministrativeArea}, ${place.postalCode}";
+      update();
+      debugPrint("This is currantAddress: :\n >>>>>> $currantAddress");
+    }).catchError((e) {
+      debugPrint(e.toString());
+    });
   }
 }
