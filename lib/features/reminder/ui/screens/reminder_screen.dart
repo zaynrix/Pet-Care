@@ -1,8 +1,9 @@
 part of reminder_module;
 
 class ReminderScreen extends StatelessWidget {
-  const ReminderScreen({Key? key}) : super(key: key);
+  ReminderScreen({Key? key}) : super(key: key);
 
+  DateTime selectedDate = DateTime.now();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,11 +11,14 @@ class ReminderScreen extends StatelessWidget {
         title: Column(
           children: [
             const Text("Reminder"),
-            Text("Today ${DateTime.now().toString().convertToFullDate()!}" , style: captionRegular,),
+            Text(
+              "Today ${DateTime.now().toString().convertToFullDate()!}",
+              style: captionRegular,
+            ),
           ],
         ),
         actions: [
-          CustomIconButton(onTap: (){}, iconPath: IconAssets.plus),
+          CustomIconButton(onTap: () {}, iconPath: IconAssets.plus),
           AppSize.s40.addHorizontalSpace
         ],
       ),
@@ -23,7 +27,24 @@ class ReminderScreen extends StatelessWidget {
           padding: AppSize.s24.paddingAll,
           child: Column(
             children: [
-              ReminderCard()
+              Container(
+                margin: EdgeInsetsDirectional.only(end: AppSize.s14.width),
+                child: DatePicker(
+                  initialSelectedDate: DateTime.now(),
+                  DateTime.now(),
+                  height: AppSize.s85.height,
+                  width: AppSize.s50.width,
+                  onDateChange: (date){
+                    selectedDate = date;
+                  },
+                  selectionColor: ColorManager.secondary,
+                  dayTextStyle: footNoteRegular(color: ColorManager.gray),
+                  dateTextStyle: supTitleBold.copyWith(color: ColorManager.gray),
+                  monthTextStyle: footNoteRegular(color: ColorManager.gray),
+                ),
+              ),
+              AppSize.s40.addVerticalSpace,
+              const ReminderCard()
             ],
           ),
         ),
@@ -31,4 +52,3 @@ class ReminderScreen extends StatelessWidget {
     );
   }
 }
-
