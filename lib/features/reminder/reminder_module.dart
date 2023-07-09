@@ -17,3 +17,4 @@ import 'package:pet_care/utils/extension/time_extension.dart';
 
 part "ui/screens/reminder_screen.dart";
 part 'ui/widgets/reminder_card.dart';
+part 'ui/screens/add_reminder_screen.dart';
