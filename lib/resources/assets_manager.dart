@@ -111,3 +111,9 @@ class SvgAssets {
     SvgAssets.firstBannerPng,
   ];
 }
+
+const String jsonPath = 'assets/json';
+class JsonAssets{
+  static const mapStyle = "$jsonPath/map_style.json";
+
+}

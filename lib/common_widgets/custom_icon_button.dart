@@ -4,7 +4,9 @@ class CustomIconButton extends StatelessWidget {
   final SizeConfig sizeConfig = sl<SizeConfig>();
 
   CustomIconButton({
+
     required this.onTap,
+
     required this.iconPath,
     Key? key,
   }) : super(key: key);
