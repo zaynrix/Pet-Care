@@ -59,6 +59,7 @@ dependencies:
   geolocator: ^9.0.2
 
   flutter_animate: ^4.2.0
+  geocoding: ^2.1.0
 
 #  flutter_state_render_dialog: ^1.0.3
 

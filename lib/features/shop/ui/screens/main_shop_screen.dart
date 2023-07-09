@@ -1,7 +1,7 @@
 part of shop_screens;
 
 class MainShopScreen extends StatefulWidget {
-  MainShopScreen({Key? key}) : super(key: key);
+  const MainShopScreen({Key? key}) : super(key: key);
 
   @override
   State<MainShopScreen> createState() => _MainShopScreenState();
