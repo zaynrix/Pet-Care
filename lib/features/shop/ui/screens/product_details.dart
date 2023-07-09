@@ -6,15 +6,18 @@ class ProductDetailsScreen extends StatefulWidget {
 }
 
 class _ProductDetailsScreenState extends State<ProductDetailsScreen>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   final SizeConfig sizeConfig = sl<SizeConfig>();
   bool likeSelected = false;
   late final AnimationController _controller = AnimationController(
+      duration: const Duration(milliseconds: 200), vsync: this, value: 1.0);
+  late final AnimationController _controller2 = AnimationController(
       duration: const Duration(milliseconds: 200), vsync: this, value: 1.0);
   @override
   void dispose() {
     super.dispose();
     _controller.dispose();
+    _controller2.dispose();
   }
 
   @override
@@ -133,7 +136,11 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                       value.singleProduct?.isFavorite == true
                                           ? IconAssets.likeSelected
                                           : IconAssets.likeUnselected,
-                                ),
+                                )
+                                    .animate(delay: 40.ms)
+                                    .shimmer()
+                                    .then()
+                                    .scale(),
                               ),
                             ],
                           ),
@@ -160,6 +167,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                 ),
                                 child: InkWell(
                                   onTap: () {
+                                    _controller2.reverse().then(
+                                        (value) => _controller2.forward());
                                     setState(() {
                                       if (isSelected) {
                                         value.selectedCardIndex = -1;
@@ -296,9 +305,13 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: Consumer<ProductController>(
-        builder: (context, instance, child) => ElevatedButton(
-          onPressed: instance.isFloatingActionButtonEnabled() ? () {} : null,
-          child: const Text("Add to cart"),
+        builder: (context, instance, child) => ScaleTransition(
+          scale: Tween(begin: 0.3, end: 1.0).animate(
+              CurvedAnimation(parent: _controller2, curve: Curves.easeOut)),
+          child: ElevatedButton(
+            onPressed: instance.isFloatingActionButtonEnabled() ? () {} : null,
+            child: const Text("Add to cart"),
+          ),
         ),
       ),
     );
