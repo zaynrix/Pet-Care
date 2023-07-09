@@ -68,7 +68,9 @@ class AddNewAddressScreen extends StatelessWidget {
                     AppSize.s16.addVerticalSpace,
                     ElevatedButton(onPressed: (){},
                         child: const Text("Use this address")),
-                    TextButton(onPressed: (){}, child: Text("Add location manually" , style: bodyRegular(color: ColorManager.secondary),)),
+                    TextButton(onPressed: (){
+                      RouteService.serviceNavi.pushNamedWidget(RouteGenerator.addNewLocationManual);
+                    }, child: Text("Add location manually" , style: bodyRegular(color: ColorManager.secondary),)),
                   ],
                 ),
               ),

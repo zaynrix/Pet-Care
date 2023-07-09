@@ -39,7 +39,9 @@ class RoutsGenerate {
         return MaterialPageRoute(builder: (_) => const OrderDetailScreen());
         return MaterialPageRoute(builder: (_) => OrderSuccess());
       case RouteGenerator.mainShopScreen:
-        return MaterialPageRoute(builder: (_) => MainShopScreen());
+        return MaterialPageRoute(builder: (_) => const MainShopScreen());
+      case RouteGenerator.addNewLocationManual:
+        return MaterialPageRoute(builder: (_) => AddNewAddressManually());
       default:
         throw const FormatException("Route not found");
     }
