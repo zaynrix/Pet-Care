@@ -3,11 +3,12 @@ part of shop_widgets;
 class ShodCard extends StatelessWidget {
   ShodCard({
     this.singleProduct,
+    this.onTap,
     Key? key,
   }) : super(key: key);
   final SingleProduct? singleProduct;
   final SizeConfig sizeConfig = sl<SizeConfig>();
-
+  final Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -91,23 +92,13 @@ class ShodCard extends StatelessWidget {
                   ),
                   const Spacer(),
                   GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      width: sizeConfig.getScreenWidth(AppSize.s25),
-                      height: sizeConfig.getScreenHeight(AppSize.s25),
-                      padding: const EdgeInsets.all(AppSize.s6),
-                      decoration: const BoxDecoration(
-                        color: ColorManager.secondary,
-                        shape: BoxShape.circle,
-                      ),
-                      child: SvgPicture.asset(
+                      onTap: onTap,
+                      child: Icon(
                         singleProduct!.inCart == true
-                            ? IconAssets.plus
-                            : IconAssets.decrementButton,
-                        color: ColorManager.white,
-                      ),
-                    ),
-                  ),
+                            ? Icons.add_circle
+                            : Icons.remove_circle_outline_rounded,
+                        color: ColorManager.secondary,
+                      )),
                 ],
               ),
             ],
