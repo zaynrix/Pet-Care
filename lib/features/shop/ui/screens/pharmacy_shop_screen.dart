@@ -63,6 +63,14 @@ class _PharmacyShopScreenState extends State<PharmacyShopScreen> {
                                         .products!.products![index]);
                               },
                               child: ShodCard(
+                                onTap: () {
+                                  setState(() {
+                                    productProvider
+                                            .products!.products![index].inCart =
+                                        !productProvider
+                                            .products!.products![index].inCart!;
+                                  });
+                                },
                                 singleProduct:
                                     productProvider.products!.products![index],
                               )
