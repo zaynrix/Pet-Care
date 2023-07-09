@@ -65,7 +65,11 @@ class _PharmacyShopScreenState extends State<PharmacyShopScreen> {
                               child: ShodCard(
                                 singleProduct:
                                     productProvider.products!.products![index],
-                              ),
+                              )
+                                  .animate(delay: 200.ms)
+                                  .moveX(begin: -100)
+                                  .then()
+                                  .shakeX(hz: 4, amount: 3),
                             ))),
             const RVerticalSpace(height: AppSize.s32),
             DividerShopCard(
