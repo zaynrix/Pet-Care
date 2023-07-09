@@ -5,8 +5,8 @@ class CustomIconButton extends StatelessWidget {
 
   CustomIconButton({
 
-    // required this.onTap,
-    this.onTap,
+    required this.onTap,
+
     required this.iconPath,
     Key? key,
   }) : super(key: key);
@@ -16,7 +16,6 @@ class CustomIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return GestureDetector(
       onTap: onTap,
       child: Container(
