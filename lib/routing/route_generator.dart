@@ -23,5 +23,6 @@ class RouteGenerator {
   static const String appointmentsScreen = 'appointmentsScreen';
 
   static const String mainShopScreen = 'mainShopScreen';
+  static const String addNewLocationManual = 'addNewLocationManual';
 
 }
