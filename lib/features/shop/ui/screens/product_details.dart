@@ -1,6 +1,8 @@
 part of shop_screens;
 
 class ProductDetailsScreen extends StatefulWidget {
+  const ProductDetailsScreen({super.key});
+
   @override
   _ProductDetailsScreenState createState() => _ProductDetailsScreenState();
 }
@@ -13,6 +15,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
       duration: const Duration(milliseconds: 200), vsync: this, value: 1.0);
   late final AnimationController _controller2 = AnimationController(
       duration: const Duration(milliseconds: 200), vsync: this, value: 1.0);
+
   @override
   void dispose() {
     super.dispose();
