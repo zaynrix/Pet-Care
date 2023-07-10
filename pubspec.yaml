@@ -62,6 +62,7 @@ dependencies:
   geocoding: ^2.1.0
   date_picker_timeline: ^1.2.5
   hive: ^2.2.3
+  hive_flutter: ^1.1.0
 
 #  flutter_state_render_dialog: ^1.0.3
 
