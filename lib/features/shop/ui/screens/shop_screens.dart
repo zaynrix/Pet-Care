@@ -1,6 +1,8 @@
 library shop_screens;
 
+import 'package:add_to_cart_animation/add_to_cart_animation.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -19,11 +21,13 @@ import 'package:pet_care/resources/colors_manager.dart';
 import 'package:pet_care/resources/size_config.dart';
 import 'package:pet_care/resources/styles_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
+import 'package:pet_care/routing/routing_module.dart';
 import 'package:pet_care/utils/extension/responsive_extension.dart';
 import 'package:pet_care/utils/extension/validate_extension.dart';
 import 'package:provider/provider.dart';
 
 part 'add_new_card.dart';
+part 'cart_screen.dart';
 part 'main_shop_screen.dart';
 part 'order_information.dart';
 part 'order_success.dart';
