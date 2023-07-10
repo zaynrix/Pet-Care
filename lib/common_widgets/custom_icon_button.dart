@@ -4,9 +4,7 @@ class CustomIconButton extends StatelessWidget {
   final SizeConfig sizeConfig = sl<SizeConfig>();
 
   CustomIconButton({
-
     required this.onTap,
-
     required this.iconPath,
     Key? key,
   }) : super(key: key);
@@ -27,6 +25,27 @@ class CustomIconButton extends StatelessWidget {
         padding: const EdgeInsets.all(AppSize.s7),
         child: SvgPicture.asset(iconPath),
       ),
+    );
+  }
+}
+
+class CustomIconButtonNoDecoration extends StatelessWidget {
+  final SizeConfig sizeConfig = sl<SizeConfig>();
+
+  CustomIconButtonNoDecoration({
+    required this.onTap,
+    required this.iconPath,
+    Key? key,
+  }) : super(key: key);
+
+  final String iconPath;
+  final void Function()? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: SvgPicture.asset(iconPath),
     );
   }
 }
