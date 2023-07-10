@@ -63,9 +63,30 @@ class _PharmacyShopScreenState extends State<PharmacyShopScreen> {
                                         .products!.products![index]);
                               },
                               child: ShodCard(
+                                onTap: () {
+                                  setState(() {
+                                    productProvider.products!.products![index]
+                                                .inCart !=
+                                            true
+                                        ? productProvider.deleteFromCart(
+                                            productProvider
+                                                .products!.products![index])
+                                        : productProvider.addToCart(
+                                            productProvider
+                                                .products!.products![index]);
+                                    productProvider
+                                            .products!.products![index].inCart =
+                                        !productProvider
+                                            .products!.products![index].inCart!;
+                                  });
+                                },
                                 singleProduct:
                                     productProvider.products!.products![index],
-                              ),
+                              )
+                                  .animate(delay: 200.ms)
+                                  .moveX(begin: -100)
+                                  .then()
+                                  .shakeX(hz: 4, amount: 3),
                             ))),
             const RVerticalSpace(height: AppSize.s32),
             DividerShopCard(

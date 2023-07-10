@@ -55,14 +55,18 @@ dependencies:
   table_calendar: ^3.0.9
   dio: ^5.2.1+1
 
-  google_maps_flutter: ^2.3.0
+  google_maps_flutter: ^2.3.1
   geolocator: ^9.0.2
 
   flutter_animate: ^4.2.0
   geocoding: ^2.1.0
   date_picker_timeline: ^1.2.5
+
   hive: ^2.2.3
   hive_flutter: ^1.1.0
+
+  dots_indicator: ^3.0.0
+  add_to_cart_animation: ^2.0.3
 
 #  flutter_state_render_dialog: ^1.0.3
 
