@@ -2,9 +2,14 @@ part of reminder_module;
 
 class ReminderPickerCard extends StatelessWidget {
    ReminderPickerCard({
+     required this.title,
+     required this.hint,
      required this.sheetPage,
     Key? key,
   }) : super(key: key);
+
+   final String hint;
+   final String title;
 
   Widget Function(BuildContext) sheetPage;
   @override
@@ -14,8 +19,8 @@ class ReminderPickerCard extends StatelessWidget {
         isScrollControlled: true,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(23.r),
-              topRight: Radius.circular(23.r)),
+              topLeft: Radius.circular(35.r),
+              topRight: Radius.circular(35.r)),
         ),
         context: context,
         builder: sheetPage,),
@@ -31,13 +36,13 @@ class ReminderPickerCard extends StatelessWidget {
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
-                  "Time",
+                  hint,
                   style: captionRegular,
                 ),
                 Text(
-                  "00:00 AM",
+                  title,
                   style: bodyMedium,
                 )
               ],
