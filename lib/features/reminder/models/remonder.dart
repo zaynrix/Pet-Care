@@ -3,7 +3,8 @@ import 'package:pet_care/utils/helper.dart';
 part 'remonder.g.dart';
 
 @HiveType(typeId: 1)
-class ReminderModel {
+class ReminderModel extends HiveObject{
+
   ReminderModel({
     required this.title,
     required this.id,
