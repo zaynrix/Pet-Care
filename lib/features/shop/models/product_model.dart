@@ -22,6 +22,7 @@ class Product {
 }
 
 class SingleProduct {
+  int? id; // New ID field
   String? name;
   String? coverImage;
   List<String>? images;
@@ -35,6 +36,7 @@ class SingleProduct {
   List<Pharmacies>? pharmacies;
 
   SingleProduct({
+    this.id,
     this.name,
     this.coverImage,
     this.images,
@@ -49,6 +51,7 @@ class SingleProduct {
   });
 
   SingleProduct.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
     name = json['name'];
     coverImage = json['coverImage'];
     images = json['images'].cast<String>();
@@ -69,6 +72,7 @@ class SingleProduct {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
     data['name'] = name;
     data['coverImage'] = coverImage;
     data['images'] = images;
@@ -87,6 +91,7 @@ class SingleProduct {
 }
 
 class Pharmacies {
+  int? id; // New ID field
   String? name;
   double? price;
   String? arriveTime;
@@ -94,6 +99,7 @@ class Pharmacies {
   double? deliveryFee;
 
   Pharmacies({
+    this.id,
     this.name,
     this.price,
     this.arriveTime,
@@ -102,6 +108,7 @@ class Pharmacies {
   });
 
   Pharmacies.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
     name = json['name'];
     price = json['price'];
     arriveTime = json['arriveTime'];
@@ -111,6 +118,7 @@ class Pharmacies {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
     data['name'] = name;
     data['price'] = price;
     data['arriveTime'] = arriveTime;
