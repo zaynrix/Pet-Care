@@ -8,6 +8,7 @@ class ProductRepository {
 {
   "products": [
     {
+      "id": 1,
       "name": "Dog Treats",
       "coverImage": "https://shop-cdn-m.mediazs.com/bilder/barkoo/kauknochen/gepresst/rinderhaut/8/400/56980_barkoo_kauknochen_gepresst_web_8.jpg",
       "images": [
@@ -25,6 +26,7 @@ class ProductRepository {
       "details": "Dog Treats details",
       "pharmacies": [
         {
+          "id": 1,
           "name": "PetSmart",
           "price": 12.99,
           "arriveTime": "1 day",
@@ -32,6 +34,7 @@ class ProductRepository {
           "deliveryFee": 3.99
         },
         {
+          "id": 2,
           "name": "PetCo",
           "price": 10.99,
           "arriveTime": "2 days",
@@ -41,6 +44,7 @@ class ProductRepository {
       ]
     },
     {
+      "id": 2,
       "name": "Cat Litter",
       "coverImage": "https://shop-cdn-m.mediazs.com/bilder/almo/nature/cat/litter/0/400/280296_pla_almo_nature_cat_litter_2_27kg_hs_1_1_0.jpg",
       "images": [
@@ -57,6 +61,7 @@ class ProductRepository {
       "details": "Cat Litter details",
       "pharmacies": [
         {
+          "id": 3,
           "name": "PetLand",
           "price": 9.99,
           "arriveTime": "2 days",
@@ -64,6 +69,7 @@ class ProductRepository {
           "deliveryFee": 2.99
         },
         {
+          "id": 4,
           "name": "PetSmart",
           "price": 8.99,
           "arriveTime": "3 days",
@@ -73,6 +79,7 @@ class ProductRepository {
       ]
     },
     {
+      "id": 3,
       "name": "Bird Food",
       "coverImage": "https://shop-cdn-m.mediazs.com/bilder/lillebro/wildvogelfutter/0/400/230762_lillebro_wildvogelf2_0.jpg",
       "images": [
@@ -89,6 +96,7 @@ class ProductRepository {
       "details": "Bird Food details",
       "pharmacies": [
         {
+          "id": 5,
           "name": "PetLand",
           "price": 6.99,
           "arriveTime": "1 day",
@@ -96,6 +104,7 @@ class ProductRepository {
           "deliveryFee": 2.99
         },
         {
+          "id": 6,
           "name": "PetCo",
           "price": 7.99,
           "arriveTime": "2 days",
