@@ -1,9 +1,23 @@
 part of reminder_module;
 
 class ReminderCard extends StatelessWidget {
-  const ReminderCard({
+   ReminderCard({
+    required this.date,
+    required this.deleteReminder,
+    required this.title,
+    required this.createdAt,
+    required this.iconPath,
+     required this.description,
     Key? key,
   }) : super(key: key);
+
+  final String createdAt;
+  final String date;
+  final String title;
+  final String iconPath;
+  void Function(BuildContext)? deleteReminder;
+  final String description;
+
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +28,7 @@ class ReminderCard extends StatelessWidget {
         children: [
           SlidableAction(
             foregroundColor: ColorManager.error,
-            onPressed: (value){},
+            onPressed: deleteReminder,
             icon: Icons.delete,
             backgroundColor: Colors.transparent,
           )
@@ -23,9 +37,10 @@ class ReminderCard extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("09 AM" , style: footNoteRegular(color: ColorManager.gray),),
+          Text(createdAt , style: footNoteRegular(color: ColorManager.gray),),
           AppSize.s22.addHorizontalSpace,
           Container(
+            margin: AppSize.s16.marginBottom,
             padding: AppPadding.p16.paddingAll,
             decoration: BoxDecoration(
                 color: ColorManager.white,
@@ -43,10 +58,10 @@ class ReminderCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                          width: Get.width * 0.6,
-                          child: const Text("Simparica TrioChewable, 12 mg", style: bodyMedium, maxLines: 2, overflow: TextOverflow.ellipsis,)),
+                          width: Get.width * 0.4,
+                          child: Text(title, style: bodyMedium, maxLines: 2, overflow: TextOverflow.ellipsis,)),
                       AppSize.s4.addVerticalSpace,
-                      Text("1 Tablet, per day" , style: footNoteRegular(color: ColorManager.gray),)
+                      Text(description , style: footNoteRegular(color: ColorManager.gray),)
                     ],
                   ),
                 ),
@@ -55,7 +70,7 @@ class ReminderCard extends StatelessWidget {
                   children: [
                     SvgPicture.asset(IconAssets.clock),
                     AppSize.s6.addHorizontalSpace,
-                    Text("09:20 AM" , style: footNoteRegular(color: ColorManager.primary),),
+                    Text(createdAt , style: footNoteRegular(color: ColorManager.primary),),
                     ( Get.width * 0.7).addHorizontalSpace,
                     SvgPicture.asset(IconAssets.notificationSelected)
                   ],
