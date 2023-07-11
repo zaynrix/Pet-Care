@@ -42,6 +42,8 @@ class RoutsGenerate {
         return MaterialPageRoute(builder: (_) => const MainShopScreen());
       case RouteGenerator.addNewLocationManual:
         return MaterialPageRoute(builder: (_) => AddNewAddressManually());
+      case RouteGenerator.addReminderScreen:
+        return MaterialPageRoute(builder: (_) => AddReminderScreen());
       default:
         throw const FormatException("Route not found");
     }

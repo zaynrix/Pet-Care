@@ -2,8 +2,11 @@ part of reminder_module;
 
 class AddTimeReminderCard extends StatelessWidget {
   const AddTimeReminderCard({
+    required this.reminderController,
     Key? key,
   }) : super(key: key);
+
+  final ReminderController reminderController;
 
   @override
   Widget build(BuildContext context) {
@@ -43,12 +46,13 @@ class AddTimeReminderCard extends StatelessWidget {
                         height: AppSize.s160.height,
                         width: 65.width,
                         child: WheelChooser.integer(
-                            onValueChanged: (s) {
+                            onValueChanged: (hour) {
+                              reminderController.selectHour(hour);
 
                             },
                             maxValue: 12,
                             minValue: 1,
-                            initValue: 6,
+                            initValue: reminderController.selectedHour,
                             selectTextStyle: h2Bold,
                             unSelectTextStyle: h2Bold.copyWith(color: ColorManager.primaryWithTransparent30)
                         ),
@@ -58,11 +62,12 @@ class AddTimeReminderCard extends StatelessWidget {
                         height: AppSize.s160.height,
                         width: 65.width,
                         child: WheelChooser.integer(
-                            onValueChanged: (s) {
+                            onValueChanged: (minute) {
+                              reminderController.selectMinute(minute);
                             },
                             maxValue: 60,
                             minValue: 1,
-                            initValue: 32,
+                            initValue: reminderController.selectedMinute,
                             // itemSize: 70,
                             selectTextStyle: h2Bold,
                             unSelectTextStyle: h3Medium2
@@ -83,20 +88,20 @@ class AddTimeReminderCard extends StatelessWidget {
                     )
                 ),
               ),
-              Positioned(
-                  bottom: 0,
-                  child: Container(
-                    width: Get.width * 1,
-                    height: Get.height * 0.09,
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                            begin: const Alignment(0, 1),
-                            end: const Alignment(0.00, -1.00),
-                            colors: [   ColorManager.white ,ColorManager.white.withOpacity(0)]
-                        )
-                    ),
-                  )
-              ),
+              // Positioned(
+              //     bottom: 0,
+              //     child: Container(
+              //       width: Get.width * 1,
+              //       height: Get.height * 0.09,
+              //       decoration: BoxDecoration(
+              //           gradient: LinearGradient(
+              //               begin: const Alignment(0, 1),
+              //               end: const Alignment(0.00, -1.00),
+              //               colors: [   ColorManager.white ,ColorManager.white.withOpacity(0)]
+              //           )
+              //       ),
+              //     )
+              // ),
             ],
           ),
           AppSize.s40.addVerticalSpace,

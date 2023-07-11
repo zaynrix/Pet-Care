@@ -24,7 +24,7 @@ Future<void> main() async {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  HiveService.initHive();
+  // HiveService.initHive();
   await ScreenUtil.ensureScreenSize();
   setup();
   runApp(const MyApp());
@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           theme: ThemeManager.lightTheme,
           scaffoldMessengerKey: Helpers.scaffoldKey,
-          home: MainShopScreen(),
+          home: ReminderScreen(),
           navigatorKey: RouteService.serviceNavi.navKey,
           onGenerateRoute: RoutsGenerate.generateRoute,
         ),

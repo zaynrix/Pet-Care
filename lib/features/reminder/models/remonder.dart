@@ -32,18 +32,18 @@ class ReminderModel extends HiveObject{
   @HiveField(6)
   DateTime createdAtDate;
 
-  factory ReminderModel.create({
-    required String title,
-    required DateTime createdAtTime,
-    required DateTime createdAtDate,
-    bool? isDone,
-    required String type,
-  }) =>
-      ReminderModel(
-        type: type,
-          title: title,
-          id: createUniqueId(),
-          createdAtDate: createdAtDate,
-          createdAtTime: createdAtTime,
-          isDone: false);
+//   factory ReminderModel.create({
+//     required String title,
+//     required DateTime createdAtTime,
+//     required DateTime createdAtDate,
+//     bool? isDone,
+//     required String type,
+//   }) =>
+//       ReminderModel(
+//         type: type,
+//           title: title,
+//           id: createUniqueId(),
+//           createdAtDate: createdAtDate,
+//           createdAtTime: createdAtTime,
+//           isDone: false);
 }

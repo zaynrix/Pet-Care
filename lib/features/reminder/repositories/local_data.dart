@@ -1,9 +1,10 @@
+import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:pet_care/features/reminder/models/remonder.dart';
 
 class ReminderData{
 
-  static const boxName = "tasksBox";
+  static const boxName = "reminderBox";
 
   final Box<ReminderModel> box = Hive.box<ReminderModel>(boxName);
 
@@ -21,5 +22,9 @@ class ReminderData{
 
   Future<void> deleteTask({required ReminderModel task}) async {
     await task.delete();
+  }
+
+  ValueListenable<Box<ReminderModel>> listenToTask() {
+    return box.listenable();
   }
 }
