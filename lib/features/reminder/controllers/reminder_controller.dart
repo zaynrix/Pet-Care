@@ -5,8 +5,11 @@ class ReminderController extends GetxController {
 
   Box<ReminderModel>? reminderBox; // Add a nullable type
 
-  String currantDate = DateTime.now().toString().convertToFullDate()!;
+  String currantDateString = DateTime.now().toString().convertToFullDate()!;
+  DateTime currantDate = DateTime.now();
+
   String currantTime = DateTime.now().toString().convertToTime()!;
+  TextEditingController titleController = TextEditingController();
 
   @override
   void onInit() async {
@@ -16,15 +19,15 @@ class ReminderController extends GetxController {
     Hive.registerAdapter(ReminderModelAdapter());
 
     try {
-      reminderBox = await Hive.openBox<ReminderModel>(boxName); // Open the box and assign it to reminderBox
+      reminderBox = await Hive.openBox<ReminderModel>(
+          boxName); // Open the box and assign it to reminderBox
     } catch (error) {
       // Handle any errors that occur during box opening
       debugPrint("Error opening box: $error");
     }
-
   }
 
-  final List<ReminderTypeModel> reminderTypes = [
+  static final List<ReminderTypeModel> reminderTypes = [
     ReminderTypeModel(
         type: "Medicine",
         color: ColorManager.secondaryLight,
@@ -47,8 +50,9 @@ class ReminderController extends GetxController {
         isSelected: false),
   ];
 
-
   //-----------------------------selectPetType----------------------------------
+
+  String selectedReminderType = reminderTypes.first.type;
 
   selectPetType({required String type}) {
     for (var item in reminderTypes) {
@@ -56,12 +60,14 @@ class ReminderController extends GetxController {
     }
     final index = reminderTypes.indexWhere((element) => element.type == type);
     reminderTypes[index].isSelected = true;
+    selectedReminderType = reminderTypes[index].type;
     update();
   }
 
   //----------------------------selectPetType-----------------------------------
   selectDate(DateTime date) {
-    currantDate = date.toString().convertToFullDate()!;
+    currantDateString = date.toString().convertToFullDate()!;
+    currantDate = date;
     update();
   }
 
@@ -69,25 +75,48 @@ class ReminderController extends GetxController {
 
   int selectedHour = 6;
   int selectedMinute = 32;
+  String timeOfDate = "AM";
+
   String timeFormat = DateTime.now().toString().convertToTime()!;
+
   String convertToTimeFormat(int hour, int minute) {
     String hourStr = hour.toString().padLeft(2, '0');
     String minuteStr = minute.toString().padLeft(2, '0');
     return '$hourStr:$minuteStr';
   }
 
-  selectHour(int hour){
+  selectHour(int hour) {
     selectedHour = hour;
-    timeFormat = convertToTimeFormat(hour, selectedMinute);
+    timeFormat = "${convertToTimeFormat(hour, selectedMinute)} $timeOfDate";
     update();
   }
 
-  selectMinute(int minute){
+  selectMinute(int minute) {
     selectedMinute = minute;
-    timeFormat = convertToTimeFormat(selectedHour, minute);
+    timeFormat = "${convertToTimeFormat(selectedHour, minute)} $timeOfDate";
     update();
     print(timeFormat);
   }
 
+  void selectTimeOfDate(String value) {
+    timeOfDate = value;
+    timeFormat = "$selectedHour:$selectedMinute $timeOfDate";
+    update();
+  }
 
+  createReminder() {
+    reminderBox!.add(ReminderModel(
+        title: titleController.text,
+        id: createUniqueId(),
+        createdAtDate: currantDate,
+        createdAtTime: DateTime.now(),
+        isDone: false,
+        type: selectedReminderType));
+    update();
+  }
+
+  deleteReminder(int index){
+    reminderBox!.deleteAt(index);
+    update();
+  }
 }

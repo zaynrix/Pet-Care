@@ -1,16 +1,20 @@
 part of reminder_module;
 
 class ReminderCard extends StatelessWidget {
-  const ReminderCard({
+   ReminderCard({
     required this.date,
+    required this.deleteReminder,
     required this.title,
     required this.createdAt,
+    required this.iconPath,
     Key? key,
   }) : super(key: key);
 
   final String createdAt;
   final String date;
   final String title;
+  final String iconPath;
+  void Function(BuildContext)? deleteReminder;
 
 
   @override
@@ -22,7 +26,7 @@ class ReminderCard extends StatelessWidget {
         children: [
           SlidableAction(
             foregroundColor: ColorManager.error,
-            onPressed: (value){},
+            onPressed: deleteReminder,
             icon: Icons.delete,
             backgroundColor: Colors.transparent,
           )
@@ -53,9 +57,9 @@ class ReminderCard extends StatelessWidget {
                     children: [
                       SizedBox(
                           width: Get.width * 0.4,
-                          child: const Text("Simparica TrioChewable, 12 mg", style: bodyMedium, maxLines: 2, overflow: TextOverflow.ellipsis,)),
+                          child: Text(title, style: bodyMedium, maxLines: 2, overflow: TextOverflow.ellipsis,)),
                       AppSize.s4.addVerticalSpace,
-                      Text("1 Tablet, per day" , style: footNoteRegular(color: ColorManager.gray),)
+                      // Text("1 Tablet, per day" , style: footNoteRegular(color: ColorManager.gray),)
                     ],
                   ),
                 ),
@@ -64,7 +68,7 @@ class ReminderCard extends StatelessWidget {
                   children: [
                     SvgPicture.asset(IconAssets.clock),
                     AppSize.s6.addHorizontalSpace,
-                    Text("09:20 AM" , style: footNoteRegular(color: ColorManager.primary),),
+                    Text(createdAt , style: footNoteRegular(color: ColorManager.primary),),
                     ( Get.width * 0.7).addHorizontalSpace,
                     SvgPicture.asset(IconAssets.notificationSelected)
                   ],

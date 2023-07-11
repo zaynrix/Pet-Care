@@ -59,6 +59,10 @@ class ReminderScreen extends StatelessWidget {
                       final reminder = reminderController.reminderBox!
                           .getAt(index) as ReminderModel;
                       return ReminderCard(
+                        deleteReminder: (context){
+                          reminderController.deleteReminder(index);
+                        },
+                        iconPath: reminder.isDone == false ? IconAssets.notificationSelected : IconAssets.unSelectedNotification,
                         date: reminder.createdAtDate
                             .toString()
                             .convertToFullDate()!,

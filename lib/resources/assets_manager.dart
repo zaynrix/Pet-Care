@@ -48,6 +48,7 @@ class IconAssets {
   static const String exercise = "$iconPath/exercise.svg";
   static const String liquid = "$iconPath/liquid.svg";
   static const String notificationSelected = "$iconPath/navBarIcons/selected/notification_selected.svg";
+  static const String unSelectedNotification = "$iconPath/un_selected_notification.svg";
 
   //---------------------------------gender-------------------------------------
 

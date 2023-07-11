@@ -21,10 +21,10 @@ class AddReminderScreen extends StatelessWidget {
               child: ListView.builder(
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
-                  itemCount: reminderController.reminderTypes.length,
+                  itemCount: ReminderController.reminderTypes.length,
                   itemBuilder: (context, index) {
                     final reminderType =
-                        reminderController.reminderTypes[index];
+                        ReminderController.reminderTypes[index];
                     return SelectionTypeCard(
                       type: reminderType.type,
                       iconPath: reminderType.iconPath,
@@ -44,7 +44,7 @@ class AddReminderScreen extends StatelessWidget {
                   AppSize.s32.addVerticalSpace,
                   CustomTextFormField(
                       hintText: "Reminder name",
-                      controller: titleController,
+                      controller: reminderController.titleController,
                       validator: (value) {
                         return null;
                       }),
@@ -53,14 +53,19 @@ class AddReminderScreen extends StatelessWidget {
                     hint: "Date",
                     sheetPage: (context) =>
                         ChooseDateSheet(reminderController: reminderController),
-                    title: reminderController.currantDate,
+                    title: reminderController.currantDateString,
                   ),
                   AppSize.s20.addVerticalSpace,
                   ReminderPickerCard(
                     hint: "Time",
                     sheetPage: (context) => AddTimeReminderCard(reminderController: reminderController,),
                     title: reminderController.timeFormat,
-                  )
+                  ),
+                  (Get.width * 0.2).addVerticalSpace,
+                  ElevatedButton(onPressed: (){
+                    reminderController.createReminder();
+                  },
+                      child: const Text("Save"))
                 ],
               ),
             ),
