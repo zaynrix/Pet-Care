@@ -138,7 +138,9 @@ class AddTimeReminderCard extends StatelessWidget {
             ],
           ),
           AppSize.s40.addVerticalSpace,
-          ElevatedButton(onPressed: () {}, child: const Text("Done")),
+          ElevatedButton(onPressed: () {
+            RouteService.serviceNavi.pop();
+          }, child: const Text("Done")),
         ],
       ),
     );

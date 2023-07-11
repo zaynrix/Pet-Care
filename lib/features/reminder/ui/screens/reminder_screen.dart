@@ -69,6 +69,7 @@ class ReminderScreen extends StatelessWidget {
                         title: reminder.title,
                         createdAt:
                             reminder.createdAtTime.toString().convertToTime()!,
+                        description: reminder.description,
                       );
                     }),
                 // const ReminderCard()

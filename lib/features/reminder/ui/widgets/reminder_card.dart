@@ -7,6 +7,7 @@ class ReminderCard extends StatelessWidget {
     required this.title,
     required this.createdAt,
     required this.iconPath,
+     required this.description,
     Key? key,
   }) : super(key: key);
 
@@ -15,6 +16,7 @@ class ReminderCard extends StatelessWidget {
   final String title;
   final String iconPath;
   void Function(BuildContext)? deleteReminder;
+  final String description;
 
 
   @override
@@ -59,7 +61,7 @@ class ReminderCard extends StatelessWidget {
                           width: Get.width * 0.4,
                           child: Text(title, style: bodyMedium, maxLines: 2, overflow: TextOverflow.ellipsis,)),
                       AppSize.s4.addVerticalSpace,
-                      // Text("1 Tablet, per day" , style: footNoteRegular(color: ColorManager.gray),)
+                      Text(description , style: footNoteRegular(color: ColorManager.gray),)
                     ],
                   ),
                 ),

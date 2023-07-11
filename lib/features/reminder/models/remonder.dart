@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:pet_care/utils/helper.dart';
 part 'remonder.g.dart';
@@ -7,6 +8,7 @@ class ReminderModel extends HiveObject{
 
   ReminderModel({
     required this.title,
+    required this.description,
     required this.id,
     required this.createdAtDate,
     required this.createdAtTime,
@@ -21,9 +23,12 @@ class ReminderModel extends HiveObject{
   final String title;
 
   @HiveField(2)
-  final String type;
+  final String description;
 
   @HiveField(3)
+  final String type;
+
+  @HiveField(4)
   final bool isDone;
 
   @HiveField(5)

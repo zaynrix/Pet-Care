@@ -10,6 +10,7 @@ class ReminderController extends GetxController {
 
   String currantTime = DateTime.now().toString().convertToTime()!;
   TextEditingController titleController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
 
   @override
   void onInit() async {
@@ -111,12 +112,33 @@ class ReminderController extends GetxController {
         createdAtDate: currantDate,
         createdAtTime: DateTime.now(),
         isDone: false,
-        type: selectedReminderType));
+        type: selectedReminderType,
+        description: descriptionController.text));
     update();
+    RouteService.serviceNavi.pop();
   }
 
   deleteReminder(int index){
     reminderBox!.deleteAt(index);
     update();
   }
+
+  TimeOfDay convertStringToTimeOfDay(String timeString) {
+    List<String> timeParts = timeString.split(' ');
+    String time = timeParts[0];
+    String meridiem = timeParts[1];
+
+    List<String> timeValues = time.split(':');
+    int hour = int.parse(timeValues[0]);
+    int minute = int.parse(timeValues[1]);
+
+    if (meridiem == 'PM' && hour < 12) {
+      hour += 12;
+    }
+
+    return TimeOfDay(hour: hour, minute: minute);
+  }
+
 }
+
+

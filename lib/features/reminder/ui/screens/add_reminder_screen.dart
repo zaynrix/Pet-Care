@@ -3,9 +3,11 @@ part of reminder_module;
 class AddReminderScreen extends StatelessWidget {
   AddReminderScreen({Key? key}) : super(key: key);
   final TextEditingController titleController = TextEditingController();
-  DateTime currantDate = DateTime.now();
+
+  GlobalKey<FormState> formKye = GlobalKey<FormState>();
 
   final ReminderController reminderController = Get.find();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,34 +41,45 @@ class AddReminderScreen extends StatelessWidget {
             ),
             Padding(
               padding: AppSize.s24.paddingHorizontal,
-              child: Column(
-                children: [
-                  AppSize.s32.addVerticalSpace,
-                  CustomTextFormField(
-                      hintText: "Reminder name",
-                      controller: reminderController.titleController,
-                      validator: (value) {
-                        return null;
-                      }),
-                  AppSize.s20.addVerticalSpace,
-                  ReminderPickerCard(
-                    hint: "Date",
-                    sheetPage: (context) =>
-                        ChooseDateSheet(reminderController: reminderController),
-                    title: reminderController.currantDateString,
-                  ),
-                  AppSize.s20.addVerticalSpace,
-                  ReminderPickerCard(
-                    hint: "Time",
-                    sheetPage: (context) => AddTimeReminderCard(reminderController: reminderController,),
-                    title: reminderController.timeFormat,
-                  ),
-                  (Get.width * 0.2).addVerticalSpace,
-                  ElevatedButton(onPressed: (){
-                    reminderController.createReminder();
-                  },
-                      child: const Text("Save"))
-                ],
+              child: Form(
+                key: formKye,
+                child: Column(
+                  children: [
+                    AppSize.s32.addVerticalSpace,
+                    CustomTextFormField(
+                        hintText: "Reminder name",
+                        controller: reminderController.titleController,
+                        validator: (value) => value!.validateUserName()),
+                    AppSize.s20.addVerticalSpace,
+                    CustomTextFormField(
+                        hintText: "Reminder Description",
+                        controller: reminderController.descriptionController,
+                        validator: (value) => value!.validateUserName()),
+                    AppSize.s20.addVerticalSpace,
+                    ReminderPickerCard(
+                      hint: "Date",
+                      sheetPage: (context) => ChooseDateSheet(
+                          reminderController: reminderController),
+                      title: reminderController.currantDateString,
+                    ),
+                    AppSize.s20.addVerticalSpace,
+                    ReminderPickerCard(
+                      hint: "Time",
+                      sheetPage: (context) => AddTimeReminderCard(
+                        reminderController: reminderController,
+                      ),
+                      title: reminderController.timeFormat,
+                    ),
+                    (Get.width * 0.2).addVerticalSpace,
+                    ElevatedButton(
+                        onPressed: () {
+                          if (formKye.currentState!.validate()) {
+                            reminderController.createReminder();
+                          }
+                        },
+                        child: const Text("Save"))
+                  ],
+                ),
               ),
             ),
           ],
@@ -75,4 +88,3 @@ class AddReminderScreen extends StatelessWidget {
     );
   }
 }
-
