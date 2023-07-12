@@ -13,7 +13,7 @@ class ShodCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsetsDirectional.only(
-        start: sizeConfig.getScreenWidth(AppSize.s18),
+        start: sizeConfig.getScreenWidth(AppSize.s16),
       ),
       decoration: BoxDecoration(
         boxShadow: [customShadow()],
@@ -24,37 +24,38 @@ class ShodCard extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15.0),
         ),
-        child: Container(
-          padding: EdgeInsets.symmetric(
-            horizontal: sizeConfig.getScreenWidth(AppSize.s10),
-            vertical: sizeConfig.getScreenHeight(AppSize.s14),
-          ),
-          // height: sizeConfig.getScreenHeight(AppSize.s213),
+        child: SizedBox(
+          height: sizeConfig.getScreenHeight(AppSize.s210),
           width: sizeConfig.getScreenWidth(AppSize.s150),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Stack(
                 children: [
-                  Hero(
-                    tag: singleProduct!.id!,
-                    child: Image.network(
-                      singleProduct!.coverImage!,
-                      fit: BoxFit.fitWidth,
-                      width: MediaQuery.of(context).size.width - 12,
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 24, right: 24, top: 14, bottom: 10),
+                    child: Hero(
+                      tag: singleProduct!.id!,
+                      child: Image.network(
+                        singleProduct!.coverImage!,
+                        fit: BoxFit.fitWidth,
+                        height: 120,
+                        width: 120.w,
+                      ),
                     ),
                   ),
                   Positioned(
-                    bottom: 0,
-                    left: 0,
+                    bottom: 10,
+                    left: 10.5,
                     child: Container(
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 6.0,
-                        vertical: 2.0,
+                        horizontal: 10.0,
+                        vertical: 4.0,
                       ),
                       decoration: BoxDecoration(
                         color: const Color(0xFFDFD4FB),
-                        borderRadius: BorderRadius.circular(5.0),
+                        borderRadius: BorderRadius.circular(50.0),
                       ),
                       child: Text(
                         "%${singleProduct!.discountPercentage} OFF ",
@@ -69,9 +70,10 @@ class ShodCard extends StatelessWidget {
                 ],
               ),
               // const RVerticalSpace(height: AppSize.s10),
-              Expanded(
+              Padding(
+                padding: 10.paddingHorizontal,
                 child: Text(
-                  "${singleProduct!.name}",
+                  "${singleProduct!.name}asdasdasdasdasdasasdasdasdasdsada",
                   style: footNoteRegular(color: ColorManager.primary),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
@@ -79,27 +81,30 @@ class ShodCard extends StatelessWidget {
                 ),
               ),
               AppSize.s10.addVerticalSpace,
-              Row(
-                children: [
-                  Text(
-                    "\$${singleProduct!.price}",
-                    style: footNoteBold,
-                  ),
-                  const RHorizontalSpace(width: AppSize.s5),
-                  Text(
-                    "\$${singleProduct!.originalPrice}",
-                    style: oldPriceStyle,
-                  ),
-                  const Spacer(),
-                  GestureDetector(
-                      onTap: onTap,
-                      child: Icon(
-                        singleProduct!.inCart == true
-                            ? Icons.add_circle
-                            : Icons.remove_circle_outline_rounded,
-                        color: ColorManager.secondary,
-                      )),
-                ],
+              Padding(
+                padding: 10.paddingHorizontal,
+                child: Row(
+                  children: [
+                    Text(
+                      "\$${singleProduct!.price}",
+                      style: footNoteBold,
+                    ),
+                    const RHorizontalSpace(width: AppSize.s5),
+                    Text(
+                      "\$${singleProduct!.originalPrice}",
+                      style: oldPriceStyle,
+                    ),
+                    const Spacer(),
+                    GestureDetector(
+                        onTap: onTap,
+                        child: Icon(
+                          singleProduct!.inCart == true
+                              ? Icons.add_circle
+                              : Icons.remove_circle_outline_rounded,
+                          color: ColorManager.secondary,
+                        )),
+                  ],
+                ),
               ),
             ],
           ),

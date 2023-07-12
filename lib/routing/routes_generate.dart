@@ -15,12 +15,12 @@ class RoutsGenerate {
         return MaterialPageRoute(builder: (_) => const MainAppPetScreen());
       case RouteGenerator.productDetailsScreen:
         return MaterialPageRoute(builder: (_) => ProductDetailsScreen());
-      // case RouteGenerator.cartScreen:
-      //   return MaterialPageRoute(builder: (_) => CartScreen());
+      case RouteGenerator.cartScreen:
+        return MaterialPageRoute(builder: (_) => CartScreen());
       case RouteGenerator.orderInformationScreen:
         return MaterialPageRoute(builder: (_) => OrderInformationScreen());
-      case RouteGenerator.addNewCardScreen:
-        return MaterialPageRoute(builder: (_) => const AddNewCard());
+      // case RouteGenerator.addNewCardScreen:
+      //   return MaterialPageRoute(builder: (_) => const AddNewCard());
       case RouteGenerator.orderSuccess:
         return MaterialPageRoute(builder: (_) => const OrderSuccess());
       case RouteGenerator.editProfileScreen:
@@ -37,7 +37,6 @@ class RoutsGenerate {
         return MaterialPageRoute(builder: (_) => AddNewPaymentMethodScreen());
       case RouteGenerator.orderDetailScreen:
         return MaterialPageRoute(builder: (_) => const OrderDetailScreen());
-        return MaterialPageRoute(builder: (_) => OrderSuccess());
       case RouteGenerator.mainShopScreen:
         return MaterialPageRoute(builder: (_) => const MainShopScreen());
       case RouteGenerator.addNewLocationManual:
