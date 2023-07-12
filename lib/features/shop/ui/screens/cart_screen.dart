@@ -155,7 +155,10 @@ class CartScreen extends StatelessWidget {
           ),
           ElevatedButton(
             child: const Text("Checkout"),
-            onPressed: () {},
+            onPressed: () {
+              RouteService.serviceNavi
+                  .pushNamedWidget(RouteGenerator.orderInformationScreen);
+            },
           ),
         ],
       ),
