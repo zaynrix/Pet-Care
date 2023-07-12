@@ -46,7 +46,15 @@ class IconAssets {
   static const String payment = "$iconPath/payment.svg";
   static const String calendar = "$iconPath/calendar.svg";
 
-
+  // static const String notificationSelected =
+  //     "$iconPath/navBarIcons/selected/notification_selected.svg";
+  static const String pill = "$iconPath/pill.svg";
+  static const String exercise = "$iconPath/exercise.svg";
+  static const String liquid = "$iconPath/liquid.svg";
+  static const String notificationSelected =
+      "$iconPath/navBarIcons/selected/notification_selected.svg";
+  static const String unSelectedNotification =
+      "$iconPath/un_selected_notification.svg";
   //---------------------------------gender-------------------------------------
 
   static const String female = "$iconPath/gender_female.svg";

@@ -2,14 +2,17 @@ part of shop_screens;
 
 class OrderSuccess extends StatelessWidget {
   const OrderSuccess({Key? key}) : super(key: key);
-
+//PR
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: ElevatedButton(
         child: const Text("Keep browsing"),
-        onPressed: () {},
+        onPressed: () {
+          RouteService.serviceNavi
+              .pushNamedWidget(RouteGenerator.mainShopScreen);
+        },
       ),
       body: Column(
         children: [
@@ -38,3 +41,5 @@ class OrderSuccess extends StatelessWidget {
     );
   }
 }
+//
+///TODO:
