@@ -1,4 +1,5 @@
 const String imagePath = "assets/images";
+const String animationsPath = "assets/animations";
 
 class ImageAssets {
   static const String dogMedicine = "$imagePath/dog_medicine.png";
@@ -44,7 +45,8 @@ class IconAssets {
   static const String clock = "$iconPath/clock.svg";
   static const String payment = "$iconPath/payment.svg";
   static const String calendar = "$iconPath/calendar.svg";
-  static const String notificationSelected = "$iconPath/navBarIcons/selected/notification_selected.svg";
+  static const String notificationSelected =
+      "$iconPath/navBarIcons/selected/notification_selected.svg";
 
   //---------------------------------gender-------------------------------------
 
@@ -113,7 +115,12 @@ class SvgAssets {
 }
 
 const String jsonPath = 'assets/json';
-class JsonAssets{
-  static const mapStyle = "$jsonPath/map_style.json";
 
+class JsonAssets {
+  static const mapStyle = "$jsonPath/map_style.json";
+}
+
+class AnimationsAssets {
+  AnimationsAssets._();
+  static const String success = "$animationsPath/success.json";
 }
