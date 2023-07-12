@@ -48,7 +48,7 @@ dependencies:
   lottie: ^2.3.2
   image_picker: ^0.8.7+5
   get: ^4.6.5
-  get_storage: ^2.1.1
+#  get_storage: ^2.1.1
   flutter_slidable: ^2.0.0
   grouped_list: ^5.1.2
   carousel_slider: ^4.2.1
@@ -68,6 +68,7 @@ dependencies:
   dots_indicator: ^3.0.0
   add_to_cart_animation: ^2.0.3
   badges: ^3.1.1
+#  dio_logger:
 
 #  flutter_state_render_dialog: ^1.0.3
 

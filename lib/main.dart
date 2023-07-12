@@ -26,7 +26,7 @@ Future<void> main() async {
   ]);
   // HiveService.initHive();
   await ScreenUtil.ensureScreenSize();
-  setup();
+  init();
   runApp(const MyApp());
 }
 
