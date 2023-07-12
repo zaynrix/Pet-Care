@@ -24,5 +24,6 @@ class RouteGenerator {
 
   static const String mainShopScreen = 'mainShopScreen';
   static const String addNewLocationManual = 'addNewLocationManual';
+  static const String addReminderScreen = 'addReminderScreen';
 
 }

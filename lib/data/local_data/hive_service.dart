@@ -1,18 +1,21 @@
+import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:pet_care/features/reminder/models/remonder.dart';
 
 class HiveService{
 
-  static const boxName = "tasksBox";
+  static const boxName = "reminderBox";
 static initHive() async {
+  debugPrint("This is inside initHive");
   await Hive.initFlutter();
-  var box = await Hive.openBox(boxName);
+  await Hive.openBox<ReminderModel>(boxName);
+  // debugPrint("This is boxName initHive : ${box.name}");
   Hive.registerAdapter<ReminderModel>(ReminderModelAdapter());
-  for (var reminder in box.values) {
-    if (reminder.createdAtTime.day != DateTime.now().day) {
-      reminder.delete();
-    } else {}
-  }
+  // for (var reminder in box.values) {
+  //   if (reminder.createdAtTime.day != DateTime.now().day) {
+  //     reminder.delete();
+  //   } else {}
+  // }
 }
   //
   // final Box<ReminderModel> box = Hive.box<ReminderModel>(boxName);

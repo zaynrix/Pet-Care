@@ -8,10 +8,11 @@ import 'package:pet_care/resources/colors_manager.dart';
 import 'package:pet_care/resources/size_config.dart';
 import 'package:pet_care/resources/styles_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
+import 'package:pet_care/utils/extension/responsive_extension.dart';
 import 'package:provider/provider.dart';
 
 part 'gender_card.dart';
 part 'gradient_circle_line.dart';
 part 'is_pet_neuter_widget.dart';
 part 'linear_progress_status_bar.dart';
-part 'pet_species_card.dart';
+part '../../../../common_widgets/selection_type_card.dart';

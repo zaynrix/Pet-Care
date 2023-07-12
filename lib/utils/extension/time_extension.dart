@@ -12,6 +12,12 @@ extension TimeExtension  on String{
     return DateFormat.MMMd().format(dateFormat);
   }
 
+  String? convertToMinute() {
+    DateTime dateFormat = DateTime.parse(this);
+    return DateFormat.Hm().format(dateFormat);
+  }
+
+
   String? convertToFullDate() {
     DateTime dateFormat = DateTime.parse(this);
     return DateFormat.yMMMd().format(dateFormat);

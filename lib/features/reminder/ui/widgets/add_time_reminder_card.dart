@@ -2,31 +2,66 @@ part of reminder_module;
 
 class AddTimeReminderCard extends StatelessWidget {
   const AddTimeReminderCard({
+    required this.reminderController,
     Key? key,
   }) : super(key: key);
+
+  final ReminderController reminderController;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: Get.height * 0.5,
       decoration: BoxDecoration(
-          color: ColorManager.white,
-          borderRadius: AppSize.s25.circularRadius),
+          color: ColorManager.white, borderRadius: AppSize.s25.circularRadius),
       child: Column(
         children: [
           Container(
             height: AppSize.s60.height,
             alignment: Alignment.bottomCenter,
             decoration: BoxDecoration(
-                border: Border(bottom: BorderSide(color: ColorManager.primaryWithTransparent10))
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("AM", style: bodyRegular(color: ColorManager.gray),),
-                AppSize.s25.addHorizontalSpace,
-                Text("PM", style: bodyRegular(color: ColorManager.gray),)
-              ],
+                border: Border(
+                    bottom: BorderSide(
+                        color: ColorManager.primaryWithTransparent10))),
+            child: GetBuilder<ReminderController>(
+              builder: (GetxController controller) => Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      reminderController.selectTimeOfDate("AM");
+                    },
+                    child: Container(
+                        padding: AppSize.s4.paddingAll,
+                        decoration: BoxDecoration(
+                            border: reminderController.timeOfDate == "AM" ? const Border(
+                                bottom: BorderSide(
+                                    color: ColorManager.secondary, width: 2)) : null
+                        ),
+                        child: Text(
+                          "AM",
+                          style: bodyRegular(color: ColorManager.gray),
+                        )),
+                  ),
+                  AppSize.s25.addHorizontalSpace,
+                  InkWell(
+                    onTap: () {
+                      reminderController.selectTimeOfDate("PM");
+                    },
+                    child: Container(
+                        padding: AppSize.s4.paddingAll,
+                        decoration: BoxDecoration(
+                            border: reminderController.timeOfDate == "PM" ? const Border(
+                                bottom: BorderSide(
+                                    color: ColorManager.secondary, width: 2)) : null
+                        ),
+                        child: Text(
+                          "PM",
+                          style: bodyRegular(color: ColorManager.gray),
+                        )),
+                  ),
+                ],
+              ),
             ),
           ),
           AppSize.s30.addVerticalSpace,
@@ -43,30 +78,32 @@ class AddTimeReminderCard extends StatelessWidget {
                         height: AppSize.s160.height,
                         width: 65.width,
                         child: WheelChooser.integer(
-                            onValueChanged: (s) {
-
+                            onValueChanged: (hour) {
+                              reminderController.selectHour(hour);
                             },
                             maxValue: 12,
                             minValue: 1,
-                            initValue: 6,
+                            initValue: reminderController.selectedHour,
                             selectTextStyle: h2Bold,
-                            unSelectTextStyle: h2Bold.copyWith(color: ColorManager.primaryWithTransparent30)
-                        ),
+                            unSelectTextStyle: h2Bold.copyWith(
+                                color: ColorManager.primaryWithTransparent30)),
                       ),
-                      const VerticalDivider(color: ColorManager.gray,),
+                      const VerticalDivider(
+                        color: ColorManager.gray,
+                      ),
                       SizedBox(
                         height: AppSize.s160.height,
                         width: 65.width,
                         child: WheelChooser.integer(
-                            onValueChanged: (s) {
+                            onValueChanged: (minute) {
+                              reminderController.selectMinute(minute);
                             },
                             maxValue: 60,
                             minValue: 1,
-                            initValue: 32,
+                            initValue: reminderController.selectedMinute,
                             // itemSize: 70,
                             selectTextStyle: h2Bold,
-                            unSelectTextStyle: h3Medium2
-                        ),
+                            unSelectTextStyle: h3Medium2),
                       ),
                     ],
                   ),
@@ -79,28 +116,31 @@ class AddTimeReminderCard extends StatelessWidget {
                     gradient: LinearGradient(
                         begin: const Alignment(0, 1),
                         end: const Alignment(0.00, -1.00),
-                        colors: [ ColorManager.white.withOpacity(0) , ColorManager.white ]
-                    )
-                ),
+                        colors: [
+                      ColorManager.white.withOpacity(0),
+                      ColorManager.white
+                    ])),
               ),
-              Positioned(
-                  bottom: 0,
-                  child: Container(
-                    width: Get.width * 1,
-                    height: Get.height * 0.09,
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                            begin: const Alignment(0, 1),
-                            end: const Alignment(0.00, -1.00),
-                            colors: [   ColorManager.white ,ColorManager.white.withOpacity(0)]
-                        )
-                    ),
-                  )
-              ),
+              // Positioned(
+              //     bottom: 0,
+              //     child: Container(
+              //       width: Get.width * 1,
+              //       height: Get.height * 0.09,
+              //       decoration: BoxDecoration(
+              //           gradient: LinearGradient(
+              //               begin: const Alignment(0, 1),
+              //               end: const Alignment(0.00, -1.00),
+              //               colors: [   ColorManager.white ,ColorManager.white.withOpacity(0)]
+              //           )
+              //       ),
+              //     )
+              // ),
             ],
           ),
           AppSize.s40.addVerticalSpace,
-          ElevatedButton(onPressed: (){}, child: const Text("Done")),
+          ElevatedButton(onPressed: () {
+            RouteService.serviceNavi.pop();
+          }, child: const Text("Done")),
         ],
       ),
     );
