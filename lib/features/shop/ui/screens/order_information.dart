@@ -27,6 +27,7 @@ class _OrderInformationScreenState extends State<OrderInformationScreen> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
+            RouteService.serviceNavi.pop();
             // Handle back button press
           },
         ),
@@ -115,10 +116,6 @@ class _OrderInformationScreenState extends State<OrderInformationScreen> {
                         itemBuilder: (context, index) => GestureDetector(
                           onTap: () {
                             value.selectVisa(index);
-                            // setState(() {
-                            //   value.visaList[index].isSelected =
-                            //       !value.visaList[index].isSelected;
-                            // });
                           },
                           child: Card(
                             margin: 12.marginAll,
@@ -129,7 +126,7 @@ class _OrderInformationScreenState extends State<OrderInformationScreen> {
                                     ? ColorManager.secondary
                                     : ColorManager.primaryWithTransparent10,
                                 width:
-                                    value.visaList[index].isSelected ? 2.0 : 1,
+                                    value.visaList[index].isSelected ? 1.0 : 3,
                               ),
                               borderRadius: BorderRadius.circular(16.0.r),
                             ),
@@ -243,7 +240,9 @@ class _OrderInformationScreenState extends State<OrderInformationScreen> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: ElevatedButton(
         child: const Text("Place order"),
-        onPressed: () {},
+        onPressed: () {
+          RouteService.serviceNavi.pushNamedWidget(RouteGenerator.orderSuccess);
+        },
       ),
     );
   }
