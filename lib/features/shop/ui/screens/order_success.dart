@@ -9,7 +9,10 @@ class OrderSuccess extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: ElevatedButton(
         child: const Text("Keep browsing"),
-        onPressed: () {},
+        onPressed: () {
+          RouteService.serviceNavi
+              .pushNamedWidget(RouteGenerator.mainShopScreen);
+        },
       ),
       body: Column(
         children: [

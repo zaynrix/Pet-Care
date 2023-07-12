@@ -51,38 +51,38 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                             RouteService.serviceNavi
                                 .pushNamedWidget(RouteGenerator.cartScreen);
                           },
-                          // child: Center(
-                          //   child: Badge(
-                          //     isLabelVisible: true,
-                          //     backgroundColor: ColorManager.secondary,
-                          //     alignment: AlignmentDirectional.bottomEnd,
-                          //     // largeSize: 24,
-                          //     textStyle:
-                          //         captionBold.copyWith(color: ColorManager.white),
-                          //     textColor: ColorManager.white,
-                          //     label: Text(
-                          //       "${value.cartList.length}",
-                          //       style: captionBold.copyWith(
-                          //           color: ColorManager.white),
-                          //     ),
-                          //     child: Container(
-                          //       padding: const EdgeInsets.all(AppSize.s10),
-                          //       height: sizeConfig.getScreenHeight(AppSize.s55),
-                          //       width: sizeConfig.getScreenWidth(AppSize.s55),
-                          //       decoration: BoxDecoration(
-                          //           shape: BoxShape.circle,
-                          //           border: Border.all(
-                          //               color:
-                          //                   ColorManager.primaryWithTransparent30,
-                          //               width: 1)),
-                          //       child: SvgPicture.asset(
-                          //         IconAssets.unSelectedCart,
-                          //         width: 20,
-                          //         height: 20,
-                          //       ),
-                          //     ),
-                          //   ),
-                          // ),
+                          child: Center(
+                            child: Badge(
+                              isLabelVisible: true,
+                              backgroundColor: ColorManager.secondary,
+                              alignment: AlignmentDirectional.bottomEnd,
+                              // largeSize: 24,
+                              textStyle: captionBold.copyWith(
+                                  color: ColorManager.white),
+                              textColor: ColorManager.white,
+                              label: Text(
+                                "${value.cartList.length}",
+                                style: captionBold.copyWith(
+                                    color: ColorManager.white),
+                              ),
+                              child: Container(
+                                padding: const EdgeInsets.all(AppSize.s10),
+                                height: sizeConfig.getScreenHeight(AppSize.s55),
+                                width: sizeConfig.getScreenWidth(AppSize.s55),
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                        color: ColorManager
+                                            .primaryWithTransparent30,
+                                        width: 1)),
+                                child: SvgPicture.asset(
+                                  IconAssets.unSelectedCart,
+                                  width: 20,
+                                  height: 20,
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                         const RHorizontalSpace(width: AppSize.s20),
                       ],
