@@ -1,7 +1,7 @@
 library shop_widgets;
 
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pet_care/common_widgets/common_widgets.dart';
 import 'package:pet_care/features/shop/models/product_model.dart';
 import 'package:pet_care/locator.dart';

@@ -72,6 +72,8 @@ class ProductController extends ChangeNotifier {
 
   List<PaymentMethodModel> parseJsonData() {
     final parsed = json.decode(jsonString).cast<Map<String, dynamic>>();
+    notifyListeners();
+
     return parsed
         .map<PaymentMethodModel>((json) => PaymentMethodModel.fromJson(json))
         .toList();

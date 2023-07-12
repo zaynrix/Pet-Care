@@ -47,7 +47,7 @@ class _PharmacyShopScreenState extends State<PharmacyShopScreen> {
             ),
             const RVerticalSpace(height: AppSize.s16),
             SizedBox(
-                height: sizeConfig.getScreenHeight(250),
+                height: 280.h,
                 child: productProvider.products == null
                     ? const Center(
                         child: CircularProgressIndicator(),

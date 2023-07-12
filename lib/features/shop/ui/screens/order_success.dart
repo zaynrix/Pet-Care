@@ -11,28 +11,29 @@ class OrderSuccess extends StatelessWidget {
         child: const Text("Keep browsing"),
         onPressed: () {},
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(30.0),
-          child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: 64.paddingVertical,
-                child: SvgPicture.asset(SvgAssets.successAddPet),
-              ),
-              Text(
-                "Order placed successfully",
-                style: h3Bold,
-              ),
-              Text(
-                "You placed the order successfully. Thanks for using our services.",
-                style: supTitleMedium,
-                textAlign: TextAlign.center,
-              ),
-            ],
+      body: Column(
+        children: [
+          174.addVerticalSpace,
+          Padding(
+            padding: 64.paddingHorizontal,
+            child: Lottie.asset(AnimationsAssets.success,
+                width: 243, height: 200, fit: BoxFit.fitWidth),
           ),
-        ),
+          34.addVerticalSpace,
+          const Text(
+            AppStrings.orderPlacedSuccessfully,
+            style: h3Bold,
+          ),
+          10.addVerticalSpace,
+          Padding(
+            padding: 30.paddingHorizontal,
+            child: const Text(
+              AppStrings.orderPlacedSuccessfullySub,
+              style: supTitleMedium,
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ],
       ),
     );
   }
