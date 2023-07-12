@@ -1,7 +1,7 @@
 part of add_pet_widgets;
 
-class PetSpeciesCard extends StatelessWidget {
-  PetSpeciesCard({
+class SelectionTypeCard extends StatelessWidget {
+  SelectionTypeCard({
     Key? key,
     required this.type,
     required this.iconPath,
@@ -23,15 +23,14 @@ class PetSpeciesCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: EdgeInsets.symmetric(
-            horizontal: sizeConfig.getScreenWidth(AppSize.s15)),
+        margin: AppSize.s12.marginHorizontal,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             AnimatedContainer(
               padding: isSelected
-                  ? const EdgeInsets.all(3)
-                  : const EdgeInsets.all(0),
+                  ? 3.paddingAll
+                  : 0.paddingAll,
               curve: Curves.linear,
               duration: const Duration(milliseconds: 200),
               decoration: BoxDecoration(
@@ -53,10 +52,10 @@ class PetSpeciesCard extends StatelessWidget {
                   color: backgroundColor,
                 ),
                 child: Container(
-                  padding: const EdgeInsets.all(20),
+                  padding: AppPadding.p20.paddingAll,
                   child: SvgPicture.asset(
                     iconPath,
-                    height: sizeConfig.getScreenHeight(AppSize.s40),
+                    height: AppSize.s40.height,
                     width: sizeConfig.getScreenWidth(AppSize.s40),
                   ),
                 ),

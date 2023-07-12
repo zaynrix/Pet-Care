@@ -34,7 +34,8 @@ class AddPetSpeciesScreen extends StatelessWidget implements PageWidget{
                   itemCount: provider.types.length,
                   itemBuilder: (context, index) {
                     final type = provider.types[index];
-                    return PetSpeciesCard(
+                    return
+                      SelectionTypeCard(
                       onTap: () {
                         provider.selectPetType(type: type.name);
                       },
