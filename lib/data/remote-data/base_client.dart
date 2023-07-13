@@ -7,106 +7,76 @@ class DioClient {
 
   // --------------------------- Get Data --------------------------------------
 
-  Future<Response> getData({
-    required String url,
-    Map<String, dynamic>? query,
-  }) async {
-    _client.options.headers = {
-      'Content-Type': 'application/json',
-    };
-    return _client.get(url, queryParameters: query);
+  Future<Response> get(
+      String url, {
+        Map<String, dynamic>? queryParameters,
+        CancelToken? cancelToken,
+        ProgressCallback? onReceiveProgress,
+      }) async {
+
+    final Response response = await _client.get(
+      url,
+      queryParameters: queryParameters,
+      cancelToken: cancelToken,
+      onReceiveProgress: onReceiveProgress,
+    );
+    return response;
   }
 
   // ---------------------------- Post Data ------------------------------------
 
-  Future<Response> postData({
-    required String url,
-    Map<String, dynamic>? data,
-    Map<String, dynamic>? query,
-    String lang = 'en',
-    String? token,
-  }) {
-    _client.options.headers = {
-      'lang': lang,
-      'Content-Type': 'application/json'
-    };
-
-    return _client.post(url, queryParameters: query, data: data);
-  }
-
-  // --------------------------- Post Data Files--------------------------------
-
-  Future<Response> postDataFiles1({
-    required String url,
-    dynamic fileData,
-    Map<String, dynamic>? queryParameters,
-    String? token,
-  }) async {
-    final formData = FormData.fromMap({
-      'file': await MultipartFile.fromBytes(fileData),
-    });
-
-    final headers = {
-      'Authorization': 'Bearer $token',
-      'Content-Type': 'multipart/form-data',
-    };
-
-    return _client.post(
+  Future<Response> post(
+      String url, {
+        data,
+        Map<String, dynamic>? queryParameters,
+        CancelToken? cancelToken,
+        ProgressCallback? onSendProgress,
+        ProgressCallback? onReceiveProgress,
+      }) async {
+    final Response response = await _client.post(
       url,
-      data: formData,
+      data: data,
       queryParameters: queryParameters,
-      options: Options(headers: headers),
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
     );
+    return response;
   }
 
-  Future<Response> postDataFiles({
-    required String url,
-    bool convert = false,
-    dynamic file,
-    // Map<String, dynamic>? data,
-    Map<String, dynamic>? query,
-    String lang = 'en',
-    String? token,
-  }) {
-    _client.options.headers = {
-      'lang': lang,
-      'Content-Type': 'application/x-www-form-urlencoded',
-    };
+  // --------------------------- Delete Data --------------------------------
 
-    return _client.post(url, queryParameters: query, data: file);
+  Future<Response> delete(
+      String url, {
+        data,
+        Map<String, dynamic>? queryParameters,
+        CancelToken? cancelToken,
+      }) async {
+    final Response response = await _client.delete(url,
+        data: data, queryParameters: queryParameters, cancelToken: cancelToken);
+    return response;
   }
 
   // ---------------------------- Update Data ----------------------------------
 
-  Future<Response> putData({
-    required String url,
-    required Map<String, dynamic> data,
-    Map<String, dynamic>? query,
-    String lang = 'en',
-    String? token,
-  }) {
-    _client.options.headers = {
-      'lang': lang,
-      'Authorization': token ?? '',
-      'Content-Type': 'application/json'
-    };
-
-    return _client.put(url, queryParameters: query, data: data);
+  Future<Response> put(
+      String url, {
+        data,
+        Map<String, dynamic>? queryParameters,
+        CancelToken? cancelToken,
+        ProgressCallback? onSendProgress,
+        ProgressCallback? onReceiveProgress,
+      }) async {
+    final Response response = await _client.put(
+      url,
+      data: data,
+      queryParameters: queryParameters,
+      cancelToken: cancelToken,
+      onSendProgress: onSendProgress,
+      onReceiveProgress: onReceiveProgress,
+    );
+    return response;
   }
 
-  // -------------------------- Delete Data ------------------------------------
 
-  Future<Response> deleteData({
-    required String url,
-    Map<String, dynamic>? query,
-    String lang = 'en',
-    String? token,
-  }) {
-    _client.options.headers = {
-      'lang': lang,
-      'Authorization': token ?? '',
-      'Content-Type': 'application/json',
-    };
-    return _client.delete(url, queryParameters: query);
-  }
 }
