@@ -42,19 +42,18 @@ dependencies:
   jiffy: ^5.0.0
   provider: ^6.0.5
   get_it: ^7.6.0
-  pinput:
+  pinput: ^2.2.30
 #  flutter_slider_indicator: ^1.0.0animations
   wheel_chooser: ^1.1.2
   lottie: ^2.3.2
   image_picker: ^0.8.7+5
   get: ^4.6.5
-  get_storage: ^2.1.1
+#  get_storage: ^2.1.1
   flutter_slidable: ^2.0.0
   grouped_list: ^5.1.2
   carousel_slider: ^4.2.1
   table_calendar: ^3.0.9
   dio: ^5.2.1+1
-
   google_maps_flutter: ^2.3.0
   geolocator: ^9.0.2
 
@@ -68,6 +67,8 @@ dependencies:
   dots_indicator: ^3.0.0
   add_to_cart_animation: ^2.0.3
   badges: ^3.1.1
+  logger: ^1.4.0
+#  dio_logger:
 
 #  flutter_state_render_dialog: ^1.0.3
 
