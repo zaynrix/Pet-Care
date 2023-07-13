@@ -2,16 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:pet_care/data/local_data/hive_service.dart';
 import 'package:pet_care/features/add_pet/add_pet_core/add_pet_provider.dart';
 import 'package:pet_care/features/auth/auth_core/auth_provider.dart';
-import 'package:pet_care/features/auth/auth_ui/screens/auth_module.dart';
-import 'package:pet_care/features/location/location_module.dart';
 import 'package:pet_care/features/onboarding/core/on_boarding_provider.dart';
-import 'package:pet_care/features/profile/profile_module.dart';
 import 'package:pet_care/features/reminder/reminder_module.dart';
 import 'package:pet_care/features/shop/controllers/product_cotroller.dart';
-import 'package:pet_care/features/shop/ui/screens/shop_screens.dart';
 import 'package:pet_care/locator.dart';
 import 'package:pet_care/resources/theme_manager.dart';
 import 'package:pet_care/routing/routing_module.dart';
@@ -51,7 +46,7 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           theme: ThemeManager.lightTheme,
           scaffoldMessengerKey: Helpers.scaffoldKey,
-          home: MainShopScreen(),
+          home: ReminderScreen(),
           navigatorKey: RouteService.serviceNavi.navKey,
           onGenerateRoute: RoutsGenerate.generateRoute,
         ),

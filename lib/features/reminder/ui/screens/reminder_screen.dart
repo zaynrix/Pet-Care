@@ -20,9 +20,11 @@ class ReminderScreen extends StatelessWidget {
           ],
         ),
         actions: [
-          CustomIconButton(onTap: () {
-            RouteService.serviceNavi.pushNamedWidget(RouteGenerator.addReminderScreen);
-          },
+          CustomIconButton(
+              onTap: () {
+                RouteService.serviceNavi
+                    .pushNamedWidget(RouteGenerator.addReminderScreen);
+              },
               iconPath: IconAssets.plus),
           AppSize.s40.addHorizontalSpace
         ],
@@ -38,7 +40,7 @@ class ReminderScreen extends StatelessWidget {
                   child: DatePicker(
                     initialSelectedDate: DateTime.now(),
                     DateTime.now(),
-                    height: AppSize.s85.height,
+                    height: AppSize.s110.height,
                     width: AppSize.s50.width,
                     onDateChange: (date) {
                       selectedDate = date;
@@ -52,17 +54,19 @@ class ReminderScreen extends StatelessWidget {
                 ),
                 AppSize.s40.addVerticalSpace,
                 ListView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                    itemCount:  reminderController.reminderBox?.length ?? 0,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: reminderController.reminderBox?.length ?? 0,
                     itemBuilder: (context, index) {
                       final reminder = reminderController.reminderBox!
                           .getAt(index) as ReminderModel;
                       return ReminderCard(
-                        deleteReminder: (context){
+                        deleteReminder: (context) {
                           reminderController.deleteReminder(index);
                         },
-                        iconPath: reminder.isDone == false ? IconAssets.notificationSelected : IconAssets.unSelectedNotification,
+                        iconPath: reminder.isDone == false
+                            ? IconAssets.notificationSelected
+                            : IconAssets.unSelectedNotification,
                         date: reminder.createdAtDate
                             .toString()
                             .convertToFullDate()!,

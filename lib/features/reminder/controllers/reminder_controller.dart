@@ -20,8 +20,8 @@ class ReminderController extends GetxController {
     Hive.registerAdapter(ReminderModelAdapter());
 
     try {
-      reminderBox = await Hive.openBox<ReminderModel>(
-          boxName); // Open the box and assign it to reminderBox
+      reminderBox = await Hive.openBox<ReminderModel>(boxName);
+      update(); // Open the box and assign it to reminderBox
     } catch (error) {
       // Handle any errors that occur during box opening
       debugPrint("Error opening box: $error");
@@ -74,35 +74,53 @@ class ReminderController extends GetxController {
 
   //---------------------------convertStringToMinute----------------------------
 
-  int selectedHour = 6;
-  int selectedMinute = 32;
+  static int selectedHour = 6;
+  static int selectedMinute = 32;
   String timeOfDate = "AM";
+  static String currentTimeFormat = formatTime(selectedHour, selectedMinute);
 
-  String timeFormat = DateTime.now().toString().convertToTime()!;
-
-  String convertToTimeFormat(int hour, int minute) {
-    String hourStr = hour.toString().padLeft(2, '0');
-    String minuteStr = minute.toString().padLeft(2, '0');
-    return '$hourStr:$minuteStr';
+  static String formatTime(int hour, int minute) {
+    final hourStr = hour.toString().padLeft(2, '0');
+    final minuteStr = minute.toString().padLeft(2, '0');
+    final timeFormat = '$hourStr:$minuteStr';
+    return timeFormat;
   }
 
-  selectHour(int hour) {
+  DateTime parseTime(String value) {
+    final inputFormat = DateFormat("hh:mm a");
+    final selectedTime = inputFormat.parse(value);
+    return selectedTime;
+  }
+
+  void selectHour(int hour) {
     selectedHour = hour;
-    timeFormat = "${convertToTimeFormat(hour, selectedMinute)} $timeOfDate";
+    currentTimeFormat = formatTime(hour, selectedMinute);
     update();
   }
 
-  selectMinute(int minute) {
+  void selectMinute(int minute) {
     selectedMinute = minute;
-    timeFormat = "${convertToTimeFormat(selectedHour, minute)} $timeOfDate";
+    currentTimeFormat = formatTime(selectedHour, minute);
     update();
-    print(timeFormat);
+    print(currentTimeFormat);
   }
 
-  void selectTimeOfDate(String value) {
-    timeOfDate = value;
-    timeFormat = "$selectedHour:$selectedMinute $timeOfDate";
-    update();
+  DateTime selectTimeOfDate(String value) {
+    int selectedHour = int.parse(value.split(':')[0]);
+    int selectedMinute = int.parse(value.split(':')[1].split(' ')[0]);
+    String timeOfDate = value.split(' ')[1];
+    // Get the current date and time
+    DateTime now = DateTime.now();
+
+    // Create a new DateTime object with the selected hour and minute
+    DateTime selectedDateTime = DateTime(
+      now.year,
+      now.month,
+      now.day,
+      selectedHour,
+      selectedMinute,
+    );
+    return selectedDateTime;
   }
 
   createReminder() {
@@ -110,7 +128,7 @@ class ReminderController extends GetxController {
         title: titleController.text,
         id: createUniqueId(),
         createdAtDate: currantDate,
-        createdAtTime: DateTime.now(),
+        createdAtTime: parseTime(currentTimeFormat),
         isDone: false,
         type: selectedReminderType,
         description: descriptionController.text));
@@ -118,7 +136,7 @@ class ReminderController extends GetxController {
     RouteService.serviceNavi.pop();
   }
 
-  deleteReminder(int index){
+  deleteReminder(int index) {
     reminderBox!.deleteAt(index);
     update();
   }
@@ -135,10 +153,6 @@ class ReminderController extends GetxController {
     if (meridiem == 'PM' && hour < 12) {
       hour += 12;
     }
-
     return TimeOfDay(hour: hour, minute: minute);
   }
-
 }
-
-
