@@ -9,19 +9,20 @@ import 'package:pet_care/features/shop/controllers/product_cotroller.dart';
 import 'package:pet_care/features/shop/repositories/product_repository.dart';
 import 'package:pet_care/resources/size_config.dart';
 
+import 'data/remote-data/interceptors/dio_interceptor.dart';
+
 final sl = GetIt.instance;
 
 void init() {
-
-  final client =Dio()  ..options.baseUrl = Endpoints.baseUrl
-    ..options.connectTimeout = const Duration(milliseconds: 15000)
+  final client = Dio()
+    ..options.baseUrl = Endpoints.baseUrl
+    ..options.connectTimeout = const Duration(milliseconds: 30000)
     ..options.receiveTimeout = const Duration(milliseconds: 30000)
     ..options.responseType = ResponseType.json
     ..options.contentType = Headers.formUrlEncodedContentType
-  // ..options.validateStatus = (statusCode) => statusCode! <= 500
-    ..interceptors.addAll([DioInterceptor() ,
-      if (kDebugMode) LoggerInterceptor()])
-  ;
+    // ..options.validateStatus = (statusCode) => statusCode! <= 500
+    ..interceptors
+        .addAll([DioInterceptor(), if (kDebugMode) LoggerInterceptor()]);
 
   // Dio client = Dio(
   //   BaseOptions(

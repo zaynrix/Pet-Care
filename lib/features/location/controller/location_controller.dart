@@ -2,7 +2,6 @@ part of location_module;
 
 class LocationController extends GetxController {
   double latitude = 37.42796133580664;
-
   double longitude = -122.085749655962;
 
   static const LatLng latLng = LatLng(37.42796133580664, -122.085749655962);
@@ -62,8 +61,7 @@ class LocationController extends GetxController {
   }
 
   Future<void> getAddressFromLatLng(Position position) async {
-    await placemarkFromCoordinates(
-        position.latitude, position.longitude)
+    await placemarkFromCoordinates(position.latitude, position.longitude)
         .then((List<Placemark> placeMarks) {
       Placemark place = placeMarks[0];
       currantAddress =
