@@ -88,7 +88,7 @@ class ProductController extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> getUserdataProvider() async {
+  Future<void> getBestSellerProvider() async {
     isLoading = true;
     try {
       Product res = await sl<ProductRepository>().getBestSellerRepo();
