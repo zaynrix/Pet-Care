@@ -68,6 +68,7 @@ dependencies:
   add_to_cart_animation: ^2.0.3
   badges: ^3.1.1
   logger: ^1.4.0
+  flutter_rating_bar: ^4.0.1
 #  dio_logger:
 
 #  flutter_state_render_dialog: ^1.0.3

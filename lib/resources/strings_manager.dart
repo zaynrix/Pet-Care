@@ -11,6 +11,12 @@ class AppStrings {
   static const addresses = 'Addresses';
   static const apointments = 'Apointments';
   static const orderPlacedSuccessfully = 'Order placed successfully';
+  static const smartPetCare = 'Smart pet care';
+  static const petShop = 'Pet Shop';
+  static const vets = 'Vets';
+  static const seeAll = 'See All';
+  static const smartPetCareSub = 'Find perfect veterian for your pet';
+  static const appointmentNow = 'Appointment now';
   static const orderPlacedSuccessfullySub =
       'You placed the order successfully. Thanks for using our services.';
 }
