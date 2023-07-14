@@ -16,6 +16,8 @@ class _HomeScreenState extends State<HomeScreen> {
     sl<ProductController>().getBestSellerProvider();
   }
 
+  final reminderController = Get.put(ReminderController(), permanent: true);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -302,6 +304,59 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           const RVerticalSpace(height: AppSize.s56),
+          GetBuilder<ReminderController>(
+            builder: (controller) => reminderController.reminderBox == null
+                ? const Center(
+                    child: CircularProgressIndicator(),
+                  )
+                : ListView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: reminderController.reminderBox!.length + 1,
+                    itemBuilder: (context, index) {
+                      final reminderIndex = index - 1;
+
+                      return index == 0
+                          ? Padding(
+                              padding: const EdgeInsets.only(right: 2),
+                              child: CircleAvatar(
+                                radius: 30,
+                                child: SvgPicture.asset(
+                                  IconAssets.incrementButton,
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            )
+                          : ReminderCard(
+                              deleteReminder: (context) {
+                                reminderController
+                                    .deleteReminder(reminderIndex);
+                              },
+                              iconPath: reminderController.reminderBox!
+                                          .getAt(reminderIndex)!
+                                          .isDone ==
+                                      false
+                                  ? IconAssets.notificationSelected
+                                  : IconAssets.unSelectedNotification,
+                              date: reminderController.reminderBox!
+                                  .getAt(reminderIndex)!
+                                  .createdAtDate
+                                  .toString()
+                                  .convertToFullDate()!,
+                              title: reminderController.reminderBox!
+                                  .getAt(reminderIndex)!
+                                  .title,
+                              createdAt: reminderController.reminderBox!
+                                  .getAt(reminderIndex)!
+                                  .createdAtTime
+                                  .toString()
+                                  .convertToTime()!,
+                              description: reminderController.reminderBox!
+                                  .getAt(reminderIndex)!
+                                  .description,
+                            );
+                    }),
+          ),
         ]),
       ),
     );
