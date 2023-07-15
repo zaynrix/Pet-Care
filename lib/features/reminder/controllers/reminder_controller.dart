@@ -128,7 +128,9 @@ class ReminderController extends GetxController {
         title: titleController.text,
         id: createUniqueId(),
         createdAtDate: currantDate,
-        createdAtTime: parseTime(currentTimeFormat),
+
+        /// TODO: This need Fixed
+        createdAtTime: DateTime.now(),
         isDone: false,
         type: selectedReminderType,
         description: descriptionController.text));
