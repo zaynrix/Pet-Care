@@ -73,7 +73,7 @@ class ShodCard extends StatelessWidget {
               Padding(
                 padding: 10.paddingHorizontal,
                 child: Text(
-                  "${singleProduct!.name}asdasdasdasdasdasasdasdasdasdsada",
+                  "${singleProduct!.name}",
                   style: footNoteRegular(color: ColorManager.primary),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,

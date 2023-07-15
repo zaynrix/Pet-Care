@@ -15,7 +15,7 @@ class _MainShopScreenState extends State<MainShopScreen> {
   @override
   void initState() {
     super.initState();
-    productProvider.getUserdataProvider();
+    productProvider.getBestSellerProvider();
   }
 
   @override

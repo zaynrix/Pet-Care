@@ -68,14 +68,12 @@ dependencies:
   add_to_cart_animation: ^2.0.3
   badges: ^3.1.1
   logger: ^1.4.0
-  flutter_secure_storage: ^8.0.0
+  flutter_rating_bar: ^4.0.1
 #  dio_logger:
 
 #  flutter_state_render_dialog: ^1.0.3
 
 dev_dependencies:
-  integration_test:
-    sdk: flutter
   flutter_test:
     sdk: flutter
 
@@ -113,6 +111,7 @@ flutter:
     - assets/icons/pet_types/
     - assets/json/
     - assets/images/
+    - assets/animations/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
