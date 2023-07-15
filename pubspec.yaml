@@ -74,6 +74,8 @@ dependencies:
 #  flutter_state_render_dialog: ^1.0.3
 
 dev_dependencies:
+  integration_test:
+    sdk: flutter
   flutter_test:
     sdk: flutter
 
