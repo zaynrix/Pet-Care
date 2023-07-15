@@ -14,6 +14,7 @@ class AppStrings {
   static const smartPetCare = 'Smart pet care';
   static const petShop = 'Pet Shop';
   static const vets = 'Vets';
+  static const reminders = 'Reminders';
   static const seeAll = 'See All';
   static const smartPetCareSub = 'Find perfect veterian for your pet';
   static const appointmentNow = 'Appointment now';
