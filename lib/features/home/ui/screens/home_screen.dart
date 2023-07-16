@@ -104,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                 height: 70.height,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  padding: 24.paddingHorizontal,
                   child: Consumer<HomeProvider>(
                     builder: (context, value, child) => value.petsModel == null
                         ? const Center(
@@ -161,13 +161,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
 
-              const RVerticalSpace(height: AppSize.s32),
+              AppSize.s32.addVerticalSpace,
               DividerShopCard(
                 title: AppStrings.petShop,
                 textButton: AppStrings.seeAll,
                 onPressed: () {},
               ),
-              const RVerticalSpace(height: AppSize.s16),
+              AppSize.s16.addVerticalSpace,
+
               Consumer<ProductController>(
                 builder: (context, productProvider, child) => SizedBox(
                     height: 280.h,
@@ -213,14 +214,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                       .shakeX(hz: 4, amount: 3),
                                 ))),
               ),
-              const RVerticalSpace(height: AppSize.s32),
+              AppSize.s32.addVerticalSpace,
+
               // Padding(
               DividerShopCard(
                 title: AppStrings.vets,
                 textButton: AppStrings.seeAll,
                 onPressed: () {},
               ),
-              const RVerticalSpace(height: AppSize.s16),
+              AppSize.s16.addVerticalSpace,
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: SizedBox(
@@ -286,25 +288,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ],
                                         ),
                                       ),
-                                      Positioned(
-                                        bottom: 0,
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(15.0),
-                                            gradient: LinearGradient(
-                                              begin: Alignment.bottomCenter,
-                                              end: Alignment.topCenter,
-                                              colors: [
-                                                Colors.black.withOpacity(0.3),
-                                                Colors.black.withOpacity(0.0),
-                                              ],
-                                            ),
-                                          ),
-                                          width: 150.width,
-                                          height: 100.height,
-                                        ),
-                                      )
+                                      PositionsCardShadow()
                                     ],
                                   ),
                                 ),
@@ -314,7 +298,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-              const RVerticalSpace(height: AppSize.s56),
+              AppSize.s56.addVerticalSpace,
               DividerShopCard(
                 title: AppStrings.reminders,
                 textButton: AppStrings.seeAll,
@@ -326,67 +310,111 @@ class _HomeScreenState extends State<HomeScreen> {
                     ? const Center(
                         child: CircularProgressIndicator(),
                       )
-                    : ListView.builder(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: reminderController.reminderBox!.length + 1,
-                        itemBuilder: (context, index) {
-                          final reminderIndex = index - 1;
-
-                          return index == 0
-                              ? Padding(
-                                  padding: 24.paddingLeft,
-                                  child: Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Container(
-                                      height: 180,
-                                      width: 44,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius:
-                                            BorderRadius.circular(12.0),
-                                      ),
-                                      child: const Padding(
-                                          padding: EdgeInsets.only(right: 2),
-                                          child: Icon(
-                                            Icons.add,
-                                            size: 24,
-                                          )),
-                                    ),
+                    : SizedBox(
+                        height: 180.h,
+                        child: ListView.builder(
+                            shrinkWrap: true,
+                            scrollDirection: Axis.horizontal,
+                            itemCount:
+                                reminderController.reminderBox!.length + 1,
+                            itemBuilder: (context, index) {
+                              final reminderIndex = index - 1;
+                              if (index == 0) {
+                                return const AddReminderWidget();
+                              } else {
+                                final reminderValue = reminderController
+                                    .reminderBox!
+                                    .getAt(reminderIndex);
+                                return Padding(
+                                  padding: 12.paddingHorizontal,
+                                  child: ReminderCardSub(
+                                    deleteReminder: (context) {
+                                      reminderController
+                                          .deleteReminder(reminderIndex);
+                                    },
+                                    iconPath: reminderValue!.isDone == false
+                                        ? IconAssets.notificationSelected
+                                        : IconAssets.unSelectedNotification,
+                                    date: reminderValue.createdAtDate
+                                        .toString()
+                                        .convertToFullDate()!,
+                                    title: reminderValue.title,
+                                    createdAt: reminderValue.createdAtTime
+                                        .toString()
+                                        .convertToTime12()!,
+                                    description: reminderValue.description,
                                   ),
-                                )
-                              : ReminderCard(
-                                  deleteReminder: (context) {
-                                    reminderController
-                                        .deleteReminder(reminderIndex);
-                                  },
-                                  iconPath: reminderController.reminderBox!
-                                              .getAt(reminderIndex)!
-                                              .isDone ==
-                                          false
-                                      ? IconAssets.notificationSelected
-                                      : IconAssets.unSelectedNotification,
-                                  date: reminderController.reminderBox!
-                                      .getAt(reminderIndex)!
-                                      .createdAtDate
-                                      .toString()
-                                      .convertToFullDate()!,
-                                  title: reminderController.reminderBox!
-                                      .getAt(reminderIndex)!
-                                      .title,
-                                  createdAt: reminderController.reminderBox!
-                                      .getAt(reminderIndex)!
-                                      .createdAtTime
-                                      .toString()
-                                      .convertToTime()!,
-                                  description: reminderController.reminderBox!
-                                      .getAt(reminderIndex)!
-                                      .description,
                                 );
-                        }),
+                              }
+                            }),
+                      ),
               ),
-              const RVerticalSpace(height: AppSize.s36),
+              AppSize.s32.addVerticalSpace,
             ]),
+      ),
+    );
+  }
+}
+
+class PositionsCardShadow extends StatelessWidget {
+  const PositionsCardShadow({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      bottom: 0,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15.0),
+          gradient: LinearGradient(
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+            colors: [
+              Colors.black.withOpacity(0.3),
+              Colors.black.withOpacity(0.0),
+            ],
+          ),
+        ),
+        width: 150.width,
+        height: 100.height,
+      ),
+    );
+  }
+}
+
+class AddReminderWidget extends StatelessWidget {
+  const AddReminderWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        RouteService.serviceNavi
+            .pushNamedWidget(RouteGenerator.addReminderScreen);
+      },
+      child: Padding(
+        padding: 24.paddingLeft,
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: Container(
+            height: 180.h,
+            width: 44,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12.0),
+            ),
+            child: const Padding(
+                padding: EdgeInsets.only(right: 2),
+                child: Icon(
+                  Icons.add,
+                  size: 24,
+                )),
+          ),
+        ),
       ),
     );
   }
