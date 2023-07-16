@@ -3,12 +3,13 @@ part of reminder_module;
 class ReminderController extends GetxController {
   static const boxName = "reminderBox";
 
-  Box<ReminderModel>? reminderBox; // Add a nullable type
+  Box<ReminderModel>? reminderBox;
+  // Add a nullable type
 
   String currantDateString = DateTime.now().toString().convertToFullDate()!;
-  DateTime currantDate = DateTime.now();
+  static DateTime currantDate = DateTime.now();
 
-  String currantTime = DateTime.now().toString().convertToTime()!;
+  String currantTime = DateTime.now().toString().convertToTime24()!;
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
 
@@ -65,17 +66,23 @@ class ReminderController extends GetxController {
     update();
   }
 
-  //----------------------------selectPetType-----------------------------------
+  //---------------------------- Pickup Date -----------------------------------
   selectDate(DateTime date) {
     currantDateString = date.toString().convertToFullDate()!;
     currantDate = date;
     update();
   }
+  //---------------------------- Pickup Time 24h -----------------------------------
 
+  selectTime(DateTime date) {
+    currantTime = date.toString().convertToTime24()!;
+    currentTimeFormat = currantTime;
+    update();
+  }
   //---------------------------convertStringToMinute----------------------------
 
-  static int selectedHour = 6;
-  static int selectedMinute = 32;
+  static int selectedHour = currantDate.hour;
+  static int selectedMinute = currantDate.minute;
   String timeOfDate = "AM";
   static String currentTimeFormat = formatTime(selectedHour, selectedMinute);
 
@@ -102,7 +109,6 @@ class ReminderController extends GetxController {
     selectedMinute = minute;
     currentTimeFormat = formatTime(selectedHour, minute);
     update();
-    print(currentTimeFormat);
   }
 
   DateTime selectTimeOfDate(String value) {
@@ -136,6 +142,8 @@ class ReminderController extends GetxController {
         description: descriptionController.text));
     update();
     RouteService.serviceNavi.pop();
+    titleController.clear();
+    descriptionController.clear();
   }
 
   deleteReminder(int index) {

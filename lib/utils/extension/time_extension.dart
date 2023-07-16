@@ -1,10 +1,15 @@
 import 'package:intl/intl.dart';
 import 'package:jiffy/jiffy.dart';
 
-extension TimeExtension  on String{
-  String? convertToTime() {
+extension TimeExtension on String {
+  String? convertToTime12() {
     DateTime dateFormat = DateTime.parse(this);
     return DateFormat.jm().format(dateFormat);
+  }
+
+  String? convertToTime24() {
+    DateTime dateFormat = DateTime.parse(this);
+    return DateFormat.Hm().format(dateFormat);
   }
 
   String? convertToDate() {
@@ -17,7 +22,6 @@ extension TimeExtension  on String{
     return DateFormat.Hm().format(dateFormat);
   }
 
-
   String? convertToFullDate() {
     DateTime dateFormat = DateTime.parse(this);
     return DateFormat.yMMMd().format(dateFormat);
@@ -26,10 +30,10 @@ extension TimeExtension  on String{
   String? differenceDay() {
     DateTime dateFormat = DateTime.parse(this);
     final date = Jiffy(DateTime.now()).diff(dateFormat, Units.DAY).toString();
-    if(date == "0") {
+    if (date == "0") {
       return "Today";
     }
-    if(date == "1"){
+    if (date == "1") {
       return "Yesterday";
     }
     return "$date Days ago";

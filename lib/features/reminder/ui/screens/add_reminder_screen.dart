@@ -1,7 +1,13 @@
 part of reminder_module;
 
-class AddReminderScreen extends StatelessWidget {
+class AddReminderScreen extends StatefulWidget {
   AddReminderScreen({Key? key}) : super(key: key);
+
+  @override
+  State<AddReminderScreen> createState() => _AddReminderScreenState();
+}
+
+class _AddReminderScreenState extends State<AddReminderScreen> {
   final TextEditingController titleController = TextEditingController();
 
   GlobalKey<FormState> formKye = GlobalKey<FormState>();
@@ -66,7 +72,7 @@ class AddReminderScreen extends StatelessWidget {
                       AppSize.s20.addVerticalSpace,
                       ReminderPickerCard(
                         hint: "Time",
-                        sheetPage: (context) => AddTimeReminderCard(
+                        sheetPage: (context) => ChooseTimeSheet(
                           reminderController: reminderController,
                         ),
                         title: ReminderController.currentTimeFormat,
