@@ -341,7 +341,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     title: reminderValue.title,
                                     createdAt: reminderValue.createdAtTime
                                         .toString()
-                                        .convertToTime12()!,
+                                        .convertToTime24()!,
                                     description: reminderValue.description,
                                   ),
                                 );
