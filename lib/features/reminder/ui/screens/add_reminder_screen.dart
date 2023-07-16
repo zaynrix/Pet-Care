@@ -1,7 +1,7 @@
 part of reminder_module;
 
 class AddReminderScreen extends StatefulWidget {
-  AddReminderScreen({Key? key}) : super(key: key);
+  const AddReminderScreen({Key? key}) : super(key: key);
 
   @override
   State<AddReminderScreen> createState() => _AddReminderScreenState();
