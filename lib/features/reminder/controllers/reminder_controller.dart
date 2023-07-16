@@ -4,7 +4,6 @@ class ReminderController extends GetxController {
   static const boxName = "reminderBox";
 
   Box<ReminderModel>? reminderBox;
-  // Add a nullable type
 
   String currantDateString = DateTime.now().toString().convertToFullDate()!;
   static DateTime currantDate = DateTime.now();
@@ -15,7 +14,6 @@ class ReminderController extends GetxController {
 
   @override
   void onInit() async {
-    // TODO: implement onInit
     super.onInit();
     await Hive.initFlutter(); // Initialize Hive
     Hive.registerAdapter(ReminderModelAdapter());
@@ -24,7 +22,6 @@ class ReminderController extends GetxController {
       reminderBox = await Hive.openBox<ReminderModel>(boxName);
       update(); // Open the box and assign it to reminderBox
     } catch (error) {
-      // Handle any errors that occur during box opening
       debugPrint("Error opening box: $error");
     }
   }
@@ -52,7 +49,7 @@ class ReminderController extends GetxController {
         isSelected: false),
   ];
 
-  //-----------------------------selectPetType----------------------------------
+  //----------------------------- Select Pet Type----------------------------------
 
   String selectedReminderType = reminderTypes.first.type;
 
@@ -72,6 +69,7 @@ class ReminderController extends GetxController {
     currantDate = date;
     update();
   }
+
   //---------------------------- Pickup Time 24h -----------------------------------
 
   selectTime(DateTime date) {
@@ -79,11 +77,11 @@ class ReminderController extends GetxController {
     currentTimeFormat = currantTime;
     update();
   }
-  //---------------------------convertStringToMinute----------------------------
+
+  //--------------------------- Convert String To Minute----------------------------
 
   static int selectedHour = currantDate.hour;
   static int selectedMinute = currantDate.minute;
-  String timeOfDate = "AM";
   static String currentTimeFormat = formatTime(selectedHour, selectedMinute);
 
   static String formatTime(int hour, int minute) {
@@ -93,10 +91,15 @@ class ReminderController extends GetxController {
     return timeFormat;
   }
 
-  DateTime parseTime(String value) {
-    final inputFormat = DateFormat("hh:mm a");
-    final selectedTime = inputFormat.parse(value);
-    return selectedTime;
+  DateTime convertToDateTime(String timeString) {
+    List<String> timeParts = timeString.split(':');
+    int hour = int.parse(timeParts[0]);
+    int minute = int.parse(timeParts[1]);
+
+    DateTime now = DateTime.now();
+    DateTime dateTime = DateTime(now.year, now.month, now.day, hour, minute);
+
+    return dateTime;
   }
 
   void selectHour(int hour) {
@@ -111,32 +114,14 @@ class ReminderController extends GetxController {
     update();
   }
 
-  DateTime selectTimeOfDate(String value) {
-    int selectedHour = int.parse(value.split(':')[0]);
-    int selectedMinute = int.parse(value.split(':')[1].split(' ')[0]);
-    String timeOfDate = value.split(' ')[1];
-    // Get the current date and time
-    DateTime now = DateTime.now();
-
-    // Create a new DateTime object with the selected hour and minute
-    DateTime selectedDateTime = DateTime(
-      now.year,
-      now.month,
-      now.day,
-      selectedHour,
-      selectedMinute,
-    );
-    return selectedDateTime;
-  }
+//----------------------------- Create New Reminder ----------------------------------
 
   createReminder() {
     reminderBox!.add(ReminderModel(
         title: titleController.text,
         id: createUniqueId(),
         createdAtDate: currantDate,
-
-        /// TODO: This need Fixed
-        createdAtTime: DateTime.now(),
+        createdAtTime: convertToDateTime(currentTimeFormat),
         isDone: false,
         type: selectedReminderType,
         description: descriptionController.text));
@@ -146,23 +131,10 @@ class ReminderController extends GetxController {
     descriptionController.clear();
   }
 
+  //----------------------------- Delete Reminder ----------------------------------
+
   deleteReminder(int index) {
     reminderBox!.deleteAt(index);
     update();
-  }
-
-  TimeOfDay convertStringToTimeOfDay(String timeString) {
-    List<String> timeParts = timeString.split(' ');
-    String time = timeParts[0];
-    String meridiem = timeParts[1];
-
-    List<String> timeValues = time.split(':');
-    int hour = int.parse(timeValues[0]);
-    int minute = int.parse(timeValues[1]);
-
-    if (meridiem == 'PM' && hour < 12) {
-      hour += 12;
-    }
-    return TimeOfDay(hour: hour, minute: minute);
   }
 }
