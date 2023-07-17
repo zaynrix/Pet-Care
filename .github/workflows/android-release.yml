@@ -3,10 +3,10 @@
 ## 1
 #on:
 #  # 2
-#  push:
-#    branches: [ "master" ]
-#  pull_request:
-#    branches: [ "master" ]
+# push:
+#   branches: [ "master" ]
+# pull_request:
+#   branches: [ "master" ]
 #
 #  # 3
 #  workflow_dispatch:
@@ -40,6 +40,5 @@
 #      # Runs a set of commands using the runners shell
 #      - name: Start release build
 #        run: flutter build appbundle
-#
 #
 #
