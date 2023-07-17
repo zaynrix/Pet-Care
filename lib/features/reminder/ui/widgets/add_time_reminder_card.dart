@@ -1,7 +1,7 @@
 part of reminder_module;
 
-class AddTimeReminderCard extends StatelessWidget {
-  const AddTimeReminderCard({
+class ChooseTimeSheet extends StatelessWidget {
+  const ChooseTimeSheet({
     required this.reminderController,
     Key? key,
   }) : super(key: key);
@@ -16,58 +16,17 @@ class AddTimeReminderCard extends StatelessWidget {
           color: ColorManager.white, borderRadius: AppSize.s25.circularRadius),
       child: Column(
         children: [
-          // Container(
-          //   height: AppSize.s60.height,
-          //   alignment: Alignment.bottomCenter,
-          //   decoration: BoxDecoration(
-          //       border: Border(
-          //           bottom: BorderSide(
-          //               color: ColorManager.primaryWithTransparent10))),
-          //   child: GetBuilder<ReminderController>(
-          //     builder: (GetxController controller) => Row(
-          //       mainAxisAlignment: MainAxisAlignment.center,
-          //       children: [
-          //         // InkWell(
-          //         //   onTap: () {
-          //         //     reminderController.selectTimeOfDate("AM");
-          //         //   },
-          //         //   child: Container(
-          //         //       padding: AppSize.s4.paddingAll,
-          //         //       decoration: BoxDecoration(
-          //         //           border: reminderController.timeOfDate == "AM"
-          //         //               ? const Border(
-          //         //                   bottom: BorderSide(
-          //         //                       color: ColorManager.secondary,
-          //         //                       width: 2))
-          //         //               : null),
-          //         //       child: Text(
-          //         //         "AM",
-          //         //         style: bodyRegular(color: ColorManager.gray),
-          //         //       )),
-          //         // ),
-          //         // AppSize.s25.addHorizontalSpace,
-          //         InkWell(
-          //           onTap: () {
-          //             reminderController.selectTimeOfDate("PM");
-          //           },
-          //           child: Container(
-          //               padding: AppSize.s4.paddingAll,
-          //               decoration: BoxDecoration(
-          //                   border: reminderController.timeOfDate == "PM"
-          //                       ? const Border(
-          //                           bottom: BorderSide(
-          //                               color: ColorManager.secondary,
-          //                               width: 2))
-          //                       : null),
-          //               child: Text(
-          //                 "PM",
-          //                 style: bodyRegular(color: ColorManager.gray),
-          //               )),
-          //         ),
-          //       ],
-          //     ),
-          //   ),
-          // ),
+          Container(
+              height: AppSize.s60.height,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(
+                          color: ColorManager.primaryWithTransparent10))),
+              child: const Text(
+                AppStrings.chooseTime,
+                style: titleBold,
+              )),
           AppSize.s30.addVerticalSpace,
           Stack(
             children: [
@@ -83,6 +42,8 @@ class AddTimeReminderCard extends StatelessWidget {
                         width: 65.width,
                         child: WheelChooser.integer(
                             onValueChanged: (hour) {
+                              print("minutes $hour");
+
                               reminderController.selectHour(hour);
                             },
                             maxValue: 24,
@@ -101,6 +62,7 @@ class AddTimeReminderCard extends StatelessWidget {
                         child: WheelChooser.integer(
                             onValueChanged: (minute) {
                               reminderController.selectMinute(minute);
+                              print("minutes $minute");
                             },
                             maxValue: 60,
                             minValue: 1,

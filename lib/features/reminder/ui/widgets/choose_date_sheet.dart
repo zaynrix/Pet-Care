@@ -35,15 +35,17 @@ class ChooseDateSheet extends StatelessWidget {
                 reminderController.selectDate(date);
               },
               maximumYear: 2026,
-              minimumYear: 2023,
+              minimumDate: DateTime.now(),
               mode: CupertinoDatePickerMode.date,
               initialDateTime: DateTime.now(),
             ),
           ),
           AppSize.s40.addVerticalSpace,
-          ElevatedButton(onPressed: () {
-            RouteService.serviceNavi.pop();
-          }, child: const Text("Done")),
+          ElevatedButton(
+              onPressed: () {
+                RouteService.serviceNavi.pop();
+              },
+              child: const Text("Done")),
         ],
       ),
     );

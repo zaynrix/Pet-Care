@@ -71,8 +71,9 @@ class ReminderScreen extends StatelessWidget {
                             .toString()
                             .convertToFullDate()!,
                         title: reminder.title,
-                        createdAt:
-                            reminder.createdAtTime.toString().convertToTime()!,
+                        createdAt: reminder.createdAtTime
+                            .toString()
+                            .convertToTime12()!,
                         description: reminder.description,
                       );
                     }),

@@ -3,18 +3,17 @@ part of reminder_module;
 class ReminderController extends GetxController {
   static const boxName = "reminderBox";
 
-  Box<ReminderModel>? reminderBox; // Add a nullable type
+  Box<ReminderModel>? reminderBox;
 
   String currantDateString = DateTime.now().toString().convertToFullDate()!;
-  DateTime currantDate = DateTime.now();
+  static DateTime currantDate = DateTime.now();
 
-  String currantTime = DateTime.now().toString().convertToTime()!;
+  String currantTime = DateTime.now().toString().convertToTime24()!;
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
 
   @override
   void onInit() async {
-    // TODO: implement onInit
     super.onInit();
     await Hive.initFlutter(); // Initialize Hive
     Hive.registerAdapter(ReminderModelAdapter());
@@ -23,7 +22,6 @@ class ReminderController extends GetxController {
       reminderBox = await Hive.openBox<ReminderModel>(boxName);
       update(); // Open the box and assign it to reminderBox
     } catch (error) {
-      // Handle any errors that occur during box opening
       debugPrint("Error opening box: $error");
     }
   }
@@ -51,7 +49,7 @@ class ReminderController extends GetxController {
         isSelected: false),
   ];
 
-  //-----------------------------selectPetType----------------------------------
+  //----------------------------- Select Pet Type----------------------------------
 
   String selectedReminderType = reminderTypes.first.type;
 
@@ -65,18 +63,25 @@ class ReminderController extends GetxController {
     update();
   }
 
-  //----------------------------selectPetType-----------------------------------
+  //---------------------------- Pickup Date -----------------------------------
   selectDate(DateTime date) {
     currantDateString = date.toString().convertToFullDate()!;
     currantDate = date;
     update();
   }
 
-  //---------------------------convertStringToMinute----------------------------
+  //---------------------------- Pickup Time 24h -----------------------------------
 
-  static int selectedHour = 6;
-  static int selectedMinute = 32;
-  String timeOfDate = "AM";
+  selectTime(DateTime date) {
+    currantTime = date.toString().convertToTime24()!;
+    currentTimeFormat = currantTime;
+    update();
+  }
+
+  //--------------------------- Convert String To Minute----------------------------
+
+  static int selectedHour = currantDate.hour;
+  static int selectedMinute = currantDate.minute;
   static String currentTimeFormat = formatTime(selectedHour, selectedMinute);
 
   static String formatTime(int hour, int minute) {
@@ -86,10 +91,15 @@ class ReminderController extends GetxController {
     return timeFormat;
   }
 
-  DateTime parseTime(String value) {
-    final inputFormat = DateFormat("hh:mm a");
-    final selectedTime = inputFormat.parse(value);
-    return selectedTime;
+  DateTime convertToDateTime(String timeString) {
+    List<String> timeParts = timeString.split(':');
+    int hour = int.parse(timeParts[0]);
+    int minute = int.parse(timeParts[1]);
+
+    DateTime now = DateTime.now();
+    DateTime dateTime = DateTime(now.year, now.month, now.day, hour, minute);
+
+    return dateTime;
   }
 
   void selectHour(int hour) {
@@ -105,53 +115,29 @@ class ReminderController extends GetxController {
     debugPrint(currentTimeFormat);
   }
 
-  DateTime selectTimeOfDate(String value) {
-    int selectedHour = int.parse(value.split(':')[0]);
-    int selectedMinute = int.parse(value.split(':')[1].split(' ')[0]);
-    // Get the current date and time
-    DateTime now = DateTime.now();
+  
 
-    // Create a new DateTime object with the selected hour and minute
-    DateTime selectedDateTime = DateTime(
-      now.year,
-      now.month,
-      now.day,
-      selectedHour,
-      selectedMinute,
-    );
-    return selectedDateTime;
-  }
+//----------------------------- Create New Reminder ----------------------------------
 
   createReminder() {
     reminderBox!.add(ReminderModel(
         title: titleController.text,
         id: createUniqueId(),
         createdAtDate: currantDate,
-        createdAtTime: parseTime(currentTimeFormat),
+        createdAtTime: convertToDateTime(currentTimeFormat),
         isDone: false,
         type: selectedReminderType,
         description: descriptionController.text));
     update();
     RouteService.serviceNavi.pop();
+    titleController.clear();
+    descriptionController.clear();
   }
+
+  //----------------------------- Delete Reminder ----------------------------------
 
   deleteReminder(int index) {
     reminderBox!.deleteAt(index);
     update();
-  }
-
-  TimeOfDay convertStringToTimeOfDay(String timeString) {
-    List<String> timeParts = timeString.split(' ');
-    String time = timeParts[0];
-    String meridiem = timeParts[1];
-
-    List<String> timeValues = time.split(':');
-    int hour = int.parse(timeValues[0]);
-    int minute = int.parse(timeValues[1]);
-
-    if (meridiem == 'PM' && hour < 12) {
-      hour += 12;
-    }
-    return TimeOfDay(hour: hour, minute: minute);
   }
 }
