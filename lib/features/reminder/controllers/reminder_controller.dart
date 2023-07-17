@@ -102,13 +102,12 @@ class ReminderController extends GetxController {
     selectedMinute = minute;
     currentTimeFormat = formatTime(selectedHour, minute);
     update();
-    print(currentTimeFormat);
+    debugPrint(currentTimeFormat);
   }
 
   DateTime selectTimeOfDate(String value) {
     int selectedHour = int.parse(value.split(':')[0]);
     int selectedMinute = int.parse(value.split(':')[1].split(' ')[0]);
-    String timeOfDate = value.split(' ')[1];
     // Get the current date and time
     DateTime now = DateTime.now();
 
