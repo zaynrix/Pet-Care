@@ -112,7 +112,10 @@ class ReminderController extends GetxController {
     selectedMinute = minute;
     currentTimeFormat = formatTime(selectedHour, minute);
     update();
+    debugPrint(currentTimeFormat);
   }
+
+  
 
 //----------------------------- Create New Reminder ----------------------------------
 

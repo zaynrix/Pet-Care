@@ -69,6 +69,7 @@ dependencies:
   badges: ^3.1.1
   logger: ^1.4.0
   flutter_rating_bar: ^4.0.1
+  mocktail: ^0.3.0
 #  dio_logger:
 
 #  flutter_state_render_dialog: ^1.0.3
@@ -87,6 +88,7 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   hive_generator: ^2.0.0
   build_runner: ^2.3.3
+  test: ^1.24.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

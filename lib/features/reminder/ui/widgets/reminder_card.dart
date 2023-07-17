@@ -1,5 +1,4 @@
 part of reminder_module;
-
 class ReminderCard extends StatelessWidget {
   ReminderCard({
     required this.date,
