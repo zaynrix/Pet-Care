@@ -1,16 +1,21 @@
 name: Flutter Workflow
 
 on:
-  push:
+  pull_request:
     branches: [ "master" ]
-    pull_request:
-      branches: [ "master" ]
+
 jobs:
   build:
     runs-on: macos-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
+      - name: Install hava
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: "12.x"
 
       - name: Install Flutter
         uses: subosito/flutter-action@v2
