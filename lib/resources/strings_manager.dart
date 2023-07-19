@@ -13,6 +13,8 @@ class AppStrings {
   static const orderPlacedSuccessfully = 'Order placed successfully';
   static const smartPetCare = 'Smart pet care';
   static const petShop = 'Pet Shop';
+  static const article = 'Article';
+  static const topVet = 'Top Vets';
   static const vets = 'Vets';
   static const reminders = 'Reminders';
   static const seeAll = 'See All';
