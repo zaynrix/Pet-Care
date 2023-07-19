@@ -26,4 +26,5 @@ class RouteGenerator {
   static const String addNewLocationManual = 'addNewLocationManual';
   static const String addReminderScreen = 'addReminderScreen';
   static const String homeScreen = 'homeScreen';
+  static const String searchScreen = 'searchScreen';
 }
