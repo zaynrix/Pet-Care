@@ -22,7 +22,9 @@ import 'package:pet_care/resources/values_manager.dart';
 import 'package:pet_care/routing/routing_module.dart';
 import 'package:pet_care/utils/extension/responsive_extension.dart';
 import 'package:pet_care/utils/extension/time_extension.dart';
+import 'package:pet_care/utils/extension/validate_extension.dart';
 import 'package:provider/provider.dart';
 
 part 'screens/home_screen.dart';
-part 'screens/main-screen_app.dart';
+part 'screens/main_screen_app.dart';
+part 'screens/search_screen.dart';

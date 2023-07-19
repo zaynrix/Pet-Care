@@ -38,7 +38,10 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         actions: [
           CustomIconButton(
-            onTap: () {},
+            onTap: () {
+              RouteService.serviceNavi
+                  .pushNamedWidget(RouteGenerator.searchScreen);
+            },
             iconPath: IconAssets.search,
           ),
           AppSize.s35.addHorizontalSpace

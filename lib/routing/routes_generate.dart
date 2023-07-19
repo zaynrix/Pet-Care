@@ -42,7 +42,17 @@ class RoutsGenerate {
       case RouteGenerator.addNewLocationManual:
         return MaterialPageRoute(builder: (_) => AddNewAddressManually());
       case RouteGenerator.addReminderScreen:
-        return MaterialPageRoute(builder: (_) => AddReminderScreen());
+        return MaterialPageRoute(builder: (_) => const AddReminderScreen());
+
+      case RouteGenerator.searchScreen:
+        return MaterialPageRoute(
+          builder: (_) {
+            return ChangeNotifierProvider.value(
+              value: sl<HomeProvider>(),
+              child: const SearchScreen(),
+            );
+          },
+        );
       case RouteGenerator.homeScreen:
         return MaterialPageRoute(
           builder: (_) {
