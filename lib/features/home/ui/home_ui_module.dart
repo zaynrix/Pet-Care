@@ -7,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pet_care/common_widgets/common_widgets.dart';
 import 'package:pet_care/features/home/controllers/home_provider.dart';
+import 'package:pet_care/features/home/controllers/search_provider.dart';
 import 'package:pet_care/features/home/widgets/star_rating_widget.dart';
 import 'package:pet_care/features/profile/profile_module.dart';
 import 'package:pet_care/features/reminder/reminder_module.dart';
