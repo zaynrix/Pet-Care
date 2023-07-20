@@ -6,6 +6,7 @@ class CustomTextFormField extends StatelessWidget {
     required this.hintText,
     this.suffixIcon,
     this.suffixPressed,
+    this.onChange,
     required this.controller,
     required this.validator,
     this.inputFormatters,
@@ -18,6 +19,7 @@ class CustomTextFormField extends StatelessWidget {
   final TextInputType? keyBoardType;
   final IconData? suffixIcon;
   final Function()? suffixPressed;
+  final void Function(String)? onChange;
   final List<TextInputFormatter>? inputFormatters;
 
   @override
@@ -29,6 +31,7 @@ class CustomTextFormField extends StatelessWidget {
         ],
       ),
       child: TextFormField(
+        onChanged: onChange,
         inputFormatters: inputFormatters,
         keyboardType: keyBoardType,
         validator: validator,
