@@ -49,7 +49,10 @@ class RoutsGenerate {
           builder: (_) {
             return ChangeNotifierProvider.value(
               value: sl<HomeProvider>(),
-              child: const SearchScreen(),
+              child: ChangeNotifierProvider.value(
+                value: sl<SearchProvider>(),
+                child: const SearchScreen(),
+              ),
             );
           },
         );
