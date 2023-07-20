@@ -6,6 +6,7 @@ import 'package:pet_care/data/remote-data/end_point.dart';
 import 'package:pet_care/data/remote-data/interceptors/logger_interceptor.dart';
 import 'package:pet_care/features/auth/auth_core/auth_provider.dart';
 import 'package:pet_care/features/home/controllers/home_provider.dart';
+import 'package:pet_care/features/home/controllers/search_provider.dart';
 import 'package:pet_care/features/home/repositories/home_repo.dart';
 import 'package:pet_care/features/shop/controllers/product_cotroller.dart';
 import 'package:pet_care/features/shop/repositories/product_repository.dart';
@@ -31,5 +32,6 @@ void init() {
   sl.registerLazySingleton(() => ProductController());
   sl.registerLazySingleton(() => ProductRepository());
   sl.registerLazySingleton(() => HomeProvider());
+  sl.registerLazySingleton(() => SearchProvider());
   sl.registerLazySingleton(() => HomeRepository());
 }
