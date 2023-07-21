@@ -45,8 +45,8 @@ class AddPhotoForPetScreen extends StatelessWidget implements PageWidget {
                                         sizeConfig.getScreenWidth(AppSize.s25),
                                     top: sizeConfig
                                         .getScreenHeight(AppSize.s25)),
-                                child: Column(
-                                  children: const [
+                                child: const Column(
+                                  children: [
                                     Text(
                                       "Ghost",
                                       style: h2Bold,
