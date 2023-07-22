@@ -138,4 +138,15 @@ class ProductController extends ChangeNotifier {
       notifyListeners();
     }
   }
+
+  incrementProduct(SingleProduct item) {
+    final index = cartList.indexOf(item);
+    if (index != -1) {
+      cartList[index] =
+          SingleProduct(name: item.name, cartQuantity: item.cartQuantity! + 1);
+      notifyListeners();
+    }
+  }
+
+  decrementProduct() {}
 }
