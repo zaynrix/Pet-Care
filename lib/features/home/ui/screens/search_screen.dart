@@ -27,7 +27,7 @@ class _SearchScreenState extends State<SearchScreen> {
         appBar: AppBar(
           centerTitle: true,
           title: const Text(
-            "Search",
+            AppStrings.search,
             style: titleBold,
           ),
           bottom: PreferredSize(
@@ -39,7 +39,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     instance.replaceIt();
                   },
                   suffixIcon: Icons.search,
-                  hintText: "Type problems...",
+                  hintText: AppStrings.typeProblems,
                   controller: emailController,
                   validator: (value) => value!.validateEmail(),
                   keyBoardType: TextInputType.emailAddress),
@@ -56,7 +56,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       Padding(
                         padding: 24.paddingLeft,
                         child: const Text(
-                          "Discover",
+                          AppStrings.discover,
                           style: titleSemiBoldPrimary,
                         ),
                       ),
@@ -222,7 +222,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                   ],
                                                 ),
                                               ),
-                                              PositionsCardShadow()
+                                              const PositionsCardShadow()
                                             ],
                                           ),
                                         ),
@@ -241,49 +241,52 @@ class _SearchScreenState extends State<SearchScreen> {
                       ? const Center(
                           child: CircularProgressIndicator(),
                         )
-                      : GridView.builder(
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2, // Number of columns in the grid
-                            crossAxisSpacing: 10.0, // Spacing between columns
-                            mainAxisSpacing: 8.0, // Spacing between rows
-                          ),
-                          itemCount: productProvider.products!.products!.length,
-                          padding: 24.paddingVertical,
-                          shrinkWrap: true,
-                          // scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index) => GestureDetector(
-                                onTap: () {
-                                  productProvider.setProductObject(
-                                      current: productProvider
-                                          .products!.products![index]);
-                                },
-                                child: ShodCardGrid(
-                                  onTap: () {
-                                    setState(() {
-                                      productProvider.products!.products![index]
-                                                  .inCart !=
-                                              true
-                                          ? productProvider.deleteFromCart(
-                                              productProvider
-                                                  .products!.products![index])
-                                          : productProvider.addToCart(
-                                              productProvider
-                                                  .products!.products![index]);
-                                      productProvider.products!.products![index]
-                                              .inCart =
-                                          !productProvider.products!
-                                              .products![index].inCart!;
-                                    });
-                                  },
-                                  singleProduct: productProvider
-                                      .products!.products![index],
-                                )
-                                    .animate(delay: 200.ms)
-                                    .moveX(begin: -100)
-                                    .then()
-                                    .shakeX(hz: 4, amount: 3),
-                              )),
+                      : Padding(
+                          padding: 20.paddingVertical,
+                          child: GridView.builder(
+                              padding: EdgeInsets.zero,
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount:
+                                    2, // Number of columns in the grid
+                                crossAxisSpacing:
+                                    0.0, // Spacing between columns
+                                mainAxisSpacing: 8.0, // Spacing between rows
+                              ),
+                              itemCount:
+                                  productProvider.products!.products!.length,
+                              shrinkWrap: true,
+                              itemBuilder: (context, index) => GestureDetector(
+                                    onTap: () {
+                                      productProvider.setProductObject(
+                                          current: productProvider
+                                              .products!.products![index]);
+                                    },
+                                    child: ShodCardGrid(
+                                      onTap: () {
+                                        setState(() {
+                                          productProvider
+                                                      .products!
+                                                      .products![index]
+                                                      .inCart !=
+                                                  true
+                                              ? productProvider.deleteFromCart(
+                                                  productProvider.products!
+                                                      .products![index])
+                                              : productProvider.addToCart(
+                                                  productProvider.products!
+                                                      .products![index]);
+                                          productProvider.products!
+                                                  .products![index].inCart =
+                                              !productProvider.products!
+                                                  .products![index].inCart!;
+                                        });
+                                      },
+                                      singleProduct: productProvider
+                                          .products!.products![index],
+                                    ),
+                                  )),
+                        ),
                 ),
         ),
       ),
