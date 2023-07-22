@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/add_pet_screens.dart';
 import 'package:pet_care/features/auth/auth_ui/screens/auth_module.dart';
 import 'package:pet_care/features/home/controllers/home_provider.dart';
+import 'package:pet_care/features/home/controllers/search_provider.dart';
 import 'package:pet_care/features/home/ui/home_ui_module.dart';
 import 'package:pet_care/features/location/location_module.dart';
 import 'package:pet_care/features/profile/profile_module.dart';
