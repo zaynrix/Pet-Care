@@ -2,6 +2,7 @@ part of shop_screens;
 
 class CartScreen extends StatelessWidget {
   CartScreen({this.singleProduct});
+
   final SingleProduct? singleProduct;
 
   @override
@@ -96,15 +97,24 @@ class CartScreen extends StatelessWidget {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      SvgPicture.asset(
-                                        IconAssets.incrementButton,
+                                      GestureDetector(
+                                        onTap: () {
+                                          value.incrementProduct(
+                                              value.cartList[index]);
+                                        },
+                                        child: SvgPicture.asset(
+                                          IconAssets.incrementButton,
+                                        ),
                                       ),
                                       10.addVerticalSpace,
                                       Text(
                                           '${value.cartList[index].cartQuantity!}'),
                                       10.addVerticalSpace,
-                                      SvgPicture.asset(
-                                        IconAssets.decrementButton,
+                                      GestureDetector(
+                                        onTap: () {},
+                                        child: SvgPicture.asset(
+                                          IconAssets.decrementButton,
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -168,7 +178,7 @@ class CartScreen extends StatelessWidget {
   double calculateSubtotal(cartList) {
     double subtotal = 0.0;
     for (var product in cartList) {
-      subtotal += product.price * product.cartQuantity;
+      subtotal += product.price ?? 0 * product.cartQuantity ?? 0;
     }
     return subtotal;
   }
