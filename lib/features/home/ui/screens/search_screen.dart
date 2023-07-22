@@ -38,7 +38,8 @@ class _SearchScreenState extends State<SearchScreen> {
                   onChange: (value) {
                     instance.replaceIt();
                   },
-                  suffixIcon: Icons.search,
+                  suffixIcon:
+                      instance.replace == false ? Icons.search : Icons.close,
                   hintText: AppStrings.typeProblems,
                   controller: emailController,
                   validator: (value) => value!.validateEmail(),

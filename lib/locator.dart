@@ -20,8 +20,7 @@ import 'data/remote-data/interceptors/dio_interceptor.dart';
 final sl = GetIt.instance;
 
 void init() {
-
-  //----------------------------setupDioInstance--------------------------------
+  //---------------------------- Setup Dio Instance --------------------------------
   final client = Dio()
     ..options.baseUrl = Endpoints.baseUrl
     ..options.connectTimeout = const Duration(milliseconds: 30000)
@@ -31,11 +30,11 @@ void init() {
     ..interceptors
         .addAll([DioInterceptor(), if (kDebugMode) LoggerInterceptor()]);
 
-  //---------------------------setupSecureStorage-------------------------------
+  //--------------------------- Setup Secure Storage -------------------------------
 
   const secureStorage = FlutterSecureStorage();
   sl.registerLazySingleton(() => StorageService(secureStorage));
-  
+
   sl.registerLazySingleton(() => DioClient(client: client));
   sl.registerLazySingleton(() => AuthProvider(sl<AuthRepo>()));
   sl.registerLazySingleton(() => AuthRepo(client: sl<DioClient>()));
