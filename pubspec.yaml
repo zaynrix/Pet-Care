@@ -70,7 +70,7 @@ dependencies:
   logger: ^1.4.0
   flutter_rating_bar: ^4.0.1
   mocktail: ^0.3.0
-#  dio_logger:
+  flutter_secure_storage: ^8.0.0
 
 #  flutter_state_render_dialog: ^1.0.3
 
