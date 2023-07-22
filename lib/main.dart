@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pet_care/features/add_pet/add_pet_core/add_pet_provider.dart';
-import 'package:pet_care/features/auth/auth_core/auth_provider.dart';
+import 'package:pet_care/features/auth/auth_contoller/auth_provider.dart';
 import 'package:pet_care/features/onboarding/core/on_boarding_provider.dart';
 import 'package:pet_care/features/shop/controllers/product_cotroller.dart';
 import 'package:pet_care/locator.dart';
