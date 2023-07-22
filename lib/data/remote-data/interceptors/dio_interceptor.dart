@@ -21,8 +21,8 @@ class DioInterceptor extends Interceptor {
       case DioExceptionType.connectionTimeout:
         {
           showErrorSnackBar("Check your internet connection");
-          debugPrint('This is connectTimeout [The exception for a failed connection attempt.] $err');
-          debugPrint(err.response!.statusCode.toString());
+          // debugPrint('This is connectTimeout [The exception for a failed connection attempt.] $err');
+          // debugPrint(err.response!.statusCode.toString());
           throw Exception("No Internet Connection");
         }
       case DioExceptionType.receiveTimeout:
@@ -58,6 +58,7 @@ class DioInterceptor extends Interceptor {
         // TODO: Handle this case.
         break;
       case DioExceptionType.connectionError:
+        showErrorSnackBar("No internet connection");
         // TODO: Handle this case.
         break;
     }
@@ -72,45 +73,45 @@ class DioInterceptor extends Interceptor {
     final response = err.response;
     if (response != null) {
       final statusCode = response.statusCode;
-      final responseData = response.data.toString();
-
+      final message = response.data["message"];
+      showSnackBarAndDebugPrint(message);
       switch (statusCode) {
         case 400:
           {
-            showSnackBarAndDebugPrint(responseData);
-            debugPrint("after Pro this is 400");
+            // showSnackBarAndDebugPrint(responseData);
           }
           break;
         case 404:
           {
-            showSnackBarAndDebugPrint(responseData);
+            // showSnackBarAndDebugPrint(responseData);
           }
           break;
         case 401:
           {
-            showSnackBarAndDebugPrint(responseData);
+            // showSnackBarAndDebugPrint(responseData);
             // locator<AuthRepo>().refreshTokenRepo(token: SharedPrefController().accessToken);
           }
           break;
         case 422:
           {
-            debugPrint("This is error message \n $responseData");
-            showSnackBarAndDebugPrint(response.data?["message"] ?? "Error");
+            debugPrint("This is error message \n ${response.data.toString()}");
+            // showSnackBarAndDebugPrint(response.data?["message"] ?? "Error");
           }
           break;
         default:
           {
-            showSnackBarAndDebugPrint(responseData);
+            // showSnackBarAndDebugPrint(responseData);
           }
           break;
       }
       debugPrint(statusCode.toString());
-      debugPrint(responseData);
+      debugPrint(message);
     }
   }
 
   void showSnackBarAndDebugPrint(String message) {
-    Helpers.showSnackBar(message: message);
+    // Helpers.showSnackBar(message: message);
+    Helpers.showDialog(message: message);
     debugPrint(message);
   }
 }

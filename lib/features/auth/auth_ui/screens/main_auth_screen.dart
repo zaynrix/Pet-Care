@@ -62,9 +62,9 @@ class MainAuthScreen extends StatelessWidget {
             ),
           ),
         ),
-        body: Column(
+        body: Stack(
           children: [
-            Expanded(
+            Container(
               child: TabBarView(
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
@@ -72,7 +72,7 @@ class MainAuthScreen extends StatelessWidget {
                   SignUpScreen(),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
