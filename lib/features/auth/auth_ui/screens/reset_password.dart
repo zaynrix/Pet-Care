@@ -1,9 +1,9 @@
 part of auth_module;
 class ResetPasswordScreen extends StatelessWidget {
   ResetPasswordScreen({Key? key}) : super(key: key);
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
-  GlobalKey<FormState> formKye = GlobalKey<FormState>();
+ final TextEditingController passwordController = TextEditingController();
+ final TextEditingController confirmPasswordController = TextEditingController();
+ final GlobalKey<FormState> formKye = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class ResetPasswordScreen extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       backgroundColor: ColorManager.soft,
       appBar: AppBar(
-        title: const Text("Reset Password"),
+        title: const Text(AppStrings.resetPassword),
         leading: IconButton(
           onPressed: () {
             RouteService.serviceNavi.pop();
@@ -30,19 +30,19 @@ class ResetPasswordScreen extends StatelessWidget {
             children: [
              const RVerticalSpace(height: AppSize.s45),
               const Text(
-                "Enter a new password",
+                AppStrings.enterNewPassword,
                 style: supTitleRegular,
               ),
               const RVerticalSpace(height: AppSize.s33),
               CustomTextFormField(
-                hintText: "New password",
+                hintText: AppStrings.newPassword,
                 controller: passwordController,
                 validator: (String? value) => value!.validatePassword(),
                 keyBoardType: TextInputType.visiblePassword,
               ),
               const RVerticalSpace(height: AppSize.s20),
               CustomTextFormField(
-                hintText: "Confirm new password",
+                hintText: AppStrings.confirmNewPassword,
                 controller: confirmPasswordController,
                 validator: (String? value) => value!.validatePassword(),
                 keyBoardType: TextInputType.visiblePassword,
@@ -55,7 +55,7 @@ class ResetPasswordScreen extends StatelessWidget {
                       RouteService.serviceNavi.pushNamedReplacement(RouteGenerator.mainAuthScreen);
                     }
                   },
-                  child: const Text("Change")),
+                  child: const Text(AppStrings.change)),
             ],
           ),
         ),

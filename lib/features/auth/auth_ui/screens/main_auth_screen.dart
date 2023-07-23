@@ -42,7 +42,7 @@ class MainAuthScreen extends StatelessWidget {
                       tabs: [
                         Tab(
                           child: Text(
-                            "Sign in",
+                            AppStrings.signIn,
                             maxLines: 1,
                             style: auth.currantAuthTap == 0
                                 ? titleSemiBoldSecondary
@@ -50,7 +50,7 @@ class MainAuthScreen extends StatelessWidget {
                           ),
                         ),
                         Tab(
-                          child: Text("Sign up",
+                          child: Text(AppStrings.signUp,
                               maxLines: 1,
                               style: auth.currantAuthTap == 1
                                   ? titleSemiBoldSecondary
@@ -64,7 +64,7 @@ class MainAuthScreen extends StatelessWidget {
         ),
         body: Stack(
           children: [
-            Container(
+            SizedBox(
               child: TabBarView(
                 physics: const NeverScrollableScrollPhysics(),
                 children: [

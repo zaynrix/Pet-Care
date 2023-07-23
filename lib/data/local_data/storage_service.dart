@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:pet_care/data/local_data/storage_constant.dart';
-import 'package:pet_care/features/auth/auth-model/user_model.dart';
+import 'package:pet_care/features/auth/auth_model/user_model.dart';
 
 class StorageService {
   StorageService(this.secureStorage);

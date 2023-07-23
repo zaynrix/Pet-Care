@@ -36,14 +36,14 @@ class LoginScreen extends StatelessWidget {
                       ),
                       const RVerticalSpace(height: AppSize.s35),
                       CustomTextFormField(
-                        hintText: "E-mail",
+                        hintText: AppStrings.eMail,
                         controller: emailController,
                         validator: (String? value) => value!.validateEmail(),
                         keyBoardType: TextInputType.emailAddress,
                       ),
                       const RVerticalSpace(height: AppSize.s20),
                       CustomTextFormField(
-                        hintText: "Password",
+                        hintText: AppStrings.password,
                         controller: passwordController,
                         validator: (String? value) => value!.validatePassword(),
                         keyBoardType: TextInputType.visiblePassword,
@@ -57,7 +57,9 @@ class LoginScreen extends StatelessWidget {
                                     RouteGenerator.forgetPasswordScreen);
                               },
                               child: Text(
-                                "Forgot password",
+
+                                AppStrings.forgotPassword,
+
                                 style:
                                     bodyRegular(color: ColorManager.secondary),
                               ))),
@@ -94,7 +96,7 @@ class LoginScreen extends StatelessWidget {
                                           password: passwordController.text);
                                     }
                                   },
-                                  child: const Text("Sign in")))
+                                  child: const Text(AppStrings.signIn)))
                         ],
                       ),
                       const RVerticalSpace(height: AppSize.s40),

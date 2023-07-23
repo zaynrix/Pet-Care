@@ -1,7 +1,7 @@
 import 'package:pet_care/data/local_data/storage_service.dart';
 import 'package:pet_care/data/remote-data/base_client.dart';
 import 'package:pet_care/data/remote-data/end_point.dart';
-import 'package:pet_care/features/auth/auth-model/user_model.dart';
+import 'package:pet_care/features/auth/auth_model/user_model.dart';
 import 'package:pet_care/locator.dart';
 
 class AuthRepo {

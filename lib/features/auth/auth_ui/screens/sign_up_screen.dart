@@ -2,9 +2,9 @@ part of auth_module;
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({Key? key}) : super(key: key);
 
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  GlobalKey<FormState> formKye = GlobalKey<FormState>();
+ final TextEditingController emailController = TextEditingController();
+ final TextEditingController passwordController = TextEditingController();
+ final GlobalKey<FormState> formKye = GlobalKey<FormState>();
 
 
   @override
@@ -32,24 +32,24 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   const RVerticalSpace(height: AppSize.s40),
                   CustomTextFormField(
-                      hintText: "Name",
+                      hintText: AppStrings.name,
                       controller: emailController,
                       validator: (String? value) => value!.validateUserName(), keyBoardType: TextInputType.name,),
                   const RVerticalSpace(height: AppSize.s20),
                   CustomTextFormField(
                     keyBoardType: TextInputType.emailAddress,
-                      hintText: "E-mail",
+                      hintText: AppStrings.eMail,
                       controller: passwordController,
                       validator: (String? value) => value!.validatePassword()),
                   const RVerticalSpace(height: AppSize.s20),
                   CustomTextFormField(
                     keyBoardType: TextInputType.phone,
-                      hintText: "Phone number",
+                      hintText: AppStrings.phoneNumber,
                       controller: emailController,
                       validator: (String? value) => value!.validatePhoneNumber()),
                   const RVerticalSpace(height: AppSize.s20),
                   CustomTextFormField(
-                      hintText: "Password",
+                      hintText: AppStrings.password,
                       controller: emailController,
                       validator: (String? value) => value!.validatePassword(), keyBoardType: TextInputType.visiblePassword,),
                   const RVerticalSpace(height: AppSize.s80),
@@ -79,7 +79,7 @@ class SignUpScreen extends StatelessWidget {
                                 if(formKye.currentState!.validate()){
                                   debugPrint("This is ok");
                                 }
-                              }, child: const Text("Sign un")))
+                              }, child: const Text(AppStrings.signUp)))
                     ],
                   ),
                  const RVerticalSpace(height: AppSize.s40),
