@@ -3,11 +3,10 @@ part of auth_module;
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
 
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  GlobalKey<FormState> formKye = GlobalKey<FormState>();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final GlobalKey<FormState> formKye = GlobalKey<FormState>();
   final SizeConfig sizeConfig = sl<SizeConfig>();
-
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +15,7 @@ class LoginScreen extends StatelessWidget {
         resizeToAvoidBottomInset: false,
         backgroundColor: ColorManager.soft,
         body: Consumer<AuthProvider>(
-          builder: (context, auth , child) => Stack(
+          builder: (context, auth, child) => Stack(
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: AppPadding.p24),
@@ -37,14 +36,14 @@ class LoginScreen extends StatelessWidget {
                       ),
                       const RVerticalSpace(height: AppSize.s35),
                       CustomTextFormField(
-                        hintText: "E-mail",
+                        hintText: AppStrings.eMail,
                         controller: emailController,
                         validator: (String? value) => value!.validateEmail(),
                         keyBoardType: TextInputType.emailAddress,
                       ),
                       const RVerticalSpace(height: AppSize.s20),
                       CustomTextFormField(
-                        hintText: "Password",
+                        hintText: AppStrings.password,
                         controller: passwordController,
                         validator: (String? value) => value!.validatePassword(),
                         keyBoardType: TextInputType.visiblePassword,
@@ -58,8 +57,9 @@ class LoginScreen extends StatelessWidget {
                                     RouteGenerator.forgetPasswordScreen);
                               },
                               child: Text(
-                                "Forgot password",
-                                style: bodyRegular(color: ColorManager.secondary),
+                                AppStrings.forgotPassword,
+                                style:
+                                    bodyRegular(color: ColorManager.secondary),
                               ))),
                       const Spacer(
                         flex: 2,
@@ -88,12 +88,13 @@ class LoginScreen extends StatelessWidget {
                               child: ElevatedButton(
                                   onPressed: () {
                                     if (formKye.currentState!.validate()) {
-
                                       debugPrint("Its ok pro");
-                                      auth.login(email: emailController.text, password: passwordController.text);
+                                      auth.login(
+                                          email: emailController.text,
+                                          password: passwordController.text);
                                     }
                                   },
-                                  child: const Text("Sign in")))
+                                  child: const Text(AppStrings.signIn)))
                         ],
                       ),
                       const RVerticalSpace(height: AppSize.s40),
@@ -107,7 +108,9 @@ class LoginScreen extends StatelessWidget {
                   height: Get.height,
                   width: Get.width,
                   color: ColorManager.primaryWithTransparent10,
-                  child: const LoadingStatusWidget(loadingStatus: LoadingStatusOption.loading,),
+                  child: const LoadingStatusWidget(
+                    loadingStatus: LoadingStatusOption.loading,
+                  ),
                 ),
               )
             ],

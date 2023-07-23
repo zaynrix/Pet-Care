@@ -3,15 +3,15 @@ part of auth_module;
 class ForgetPasswordScreen extends StatelessWidget {
   ForgetPasswordScreen({Key? key}) : super(key: key);
 
-  TextEditingController phoneController = TextEditingController();
-  GlobalKey<FormState> formKye = GlobalKey<FormState>();
+  final TextEditingController phoneController = TextEditingController();
+  final GlobalKey<FormState> formKye = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorManager.soft,
       appBar: AppBar(
-        title: const Text("Forgot password"),
+        title: const Text(AppStrings.forgotPassword),
         leading: IconButton(
           onPressed: () {
             RouteService.serviceNavi.pop();
@@ -37,7 +37,7 @@ class ForgetPasswordScreen extends StatelessWidget {
               const RVerticalSpace(height: AppSize.s33),
               CustomTextFormField(
                 keyBoardType: TextInputType.phone,
-                hintText: "Phone Number",
+                hintText: AppStrings.phoneNumber,
                 controller: phoneController,
                 validator: (String? value) => value!.validatePhoneNumber(),
               ),
@@ -52,7 +52,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                           .pushNamedWidget(RouteGenerator.verifyEmailScreen);
                     }
                   },
-                  child: const Text("Submit")),
+                  child: const Text(AppStrings.submit)),
               const Spacer(
                 flex: 2,
               ),

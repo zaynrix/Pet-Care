@@ -1,8 +1,8 @@
 part of auth_module;
 class VerifyEmailScreen extends StatelessWidget {
-  VerifyEmailScreen({Key? key}) : super(key: key);
-  TextEditingController optController = TextEditingController();
-  GlobalKey<FormState> formKye = GlobalKey<FormState>();
+   VerifyEmailScreen({Key? key}) : super(key: key);
+  final TextEditingController optController = TextEditingController();
+  final GlobalKey<FormState> formKye = GlobalKey<FormState>();
 
 
   @override
@@ -11,7 +11,7 @@ class VerifyEmailScreen extends StatelessWidget {
       // resizeToAvoidBottomInset: false,
       backgroundColor: ColorManager.soft,
       appBar: AppBar(
-        title: const Text("Verify"),
+        title: const Text(AppStrings.verify),
         leading: IconButton(
           onPressed: () {
             RouteService.serviceNavi.pop();
@@ -85,7 +85,7 @@ class VerifyEmailScreen extends StatelessWidget {
                   debugPrint("This is ok");
                   RouteService.serviceNavi.pushNamedWidget(RouteGenerator.resetPasswordScreen);
                 }
-              }, child: const Text("Next")),
+              }, child: const Text(AppStrings.next)),
               const Spacer(flex: 2,)
             ],
           ),
