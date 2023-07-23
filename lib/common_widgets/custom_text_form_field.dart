@@ -8,7 +8,7 @@ class CustomTextFormField extends StatelessWidget {
     this.suffixPressed,
     this.onChange,
     this.focusNode,
-    required this.controller,
+    this.controller,
     required this.validator,
     this.inputFormatters,
     this.keyBoardType,
@@ -17,7 +17,7 @@ class CustomTextFormField extends StatelessWidget {
   });
 
   final String hintText;
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final String? Function(String?)? validator;
   final TextInputType? keyBoardType;
   final IconData? suffixIcon;
