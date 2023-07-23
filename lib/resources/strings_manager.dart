@@ -37,6 +37,9 @@ class AppStrings {
   static const smartPetCareSub = 'Find perfect veterian for your pet';
   static const appointmentNow = 'Appointment now';
   static const chooseTime = 'Choose Time (24h)';
+  static const search = 'Search';
+  static const discover = 'Discover';
+  static const typeProblems = 'Type problems...';
   static const orderPlacedSuccessfullySub =
       'You placed the order successfully. Thanks for using our services.';
 }

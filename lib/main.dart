@@ -3,10 +3,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pet_care/features/add_pet/add_pet_core/add_pet_provider.dart';
+
 import 'package:pet_care/features/article/article_module.dart';
-import 'package:pet_care/features/auth/auth_contoller/auth_provider.dart';
 import 'package:pet_care/features/auth/auth_ui/screens/auth_module.dart';
 import 'package:pet_care/features/home/ui/home_ui_module.dart';
+
+import 'package:pet_care/features/auth/auth_contoller/auth_provider.dart';
+
 import 'package:pet_care/features/onboarding/core/on_boarding_provider.dart';
 import 'package:pet_care/features/pets/pets_module.dart';
 import 'package:pet_care/features/reminder/reminder_module.dart';

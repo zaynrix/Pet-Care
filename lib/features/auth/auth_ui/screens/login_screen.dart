@@ -57,7 +57,9 @@ class LoginScreen extends StatelessWidget {
                                     RouteGenerator.forgetPasswordScreen);
                               },
                               child: Text(
+
                                 AppStrings.forgotPassword,
+
                                 style:
                                     bodyRegular(color: ColorManager.secondary),
                               ))),
