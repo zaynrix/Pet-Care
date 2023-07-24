@@ -1,12 +1,41 @@
 part of shop_screens;
 
 /// TODO: missing: Controllers & Validations & Focus Node Text field & Navigation's
-class AddNewCard extends StatelessWidget {
+class AddNewCard extends StatefulWidget {
   const AddNewCard({Key? key}) : super(key: key);
+
+  @override
+  State<AddNewCard> createState() => _AddNewCardState();
+}
+
+class _AddNewCardState extends State<AddNewCard> {
+  CardProvider? _cardProvider;
+
+  @override
+  void initState() {
+    _cardProvider = Provider.of<CardProvider>(context, listen: false);
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _cardProvider = Provider.of<CardProvider>(context, listen: false);
+    _cardProvider!.initController();
+    _cardProvider!.cardListener();
+  }
+
+  @override
+  void dispose() {
+    _cardProvider!.disposeController();
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       extendBody: true,
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
@@ -17,12 +46,14 @@ class AddNewCard extends StatelessWidget {
           },
         ),
         centerTitle: true,
-        title: const Text("Add New Card"),
+        title: const Text(AppStrings.addNewCard),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: ElevatedButton(
-        child: const Text("Save"),
-        onPressed: () {},
+        child: const Text(AppStrings.save),
+        onPressed: () {
+          RouteService.serviceNavi.pop();
+        },
       ),
       body: ListView(
         children: [
@@ -39,31 +70,41 @@ class AddNewCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16.0.r),
                 ),
                 color: ColorManager.primary,
-                child: Container(
-                  padding: 24.paddingAll,
-                  width: double.infinity,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SvgPicture.asset(
-                        IconAssets.mastercard,
-                        width: 64,
-                        height: 64,
-                      ),
-                      31.addVerticalSpace,
-                      const Text(
-                        "HOLDER NAME",
-                        style: h3Medium2,
-                      ),
-                      const Text(
-                        "0000 0000 0000 0000",
-                        style: h3Medium2,
-                      ),
-                    ],
+                child: Consumer<CardProvider>(
+                  builder: (context, instance, child) => Container(
+                    padding: 24.paddingAll,
+                    width: double.infinity,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SvgPicture.asset(
+                          IconAssets.mastercard,
+                          width: 64,
+                          height: 64,
+                        ),
+                        15.addVerticalSpace,
+                        Text(
+                          instance.holderName.isEmpty
+                              ? "Holder Name"
+                              : instance.holderName,
+                          style: instance.holderName.isEmpty
+                              ? h3Medium2
+                              : h3Medium2.copyWith(color: ColorManager.white),
+                        ),
+                        Text(
+                          instance.visaNumber.isEmpty
+                              ? "0000 0000 0000 0000"
+                              : instance.visaNumber,
+                          style: instance.visaNumber.isEmpty
+                              ? h3Medium2
+                              : h3Medium2.copyWith(color: ColorManager.white),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-              32.addVerticalSpace,
+              10.addVerticalSpace,
               Padding(
                 padding: 25.paddingHorizontal,
                 child: Column(
@@ -72,22 +113,22 @@ class AddNewCard extends StatelessWidget {
                       hintText: "Card Label",
                       validator: (String? value) => value!.validateUserName(),
                       keyBoardType: TextInputType.name,
-                      controller: TextEditingController(),
+                      controller: _cardProvider!.labelController,
                       // controller: petNameController,
                     ),
-                    20.addVerticalSpace,
+                    10.addVerticalSpace,
                     CustomTextFormField(
                       keyBoardType: TextInputType.text,
                       hintText: "Card holder name",
                       validator: (String? value) => value!.validateUserName(),
-                      controller: TextEditingController(),
+                      controller: _cardProvider!.holderNameController,
                       inputFormatters: [
                         FilteringTextInputFormatter.singleLineFormatter,
                         LengthLimitingTextInputFormatter(22),
                         // CardNumberInputFormatter(),
                       ],
                     ),
-                    20.addVerticalSpace,
+                    10.addVerticalSpace,
                     CustomTextFormField(
                       inputFormatters: [
                         FilteringTextInputFormatter.digitsOnly,
@@ -97,9 +138,9 @@ class AddNewCard extends StatelessWidget {
                       hintText: "Card number",
                       validator: (String? value) => value!.validateIdNumber(),
                       keyBoardType: TextInputType.number,
-                      controller: TextEditingController(),
+                      controller: _cardProvider!.numberController,
                     ),
-                    20.addVerticalSpace,
+                    10.addVerticalSpace,
                     Row(
                       children: [
                         Expanded(
@@ -112,7 +153,7 @@ class AddNewCard extends StatelessWidget {
                               LengthLimitingTextInputFormatter(4),
                               // CardMonthInputFormatter(),
                             ],
-                            controller: TextEditingController(),
+                            controller: _cardProvider!.mmYy,
                           ),
                         ),
                         SizedBox(
@@ -129,12 +170,12 @@ class AddNewCard extends StatelessWidget {
                               // Limit the input
                               LengthLimitingTextInputFormatter(4),
                             ],
-                            controller: TextEditingController(),
+                            controller: _cardProvider!.cVV,
                           ),
                         ),
                       ],
                     ),
-                    120.addVerticalSpace,
+                    60.addVerticalSpace,
                   ],
                 ),
               ),
