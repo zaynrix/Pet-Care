@@ -35,17 +35,22 @@ class CustomIconButtonNoDecoration extends StatelessWidget {
   CustomIconButtonNoDecoration({
     required this.onTap,
     required this.iconPath,
+    this.svgColor,
     Key? key,
   }) : super(key: key);
 
   final String iconPath;
+  final Color? svgColor;
   final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: SvgPicture.asset(iconPath),
+      child: SvgPicture.asset(
+        iconPath,
+        color: svgColor,
+      ),
     );
   }
 }
