@@ -6,6 +6,7 @@ class CardProvider extends ChangeNotifier {
   TextEditingController numberController = TextEditingController();
   TextEditingController mmYy = TextEditingController();
   TextEditingController cVV = TextEditingController();
+
   String holderName = "HOLDER NAME";
   String visaNumber = "0000 0000 0000 0000";
   initController() {
@@ -14,6 +15,8 @@ class CardProvider extends ChangeNotifier {
     numberController = TextEditingController();
     mmYy = TextEditingController();
     cVV = TextEditingController();
+    holderName = "HOLDER NAME";
+    visaNumber = "0000 0000 0000 0000";
   }
 
   disposeController() {
