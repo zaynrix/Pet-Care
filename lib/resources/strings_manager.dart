@@ -38,6 +38,8 @@ class AppStrings {
   static const appointmentNow = 'Appointment now';
   static const chooseTime = 'Choose Time (24h)';
   static const search = 'Search';
+  static const addNewCard = 'Add New Card';
+  static const save = 'Save';
   static const discover = 'Discover';
   static const typeProblems = 'Type problems...';
   static const orderPlacedSuccessfullySub =
