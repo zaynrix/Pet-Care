@@ -1,7 +1,7 @@
-part of add_shop_screens;
+part of add_shop_module;
 
 class MainAppPetScreen extends StatefulWidget {
-  MainAppPetScreen({Key? key}) : super(key: key);
+  const MainAppPetScreen({Key? key}) : super(key: key);
 
   @override
   State<MainAppPetScreen> createState() => _MainAppPetScreenState();
@@ -15,7 +15,7 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
     Provider.of<AddPetProvider>(context, listen: false).initStateAddPet();
   }
 
-  final SizeConfig sizeConfig = locator<SizeConfig>();
+  final SizeConfig sizeConfig = sl<SizeConfig>();
 
   final PageController controllerPages = PageController();
 
@@ -59,7 +59,7 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
         body: SafeArea(
           child: Column(
             children: [
-              addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s9)),
+              const RVerticalSpace(height: AppSize.s9),
               Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: sizeConfig.getScreenWidth(AppSize.s24)),
@@ -68,11 +68,11 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        InkWell(
-                          focusColor: ColorManager.secondGray,
+                        GestureDetector(
+                          // focusColor: ColorManager.secondGray,
                           onTap: () {
                             provider.currantPage == 0
-                                ? RouteService.serviceNavi.popFunction()
+                                ? RouteService.serviceNavi.pop()
                                 : provider.pageController!.previousPage(
                                     duration: const Duration(milliseconds: 350),
                                     curve: Curves.easeInOut);
@@ -89,12 +89,12 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                         )
                       ],
                     ),
-                    addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s24)),
+                    const RVerticalSpace(height: AppSize.s24),
                     const LinearProgressStatusBar(),
                   ],
                 ),
               ),
-              addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s32)),
+              const RVerticalSpace(height: AppSize.s32),
               SizedBox(
                 width: double.infinity,
                 height: provider.currantPage < 6
@@ -138,7 +138,7 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                   ),
                 ),
               ),
-              addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s20)),
+              const RVerticalSpace(height: AppSize.s20),
             ],
           ),
         ),

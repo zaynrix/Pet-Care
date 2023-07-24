@@ -1,21 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:pet_care/common_widgets/common_widgets.dart';
 import 'package:pet_care/resources/values_manager.dart';
-import 'package:pet_care/routing/routing_imports.dart';
+import 'package:pet_care/routing/routing_module.dart';
+import 'package:pet_care/utils/enums.dart';
+import 'package:pet_care/utils/extension/responsive_extension.dart';
 import '../resources/colors_manager.dart';
 
 class Helpers {
-    static final GlobalKey<ScaffoldMessengerState> scaffoldKey =
-        GlobalKey<ScaffoldMessengerState>();
+  static final GlobalKey<ScaffoldMessengerState> scaffoldKey =
+      GlobalKey<ScaffoldMessengerState>();
+
   // final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  static showDialog({required String message}) {
+    Get.dialog(Dialog(
+      shape: RoundedRectangleBorder(borderRadius: 16.circularRadius),
+      backgroundColor: ColorManager.white,
+      child: Padding(
+        padding: AppPadding.p24.paddingAll,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const LoadingStatusWidget(
+              loadingStatus: LoadingStatusOption.error,
+            ),
+            Text(message)
+          ],
+        ),
+      ),
+    ));
+    Future.delayed(const Duration(seconds: 3), () {
+      Get.back();
+    });
+  }
 
   static showSnackBar({required String message}) {
     debugPrint("ssss");
     scaffoldKey.currentState?.showSnackBar(SnackBar(
       content: Text(message),
       duration: const Duration(seconds: 3),
-      backgroundColor: Colors.blue,
+      backgroundColor: ColorManager.error,
       elevation: 10,
       margin: EdgeInsets.symmetric(horizontal: 30.w, vertical: 40.h),
       shape: const StadiumBorder(),
@@ -78,7 +105,7 @@ class alertDialog extends StatelessWidget {
           const Spacer(),
           IconButton(
             onPressed: () {
-              RouteService.serviceNavi.popFunction();
+              RouteService.serviceNavi.pop();
             },
             icon: const Icon(
               Icons.cancel,
@@ -91,7 +118,7 @@ class alertDialog extends StatelessWidget {
       content: Text(
         content,
         textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 23.sp),
+        style: const TextStyle(fontSize: 23),
       ),
       actions: [
         Row(
@@ -105,10 +132,9 @@ class alertDialog extends StatelessWidget {
               child: const Text("Ok"),
             ),
             ElevatedButton(
-              onPressed: () => RouteService.serviceNavi.popFunction(),
+              onPressed: () => RouteService.serviceNavi.pop(),
               style: ElevatedButton.styleFrom(
-                  side: const BorderSide(
-                      color: ColorManager.primary, width: 1),
+                  side: const BorderSide(color: ColorManager.primary, width: 1),
                   backgroundColor: ColorManager.white,
                   fixedSize: Size(112.w, 40.h)),
               child: const Text("Cancel"),
@@ -123,15 +149,16 @@ class alertDialog extends StatelessWidget {
 }
 
 class BalanceAlertDialog extends StatelessWidget {
-   BalanceAlertDialog(
+  BalanceAlertDialog(
       {required this.content,
-        required this.isLoading,
-        required this.onPressed, Key? key})
+      required this.isLoading,
+      required this.onPressed,
+      Key? key})
       : super(key: key);
 
   final String content;
   final Function() onPressed;
-  bool isLoading ;
+  bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -145,7 +172,7 @@ class BalanceAlertDialog extends StatelessWidget {
             alignment: Alignment.topRight,
             child: IconButton(
                 onPressed: () {
-                  RouteService.serviceNavi.popFunction();
+                  RouteService.serviceNavi.pop();
                 },
                 icon: const Icon(
                   Icons.cancel,
@@ -173,12 +200,11 @@ class BalanceAlertDialog extends StatelessWidget {
                             style: ElevatedButton.styleFrom(
                               elevation: 0,
                               side: const BorderSide(
-                                  color: ColorManager.primary,
-                                  width: 1),
+                                  color: ColorManager.primary, width: 1),
                               backgroundColor: ColorManager.white,
                             ),
                             onPressed: () {
-                              RouteService.serviceNavi.popFunction();
+                              RouteService.serviceNavi.pop();
                             },
                             child: Text(
                               "Cancel",
@@ -189,15 +215,17 @@ class BalanceAlertDialog extends StatelessWidget {
                       width: AppSize.s120.w,
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            elevation: 0,
-                            backgroundColor: ColorManager.redLight,
-                            disabledBackgroundColor: ColorManager.redLight.withOpacity(0.4)
-                          ),
-                          onPressed: isLoading ? null : onPressed ,
-                          child: isLoading ? const CircularProgressIndicator() : Text(
-                            "Delete",
-                            style: Theme.of(context).textTheme.bodyText2,
-                          )),
+                              elevation: 0,
+                              backgroundColor: ColorManager.redLight,
+                              disabledBackgroundColor:
+                                  ColorManager.redLight.withOpacity(0.4)),
+                          onPressed: isLoading ? null : onPressed,
+                          child: isLoading
+                              ? const CircularProgressIndicator()
+                              : Text(
+                                  "Delete",
+                                  style: Theme.of(context).textTheme.bodyText2,
+                                )),
                     )
                   ],
                 )
@@ -208,4 +236,8 @@ class BalanceAlertDialog extends StatelessWidget {
       ),
     );
   }
+}
+
+int createUniqueId() {
+  return DateTime.now().millisecondsSinceEpoch.remainder(100000);
 }

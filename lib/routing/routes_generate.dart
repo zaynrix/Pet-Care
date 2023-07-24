@@ -1,9 +1,8 @@
-part of routing_imports;
+part of routing_module;
 
-
-class RoutsGenerate{
-  static Route<dynamic> generateRoute(RouteSettings settings){
-    switch(settings.name){
+class RoutsGenerate {
+  static Route<dynamic> generateRoute(RouteSettings settings) {
+    switch (settings.name) {
       case RouteGenerator.forgetPasswordScreen:
         return MaterialPageRoute(builder: (_) => ForgetPasswordScreen());
       case RouteGenerator.verifyEmailScreen:
@@ -13,8 +12,61 @@ class RoutsGenerate{
       case RouteGenerator.mainAuthScreen:
         return MaterialPageRoute(builder: (_) => const MainAuthScreen());
       case RouteGenerator.mainAddPetScreen:
-        return MaterialPageRoute(builder: (_) => MainAppPetScreen());
-        default:
+        return MaterialPageRoute(builder: (_) => const MainAppPetScreen());
+      case RouteGenerator.productDetailsScreen:
+        return MaterialPageRoute(builder: (_) => const ProductDetailsScreen());
+      case RouteGenerator.cartScreen:
+        return MaterialPageRoute(builder: (_) => CartScreen());
+      case RouteGenerator.orderInformationScreen:
+        return MaterialPageRoute(builder: (_) => OrderInformationScreen());
+      // case RouteGenerator.addNewCardScreen:
+      //   return MaterialPageRoute(builder: (_) => const AddNewCard());
+      case RouteGenerator.orderSuccess:
+        return MaterialPageRoute(builder: (_) => const OrderSuccess());
+      case RouteGenerator.editProfileScreen:
+        return MaterialPageRoute(builder: (_) => EditProfileScreen());
+      case RouteGenerator.paymentMethodScreen:
+        return MaterialPageRoute(builder: (_) => PaymentMethodsScreen());
+      case RouteGenerator.addressScreen:
+        return MaterialPageRoute(builder: (_) => AddressScreen());
+      case RouteGenerator.ordersScreen:
+        return MaterialPageRoute(builder: (_) => OrdersScreen());
+      case RouteGenerator.appointmentsScreen:
+        return MaterialPageRoute(builder: (_) => AppointmentsScreen());
+      case RouteGenerator.addNewPaymentMethodScreen:
+        return MaterialPageRoute(builder: (_) => AddNewPaymentMethodScreen());
+      case RouteGenerator.orderDetailScreen:
+        return MaterialPageRoute(builder: (_) => const OrderDetailScreen());
+      case RouteGenerator.mainShopScreen:
+        return MaterialPageRoute(builder: (_) => const MainShopScreen());
+      case RouteGenerator.addNewLocationManual:
+        return MaterialPageRoute(builder: (_) => AddNewAddressManually());
+      case RouteGenerator.addReminderScreen:
+        return MaterialPageRoute(builder: (_) => const AddReminderScreen());
+
+      case RouteGenerator.searchScreen:
+        return MaterialPageRoute(
+          builder: (_) {
+            return ChangeNotifierProvider.value(
+              value: sl<HomeProvider>(),
+              child: ChangeNotifierProvider.value(
+                value: sl<SearchProvider>(),
+                child: const SearchScreen(),
+              ),
+            );
+          },
+        );
+      case RouteGenerator.homeScreen:
+        return MaterialPageRoute(
+          builder: (_) {
+            return ChangeNotifierProvider.value(
+              value: sl<HomeProvider>(),
+              child: const HomeScreen(),
+            );
+          },
+        );
+
+      default:
         throw const FormatException("Route not found");
     }
   }

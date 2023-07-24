@@ -1,49 +1,131 @@
-import 'package:flutter/material.dart';
-import 'package:pet_care/common_widgets/common_widgets.dart';
-import 'package:pet_care/locator.dart';
-import 'package:pet_care/resources/assets_manager.dart';
-import 'package:pet_care/resources/colors_manager.dart';
-import 'package:pet_care/resources/size_config.dart';
-import 'package:pet_care/resources/values_manager.dart';
+part of profile_module;
 
 class ProfileScreen extends StatelessWidget {
-   ProfileScreen({Key? key}) : super(key: key);
+  ProfileScreen({Key? key}) : super(key: key);
 
-  final SizeConfig sizeConfig = locator<SizeConfig>();
-
+  final SizeConfig sizeConfig = sl<SizeConfig>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorManager.soft,
       appBar: AppBar(
-        title: const Text("profile"),
+        title: const Text(AppStrings.profile),
         actions: [
-          CustomIconButton(iconPath: IconAssets.edit,),
-          addHorizontalSpace(sizeConfig.getScreenWidth(AppSize.s20)),],
+          CustomIconButton(
+            onTap: (){
+              RouteService.serviceNavi.pushNamedWidget(RouteGenerator.editProfileScreen);
+            },
+            iconPath: IconAssets.edit,
+          ),
+          const RHorizontalSpace(width: AppSize.s20),
+        ],
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: sizeConfig.getScreenWidth(AppSize.s20)),
-        child: Column(
-          children: [
-            addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s30)),
-            Container(
-              height: sizeConfig.getScreenHeight(AppSize.s180),
-              padding: const EdgeInsets.all(AppSize.s24),
-              decoration: BoxDecoration(
-                color: ColorManager.white,
-                borderRadius: BorderRadius.circular(AppSize.s16),
-                boxShadow: [
-                  customShadow()
-                ]
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: sizeConfig.getScreenWidth(AppSize.s20)),
+          child: Column(
+            children: [
+              const RVerticalSpace(height: AppSize.s30),
+              Container(
+                width: double.infinity,
+                padding: AppSize.s24.paddingAll,
+                decoration: BoxDecoration(
+                    color: ColorManager.white,
+                    borderRadius: AppSize.s16.circularRadius,
+                    boxShadow: [customShadow()]),
+                child: Column(
+                  children: [
+                    ProfileTile(
+                      onTap: (){
+                      },
+                      iconPath: IconAssets.unSelectedProfile,
+                      title: "Ace Ventura",
+                      iconColor: ColorManager.primaryWithTransparent10,
+                    ),
+                    Row(
+                      children: [
+                        AppSize.s20.addHorizontalSpace,
+                        SvgPicture.asset(IconAssets.email),
+                        AppSize.s24.addHorizontalSpace,
+                        Text(
+                          "acevent@mail.com",
+                          style: bodyRegular(color: ColorManager.primary),
+                        )
+                      ],
+                    ),
+                    AppSize.s16.addVerticalSpace,
+                    Row(
+                      children: [
+                        AppSize.s20.addHorizontalSpace,
+                        SvgPicture.asset(IconAssets.mobile),
+                        AppSize.s24.addHorizontalSpace,
+                        Text(
+                          "434-1234567",
+                          style: bodyRegular(color: ColorManager.primary),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
               ),
-              child: Column(
-                children: [
-
-                ],
+              AppSize.s24.addVerticalSpace,
+              Container(
+                padding: AppSize.s24.paddingAll,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    color: ColorManager.white,
+                    borderRadius: AppSize.s16.circularRadius,
+                    boxShadow: [customShadow()]),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                     ProfileTile(
+                      onTap: (){
+                        RouteService.serviceNavi.pushNamedWidget(RouteGenerator.paymentMethodScreen);
+                      },
+                      iconPath: IconAssets.payment,
+                      title: AppStrings.paymentMethod,
+                      iconColor: ColorManager.secondaryLight,
+                    ),
+                    ProfileTile(
+                      onTap: (){
+                        RouteService.serviceNavi.pushNamedWidget(RouteGenerator.addressScreen);
+                      },
+                      iconPath: IconAssets.unSelectedHome,
+                      title: AppStrings.addresses,
+                      iconColor: ColorManager.tertiary,
+                    ),
+                    ProfileTile(
+                      onTap: (){
+                        RouteService.serviceNavi.pushNamedWidget(RouteGenerator.ordersScreen);
+                      },
+                      iconPath: IconAssets.unSelectedCart,
+                      title: AppStrings.orders,
+                      iconColor: ColorManager.quaternary,
+                    ),
+                    ProfileTile(
+                      onTap: (){
+                        RouteService.serviceNavi.pushNamedWidget(RouteGenerator.appointmentsScreen);
+                      },
+                      iconPath: IconAssets.calendar,
+                      title: AppStrings.apointments,
+                      iconColor: ColorManager.greenLight,
+                    ),
+                    AppSize.s16.addVerticalSpace,
+                    TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          AppStrings.logOut,
+                          style: bodyRegular(color: ColorManager.error),
+                        ))
+                  ],
+                ),
               ),
-            )
-          ],
+              AppSize.s16.addVerticalSpace,
+            ],
+          ),
         ),
       ),
     );

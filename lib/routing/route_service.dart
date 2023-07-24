@@ -1,6 +1,6 @@
-part of routing_imports;
+part of routing_module;
 
-class RouteService {
+  class RouteService {
   RouteService._();
 
   static RouteService serviceNavi = RouteService._();
@@ -14,7 +14,7 @@ class RouteService {
     navKey.currentState?.pushReplacementNamed(name);
   }
 
-  popFunction() {
+  pop() {
     navKey.currentState?.pop();
   }
 

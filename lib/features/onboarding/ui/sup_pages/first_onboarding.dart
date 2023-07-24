@@ -6,7 +6,7 @@ import 'package:pet_care/resources/size_config.dart';
 class FirstOnBoardingScreen extends StatelessWidget {
   FirstOnBoardingScreen({Key? key}) : super(key: key);
 
-  final SizeConfig sizeConfig = locator<SizeConfig>();
+  final SizeConfig sizeConfig = sl<SizeConfig>();
 
   @override
   Widget build(BuildContext context) {

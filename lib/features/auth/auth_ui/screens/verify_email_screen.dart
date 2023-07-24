@@ -1,8 +1,8 @@
-part of auth_screens;
+part of auth_module;
 class VerifyEmailScreen extends StatelessWidget {
-  VerifyEmailScreen({Key? key}) : super(key: key);
-  TextEditingController optController = TextEditingController();
-  GlobalKey<FormState> formKye = GlobalKey<FormState>();
+   VerifyEmailScreen({Key? key}) : super(key: key);
+  final TextEditingController optController = TextEditingController();
+  final GlobalKey<FormState> formKye = GlobalKey<FormState>();
 
 
   @override
@@ -11,16 +11,17 @@ class VerifyEmailScreen extends StatelessWidget {
       // resizeToAvoidBottomInset: false,
       backgroundColor: ColorManager.soft,
       appBar: AppBar(
-        title: const Text("Verify"),
+        title: const Text(AppStrings.verify),
         leading: IconButton(
           onPressed: () {
-            RouteService.serviceNavi.popFunction();
+            RouteService.serviceNavi.pop();
           },
           icon: const Icon(
             Icons.arrow_back,
           ),
         ),
       ),
+
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: AppPadding.p24.w),
         child: Form(
@@ -28,9 +29,9 @@ class VerifyEmailScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              addVerticalSpace(AppSize.s45.h),
+              const RVerticalSpace(height: AppSize.s45),
               const Text("Enter the code we just sent" , style: supTitleRegular),
-              addVerticalSpace(AppSize.s28.h),
+              const RVerticalSpace(height: AppSize.s28),
               Pinput(
                 androidSmsAutofillMethod: AndroidSmsAutofillMethod.smsRetrieverApi,
                 validator: (String? value) => value!.validateCode(),
@@ -74,9 +75,9 @@ class VerifyEmailScreen extends StatelessWidget {
                       ],
                     )),
               ),
-              addVerticalSpace(AppSize.s28.h),
+              const RVerticalSpace(height: AppSize.s28),
               Text("00:59" , style: bodyRegular(color: ColorManager.secondary),),
-              addVerticalSpace(AppSize.s8.h),
+              const RVerticalSpace(height: AppSize.s8),
               TextButton(onPressed: (){}, child: Text('Resend code', style:  bodyRegular(color: ColorManager.gray),)),
               const Spacer(),
               ElevatedButton(onPressed: (){
@@ -84,7 +85,7 @@ class VerifyEmailScreen extends StatelessWidget {
                   debugPrint("This is ok");
                   RouteService.serviceNavi.pushNamedWidget(RouteGenerator.resetPasswordScreen);
                 }
-              }, child: const Text("Next")),
+              }, child: const Text(AppStrings.next)),
               const Spacer(flex: 2,)
             ],
           ),

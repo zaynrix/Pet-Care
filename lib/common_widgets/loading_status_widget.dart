@@ -31,7 +31,8 @@ String animationAssets(String status){
       }
     case "error" :
       {
-        return "assets/json/error_status.json";
+        return "assets/animations/error_status.json";
+        // return "assets/json/error_status.json";
       }
     case "success" :
       {

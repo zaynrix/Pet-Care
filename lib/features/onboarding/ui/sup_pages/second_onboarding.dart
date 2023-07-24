@@ -15,7 +15,7 @@ class SecondOnBoardingScreen extends StatefulWidget {
 
 class SecondOnBoardingScreenState extends State<SecondOnBoardingScreen>
     with TickerProviderStateMixin {
-  final SizeConfig sizeConfig = locator<SizeConfig>();
+  final SizeConfig sizeConfig = sl<SizeConfig>();
   late AnimationController animationController;
 
   @override

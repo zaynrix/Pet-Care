@@ -1,11 +1,11 @@
-part of add_shop_screens;
+part of add_shop_module;
 
 class AddPetSpeciesScreen extends StatelessWidget implements PageWidget{
   AddPetSpeciesScreen({
     Key? key,
   }) : super(key: key);
 
-  final SizeConfig sizeConfig = locator<SizeConfig>();
+  final SizeConfig sizeConfig = sl<SizeConfig>();
 
   void onPressedFunction() {
     debugPrint('Page AddPhotoForPetScreen action');
@@ -25,7 +25,7 @@ class AddPetSpeciesScreen extends StatelessWidget implements PageWidget{
             textAlign: TextAlign.center,
             style: h3Bold,
           ),
-          addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s64)),
+          const RVerticalSpace(height: AppSize.s64),
           Expanded(
             child: Consumer<AddPetProvider>(
               builder: (context, provider, child) => ListView.builder(
@@ -34,7 +34,8 @@ class AddPetSpeciesScreen extends StatelessWidget implements PageWidget{
                   itemCount: provider.types.length,
                   itemBuilder: (context, index) {
                     final type = provider.types[index];
-                    return PetSpeciesCard(
+                    return
+                      SelectionTypeCard(
                       onTap: () {
                         provider.selectPetType(type: type.name);
                       },

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of add_pet_widgets;
 
 class GradientCircleLine extends StatelessWidget {
   const GradientCircleLine({Key? key}) : super(key: key);

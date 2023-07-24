@@ -1,14 +1,16 @@
 import 'package:flutter/cupertino.dart';
 
- addVerticalSpace(double height){
- return SizedBox(height: height,);
+addVerticalSpace(double height) {
+  return SizedBox(
+    height: height,
+  );
 }
 
- addHorizontalSpace(double width){
- return SizedBox(width: width,);
+addHorizontalSpace(double width) {
+  return SizedBox(
+    width: width,
+  );
 }
-
-
 
 class AppMargin {
   static const double m8 = 8.0;
@@ -40,7 +42,7 @@ class AppPadding {
   static const double p44 = 44.0;
   static const double p104 = 104.0;
   static const double p69 = 69.0;
-  static const double p70 = 70  ;
+  static const double p70 = 70;
 }
 
 class AppSize {
@@ -67,6 +69,7 @@ class AppSize {
   static const double s32 = 32.0;
   static const double s33 = 33.0;
   static const double s35 = 35.0;
+  static const double s36 = 36.0;
   static const double s40 = 40.0;
   static const double s44 = 44.0;
   static const double s45 = 45.0;
@@ -99,6 +102,7 @@ class AppSize {
   static const double s140 = 140.0;
   static const double s150 = 150.0;
   static const double s160 = 160.0;
+  static const double s166 = 166.0;
   static const double s180 = 180.0;
   static const double s200 = 200.0;
   static const double s210 = 210.0;

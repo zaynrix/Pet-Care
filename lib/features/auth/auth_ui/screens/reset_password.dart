@@ -1,9 +1,9 @@
-part of auth_screens;
+part of auth_module;
 class ResetPasswordScreen extends StatelessWidget {
   ResetPasswordScreen({Key? key}) : super(key: key);
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
-  GlobalKey<FormState> formKye = GlobalKey<FormState>();
+ final TextEditingController passwordController = TextEditingController();
+ final TextEditingController confirmPasswordController = TextEditingController();
+ final GlobalKey<FormState> formKye = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -11,10 +11,10 @@ class ResetPasswordScreen extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       backgroundColor: ColorManager.soft,
       appBar: AppBar(
-        title: const Text("Reset Password"),
+        title: const Text(AppStrings.resetPassword),
         leading: IconButton(
           onPressed: () {
-            RouteService.serviceNavi.popFunction();
+            RouteService.serviceNavi.pop();
           },
           icon: const Icon(
             Icons.arrow_back,
@@ -28,26 +28,26 @@ class ResetPasswordScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              addVerticalSpace(AppSize.s45.h),
+             const RVerticalSpace(height: AppSize.s45),
               const Text(
-                "Enter a new password",
+                AppStrings.enterNewPassword,
                 style: supTitleRegular,
               ),
-              addVerticalSpace(AppSize.s33.h),
+              const RVerticalSpace(height: AppSize.s33),
               CustomTextFormField(
-                hintText: "New password",
+                hintText: AppStrings.newPassword,
                 controller: passwordController,
                 validator: (String? value) => value!.validatePassword(),
                 keyBoardType: TextInputType.visiblePassword,
               ),
-              addVerticalSpace(AppSize.s20.h),
+              const RVerticalSpace(height: AppSize.s20),
               CustomTextFormField(
-                hintText: "Confirm new password",
+                hintText: AppStrings.confirmNewPassword,
                 controller: confirmPasswordController,
                 validator: (String? value) => value!.validatePassword(),
                 keyBoardType: TextInputType.visiblePassword,
               ),
-              addVerticalSpace(AppSize.s120.h),
+             const RVerticalSpace(height: AppSize.s120),
               ElevatedButton(
                   onPressed: () {
                     if (formKye.currentState!.validate()) {
@@ -55,7 +55,7 @@ class ResetPasswordScreen extends StatelessWidget {
                       RouteService.serviceNavi.pushNamedReplacement(RouteGenerator.mainAuthScreen);
                     }
                   },
-                  child: const Text("Change")),
+                  child: const Text(AppStrings.change)),
             ],
           ),
         ),

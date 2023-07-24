@@ -1,11 +1,11 @@
-part of add_shop_screens;
+part of add_shop_module;
 
 class AddPetGenderScreen extends StatelessWidget implements PageWidget {
   AddPetGenderScreen({
     Key? key,
   }) : super(key: key);
 
-  SizeConfig sizeConfig = locator<SizeConfig>();
+  final sizeConfig = sl<SizeConfig>();
 
   @override
   void onPressedFunction() {
@@ -26,11 +26,11 @@ class AddPetGenderScreen extends StatelessWidget implements PageWidget {
             textAlign: TextAlign.center,
             style: h3Bold,
           ),
-          addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s48)),
+          const RVerticalSpace(height: AppSize.s48),
           Consumer<AddPetProvider>(
             builder: (context, provider, child) => SizedBox(
               width: sizeConfig.getScreenWidth(201),
-              height: sizeConfig.getScreenHeight(100),
+              height: sizeConfig.getScreenHeight(AppSize.s100),
               child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   physics: const NeverScrollableScrollPhysics(),
@@ -46,13 +46,6 @@ class AddPetGenderScreen extends StatelessWidget implements PageWidget {
                   separatorBuilder: (context, index) =>
                       const SizedBox(height: AppSize.s15),
                   itemCount: provider.genders.length),
-              // child: Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   children: [
-              //     GenderCard(),
-              //     GenderCard(),
-              //   ],
-              // )
             ),
           )
         ],

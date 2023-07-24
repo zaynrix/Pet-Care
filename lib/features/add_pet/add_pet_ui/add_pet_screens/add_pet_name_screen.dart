@@ -1,10 +1,10 @@
-part of add_shop_screens;
+part of add_shop_module;
 class AddPetNameScreen extends StatelessWidget implements PageWidget{
   AddPetNameScreen({
     Key? key,
   }) : super(key: key);
 
-  SizeConfig sizeConfig = locator<SizeConfig>();
+  SizeConfig sizeConfig = sl<SizeConfig>();
   TextEditingController petNameController = TextEditingController();
   @override
   void onPressedFunction() {
@@ -24,7 +24,7 @@ class AddPetNameScreen extends StatelessWidget implements PageWidget{
             textAlign: TextAlign.center,
             style: h3Bold,
           ),
-          addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s24)),
+          const RVerticalSpace(height: AppSize.s24),
           CustomTextFormField(
             hintText: "Type Name",
             validator: (String? value) => value!.validateUserName(),

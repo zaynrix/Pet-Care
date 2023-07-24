@@ -1,17 +1,18 @@
 part of shop_widgets;
 
 class DividerShopCard extends StatelessWidget {
-   DividerShopCard({
-     required this.title,
-     required this.onPressed,
-     required this.textButton,
+  DividerShopCard({
+    required this.title,
+    required this.onPressed,
+    required this.textButton,
+    this.textButtonColor = ColorManager.gray,
     Key? key,
   }) : super(key: key);
-  final SizeConfig sizeConfig = locator<SizeConfig>();
+  final SizeConfig sizeConfig = sl<SizeConfig>();
   final String title;
   final String textButton;
+  final Color textButtonColor;
   final void Function()? onPressed;
-
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class DividerShopCard extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-           Text(
+          Text(
             title,
             style: titleSemiBoldPrimary,
           ),
@@ -29,7 +30,7 @@ class DividerShopCard extends StatelessWidget {
               onPressed: onPressed,
               child: Text(
                 textButton,
-                style: footNoteRegular(color: ColorManager.gray),
+                style: footNoteRegular(color: textButtonColor),
               ))
         ],
       ),
