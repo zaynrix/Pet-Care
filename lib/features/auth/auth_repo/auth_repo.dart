@@ -18,4 +18,18 @@ class AuthRepo {
     return user;
   }
 
+  Future<dynamic> signupRepo(
+      {required String email,
+      required String name,
+      required String password,
+      required String phoneNumber}) async {
+    final response = await client.post(Endpoints.signIn, data:
+    {
+      "email": email,
+      "name" : name,
+      "password" : password,
+      "phoneNumber" : phoneNumber
+    });
+  }
+
 }

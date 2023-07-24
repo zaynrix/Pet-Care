@@ -16,7 +16,7 @@ class Helpers {
 
   // final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  static showDialog({required String message}) {
+  static showDialog({required String message , required LoadingStatusOption status}) {
     Get.dialog(Dialog(
       shape: RoundedRectangleBorder(borderRadius: 16.circularRadius),
       backgroundColor: ColorManager.white,
@@ -25,17 +25,19 @@ class Helpers {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const LoadingStatusWidget(
-              loadingStatus: LoadingStatusOption.error,
+            LoadingStatusWidget(
+              loadingStatus: status,
             ),
             Text(message)
           ],
         ),
       ),
     ));
-    Future.delayed(const Duration(seconds: 3), () {
-      Get.back();
-    });
+      Future.delayed(const Duration(seconds: 2), () {
+        Get.back();
+      });
+
+
   }
 
   static showSnackBar({required String message}) {
