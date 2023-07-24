@@ -11,6 +11,8 @@ import 'package:pet_care/features/auth/auth_repo/auth_repo.dart';
 import 'package:pet_care/features/home/controllers/home_provider.dart';
 import 'package:pet_care/features/home/controllers/search_provider.dart';
 import 'package:pet_care/features/home/repositories/home_repo.dart';
+import 'package:pet_care/features/location/controller/address_provider.dart';
+import 'package:pet_care/features/location/repositories/address_repositories.dart';
 import 'package:pet_care/features/shop/controllers/card_provider.dart';
 import 'package:pet_care/features/shop/controllers/product_provider.dart';
 import 'package:pet_care/features/shop/repositories/product_repository.dart';
@@ -45,5 +47,7 @@ void init() {
   sl.registerLazySingleton(() => HomeProvider());
   sl.registerLazySingleton(() => HomeRepository());
   sl.registerLazySingleton(() => SearchProvider());
+  sl.registerLazySingleton(() => AddressProvider());
+  sl.registerLazySingleton(() => AddressRepository());
   sl.registerLazySingleton(() => CardProvider());
 }
