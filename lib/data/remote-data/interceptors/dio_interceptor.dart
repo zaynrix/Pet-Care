@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:pet_care/utils/enums.dart';
 import 'package:pet_care/utils/helper.dart';
 import 'package:connectivity/connectivity.dart';
 
@@ -8,10 +9,10 @@ class DioInterceptor extends Interceptor {
   void onRequest(
 
       RequestOptions options, RequestInterceptorHandler handler) async {
-    final connectivityResult = await (Connectivity().checkConnectivity());
-    if (connectivityResult == ConnectivityResult.none) {
-      showSnackBarAndDebugPrint("No Internet Connection");
-    }
+    // final connectivityResult = await (Connectivity().checkConnectivity());
+    // if (connectivityResult == ConnectivityResult.none) {
+    //   showSnackBarAndDebugPrint("No Internet Connection");
+    // }
     // options.headers['Authorization'] = "Bearer ${SharedPrefController().accessToken}";
     super.onRequest(options, handler);
   }
@@ -121,7 +122,7 @@ class DioInterceptor extends Interceptor {
 
   void showSnackBarAndDebugPrint(String message) {
     // Helpers.showSnackBar(message: message);
-    Helpers.showDialog(message: message);
+    Helpers.showDialog(message: message , status: LoadingStatusOption.error);
     debugPrint(message);
   }
 }
