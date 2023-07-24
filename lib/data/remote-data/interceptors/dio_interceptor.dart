@@ -1,10 +1,16 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:pet_care/utils/helper.dart';
+import 'package:connectivity/connectivity.dart';
 
 class DioInterceptor extends Interceptor {
   @override
-  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
+  void onRequest(
+      RequestOptions options, RequestInterceptorHandler handler) async {
+    final connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult == ConnectivityResult.none) {
+      showSnackBarAndDebugPrint("No Internet Connection");
+    }
     // options.headers['Authorization'] = "Bearer ${SharedPrefController().accessToken}";
     super.onRequest(options, handler);
   }
@@ -17,7 +23,7 @@ class DioInterceptor extends Interceptor {
 
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
-    switch (err.type)  {
+    switch (err.type) {
       case DioExceptionType.connectionTimeout:
         {
           showErrorSnackBar("Check your internet connection");
@@ -27,19 +33,22 @@ class DioInterceptor extends Interceptor {
         }
       case DioExceptionType.receiveTimeout:
         {
-          debugPrint("This is receiveTimeout error [The exception for failing to receive a response.] $err");
+          debugPrint(
+              "This is receiveTimeout error [The exception for failing to receive a response.] $err");
           debugPrint(err.response!.statusCode.toString());
         }
         break;
       case DioExceptionType.sendTimeout:
         {
-          debugPrint("This is sendTimeout error [The exception for failing to send a request.] $err");
+          debugPrint(
+              "This is sendTimeout error [The exception for failing to send a request.] $err");
           debugPrint(err.response!.statusCode.toString());
         }
         break;
       case DioExceptionType.cancel:
         {
-          debugPrint('This is cancel error [The exception for a prematurely cancelled request.] $err');
+          debugPrint(
+              'This is cancel error [The exception for a prematurely cancelled request.] $err');
           debugPrint(err.response!.statusCode.toString());
         }
         break;
