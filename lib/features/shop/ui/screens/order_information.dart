@@ -69,7 +69,10 @@ class _OrderInformationScreenState extends State<OrderInformationScreen> {
                         style: bodyRegular(color: ColorManager.primary),
                       ),
                       TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            RouteService.serviceNavi.pushNamedWidget(
+                                RouteGenerator.addNewLocationManual);
+                          },
                           child: Text(
                             "Change",
                             style: bodyRegular(color: ColorManager.secondary),

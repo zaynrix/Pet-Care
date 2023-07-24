@@ -149,4 +149,19 @@ class ProductController extends ChangeNotifier {
   }
 
   decrementProduct() {}
+
+  // ---------------------------------- Products Details Logic ----------------------------
+  int productQuantity = 1;
+
+  incrementProductDetails() {
+    productQuantity++;
+    notifyListeners();
+  }
+
+  decrementProductDetails() {
+    if (productQuantity > 1) {
+      productQuantity--;
+      notifyListeners();
+    }
+  }
 }
