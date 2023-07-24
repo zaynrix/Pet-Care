@@ -69,7 +69,10 @@ class _OrderInformationScreenState extends State<OrderInformationScreen> {
                         style: bodyRegular(color: ColorManager.primary),
                       ),
                       TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            RouteService.serviceNavi.pushNamedWidget(
+                                RouteGenerator.addNewLocationManual);
+                          },
                           child: Text(
                             "Change",
                             style: bodyRegular(color: ColorManager.secondary),
@@ -96,7 +99,10 @@ class _OrderInformationScreenState extends State<OrderInformationScreen> {
                           color: ColorManager.secondary,
                           size: 14,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          RouteService.serviceNavi
+                              .pushNamedWidget(RouteGenerator.addNewCardScreen);
+                        },
                         label: Text(
                           "Add",
                           style: bodyRegular(color: ColorManager.secondary),

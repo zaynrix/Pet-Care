@@ -155,22 +155,26 @@ class CartScreen extends StatelessWidget {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          FloatingActionButton(
-            backgroundColor: ColorManager.secondary,
-            onPressed: () {},
-            child: const Icon(Icons.add),
-          ),
-          ElevatedButton(
-            child: const Text("Checkout"),
-            onPressed: () {
-              RouteService.serviceNavi
-                  .pushNamedWidget(RouteGenerator.orderInformationScreen);
-            },
-          ),
-        ],
+      floatingActionButton: Consumer<ProductController>(
+        builder: (context, instance, child) => Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            FloatingActionButton(
+              backgroundColor: ColorManager.secondary,
+              onPressed: () {},
+              child: const Icon(Icons.add),
+            ),
+            ElevatedButton(
+              onPressed: instance.cartList.isEmpty
+                  ? null
+                  : () {
+                      RouteService.serviceNavi.pushNamedWidget(
+                          RouteGenerator.orderInformationScreen);
+                    },
+              child: const Text("Checkout"),
+            ),
+          ],
+        ),
       ),
     );
   }

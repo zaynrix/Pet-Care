@@ -7,6 +7,7 @@ import 'package:pet_care/resources/values_manager.dart';
 import 'package:pet_care/routing/routing_module.dart';
 import 'package:pet_care/utils/enums.dart';
 import 'package:pet_care/utils/extension/responsive_extension.dart';
+
 import '../resources/colors_manager.dart';
 
 class Helpers {
@@ -45,7 +46,13 @@ class Helpers {
       backgroundColor: ColorManager.error,
       elevation: 10,
       margin: EdgeInsets.symmetric(horizontal: 30.w, vertical: 40.h),
-      shape: const StadiumBorder(),
+      shape: RoundedRectangleBorder(
+        side: BorderSide(
+          color: ColorManager.secondary,
+          width: 2.0,
+        ),
+        borderRadius: BorderRadius.circular(8.0.r),
+      ),
       behavior: SnackBarBehavior.floating,
     ));
     debugPrint("After Snak");

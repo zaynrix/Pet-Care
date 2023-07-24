@@ -1,6 +1,5 @@
-
 import 'package:flutter_test/flutter_test.dart';
-import 'package:pet_care/features/shop/controllers/product_cotroller.dart';
+import 'package:pet_care/features/shop/controllers/product_provider.dart';
 import 'package:pet_care/features/shop/models/product_model.dart';
 
 // bool validateEmail(String email) {
@@ -30,10 +29,10 @@ void main() {
 //   });
 // });
 
-
-
   group('ProductController', () {
-    test('isFloatingActionButtonEnabled should return false when selectedCardIndex is -1', () {
+    test(
+        'isFloatingActionButtonEnabled should return false when selectedCardIndex is -1',
+        () {
       expect(productController.isFloatingActionButtonEnabled(), false);
     });
 
@@ -59,7 +58,8 @@ void main() {
       expect(productController.cartList.length, 0);
       expect(productController.cartLength, 0);
 
-      final singleProduct = SingleProduct(id: 1, name: 'Product 1', price: 10.0);
+      final singleProduct =
+          SingleProduct(id: 1, name: 'Product 1', price: 10.0);
 
       // Add the item to the cart
       productController.addToCart(singleProduct);

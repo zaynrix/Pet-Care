@@ -11,7 +11,10 @@ import 'package:pet_care/features/auth/auth_repo/auth_repo.dart';
 import 'package:pet_care/features/home/controllers/home_provider.dart';
 import 'package:pet_care/features/home/controllers/search_provider.dart';
 import 'package:pet_care/features/home/repositories/home_repo.dart';
-import 'package:pet_care/features/shop/controllers/product_cotroller.dart';
+import 'package:pet_care/features/location/controller/address_provider.dart';
+import 'package:pet_care/features/location/repositories/address_repositories.dart';
+import 'package:pet_care/features/shop/controllers/card_provider.dart';
+import 'package:pet_care/features/shop/controllers/product_provider.dart';
 import 'package:pet_care/features/shop/repositories/product_repository.dart';
 import 'package:pet_care/resources/size_config.dart';
 
@@ -36,12 +39,15 @@ void init() {
   sl.registerLazySingleton(() => StorageService(secureStorage));
 
   sl.registerLazySingleton(() => DioClient(client: client));
+  sl.registerLazySingleton(() => SizeConfig());
   sl.registerLazySingleton(() => AuthProvider(sl<AuthRepo>()));
   sl.registerLazySingleton(() => AuthRepo(client: sl<DioClient>()));
-  sl.registerLazySingleton(() => SizeConfig());
   sl.registerLazySingleton(() => ProductController());
   sl.registerLazySingleton(() => ProductRepository());
   sl.registerLazySingleton(() => HomeProvider());
-  sl.registerLazySingleton(() => SearchProvider());
   sl.registerLazySingleton(() => HomeRepository());
+  sl.registerLazySingleton(() => SearchProvider());
+  sl.registerLazySingleton(() => AddressProvider());
+  sl.registerLazySingleton(() => AddressRepository());
+  sl.registerLazySingleton(() => CardProvider());
 }

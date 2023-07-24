@@ -9,8 +9,7 @@ class ProductDetailsScreen extends StatefulWidget {
 
 class _ProductDetailsScreenState extends State<ProductDetailsScreen>
     with TickerProviderStateMixin {
-  int currentIndex =
-      0; // Add this variable to track the current carousel position
+  int currentIndex = 0;
 
   final SizeConfig sizeConfig = sl<SizeConfig>();
   bool likeSelected = false;
@@ -18,7 +17,6 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
       duration: const Duration(milliseconds: 200), vsync: this, value: 1.0);
   late final AnimationController _controller2 = AnimationController(
       duration: const Duration(milliseconds: 200), vsync: this, value: 1.0);
-  int textto = 1;
 
   @override
   void dispose() {
@@ -34,7 +32,6 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
     return Consumer<ProductController>(
       builder: (context, value, child) => Scaffold(
         backgroundColor: ColorManager.soft,
-        // New Sliver Appbar
         body: Consumer<ProductController>(
           builder: (context, value, child) => value.isLoading
               ? const Center(
@@ -141,8 +138,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                         .singleProduct!
                                         .images!
                                         .length,
-                                position:
-                                    currentIndex, // Set the position based on the currentIndex
+                                position: currentIndex,
+                                // Set the position based on the currentIndex
                                 decorator: DotsDecorator(
                                   activeColor: ColorManager.primary,
                                   color: ColorManager.gray,
@@ -166,24 +163,24 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                   children: [
                                     CustomIconButtonNoDecoration(
                                         onTap: () {
-                                          setState(() {
-                                            textto++;
-                                          });
+                                          value.incrementProductDetails();
                                         },
                                         iconPath: IconAssets.incrementButton),
                                     8.addVerticalSpace,
                                     Text(
-                                      "$textto",
+                                      value.productQuantity.toString(),
                                       style: titleBold,
                                     ),
                                     8.addVerticalSpace,
                                     CustomIconButtonNoDecoration(
-                                        onTap: () {
-                                          setState(() {
-                                            textto--;
-                                          });
-                                        },
-                                        iconPath: IconAssets.decrementButton),
+                                      onTap: () {
+                                        value.decrementProductDetails();
+                                      },
+                                      iconPath: IconAssets.decrementButton,
+                                      svgColor: value.productQuantity == 1
+                                          ? ColorManager.gray
+                                          : null,
+                                    ),
                                   ],
                                 ),
                               ),

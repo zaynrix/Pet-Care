@@ -14,7 +14,7 @@ import 'package:pet_care/features/home/widgets/article_card.dart';
 import 'package:pet_care/features/home/widgets/star_rating_widget.dart';
 import 'package:pet_care/features/profile/profile_module.dart';
 import 'package:pet_care/features/reminder/reminder_module.dart';
-import 'package:pet_care/features/shop/controllers/product_cotroller.dart';
+import 'package:pet_care/features/shop/controllers/product_provider.dart';
 import 'package:pet_care/features/shop/ui/screens/shop_screens.dart';
 import 'package:pet_care/features/shop/ui/widgets/shop_widgets.dart';
 import 'package:pet_care/locator.dart';
