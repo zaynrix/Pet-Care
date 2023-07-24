@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pet_care/features/shop/controllers/product_cotroller.dart';
+import 'package:pet_care/features/shop/controllers/product_provider.dart';
 import 'package:pet_care/features/shop/models/product_model.dart';
 import 'package:pet_care/locator.dart';
 
