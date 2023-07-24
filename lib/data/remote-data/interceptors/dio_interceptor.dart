@@ -6,6 +6,7 @@ import 'package:connectivity/connectivity.dart';
 class DioInterceptor extends Interceptor {
   @override
   void onRequest(
+
       RequestOptions options, RequestInterceptorHandler handler) async {
     final connectivityResult = await (Connectivity().checkConnectivity());
     if (connectivityResult == ConnectivityResult.none) {
