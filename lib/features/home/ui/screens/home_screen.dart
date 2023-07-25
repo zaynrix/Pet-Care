@@ -21,7 +21,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       backgroundColor: ColorManager.soft,
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -269,6 +268,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                           fit: BoxFit.cover,
                                           width: 150.width,
                                           height: 180.height,
+                                          errorBuilder:
+                                              (context, error, stackTrace) =>
+                                                  SizedBox(
+                                            width: 150.width,
+                                            height: 180.height,
+                                            child: const Center(
+                                              child: Icon(Icons.new_releases),
+                                            ),
+                                          ),
                                         ),
                                       ),
                                       Positioned(
