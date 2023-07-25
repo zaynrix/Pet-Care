@@ -11,6 +11,7 @@ import 'package:pet_care/features/location/location_module.dart';
 import 'package:pet_care/features/profile/profile_module.dart';
 import 'package:pet_care/features/reminder/reminder_module.dart';
 import 'package:pet_care/features/shop/controllers/card_provider.dart';
+import 'package:pet_care/features/shop/controllers/order_Inforamtion_provider.dart';
 import 'package:pet_care/features/shop/ui/screens/shop_screens.dart';
 import 'package:pet_care/locator.dart';
 import 'package:provider/provider.dart';
