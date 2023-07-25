@@ -44,6 +44,13 @@ class ShodCard extends StatelessWidget {
                         fit: BoxFit.fitWidth,
                         height: 120,
                         width: 120.w,
+                        errorBuilder: (context, error, stackTrace) => SizedBox(
+                          height: 120,
+                          width: 120.w,
+                          child: const Center(
+                            child: Icon(Icons.new_releases),
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -155,6 +162,13 @@ class ShodCardGrid extends StatelessWidget {
                         fit: BoxFit.fitWidth,
                         height: 120,
                         width: 120.w,
+                        errorBuilder: (context, error, stackTrace) => SizedBox(
+                          height: 120,
+                          width: 120.w,
+                          child: const Center(
+                            child: Icon(Icons.new_releases),
+                          ),
+                        ),
                       ),
                     ),
                   ),
