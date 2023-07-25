@@ -184,31 +184,91 @@ class _OrderInformationScreenState extends State<OrderInformationScreen> {
                       ),
                     ),
                   ),
-                  Card(
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(
-                        color: ColorManager.primaryWithTransparent10,
-                        width: 1.0,
-                      ),
-                      borderRadius: BorderRadius.circular(8.0.r),
-                    ),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: SvgPicture.asset(
-                            IconAssets.plusButton,
-                            width: 40.width,
-                            height: 40.height,
+                  Consumer<OrderInformationProvide>(
+                    builder: (context, value, child) => GestureDetector(
+                        onTap: () {
+                          if (value.isShow == false &&
+                              value.showPromotionResult == false) {
+                            value.change(show: true);
+                            // value.showPromotion(show: true);
+                          } else if (value.isShow == false &&
+                              value.showPromotionResult == true) {
+                          } else {
+                            value.change(show: false);
+                            value.showPromotion(show: false);
+                          }
+                        },
+                        child: Card(
+                          elevation: 0,
+                          shape: RoundedRectangleBorder(
+                            side: BorderSide(
+                              color: ColorManager.primaryWithTransparent10,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0.r),
                           ),
-                        ),
-                        Text(
-                          "Add Promotion Code",
-                          style: bodyRegular(color: ColorManager.secondary),
-                        ),
-                      ],
-                    ),
+                          child: Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: SvgPicture.asset(
+                                  value.isShow == false
+                                      ? IconAssets.plusButton
+                                      : IconAssets.cancel,
+                                  width: 40.width,
+                                  height: 40.height,
+                                ),
+                              ),
+                              Text(
+                                value.isShow == false
+                                    ? "Add Promotion Code"
+                                    : "Delete Promotion Code",
+                                style:
+                                    bodyRegular(color: ColorManager.secondary),
+                              ),
+                            ],
+                          ),
+                        )),
+                  ),
+                  10.addVerticalSpace,
+                  Consumer<OrderInformationProvide>(
+                    builder: (context, value, child) => Visibility(
+                        visible: value.isShow == true,
+                        child: Visibility(
+                          visible: value.showPromotionResult == false,
+                          child: Row(
+                            children: [
+                              Expanded(
+                                flex: 3,
+                                child: CustomTextFormField(
+                                    keyBoardType: TextInputType.number,
+                                    hintText: "Add Code",
+                                    onChange: (v) {
+                                      value.promotionsCodeController.text = v;
+                                    },
+                                    validator: (value) {
+                                      return null;
+                                    }),
+                              ),
+                              10.addHorizontalSpace,
+                              Expanded(
+                                flex: 1,
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    if (value.promotionsCodeController.text
+                                        .isNotEmpty) {
+                                      value.showPromotion(show: true);
+                                    } else {
+                                      value.showPromotion(show: false);
+                                    }
+                                  },
+                                  child:
+                                      const FittedBox(child: Text("Confirm")),
+                                ),
+                              ),
+                            ],
+                          ),
+                        )),
                   ),
                   20.addVerticalSpace,
                   Row(
@@ -229,13 +289,33 @@ class _OrderInformationScreenState extends State<OrderInformationScreen> {
                     ],
                   ),
                   20.addVerticalSpace,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Total',
-                          style: footNoteRegular(color: ColorManager.primary)),
-                      const Text('\$200', style: h3Bold),
-                    ],
+                  Consumer<OrderInformationProvide>(
+                    builder: (context, value, child) => Visibility(
+                      visible: value.showPromotionResult == true,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Promotion',
+                              style:
+                                  footNoteRegular(color: ColorManager.primary)),
+                          Text("\$${value.promotionsCodeController.text}",
+                              style: bodyBoldSecondary),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Consumer<OrderInformationProvide>(
+                    builder: (context, value, child) => Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Total',
+                            style:
+                                footNoteRegular(color: ColorManager.primary)),
+                        Text(
+                            '\$${200 - (int.parse(value.promotionsCodeController.text.isEmpty ? "0" : value.promotionsCodeController.text))}',
+                            style: h3Bold),
+                      ],
+                    ),
                   ),
                 ],
               ),
