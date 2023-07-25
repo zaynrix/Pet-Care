@@ -164,4 +164,6 @@ class ProductController extends ChangeNotifier {
       notifyListeners();
     }
   }
+
+// ---------------------------------- Order Informations Logic ----------------------------
 }
