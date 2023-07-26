@@ -15,7 +15,7 @@ class _PharmacyShopScreenState extends State<PharmacyShopScreen> {
   @override
   void initState() {
     super.initState();
-    productProvider.getBestSellerProvider();
+    productProvider.getPetShopProvider();
     shopController.initPharmacyShopState();
   }
 

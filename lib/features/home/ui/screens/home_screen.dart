@@ -14,7 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     sl<HomeProvider>().getPetsProvider();
     sl<HomeProvider>().getVetsProvider();
-    sl<ProductController>().getBestSellerProvider();
+    sl<ProductController>().getPetShopProvider();
   }
 
   final reminderController = Get.put(ReminderController(), permanent: true);
@@ -171,7 +171,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 title: AppStrings.petShop,
                 textButton: AppStrings.seeAll,
                 onPressed: () {
-                  RouteService.serviceNavi.pushNamedWidget(RouteGenerator.mainShopScreen);
+                  RouteService.serviceNavi
+                      .pushNamedWidget(RouteGenerator.allPetShopScreen);
+
                 },
               ),
               AppSize.s16.addVerticalSpace,
@@ -227,7 +229,9 @@ class _HomeScreenState extends State<HomeScreen> {
               DividerShopCard(
                 title: AppStrings.vets,
                 textButton: AppStrings.seeAll,
-                onPressed: () {},
+                onPressed: () {
+                  // AllPetProducts
+                },
               ),
               AppSize.s16.addVerticalSpace,
               Padding(

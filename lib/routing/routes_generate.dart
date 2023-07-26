@@ -44,11 +44,21 @@ class RoutsGenerate {
         return MaterialPageRoute(builder: (_) => const OrderDetailScreen());
       case RouteGenerator.mainShopScreen:
         return MaterialPageRoute(builder: (_) => const MainShopScreen());
+      case RouteGenerator.allPetShopScreen:
+        return MaterialPageRoute(
+            builder: (_) => ChangeNotifierProvider(
+                  create: (context) => HomeProvider(),
+                  child: ChangeNotifierProvider.value(
+                      value: sl<ProductController>(),
+                      child: const AllPetProducts()),
+                ));
       case RouteGenerator.addNewLocationManual:
         return MaterialPageRoute(
-            builder: (_) => ChangeNotifierProvider.value(
-                value: sl<AddressProvider>(),
-                child: const AddNewAddressManually()));
+          builder: (_) => ChangeNotifierProvider.value(
+            value: sl<AddressProvider>(),
+            child: const AddNewAddressManually(),
+          ),
+        );
       case RouteGenerator.addReminderScreen:
         return MaterialPageRoute(builder: (_) => const AddReminderScreen());
 
