@@ -4,4 +4,5 @@ class Endpoints{
 
   static const login = "auth/login";
   static const signIn = "auth/register";
+  static const sendEmailVerificationCode = "auth/send-verification-code";
 }

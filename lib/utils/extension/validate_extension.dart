@@ -74,7 +74,20 @@ extension ExtendedString on String {
       return 'Please enter your name';
     }
     if (trim().length < 3) {
-      return 'Please entar valid name';
+      return 'Please enter valid name';
+    }
+    return null;
+  }
+
+  String? validatePetName() {
+    if (trim().isEmpty) {
+      return 'Please enter your pet name';
+    }
+    if (trim().length < 3) {
+      return 'Please enter valid name';
+    }
+    if (RegExp(r'[0-9]').hasMatch(this)) {
+      return 'Please enter valid name';
     }
     return null;
   }
@@ -218,7 +231,7 @@ class Validate {
 extension PaymentCardValidation on String {
   bool get isValidCardNumber {
     String cardNumber =
-        this.replaceAll(RegExp(r'\s+\b|\b\s'), ''); // Remove spaces
+        replaceAll(RegExp(r'\s+\b|\b\s'), ''); // Remove spaces
 
     int sum = 0;
     bool isSecondDigit = false;
@@ -249,7 +262,7 @@ extension ExpirationDateValidation on DateTime {
   bool get isValidExpirationDate {
     DateTime currentDate = DateTime.now();
 
-    if (this.isBefore(currentDate)) {
+    if (isBefore(currentDate)) {
       // Date is in the past
       return false;
     }
@@ -260,7 +273,7 @@ extension ExpirationDateValidation on DateTime {
 
 extension CVCValidation on String {
   bool get isValidCVC {
-    if (this.length < 3 || this.length > 4) {
+    if (length < 3 || length > 4) {
       // Invalid length
       return false;
     }

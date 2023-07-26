@@ -3,7 +3,7 @@ part of reminder_module;
 class ReminderScreen extends StatelessWidget {
   ReminderScreen({Key? key}) : super(key: key);
 
-  DateTime selectedDate = DateTime.now();
+   DateTime selectedDate = DateTime.now();
   final reminderController = Get.put(ReminderController(), permanent: true);
 
   @override

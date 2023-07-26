@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:pet_care/data/local_data/storage_service.dart';
+import 'package:pet_care/locator.dart';
 import 'package:pet_care/utils/enums.dart';
 import 'package:pet_care/utils/helper.dart';
 import 'package:connectivity/connectivity.dart';
@@ -9,11 +11,8 @@ class DioInterceptor extends Interceptor {
   void onRequest(
 
       RequestOptions options, RequestInterceptorHandler handler) async {
-    // final connectivityResult = await (Connectivity().checkConnectivity());
-    // if (connectivityResult == ConnectivityResult.none) {
-    //   showSnackBarAndDebugPrint("No Internet Connection");
-    // }
-    // options.headers['Authorization'] = "Bearer ${SharedPrefController().accessToken}";
+    //
+    options.headers['Authorization'] = "Bearer ${sl<StorageService>().accessToken}";
     super.onRequest(options, handler);
   }
 

@@ -34,6 +34,7 @@ class AuthProvider extends ChangeNotifier {
       notifyListeners();
       final user = await repo.loginRepo(email: email, password: password);
       sl<StorageService>().saveUserDetail(user);
+      debugPrint("This is accessToken ${sl<StorageService>().accessToken}");
       isLoading = false;
       notifyListeners();
       RouteService.serviceNavi.pushNamedReplacement(RouteGenerator.homeScreen);
