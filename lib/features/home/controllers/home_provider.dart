@@ -11,9 +11,11 @@ class HomeProvider extends ChangeNotifier {
   VetsModel? vetsModel;
 
   Future<void> getPetsProvider() async {
+
     isLoading = true;
     try {
       PetsModel res = await sl<HomeRepository>().getPetsRepo();
+      print("get data");
       petsModel = res;
     } on DioException catch (e) {
       debugPrint("$e");
