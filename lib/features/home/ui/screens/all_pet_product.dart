@@ -18,7 +18,7 @@ class _AllPetProductsState extends State<AllPetProducts> {
   @override
   void initState() {
     super.initState();
-    sl<HomeProvider>().getPetsProvider();
+    sl<ProductController>().getPetShopProvider();
   }
 
   @override
@@ -28,44 +28,46 @@ class _AllPetProductsState extends State<AllPetProducts> {
         centerTitle: true,
         title: const Text("Pet Shop"),
       ),
-      body: Consumer<ProductController>(
-        builder: (context, productProvider, child) => productProvider
-                    .products ==
-                null
-            ? const CustomCircularProgressIndicator()
-            : Padding(
-                padding: 20.paddingVertical,
-                child: GridView.builder(
-                  padding: EdgeInsets.zero,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2, // Number of columns in the grid
-                    crossAxisSpacing: 0.0, // Spacing between columns
-                    mainAxisSpacing: 8.0, // Spacing between rows
-                  ),
-                  itemCount: productProvider.products!.products!.length,
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) => GestureDetector(
-                    onTap: () {
-                      productProvider.setProductObject(
-                          current: productProvider.products!.products![index]);
-                    },
-                    child: ShodCardGrid(
-                      onTap: () {
-                        // setState(() {
-                        //   instance.searchList[index].inCart !=
-                        //       true
-                        //       ? instance.searchList[index]
-                        //       : instance.searchList[index];
-                        //   instance.searchList[index].inCart =
-                        //   instance
-                        //       .searchList[index].inCart!;
-                        // });
-                      },
-                      singleProduct: productProvider.products!.products![index],
+      body: Consumer2<ProductController, HomeProvider>(
+        builder: (context, productProvider, homeProvider, child) =>
+            productProvider.products == null
+                ? const CustomCircularProgressIndicator()
+                : Padding(
+                    padding: 20.paddingVertical,
+                    child: GridView.builder(
+                      padding: EdgeInsets.zero,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2, // Number of columns in the grid
+                        crossAxisSpacing: 0.0, // Spacing between columns
+                        mainAxisSpacing: 8.0, // Spacing between rows
+                      ),
+                      itemCount: productProvider.products!.products!.length,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) => GestureDetector(
+                        onTap: () {
+                          productProvider.setProductObject(
+                              current:
+                                  productProvider.products!.products![index]);
+                        },
+                        child: ShodCardGrid(
+                          onTap: () {
+                            // setState(() {
+                            //   instance.searchList[index].inCart !=
+                            //       true
+                            //       ? instance.searchList[index]
+                            //       : instance.searchList[index];
+                            //   instance.searchList[index].inCart =
+                            //   instance
+                            //       .searchList[index].inCart!;
+                            // });
+                          },
+                          singleProduct:
+                              productProvider.products!.products![index],
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
       ),
     );
   }

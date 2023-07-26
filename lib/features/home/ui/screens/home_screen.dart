@@ -13,7 +13,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     sl<HomeProvider>().getPetsProvider();
     sl<HomeProvider>().getVetsProvider();
-    sl<ProductController>().getBestSellerProvider();
+    sl<ProductController>().getPetShopProvider();
   }
 
   final reminderController = Get.put(ReminderController(), permanent: true);

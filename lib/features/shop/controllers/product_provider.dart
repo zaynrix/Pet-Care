@@ -88,10 +88,10 @@ class ProductController extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> getBestSellerProvider() async {
+  Future<void> getPetShopProvider() async {
     isLoading = true;
     try {
-      Product res = await sl<ProductRepository>().getBestSellerRepo();
+      Product res = await sl<ProductRepository>().getPetShopRepo();
       products = res;
     } on DioException catch (e) {
       debugPrint("$e");

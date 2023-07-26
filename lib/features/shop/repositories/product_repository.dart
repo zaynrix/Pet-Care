@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:pet_care/features/shop/models/product_model.dart';
 
 class ProductRepository {
-  Future<Product> getBestSellerRepo() async {
+  Future<Product> getPetShopRepo() async {
     const String response = '''
 {
   "products": [
