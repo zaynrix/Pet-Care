@@ -10,7 +10,7 @@ class RoutsGenerate {
       case RouteGenerator.resetPasswordScreen:
         return MaterialPageRoute(builder: (_) => ResetPasswordScreen());
       case RouteGenerator.mainAuthScreen:
-        return MaterialPageRoute(builder: (_) => MainAuthScreen());
+        return MaterialPageRoute(builder: (_) => const MainAuthScreen());
       case RouteGenerator.mainAddPetScreen:
         return MaterialPageRoute(builder: (_) =>  MainAppPetScreen());
       case RouteGenerator.productDetailsScreen:
@@ -18,7 +18,10 @@ class RoutsGenerate {
       case RouteGenerator.cartScreen:
         return MaterialPageRoute(builder: (_) => CartScreen());
       case RouteGenerator.orderInformationScreen:
-        return MaterialPageRoute(builder: (_) => OrderInformationScreen());
+        return MaterialPageRoute(
+            builder: (_) => ChangeNotifierProvider.value(
+                value: sl<OrderInformationProvide>(),
+                child: OrderInformationScreen()));
       case RouteGenerator.addNewCardScreen:
         return MaterialPageRoute(
             builder: (_) => ChangeNotifierProvider.value(
@@ -42,7 +45,10 @@ class RoutsGenerate {
       case RouteGenerator.mainShopScreen:
         return MaterialPageRoute(builder: (_) => const MainShopScreen());
       case RouteGenerator.addNewLocationManual:
-        return MaterialPageRoute(builder: (_) => AddNewAddressManually());
+        return MaterialPageRoute(
+            builder: (_) => ChangeNotifierProvider.value(
+                value: sl<AddressProvider>(),
+                child: const AddNewAddressManually()));
       case RouteGenerator.addReminderScreen:
         return MaterialPageRoute(builder: (_) => const AddReminderScreen());
 

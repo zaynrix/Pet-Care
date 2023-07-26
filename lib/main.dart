@@ -13,7 +13,6 @@ import 'package:pet_care/utils/helper.dart';
 import 'package:provider/provider.dart';
 
 // Commit PR
-//
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
