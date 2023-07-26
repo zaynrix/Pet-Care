@@ -7,7 +7,7 @@ class AddPetModel {
  final String name;
  final String iconPath;
  final Color backgroundColor;
-  bool isSelect;
+ bool isSelect;
 
   AddPetModel(
       {required this.name,

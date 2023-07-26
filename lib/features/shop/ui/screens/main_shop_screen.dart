@@ -27,10 +27,6 @@ class _MainShopScreenState extends State<MainShopScreen> {
           backgroundColor: ColorManager.soft,
           appBar: AppBar(
             title: const Text("Pet Shop"),
-            leading: IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.arrow_back),
-            ),
             actions: [
               InkWell(
                 onTap: () {

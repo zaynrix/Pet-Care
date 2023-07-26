@@ -1,25 +1,9 @@
-part of add_shop_module;
+part of add_pet_module;
 
-class MainAppPetScreen extends StatefulWidget {
-  const MainAppPetScreen({Key? key}) : super(key: key);
+class MainAppPetScreen extends StatelessWidget {
+   MainAppPetScreen({Key? key}) : super(key: key);
 
-  @override
-  State<MainAppPetScreen> createState() => _MainAppPetScreenState();
-}
-
-class _MainAppPetScreenState extends State<MainAppPetScreen> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    Provider.of<AddPetProvider>(context, listen: false).initStateAddPet();
-  }
-
-  final SizeConfig sizeConfig = sl<SizeConfig>();
-
-  final PageController controllerPages = PageController();
-
-  TextEditingController petNameController = TextEditingController();
+   final AddPetController addPetController = Get.put(AddPetController(), permanent: true);
 
   final List<Widget> pages = [
     AddPetNameScreen(),
@@ -34,27 +18,24 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
   @override
   Widget build(BuildContext context) {
     debugPrint("This is inside main add pet page");
-    return Consumer<AddPetProvider>(
-      builder: (context, provider, child) => Scaffold(
+    return GetBuilder<AddPetController>(
+      builder: (GetxController controller) => Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: Container(
-          margin: provider.currantPage <= 1 || provider.currantPage == 6
+          margin: AddPetController.currantPage <= 1 || AddPetController.currantPage == 6
               ? const EdgeInsets.only(bottom: AppPadding.p24)
               : const EdgeInsets.only(bottom: AppSize.s60),
           child: ElevatedButton(
               onPressed: () {
-                provider.pageController!.nextPage(
-                    duration: const Duration(milliseconds: 350),
-                    curve: Curves.linear);
-                if (provider.currantPage >= 0 &&
-                    provider.currantPage < pages.length) {
-                  final currentPageWidget = pages[provider.currantPage];
+                if (AddPetController.currantPage >= 0 &&
+                    AddPetController.currantPage < pages.length) {
+                  final currentPageWidget = pages[AddPetController.currantPage];
                   if (currentPageWidget is PageWidget) {
                     currentPageWidget.onPressedFunction();
                   }
                 }
               },
-              child: const Text("Next")),
+              child: const Text(AppStrings.next)),
         ),
         body: SafeArea(
           child: Column(
@@ -65,15 +46,16 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                     horizontal: sizeConfig.getScreenWidth(AppSize.s24)),
                 child: Column(
                   children: [
+                    AppSize.s10.addVerticalSpace,
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         GestureDetector(
                           // focusColor: ColorManager.secondGray,
                           onTap: () {
-                            provider.currantPage == 0
+                            AddPetController.currantPage == 0
                                 ? RouteService.serviceNavi.pop()
-                                : provider.pageController!.previousPage(
+                                : addPetController.pageController!.previousPage(
                                     duration: const Duration(milliseconds: 350),
                                     curve: Curves.easeInOut);
                           },
@@ -84,7 +66,7 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
                           ),
                         ),
                         Text(
-                          "${provider.currantPage + 1}/7",
+                          "${AddPetController.currantPage + 1}/7",
                           style: supTitleRegular,
                         )
                       ],
@@ -97,24 +79,24 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
               const RVerticalSpace(height: AppSize.s32),
               SizedBox(
                 width: double.infinity,
-                height: provider.currantPage < 6
+                height: AddPetController.currantPage < 6
                     ? MediaQuery.of(context).size.height * 0.48
                     : MediaQuery.of(context).size.height * 0.7,
                 // alignment: Alignment.center,
                 child: PageView.builder(
                     scrollDirection: Axis.horizontal,
                     physics: const NeverScrollableScrollPhysics(),
-                    onPageChanged: (value) => provider.onPageChange(value),
+                    onPageChanged: (value) => addPetController.onPageChange(value),
                     itemCount: pages.length,
-                    controller: provider.pageController,
+                    controller: addPetController.pageController,
                     itemBuilder: (context, index) {
                       return AnimatedBuilder(
-                        animation: provider.pageController!,
+                        animation: addPetController.pageController!,
                         builder: (context, child) {
                           double value = 1.0;
-                          if (provider
+                          if (addPetController
                               .pageController!.position.haveDimensions) {
-                            value = provider.pageController!.page! - index;
+                            value = addPetController.pageController!.page! - index;
                             value = (1 - (value.abs() * 0.5)).clamp(0.0, 1.0);
                           }
                           return Transform.scale(
@@ -129,9 +111,11 @@ class _MainAppPetScreenState extends State<MainAppPetScreen> {
               ),
               const Spacer(),
               Visibility(
-                visible: provider.currantPage > 1 && provider.currantPage < 6,
+                visible: AddPetController.currantPage > 1 && AddPetController.currantPage < 6,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    addPetController.goNextScreen();
+                  },
                   child: Text(
                     "I don’t know",
                     style: bodyRegular(color: ColorManager.secondary),

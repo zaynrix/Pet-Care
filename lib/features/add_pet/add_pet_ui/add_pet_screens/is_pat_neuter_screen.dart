@@ -1,16 +1,16 @@
-part of add_shop_module;
+part of add_pet_module;
 
 class IsPetNeuterScreen extends StatelessWidget implements PageWidget {
   IsPetNeuterScreen({
     Key? key,
   }) : super(key: key);
 
-  SizeConfig sizeConfig = sl<SizeConfig>();
+  final AddPetController addPetController = Get.find();
 
   @override
   void onPressedFunction() {
     debugPrint('Page IsPetNeuterScreen action');
-    // Add your custom functionality for Page 1 here
+    addPetController.selectPetNeuter();
   }
 
   @override
@@ -27,8 +27,8 @@ class IsPetNeuterScreen extends StatelessWidget implements PageWidget {
             style: h3Bold,
           ),
           const RVerticalSpace(height: AppSize.s48),
-          Consumer<AddPetProvider>(
-            builder: (context, provider, child) => SizedBox(
+          GetBuilder<AddPetController>(
+            builder: (GetxController controller) => SizedBox(
                 width: sizeConfig.getScreenWidth(220),
                 height: sizeConfig.getScreenHeight(100),
                 child: Row(
@@ -36,18 +36,18 @@ class IsPetNeuterScreen extends StatelessWidget implements PageWidget {
                   children: [
                     IsPetNeuterWidget(
                       onTap: () =>
-                          provider.selectOption(PetNeuterOption.neuter),
+                          addPetController.chooseNatureOption(PetNeuterOption.neuter),
                       isSelected:
-                          provider.selectedOption == PetNeuterOption.neuter
+                      addPetController.selectedOption == PetNeuterOption.neuter
                               ? true
                               : false,
                       title: "Yes",
                     ),
                     IsPetNeuterWidget(
                       onTap: () =>
-                          provider.selectOption(PetNeuterOption.notNeuter),
+                          addPetController.chooseNatureOption(PetNeuterOption.notNeuter),
                       isSelected:
-                          provider.selectedOption == PetNeuterOption.notNeuter
+                      addPetController.selectedOption == PetNeuterOption.notNeuter
                               ? true
                               : false,
                       title: "No",
