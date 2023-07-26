@@ -1,15 +1,16 @@
-part of add_shop_module;
+part of add_pet_module;
 
 class AddPetSpeciesScreen extends StatelessWidget implements PageWidget{
   AddPetSpeciesScreen({
     Key? key,
   }) : super(key: key);
 
-  final SizeConfig sizeConfig = sl<SizeConfig>();
+  final AddPetController addPetController = Get.find();
 
+  @override
   void onPressedFunction() {
     debugPrint('Page AddPhotoForPetScreen action');
-    // Add your custom functionality for Page 1 here
+    addPetController.selectPetType();
   }
 
   @override
@@ -27,17 +28,17 @@ class AddPetSpeciesScreen extends StatelessWidget implements PageWidget{
           ),
           const RVerticalSpace(height: AppSize.s64),
           Expanded(
-            child: Consumer<AddPetProvider>(
-              builder: (context, provider, child) => ListView.builder(
+            child: GetBuilder<AddPetController>(
+              builder: (GetxController controller) => ListView.builder(
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
-                  itemCount: provider.types.length,
+                  itemCount: addPetController.types.length,
                   itemBuilder: (context, index) {
-                    final type = provider.types[index];
+                    final type = addPetController.types[index];
                     return
                       SelectionTypeCard(
                       onTap: () {
-                        provider.selectPetType(type: type.name);
+                        addPetController.choosePetType(type: type.name);
                       },
                       isSelected: type.isSelect,
                       type: type.name,

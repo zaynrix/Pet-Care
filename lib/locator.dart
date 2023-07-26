@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:pet_care/data/local_data/storage_service.dart';
 import 'package:pet_care/data/remote-data/base_client.dart';
 import 'package:pet_care/data/remote-data/end_point.dart';
 import 'package:pet_care/data/remote-data/interceptors/logger_interceptor.dart';
+import 'package:pet_care/features/add_pet/add_pet_controller/add_pet_controller.dart';
 import 'package:pet_care/features/auth/auth_contoller/auth_provider.dart';
 import 'package:pet_care/features/auth/auth_repo/auth_repo.dart';
 import 'package:pet_care/features/home/controllers/home_provider.dart';
@@ -17,12 +17,13 @@ import 'package:pet_care/features/shop/controllers/card_provider.dart';
 import 'package:pet_care/features/shop/controllers/product_provider.dart';
 import 'package:pet_care/features/shop/repositories/product_repository.dart';
 import 'package:pet_care/resources/size_config.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'data/remote-data/interceptors/dio_interceptor.dart';
 
 final sl = GetIt.instance;
 
-void init() {
+Future<void> init() async {
   //---------------------------- Setup Dio Instance --------------------------------
   final client = Dio()
     ..options.baseUrl = Endpoints.baseUrl
@@ -35,8 +36,8 @@ void init() {
 
   //--------------------------- Setup Secure Storage -------------------------------
 
-  const secureStorage = FlutterSecureStorage();
-  sl.registerLazySingleton(() => StorageService(secureStorage));
+ final sharedPreferences = await SharedPreferences.getInstance();
+  sl.registerLazySingleton(() => StorageService(sharedPreferences));
 
   sl.registerLazySingleton(() => DioClient(client: client));
   sl.registerLazySingleton(() => SizeConfig());
@@ -50,4 +51,5 @@ void init() {
   sl.registerLazySingleton(() => AddressProvider());
   sl.registerLazySingleton(() => AddressRepository());
   sl.registerLazySingleton(() => CardProvider());
+  sl.registerLazySingleton(() => AddPetController());
 }

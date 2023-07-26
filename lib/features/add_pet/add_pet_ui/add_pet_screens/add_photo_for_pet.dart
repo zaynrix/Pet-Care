@@ -1,8 +1,9 @@
-part of add_shop_module;
+part of add_pet_module;
 
 class AddPhotoForPetScreen extends StatelessWidget implements PageWidget {
   AddPhotoForPetScreen({Key? key}) : super(key: key);
-  final SizeConfig sizeConfig = sl<SizeConfig>();
+
+  final AddPetController addPetController = Get.find();
 
   @override
   void onPressedFunction() {
@@ -28,14 +29,14 @@ class AddPhotoForPetScreen extends StatelessWidget implements PageWidget {
                 style: h3Bold,
               ),
               addVerticalSpace(sizeConfig.getScreenHeight(AppSize.s32)),
-              Consumer<AddPetProvider>(
-                builder: (context, provider, child) => Container(
+              GetBuilder<AddPetController>(
+                builder: (GetxController controller) => Container(
                     height: sizeConfig.getScreenHeight(472),
                     width: double.infinity,
                     decoration: BoxDecoration(
                         color: ColorManager.secondaryLight,
                         borderRadius: BorderRadius.circular(AppSize.s25)),
-                    child: provider.fileImage == null
+                    child: addPetController.fileImage == null
                         ? Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -75,7 +76,7 @@ class AddPhotoForPetScreen extends StatelessWidget implements PageWidget {
                                 alignment: Alignment.center,
                                 child: InkWell(
                                   onTap: () {
-                                    provider.pickImage();
+                                    addPetController.pickImage();
                                   },
                                   child: Container(
                                     height:
@@ -96,7 +97,7 @@ class AddPhotoForPetScreen extends StatelessWidget implements PageWidget {
                         : ClipRRect(
                             borderRadius: BorderRadius.circular(AppSize.s25),
                             child: Image.file(
-                              provider.fileImage!,
+                              addPetController.fileImage!,
                               fit: BoxFit.cover,
                               // height: sizeConfig.getScreenHeight(472),
                             ),

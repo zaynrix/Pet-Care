@@ -1,13 +1,14 @@
-part of add_shop_module;
+part of add_pet_module;
 
 class AppOldPetScreen extends StatelessWidget implements PageWidget{
   AppOldPetScreen({Key? key}) : super(key: key);
 
-  final SizeConfig sizeConfig = sl<SizeConfig>();
+  final AddPetController addPetController = Get.find();
+
   @override
   void onPressedFunction() {
     debugPrint('Page AppOldPetScreen action');
-    // Add your custom functionality for Page 1 here
+    addPetController.goNextScreen();
   }
 
   @override
@@ -22,7 +23,7 @@ class AppOldPetScreen extends StatelessWidget implements PageWidget{
           const GradientCircleLine(),
           const RVerticalSpace(height: AppSize.s16),
           SizedBox(
-            height: sizeConfig.getScreenHeight(AppSize.s48),
+            height: AppSize.s48.height,
             child: WheelChooser.integer(
               onValueChanged: (s) {
 

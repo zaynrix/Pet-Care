@@ -12,7 +12,7 @@ class RoutsGenerate {
       case RouteGenerator.mainAuthScreen:
         return MaterialPageRoute(builder: (_) => MainAuthScreen());
       case RouteGenerator.mainAddPetScreen:
-        return MaterialPageRoute(builder: (_) => const MainAppPetScreen());
+        return MaterialPageRoute(builder: (_) =>  MainAppPetScreen());
       case RouteGenerator.productDetailsScreen:
         return MaterialPageRoute(builder: (_) => const ProductDetailsScreen());
       case RouteGenerator.cartScreen:

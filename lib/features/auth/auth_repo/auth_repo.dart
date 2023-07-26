@@ -14,7 +14,7 @@ class AuthRepo {
     final response = await client
         .post(Endpoints.login, data: {"email": email, "password": password});
     sl<StorageService>().saveAccessToken(token: response.data["tokens"]["access_token"]);
-    final user =UserModel.fromJsom(response.data["user"]);
+    final user =UserModel.fromJson(response.data["user"]);
     return user;
   }
 
@@ -31,5 +31,10 @@ class AuthRepo {
       "phoneNumber" : phoneNumber
     });
   }
+
+  Future<dynamic> sendEmailVerificationCodeRepo({required String email}) async {
+    final response = client.get(Endpoints.sendEmailVerificationCode, );
+  }
+
 
 }

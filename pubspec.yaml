@@ -70,8 +70,8 @@ dependencies:
   logger: ^1.4.0
   flutter_rating_bar: ^4.0.1
   mocktail: ^0.3.0
-  flutter_secure_storage: ^8.0.0
   connectivity: ^3.0.6
+  shared_preferences: ^2.2.0
 #  flutter_state_render_dialog: ^1.0.3
 
 dev_dependencies:
