@@ -169,7 +169,10 @@ class _HomeScreenState extends State<HomeScreen> {
               DividerShopCard(
                 title: AppStrings.petShop,
                 textButton: AppStrings.seeAll,
-                onPressed: () {},
+                onPressed: () {
+                  RouteService.serviceNavi
+                      .pushNamedWidget(RouteGenerator.allPetShopScreen);
+                },
               ),
               AppSize.s16.addVerticalSpace,
 
@@ -224,7 +227,9 @@ class _HomeScreenState extends State<HomeScreen> {
               DividerShopCard(
                 title: AppStrings.vets,
                 textButton: AppStrings.seeAll,
-                onPressed: () {},
+                onPressed: () {
+                  // AllPetProducts
+                },
               ),
               AppSize.s16.addVerticalSpace,
               Padding(
