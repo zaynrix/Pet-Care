@@ -12,6 +12,7 @@ import 'package:pet_care/features/home/controllers/search_provider.dart';
 import 'package:pet_care/features/home/models/vets_model.dart';
 import 'package:pet_care/features/home/widgets/article_card.dart';
 import 'package:pet_care/features/home/widgets/star_rating_widget.dart';
+import 'package:pet_care/features/pets/pets_module.dart';
 import 'package:pet_care/features/profile/profile_module.dart';
 import 'package:pet_care/features/reminder/reminder_module.dart';
 import 'package:pet_care/features/shop/controllers/product_provider.dart';

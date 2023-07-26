@@ -64,6 +64,7 @@ class RoutsGenerate {
             );
           },
         );
+
       case RouteGenerator.homeScreen:
         return MaterialPageRoute(
           builder: (_) {
@@ -73,6 +74,9 @@ class RoutsGenerate {
             );
           },
         );
+
+      case RouteGenerator.reminderScreen:
+        return MaterialPageRoute(builder: (_) => ReminderScreen());
 
       default:
         throw const FormatException("Route not found");

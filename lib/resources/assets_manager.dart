@@ -57,6 +57,8 @@ class IconAssets {
       "$iconPath/navBarIcons/selected/notification_selected.svg";
   static const String unSelectedNotification =
       "$iconPath/un_selected_notification.svg";
+
+
   //---------------------------------gender-------------------------------------
 
   static const String female = "$iconPath/gender_female.svg";
@@ -64,12 +66,22 @@ class IconAssets {
 
   //------------------------bottomAppBar----------------------------------------
 
+
+  //-------------------------unSelected----------------------------------------
   static const String unSelectedCart =
       "$iconPath/navBarIcons/unSelected/shop_unselected.svg";
   static const String unSelectedProfile =
       "$iconPath/navBarIcons/unSelected/person_unselected.svg";
   static const String unSelectedHome =
       "$iconPath/navBarIcons/unSelected/home_unselected.svg";
+  static const String unSelectedPets =
+      "$iconPath/navBarIcons/unSelected/pets_unselected.svg";
+
+  //---------------------------selected-----------------------------------------
+  static const String homeSelected = "$iconPath/navBarIcons/selected/home_selected.svg";
+  static const String profileSelected = "$iconPath/navBarIcons/selected/person_selected.svg";
+  static const String petsSelected = "$iconPath/navBarIcons/selected/pets_selected.svg";
+  static const String shopSelected = "$iconPath/navBarIcons/selected/shop_selected.svg";
 }
 //--------------------------------SvgAssets-------------------------------------
 

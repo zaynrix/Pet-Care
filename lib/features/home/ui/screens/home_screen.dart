@@ -11,6 +11,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
+    super.initState();
     sl<HomeProvider>().getPetsProvider();
     sl<HomeProvider>().getVetsProvider();
     sl<ProductController>().getBestSellerProvider();
@@ -169,7 +170,9 @@ class _HomeScreenState extends State<HomeScreen> {
               DividerShopCard(
                 title: AppStrings.petShop,
                 textButton: AppStrings.seeAll,
-                onPressed: () {},
+                onPressed: () {
+                  RouteService.serviceNavi.pushNamedWidget(RouteGenerator.mainShopScreen);
+                },
               ),
               AppSize.s16.addVerticalSpace,
 
@@ -301,7 +304,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ],
                                         ),
                                       ),
-                                      PositionsCardShadow()
+                                      const PositionsCardShadow()
                                     ],
                                   ),
                                 ),
@@ -315,7 +318,9 @@ class _HomeScreenState extends State<HomeScreen> {
               DividerShopCard(
                 title: AppStrings.reminders,
                 textButton: AppStrings.seeAll,
-                onPressed: () {},
+                onPressed: () {
+                  RouteService.serviceNavi.pushNamedWidget(RouteGenerator.reminderScreen);
+                },
               ),
               const RVerticalSpace(height: AppSize.s12),
               GetBuilder<ReminderController>(

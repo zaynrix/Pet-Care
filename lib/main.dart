@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:pet_care/features/add_pet/add_pet_core/add_pet_provider.dart';
+import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/add_pet_screens.dart';
 import 'package:pet_care/features/auth/auth_contoller/auth_provider.dart';
+import 'package:pet_care/features/auth/auth_ui/screens/auth_module.dart';
+import 'package:pet_care/features/home/controllers/home_provider.dart';
+import 'package:pet_care/features/home/ui/home_ui_module.dart';
 import 'package:pet_care/features/onboarding/core/on_boarding_provider.dart';
 import 'package:pet_care/features/shop/controllers/product_provider.dart';
 import 'package:pet_care/locator.dart';
@@ -12,7 +15,7 @@ import 'package:pet_care/routing/routing_module.dart';
 import 'package:pet_care/utils/helper.dart';
 import 'package:provider/provider.dart';
 
-// Commit PR
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
@@ -21,7 +24,7 @@ Future<void> main() async {
   ]);
   // HiveService.initHive();
   await ScreenUtil.ensureScreenSize();
-  init();
+  await init();
   runApp(const MyApp());
 }
 
@@ -36,8 +39,8 @@ class MyApp extends StatelessWidget {
           value: sl<AuthProvider>(),
         ),
         ChangeNotifierProvider(create: (_) => OnBoardingProvider()),
-        ChangeNotifierProvider(create: (_) => AddPetProvider()),
         ChangeNotifierProvider.value(value: sl<ProductController>()),
+        ChangeNotifierProvider.value(value: sl<HomeProvider>())
       ],
       child: ScreenUtilInit(
         designSize: const Size(375, 815),
@@ -46,8 +49,8 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           theme: ThemeManager.lightTheme,
           scaffoldMessengerKey: Helpers.scaffoldKey,
-          // home: const MainAuthScreen(),
-          initialRoute: RouteGenerator.homeScreen,
+          home: const MainScreenApp(),
+          // initialRoute: RouteGenerator.homeScreen,
           navigatorKey: RouteService.serviceNavi.navKey,
           onGenerateRoute: RoutsGenerate.generateRoute,
         ),
