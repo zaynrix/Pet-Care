@@ -38,4 +38,6 @@ class CardProvider extends ChangeNotifier {
       notifyListeners();
     });
   }
+
+  void addToCart() {}
 }
