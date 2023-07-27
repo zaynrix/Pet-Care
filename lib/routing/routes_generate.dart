@@ -49,8 +49,15 @@ class RoutsGenerate {
             builder: (_) => ChangeNotifierProvider(
                   create: (context) => HomeProvider(),
                   child: ChangeNotifierProvider.value(
-                      value: sl<ProductController>(),
+                      value: sl<ProductProvider>(),
                       child: const AllPetProducts()),
+                ));
+
+      case RouteGenerator.allVetsDoctorScreen:
+        return MaterialPageRoute(
+            builder: (_) => ChangeNotifierProvider.value(
+                  value: sl<HomeProvider>(),
+                  child: const AllVetsDoctor(),
                 ));
       case RouteGenerator.addNewLocationManual:
         return MaterialPageRoute(
