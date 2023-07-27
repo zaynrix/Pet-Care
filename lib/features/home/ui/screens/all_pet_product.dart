@@ -18,7 +18,7 @@ class _AllPetProductsState extends State<AllPetProducts> {
   @override
   void initState() {
     super.initState();
-    sl<ProductController>().getPetShopProvider();
+    sl<ProductProvider>().getPetShopProvider();
   }
 
   @override
@@ -28,7 +28,7 @@ class _AllPetProductsState extends State<AllPetProducts> {
         centerTitle: true,
         title: const Text("Pet Shop"),
       ),
-      body: Consumer2<ProductController, HomeProvider>(
+      body: Consumer2<ProductProvider, HomeProvider>(
         builder: (context, productProvider, homeProvider, child) =>
             productProvider.products == null
                 ? const CustomCircularProgressIndicator()
