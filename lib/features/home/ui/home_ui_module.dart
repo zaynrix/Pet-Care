@@ -30,6 +30,8 @@ import 'package:pet_care/utils/extension/time_extension.dart';
 import 'package:pet_care/utils/extension/validate_extension.dart';
 import 'package:provider/provider.dart';
 
+import '../../pets/pets_module.dart';
+
 part 'screens/home_screen.dart';
 part 'screens/main_screen_app.dart';
 part 'screens/search_screen.dart';
