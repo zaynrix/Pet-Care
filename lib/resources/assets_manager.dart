@@ -8,7 +8,9 @@ class ImageAssets {
   static const String dog = "$imagePath/dog.png";
   static const String dog2 = "$imagePath/dog2.png";
   static const String articleImage = "$imagePath/article_image.png";
+  static const String bigDog = "$imagePath/big_dog.png";
 }
+
 //--------------------------------iconAssets------------------------------------
 
 const String iconPath = 'assets/icons';
