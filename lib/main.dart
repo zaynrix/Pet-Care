@@ -13,7 +13,6 @@ import 'package:pet_care/utils/helper.dart';
 import 'package:provider/provider.dart';
 
 // Commit PR
-//
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
@@ -37,7 +36,6 @@ class MyApp extends StatelessWidget {
           value: sl<AuthProvider>(),
         ),
         ChangeNotifierProvider(create: (_) => OnBoardingProvider()),
-        ChangeNotifierProvider(create: (_) => AddPetProvider()),
         ChangeNotifierProvider.value(value: sl<ProductProvider>()),
       ],
       child: ScreenUtilInit(
