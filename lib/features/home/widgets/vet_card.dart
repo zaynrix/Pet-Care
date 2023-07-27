@@ -31,7 +31,7 @@ class VetCard extends StatelessWidget {
                 vet!.image!,
                 fit: BoxFit.cover,
                 width: 150.width,
-                height: 180.height,
+                // height: 180.height,
                 errorBuilder: (context, error, stackTrace) => SizedBox(
                   width: 150.width,
                   height: 180.height,
@@ -83,10 +83,8 @@ class VetCardGrid extends StatelessWidget {
             child: Image.network(
               vet!.image!,
               fit: BoxFit.cover,
-              // width: 150.width,
-              height: 600.h,
+              width: double.infinity,
               errorBuilder: (context, error, stackTrace) => SizedBox(
-                // width: 150.width,
                 height: 600.h,
                 child: const Center(
                   child: Icon(Icons.new_releases),

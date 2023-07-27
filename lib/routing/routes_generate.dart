@@ -12,7 +12,7 @@ class RoutsGenerate {
       case RouteGenerator.mainAuthScreen:
         return MaterialPageRoute(builder: (_) => const MainAuthScreen());
       case RouteGenerator.mainAddPetScreen:
-        return MaterialPageRoute(builder: (_) =>  MainAppPetScreen());
+        return MaterialPageRoute(builder: (_) => MainAppPetScreen());
       case RouteGenerator.productDetailsScreen:
         return MaterialPageRoute(builder: (_) => const ProductDetailsScreen());
       case RouteGenerator.cartScreen:
@@ -68,6 +68,8 @@ class RoutsGenerate {
         );
       case RouteGenerator.addReminderScreen:
         return MaterialPageRoute(builder: (_) => const AddReminderScreen());
+      case RouteGenerator.mainScreenApp:
+        return MaterialPageRoute(builder: (_) => const MainScreenApp());
 
       case RouteGenerator.searchScreen:
         return MaterialPageRoute(
