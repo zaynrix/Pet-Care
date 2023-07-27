@@ -51,17 +51,7 @@ class _AllPetProductsState extends State<AllPetProducts> {
                                   productProvider.products!.products![index]);
                         },
                         child: ShodCardGrid(
-                          onTap: () {
-                            // setState(() {
-                            //   instance.searchList[index].inCart !=
-                            //       true
-                            //       ? instance.searchList[index]
-                            //       : instance.searchList[index];
-                            //   instance.searchList[index].inCart =
-                            //   instance
-                            //       .searchList[index].inCart!;
-                            // });
-                          },
+                          onTap: () {},
                           singleProduct:
                               productProvider.products!.products![index],
                         ),

@@ -11,6 +11,14 @@ class HomeProvider extends ChangeNotifier {
   PetsModel? petsModel;
   VetsModel? vetsModel;
   Vets? singleVet;
+
+  int selectedScreen = 0;
+
+  void onItemTapped(int index) {
+    selectedScreen = index;
+    notifyListeners();
+  }
+
   Future<void> getPetsProvider() async {
     isLoading = true;
     try {
