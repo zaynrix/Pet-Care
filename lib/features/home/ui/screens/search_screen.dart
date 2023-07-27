@@ -92,7 +92,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       // 16.addVerticalSpace,
                       Padding(
                         padding: 24.paddingLeft,
-                        child: Consumer<ProductController>(
+                        child: Consumer<ProductProvider>(
                           builder: (context, productProvider, child) =>
                               SizedBox(
                             height: 180,
@@ -148,7 +148,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       AppSize.s32.addVerticalSpace,
                     ])
               : instance.searchList.isNotEmpty
-                  ? Consumer<ProductController>(
+                  ? Consumer<ProductProvider>(
                       builder: (context, productProvider, child) =>
                           productProvider.products == null
                               ? const CustomCircularProgressIndicator()
