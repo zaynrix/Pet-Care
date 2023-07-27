@@ -1,15 +1,13 @@
-part of add_shop_module;
+part of add_pet_module;
 
 class SuccessAddPatScreen extends StatelessWidget {
-  SuccessAddPatScreen({Key? key}) : super(key: key);
-  SizeConfig sizeConfig = sl<SizeConfig>();
+  const SuccessAddPatScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(
-            horizontal: sizeConfig.getScreenWidth(AppSize.s48)),
+        padding: AppSize.s48.paddingHorizontal,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -39,4 +37,5 @@ class SuccessAddPatScreen extends StatelessWidget {
       ),
     );
   }
+
 }

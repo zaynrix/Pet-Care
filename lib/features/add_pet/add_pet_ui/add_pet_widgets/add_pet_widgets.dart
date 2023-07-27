@@ -2,7 +2,9 @@ library add_pet_widgets;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pet_care/features/add_pet/add_pet_core/add_pet_provider.dart';
+import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:get/get_state_manager/src/simple/get_state.dart';
+import 'package:pet_care/features/add_pet/add_pet_controller/add_pet_controller.dart';
 import 'package:pet_care/locator.dart';
 import 'package:pet_care/resources/colors_manager.dart';
 import 'package:pet_care/resources/size_config.dart';

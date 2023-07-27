@@ -5,41 +5,49 @@ class MainScreenApp extends StatelessWidget {
 
   static final List<Widget> _pages = <Widget>[
     const HomeScreen(),
-    ProfileScreen(),
     const MainShopScreen(),
+    const PetsScreen(),
+    ReminderScreen(),
+    ProfileScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: false,
-        title: const Row(
-          children: [
-            Text(
-              "Hello, ",
-              style: titleRegular,
+    return Consumer<HomeProvider>(
+      builder: (context , controller , child) => Scaffold(
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          currentIndex: controller.selectedScreen,
+          backgroundColor: ColorManager.white,
+          iconSize: AppSize.s24,
+          elevation: 0,
+          onTap: controller.onItemTapped,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              label:"home",
+              icon: SvgPicture.asset(controller.selectedScreen == 0 ? IconAssets.homeSelected : IconAssets.unSelectedHome)
             ),
-            Text(
-              "Jaylon",
-              style: titleBold,
-            )
+            BottomNavigationBarItem(
+              label:"shop",
+              icon: SvgPicture.asset(controller.selectedScreen == 1 ?IconAssets.shopSelected : IconAssets.unSelectedCart)
+            ),
+            BottomNavigationBarItem(
+              label:"pets",
+              icon: SvgPicture.asset(controller.selectedScreen == 2 ? IconAssets.unSelectedPets : IconAssets.unSelectedPets)
+            ),
+            BottomNavigationBarItem(
+              label:"reminder",
+              icon: SvgPicture.asset(controller.selectedScreen == 3 ? IconAssets.notificationSelected : IconAssets.unSelectedNotification)
+            ),
+            BottomNavigationBarItem(
+              label:"profile",
+              icon: SvgPicture.asset(controller.selectedScreen == 4 ? IconAssets.profileSelected : IconAssets.unSelectedProfile )
+            ),
           ],
         ),
-        actions: [
-          CustomIconButton(
-            onTap: () {},
-            iconPath: IconAssets.search,
-          ),
-          AppSize.s35.addHorizontalSpace
-        ],
-      ),
-      body: const Column(
-        children: [
-          Center(
-            child: Text("Home Page"),
-          )
-        ],
+        body: _pages.elementAt(controller.selectedScreen),
       ),
     );
   }

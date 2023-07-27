@@ -14,7 +14,15 @@ class UserModel {
   final bool isVerified;
   final bool isDeleted;
 
-factory UserModel.fromJsom(Map<String, dynamic> json) =>UserModel._(
+  factory UserModel.fakeData() => UserModel._(
+      email: "",
+      id: 000000000,
+      name: "",
+      isDeleted: false,
+      isVerified: false,
+      phoneNumber: "");
+
+factory UserModel.fromJson(Map<String, dynamic> json) =>UserModel._(
     email: json["email"],
     id: json["id"],
     name: json["name"],

@@ -1,31 +1,41 @@
 import 'dart:convert';
 
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:pet_care/data/local_data/storage_constant.dart';
 import 'package:pet_care/features/auth/auth_model/user_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class StorageService {
-  StorageService(this.secureStorage);
-  final FlutterSecureStorage secureStorage;
+  StorageService(this.sharedPreferences);
+  final SharedPreferences sharedPreferences;
 
-  AndroidOptions _getAndroidOptions() => const AndroidOptions(
-    encryptedSharedPreferences: true,
-  );
 
-  Future<void> saveUserDetail(UserModel user) async {
+
+  bool isLoggedIn() {
+    return sharedPreferences.getBool("isLoggedIn") ?? false;
+  }
+
+  Future<bool> saveUserDetail(UserModel user) async {
     String userJson = jsonEncode(user.toJson());
-    await secureStorage.write(key: StorageConstant.isLoggedIn, value: "true");
-    await secureStorage.write(
-        key: StorageConstant.user, value: userJson, aOptions: _getAndroidOptions());
+    await sharedPreferences.setBool(StorageConstant.isLoggedIn, true);
+    return await sharedPreferences.setString(StorageConstant.user, userJson);
   }
 
-  Future<void> saveAccessToken({required String token}) async{
-    await secureStorage.write(key: StorageConstant.accessToken, value: token , aOptions: _getAndroidOptions());
+
+  Future<bool> saveAccessToken({required String token}) async {
+    return await sharedPreferences.setString(StorageConstant.accessToken, token);
   }
 
-  Future<void> deleteAllSecureData() async {
-    await secureStorage.deleteAll(aOptions: _getAndroidOptions());
+  Future<bool> saveRefreshToken({required String token}) async {
+    return await sharedPreferences.setString(StorageConstant.refreshToken, token);
   }
+
+
+  getUser()  {
+    final dynamic user = jsonDecode(sharedPreferences.getString(StorageConstant.user) ?? jsonEncode(UserModel.fakeData()));
+    return UserModel.fromJson(user);
+  }
+
+  String get accessToken => sharedPreferences.getString(StorageConstant.accessToken) ?? '';
 
 
 }
