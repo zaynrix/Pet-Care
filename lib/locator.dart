@@ -44,7 +44,7 @@ Future<void> init() async {
   sl.registerLazySingleton(() => SizeConfig());
   sl.registerLazySingleton(() => AuthProvider(sl<AuthRepo>()));
   sl.registerLazySingleton(() => AuthRepo(client: sl<DioClient>()));
-  sl.registerLazySingleton(() => ProductController());
+  sl.registerLazySingleton(() => ProductProvider());
   sl.registerLazySingleton(() => ProductRepository());
   sl.registerLazySingleton(() => HomeProvider());
   sl.registerLazySingleton(() => HomeRepository());

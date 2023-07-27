@@ -10,7 +10,7 @@ class MainShopScreen extends StatefulWidget {
 class _MainShopScreenState extends State<MainShopScreen> {
   final SizeConfig sizeConfig = sl<SizeConfig>();
 
-  final productProvider = sl<ProductController>();
+  final productProvider = sl<ProductProvider>();
 
   @override
   void initState() {
@@ -20,7 +20,7 @@ class _MainShopScreenState extends State<MainShopScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<ProductController>(
+    return Consumer<ProductProvider>(
       builder: (context, value, child) => DefaultTabController(
         length: 4,
         child: Scaffold(

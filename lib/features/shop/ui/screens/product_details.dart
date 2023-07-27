@@ -29,10 +29,10 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<ProductController>(
+    return Consumer<ProductProvider>(
       builder: (context, value, child) => Scaffold(
         backgroundColor: ColorManager.soft,
-        body: Consumer<ProductController>(
+        body: Consumer<ProductProvider>(
           builder: (context, value, child) => value.isLoading
               ? const Center(
                   child: CircularProgressIndicator(),
@@ -108,7 +108,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                     });
                                   },
                                 ),
-                                items: Provider.of<ProductController>(context)
+                                items: Provider.of<ProductProvider>(context)
                                     .singleProduct!
                                     .images!
                                     .map(
@@ -133,11 +133,10 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                               right: 0,
                               bottom: 16.0,
                               child: DotsIndicator(
-                                dotsCount:
-                                    Provider.of<ProductController>(context)
-                                        .singleProduct!
-                                        .images!
-                                        .length,
+                                dotsCount: Provider.of<ProductProvider>(context)
+                                    .singleProduct!
+                                    .images!
+                                    .length,
                                 position: currentIndex,
                                 // Set the position based on the currentIndex
                                 decorator: DotsDecorator(
@@ -404,7 +403,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                 ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: Consumer<ProductController>(
+        floatingActionButton: Consumer<ProductProvider>(
           builder: (context, instance, child) => ScaleTransition(
             scale: Tween(begin: 0.3, end: 1.0).animate(
                 CurvedAnimation(parent: _controller2, curve: Curves.easeOut)),

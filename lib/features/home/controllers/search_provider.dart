@@ -8,7 +8,7 @@ class SearchProvider extends ChangeNotifier {
   String querySearch = '';
   TextEditingController searchController = TextEditingController();
   List<SingleProduct> searchList = [];
-  final homeProvider = sl<ProductController>();
+  final homeProvider = sl<ProductProvider>();
   void replaceIt() {
     replace = !replace;
     notifyListeners();

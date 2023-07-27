@@ -12,7 +12,7 @@ import 'package:pet_care/utils/helper.dart';
 
 import '../models/payment_method_model.dart';
 
-class ProductController extends ChangeNotifier {
+class ProductProvider extends ChangeNotifier {
   List<String> productImages = [
     ImageAssets.productDetails,
     ImageAssets.productDetails,

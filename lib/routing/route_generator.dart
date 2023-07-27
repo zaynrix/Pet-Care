@@ -30,4 +30,5 @@ class RouteGenerator {
   static const String searchScreen = 'searchScreen';
 
   static const String allPetShopScreen = 'allPetShopScreen';
+  static const String allVetsDoctorScreen = 'allVetsDoctorScreen';
 }

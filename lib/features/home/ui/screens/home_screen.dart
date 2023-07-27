@@ -11,10 +11,9 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
-    super.initState();
     sl<HomeProvider>().getPetsProvider();
     sl<HomeProvider>().getVetsProvider();
-    sl<ProductController>().getPetShopProvider();
+    sl<ProductProvider>().getPetShopProvider();
   }
 
   final reminderController = Get.put(ReminderController(), permanent: true);
@@ -173,12 +172,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () {
                   RouteService.serviceNavi
                       .pushNamedWidget(RouteGenerator.allPetShopScreen);
-
                 },
               ),
               AppSize.s16.addVerticalSpace,
 
-              Consumer<ProductController>(
+              Consumer<ProductProvider>(
                 builder: (context, productProvider, child) => SizedBox(
                     height: 280.h,
                     child: productProvider.products == null
@@ -230,6 +228,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 title: AppStrings.vets,
                 textButton: AppStrings.seeAll,
                 onPressed: () {
+                  RouteService.serviceNavi
+                      .pushNamedWidget(RouteGenerator.allVetsDoctorScreen);
+
                   // AllPetProducts
                 },
               ),
@@ -239,79 +240,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: SizedBox(
                   height: 180.height,
                   child: Consumer<HomeProvider>(
-                    builder: (context, value, child) => value.petsModel == null
+                    builder: (context, value, child) => value.vetsModel == null
                         ? const Center(
                             child: CircularProgressIndicator(),
                           )
                         : ListView.builder(
-                            itemCount: value.petsModel!.pets!.length,
+                            itemCount: value.vetsModel!.vets!.length,
                             scrollDirection: Axis.horizontal,
                             itemBuilder: (BuildContext context, int index) {
-                              return Padding(
-                                padding: 16.paddingRight,
-                                child: Container(
-                                  width: 150.width,
-                                  height: 180.height,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15.0),
-                                    gradient: LinearGradient(
-                                      begin: Alignment.bottomCenter,
-                                      end: Alignment.topCenter,
-                                      colors: [
-                                        Colors.black.withOpacity(0.6),
-                                        Colors.black.withOpacity(0.0),
-                                      ],
-                                    ),
-                                  ),
-                                  child: Stack(
-                                    children: [
-                                      Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(15.0),
-                                        ),
-                                        child: Image.network(
-                                          value.vetsModel!.vets![index].image!,
-                                          fit: BoxFit.cover,
-                                          width: 150.width,
-                                          height: 180.height,
-                                          errorBuilder:
-                                              (context, error, stackTrace) =>
-                                                  SizedBox(
-                                            width: 150.width,
-                                            height: 180.height,
-                                            child: const Center(
-                                              child: Icon(Icons.new_releases),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Positioned(
-                                        left: 14,
-                                        bottom: 11,
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              value.vetsModel!.vets![index]
-                                                  .name!,
-                                              style: footNoteBold.copyWith(
-                                                  color: ColorManager.primary),
-                                            ),
-                                            4.addVerticalSpace,
-                                            RatingStars(
-                                              rating: value.vetsModel!
-                                                  .vets![index].review!
-                                                  .toDouble(),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      const PositionsCardShadow()
-                                    ],
-                                  ),
-                                ),
+                              return VetCard(
+                                vet: value.vetsModel!.vets![index],
                               );
                             },
                           ),
@@ -322,9 +260,7 @@ class _HomeScreenState extends State<HomeScreen> {
               DividerShopCard(
                 title: AppStrings.reminders,
                 textButton: AppStrings.seeAll,
-                onPressed: () {
-                  RouteService.serviceNavi.pushNamedWidget(RouteGenerator.reminderScreen);
-                },
+                onPressed: () {},
               ),
               const RVerticalSpace(height: AppSize.s12),
               GetBuilder<ReminderController>(
@@ -373,34 +309,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               AppSize.s32.addVerticalSpace,
             ]),
-      ),
-    );
-  }
-}
-
-class PositionsCardShadow extends StatelessWidget {
-  const PositionsCardShadow({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-      bottom: 0,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15.0),
-          gradient: LinearGradient(
-            begin: Alignment.bottomCenter,
-            end: Alignment.topCenter,
-            colors: [
-              Colors.black.withOpacity(0.3),
-              Colors.black.withOpacity(0.0),
-            ],
-          ),
-        ),
-        width: 150.width,
-        height: 100.height,
       ),
     );
   }
