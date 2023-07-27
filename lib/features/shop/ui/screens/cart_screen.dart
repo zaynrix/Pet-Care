@@ -44,7 +44,7 @@ class CartScreen extends StatelessWidget {
                 ],
                 color: Colors.white,
               ),
-              child: Consumer<ProductController>(
+              child: Consumer<ProductProvider>(
                 builder: (context, value, child) => ListView.builder(
                   shrinkWrap: true,
                   itemCount: value.cartList.length + 1,
@@ -155,7 +155,7 @@ class CartScreen extends StatelessWidget {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Consumer<ProductController>(
+      floatingActionButton: Consumer<ProductProvider>(
         builder: (context, instance, child) => Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
