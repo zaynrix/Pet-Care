@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(create: (_) => OnBoardingProvider()),
         ChangeNotifierProvider(create: (_) => AddPetProvider()),
-        ChangeNotifierProvider.value(value: sl<ProductController>()),
+        ChangeNotifierProvider.value(value: sl<ProductProvider>()),
       ],
       child: ScreenUtilInit(
         designSize: const Size(375, 815),

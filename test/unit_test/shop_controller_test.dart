@@ -14,10 +14,10 @@ import 'package:pet_care/features/shop/models/product_model.dart';
 //   return true;
 // }
 void main() {
-  late ProductController productController;
+  late ProductProvider productController;
 
   setUp(() {
-    productController = ProductController();
+    productController = ProductProvider();
   });
 
 // group("validation email", () {

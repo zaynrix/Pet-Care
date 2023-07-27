@@ -12,9 +12,8 @@ class _OrderInformationScreenState extends State<OrderInformationScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Provider.of<ProductController>(context, listen: false).visaList =
-          Provider.of<ProductController>(context, listen: false)
-              .parseJsonData();
+      Provider.of<ProductProvider>(context, listen: false).visaList =
+          Provider.of<ProductProvider>(context, listen: false).parseJsonData();
     });
   }
 
@@ -115,7 +114,7 @@ class _OrderInformationScreenState extends State<OrderInformationScreen> {
                   SizedBox(
                     height: Get.height * 0.25,
                     // width: Get.width * 0.70,
-                    child: Consumer<ProductController>(
+                    child: Consumer<ProductProvider>(
                       builder: (context, value, child) => ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: value.visaList.length,
