@@ -6,6 +6,22 @@ class PetsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Container(
+        padding: EdgeInsets.symmetric(horizontal: AppPadding.p24.width, vertical: AppSize.s18.height),
+        margin: AppSize.s24.marginAll,
+        decoration: BoxDecoration(
+          color: ColorManager.white,
+          borderRadius: AppSize.s16.circularRadius
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text("Type problems..." , style: bodyRegular(color: ColorManager.secondGray),),
+            SvgPicture.asset(IconAssets.search)
+          ],
+        ),
+      ),
       appBar: AppBar(
         title: const Text("My Pets"),
         actions: [
@@ -17,18 +33,11 @@ class PetsScreen extends StatelessWidget {
         children: [
           AppSize.s20.addVerticalSpace,
           Expanded(
-            child: Container(
-              decoration: const BoxDecoration(
-                color: ColorManager.tertiary,
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(AppSize.s20),
-                  topLeft: Radius.circular(AppSize.s20),
-                )
-              ),
-            ),
+            child: PetCard(),
           ),
         ],
       ),
     );
   }
 }
+
