@@ -28,4 +28,6 @@ class RouteGenerator {
   static const String addReminderScreen = 'addReminderScreen';
   static const String homeScreen = 'homeScreen';
   static const String searchScreen = 'searchScreen';
+
+  static const String allPetShopScreen = 'allPetShopScreen';
 }
