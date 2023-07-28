@@ -1,10 +1,16 @@
 part of pets_module;
 
-class PetsScreen extends StatelessWidget {
-   PetsScreen({Key? key}) : super(key: key);
+class PetsScreen extends StatefulWidget {
+   const PetsScreen({Key? key}) : super(key: key);
 
-  final petController =
+  @override
+  State<PetsScreen> createState() => _PetsScreenState();
+}
+
+class _PetsScreenState extends State<PetsScreen> {
+  final petsController =
       Get.put(PetsController(petRepo: sl<PetRepo>()), permanent: true);
+
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +37,8 @@ class PetsScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("My Pets"),
         actions: [
-          CustomIconButton(onTap: () {}, iconPath: IconAssets.plus),
+          CustomIconButton(onTap: () {RouteService.serviceNavi.pushNamedWidget(RouteGenerator.mainAddPetScreen);},
+              iconPath: IconAssets.plus),
           AppSize.s30.addHorizontalSpace,
         ],
       ),
@@ -39,20 +46,37 @@ class PetsScreen extends StatelessWidget {
         children: [
           AppSize.s20.addVerticalSpace,
           GetBuilder<PetsController>(
-            builder: (PetsController controller) => Expanded(
-              child:
-                  PageView.builder(
-                      scrollDirection: Axis.horizontal,
-                      controller: controller.pageController,
+            builder: (PetsController controller) {
+             return Expanded(
+                child:
+                PageView.builder(
+                    scrollDirection: Axis.horizontal,
+                    controller: controller.pageController,
                     itemCount: controller.pets.length,
-                      itemBuilder: (context, index) {
+                    itemBuilder: (context, index) {
                       final pet = controller.pets[index];
-                      return PetCard(name: pet.name,
-                      age: pet.age.toString(),
-                      imageUrl: pet.photoUrl,);
-                      }
-                  ),
-            ),
+                      return AnimatedBuilder(
+                        animation: controller.pageController!,
+                        builder: (context, child) {
+                          double value = 1.0;
+                          if (controller
+                              .pageController!.position.haveDimensions) {
+                            value = controller.pageController!.page! - index;
+                            value = (1 - (value.abs() * 0.5)).clamp(0.0, 1.0);
+                          }
+                          return Transform.scale(
+                            scale: Curves.easeInOut.transform(value),
+                            child: child,
+                          );
+                        },
+                        child: PetCard(name: pet.name,
+                          age: pet.age.toString(),
+                          imageUrl: pet.photoUrl,),
+                      );
+                    }
+                ),
+              );
+            }
           ),
         ],
       ),
