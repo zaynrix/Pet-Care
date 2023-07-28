@@ -35,7 +35,7 @@ class MainScreenApp extends StatelessWidget {
             ),
             BottomNavigationBarItem(
               label:"pets",
-              icon: SvgPicture.asset(controller.selectedScreen == 2 ? IconAssets.unSelectedPets : IconAssets.unSelectedPets)
+              icon: SvgPicture.asset(controller.selectedScreen == 2 ? IconAssets.petsSelected : IconAssets.unSelectedPets)
             ),
             BottomNavigationBarItem(
               label:"reminder",

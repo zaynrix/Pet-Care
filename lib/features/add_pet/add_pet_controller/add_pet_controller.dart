@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:pet_care/features/add_pet/add_pet_model/add_pet_model.dart';
 import 'package:pet_care/features/add_pet/add_pet_model/pet_gender_model.dart';
+import 'package:pet_care/routing/routing_module.dart';
 import 'package:pet_care/utils/enums.dart';
 import 'package:pet_care/utils/helper.dart';
 
@@ -146,6 +147,34 @@ Future<dynamic> pickImage() async {
   if (pickedFile == null) return;
     final file = File(pickedFile.path);
     fileImage = file;
+    update();
+  }
+
+  selectPitImage(){
+    if (fileImage != null) {
+      RouteService.serviceNavi.pushNamedWidget(RouteGenerator.successAddPatScreen);
+      disposeData();
+    } else {
+      Helpers.showSnackBar(message: "Please Add Photo For Your Pet");
+    }
+
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
+
+  disposeData(){
+    currantPage = 0;
+    fileImage = null;
+    selectedOption = PetNeuterOption.notSelected;
+    genderType = null;
+    petBreed = "";
+    petTypeSelection = null;
+    activeIndex = 0;
+    pageController!.position;
     update();
   }
 
