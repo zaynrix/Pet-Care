@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pet_care/common_widgets/custom_circularProgressIndicator.dart';
 import 'package:pet_care/features/home/models/vets_model.dart';
 import 'package:pet_care/features/home/widgets/star_rating_widget.dart';
 import 'package:pet_care/resources/colors_manager.dart';
@@ -17,7 +19,6 @@ class VetCard extends StatelessWidget {
       padding: 16.paddingRight,
       child: Container(
         width: 150.width,
-        height: 180.height,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15.0),
         ),
@@ -27,18 +28,13 @@ class VetCard extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15.0),
               ),
-              child: Image.network(
-                vet!.image!,
+              child: CachedNetworkImage(
+                imageUrl: vet!.image!,
                 fit: BoxFit.cover,
                 width: 150.width,
-                // height: 180.height,
-                errorBuilder: (context, error, stackTrace) => SizedBox(
-                  width: 150.width,
-                  height: 180.height,
-                  child: const Center(
-                    child: Icon(Icons.new_releases),
-                  ),
-                ),
+                placeholder: (context, url) =>
+                    const CustomCircularProgressIndicator(),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
             ),
             Positioned(

@@ -151,10 +151,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                           ),
                                           child: CircleAvatar(
                                             radius: 30,
-                                            backgroundImage: NetworkImage(value
-                                                .petsModel!
-                                                .pets![petIndex]
-                                                .image!),
+                                            backgroundImage:
+                                                CachedNetworkImageProvider(
+                                              value.petsModel!.pets![petIndex]
+                                                  .image!,
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -238,7 +239,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: SizedBox(
-                  height: 180.height,
+                  height: 220.height,
                   child: Consumer<HomeProvider>(
                     builder: (context, value, child) => value.vetsModel == null
                         ? const Center(

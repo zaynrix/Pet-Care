@@ -116,11 +116,23 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                         builder: (BuildContext context) {
                                           return Hero(
                                             tag: value.singleProduct!.id!,
-                                            child: Image.network(
-                                              imagePath,
-                                              fit: BoxFit.fill,
+                                            child: CachedNetworkImage(
                                               width: double.infinity,
+                                              height: sizeConfig
+                                                  .getScreenHeight(412),
+                                              imageUrl: imagePath,
+                                              fit: BoxFit.fitWidth,
+                                              placeholder: (context, url) =>
+                                                  const CustomCircularProgressIndicator(),
+                                              errorWidget:
+                                                  (context, url, error) =>
+                                                      const Icon(Icons.error),
                                             ),
+                                            // Image.network(
+                                            //   imagePath,
+                                            //   fit: BoxFit.fill,
+                                            //   width: double.infinity,
+                                            // ),
                                           );
                                         },
                                       ),

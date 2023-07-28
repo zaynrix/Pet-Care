@@ -72,6 +72,7 @@ dependencies:
   mocktail: ^0.3.0
   connectivity: ^3.0.6
   shared_preferences: ^2.2.0
+  cached_network_image: ^3.2.3
 #  flutter_state_render_dialog: ^1.0.3
 
 dev_dependencies:

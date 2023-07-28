@@ -38,12 +38,12 @@ Future<void> init() async {
 
   //--------------------------- Setup Secure Storage -------------------------------
 
- final sharedPreferences = await SharedPreferences.getInstance();
+  final sharedPreferences = await SharedPreferences.getInstance();
   sl.registerLazySingleton(() => StorageService(sharedPreferences));
 
   sl.registerLazySingleton(() => DioClient(client: client));
   sl.registerLazySingleton(() => SizeConfig());
-  sl.registerLazySingleton(() => AuthProvider(sl<AuthRepo>()));
+  sl.registerLazySingleton(() => AuthProvider());
   sl.registerLazySingleton(() => AuthRepo(client: sl<DioClient>()));
   sl.registerLazySingleton(() => ProductProvider());
   sl.registerLazySingleton(() => ProductRepository());

@@ -39,18 +39,16 @@ class ShodCard extends StatelessWidget {
                         left: 24, right: 24, top: 14, bottom: 10),
                     child: Hero(
                       tag: singleProduct!.id!,
-                      child: Image.network(
-                        singleProduct!.coverImage!,
+                      // child:
+                      child: CachedNetworkImage(
+                        imageUrl: singleProduct!.coverImage!,
                         fit: BoxFit.fitWidth,
                         height: 120,
                         width: 120.w,
-                        errorBuilder: (context, error, stackTrace) => SizedBox(
-                          height: 120,
-                          width: 120.w,
-                          child: const Center(
-                            child: Icon(Icons.new_releases),
-                          ),
-                        ),
+                        placeholder: (context, url) =>
+                            const CustomCircularProgressIndicator(),
+                        errorWidget: (context, url, error) =>
+                            const Icon(Icons.error),
                       ),
                     ),
                   ),
