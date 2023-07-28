@@ -6,7 +6,7 @@ class MainScreenApp extends StatelessWidget {
   static final List<Widget> _pages = <Widget>[
     const HomeScreen(),
     const MainShopScreen(),
-    const PetsScreen(),
+    PetsScreen(),
     ReminderScreen(),
     ProfileScreen(),
   ];
