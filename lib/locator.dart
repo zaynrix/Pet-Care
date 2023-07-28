@@ -13,6 +13,7 @@ import 'package:pet_care/features/home/controllers/search_provider.dart';
 import 'package:pet_care/features/home/repositories/home_repo.dart';
 import 'package:pet_care/features/location/controller/address_provider.dart';
 import 'package:pet_care/features/location/repositories/address_repositories.dart';
+import 'package:pet_care/features/pets/pets_module.dart';
 import 'package:pet_care/features/shop/controllers/card_provider.dart';
 import 'package:pet_care/features/shop/controllers/order_Inforamtion_provider.dart';
 import 'package:pet_care/features/shop/controllers/product_provider.dart';
@@ -56,5 +57,6 @@ Future<void> init() async {
   sl.registerLazySingleton(() => AddPetController());
 
   sl.registerLazySingleton(() => OrderInformationProvide());
-
+  sl.registerLazySingleton(() => PetRepo());
+  sl.registerLazySingleton(() => PetsController(petRepo: sl<PetRepo>()));
 }
