@@ -14,7 +14,7 @@ class MainScreenApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<HomeProvider>(
-      builder: (context , controller , child) => Scaffold(
+      builder: (context, controller, child) => Scaffold(
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           showSelectedLabels: false,
@@ -26,25 +26,30 @@ class MainScreenApp extends StatelessWidget {
           onTap: controller.onItemTapped,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              label:"home",
-              icon: SvgPicture.asset(controller.selectedScreen == 0 ? IconAssets.homeSelected : IconAssets.unSelectedHome)
-            ),
+                label: "home",
+                icon: SvgPicture.asset(controller.selectedScreen == 0
+                    ? IconAssets.homeSelected
+                    : IconAssets.unSelectedHome)),
             BottomNavigationBarItem(
-              label:"shop",
-              icon: SvgPicture.asset(controller.selectedScreen == 1 ?IconAssets.shopSelected : IconAssets.unSelectedCart)
-            ),
+                label: "shop",
+                icon: SvgPicture.asset(controller.selectedScreen == 1
+                    ? IconAssets.shopSelected
+                    : IconAssets.unSelectedCart)),
             BottomNavigationBarItem(
-              label:"pets",
-              icon: SvgPicture.asset(controller.selectedScreen == 2 ? IconAssets.unSelectedPets : IconAssets.unSelectedPets)
-            ),
+                label: "pets",
+                icon: SvgPicture.asset(controller.selectedScreen == 2
+                    ? IconAssets.petsSelected
+                    : IconAssets.unSelectedPets)),
             BottomNavigationBarItem(
-              label:"reminder",
-              icon: SvgPicture.asset(controller.selectedScreen == 3 ? IconAssets.notificationSelected : IconAssets.unSelectedNotification)
-            ),
+                label: "reminder",
+                icon: SvgPicture.asset(controller.selectedScreen == 3
+                    ? IconAssets.notificationSelected
+                    : IconAssets.unSelectedNotification)),
             BottomNavigationBarItem(
-              label:"profile",
-              icon: SvgPicture.asset(controller.selectedScreen == 4 ? IconAssets.profileSelected : IconAssets.unSelectedProfile )
-            ),
+                label: "profile",
+                icon: SvgPicture.asset(controller.selectedScreen == 4
+                    ? IconAssets.profileSelected
+                    : IconAssets.unSelectedProfile)),
           ],
         ),
         body: _pages.elementAt(controller.selectedScreen),

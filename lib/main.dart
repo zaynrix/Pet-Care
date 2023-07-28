@@ -21,7 +21,7 @@ Future<void> main() async {
   ]);
   // HiveService.initHive();
   await ScreenUtil.ensureScreenSize();
-  init();
+  await init();
   runApp(const MyApp());
 }
 
@@ -32,11 +32,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider.value(
-          value: sl<AuthProvider>(),
-        ),
         ChangeNotifierProvider(create: (_) => OnBoardingProvider()),
         ChangeNotifierProvider.value(value: sl<ProductProvider>()),
+        ChangeNotifierProvider.value(value: sl<AuthProvider>()),
         ChangeNotifierProvider.value(value: sl<HomeProvider>()),
       ],
       child: ScreenUtilInit(

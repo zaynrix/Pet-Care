@@ -238,7 +238,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: SizedBox(
-                  height: 180.height,
+                  height: 200.height,
                   child: Consumer<HomeProvider>(
                     builder: (context, value, child) => value.vetsModel == null
                         ? const Center(

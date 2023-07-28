@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pet_care/data/local_data/storage_service.dart';
 import 'package:pet_care/features/auth/auth_repo/auth_repo.dart';
@@ -8,9 +7,7 @@ import 'package:pet_care/utils/enums.dart';
 import 'package:pet_care/utils/helper.dart';
 
 class AuthProvider extends ChangeNotifier {
-  AuthProvider(this.repo);
-
-  final AuthRepo repo;
+  final repo = sl<AuthRepo>();
   int currantAuthTap = 0;
   bool isLoading = false;
 
@@ -50,13 +47,18 @@ class AuthProvider extends ChangeNotifier {
       required String name,
       required String password,
       required String phoneNumber}) async {
-    try{
+    try {
       isLoading = true;
       notifyListeners();
-      await repo.signupRepo(email: email, name: name, password: password, phoneNumber: phoneNumber);
+      await repo.signupRepo(
+          email: email,
+          name: name,
+          password: password,
+          phoneNumber: phoneNumber);
       isLoading = false;
       notifyListeners();
-      Helpers.showDialog(message: "Process Successful" , status: LoadingStatusOption.success);
+      Helpers.showDialog(
+          message: "Process Successful", status: LoadingStatusOption.success);
       changeTab(0);
     } catch (e) {
       debugPrint("This is the error $e");
