@@ -11,7 +11,7 @@ class OrderSuccess extends StatelessWidget {
         child: const Text("Keep browsing"),
         onPressed: () {
           RouteService.serviceNavi
-              .pushNamedAndRemoveUtils(RouteGenerator.mainAuthScreen);
+              .pushNamedAndRemoveUtils(RouteGenerator.mainScreenApp);
         },
       ),
       body: Column(

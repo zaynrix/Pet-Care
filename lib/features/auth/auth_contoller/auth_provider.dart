@@ -34,7 +34,8 @@ class AuthProvider extends ChangeNotifier {
       debugPrint("This is accessToken ${sl<StorageService>().accessToken}");
       isLoading = false;
       notifyListeners();
-      RouteService.serviceNavi.pushNamedReplacement(RouteGenerator.homeScreen);
+      RouteService.serviceNavi
+          .pushNamedReplacement(RouteGenerator.mainScreenApp);
     } catch (e) {
       debugPrint("This is the error $e");
       isLoading = false;
