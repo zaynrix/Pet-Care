@@ -51,25 +51,6 @@ Widget selectLocationType(AddressProvider instance) {
                 ),
               ),
 
-        // Expanded(
-        //   child: InkWell(
-        //     onTap: (){
-        //       RouteService.serviceNavi.pop();
-        //     },
-        //     child: const Text("Home" , style: bodyMedium,
-        //     ),
-        //   ),
-        // ),
-        // Expanded(
-        //   child: InkWell(
-        //     onTap: (){
-        //       RouteService.serviceNavi.pop();
-        //     },
-        //     child: const Text("Other" , style: bodyMedium,
-        //     ),
-        //   ),
-        // ),
-        // AppSize.s20.addVerticalSpace,
       ],
     ),
   );

@@ -1,15 +1,15 @@
-part of reminder_module;
+part of pets_module;
 
-class ReminderPickerCard extends StatelessWidget {
-   const ReminderPickerCard({
-     required this.title,
-     required this.hint,
-     required this.sheetPage,
+class EditPetInfoCard extends StatelessWidget {
+  const EditPetInfoCard({
+    required this.title,
+    required this.hint,
+    required this.sheetPage,
     Key? key,
   }) : super(key: key);
 
-   final String hint;
-   final String title;
+  final String hint;
+  final String title;
 
   final Widget Function(BuildContext) sheetPage;
   @override
@@ -17,10 +17,10 @@ class ReminderPickerCard extends StatelessWidget {
     return InkWell(
       onTap: () => showModalBottomSheet(
         isScrollControlled: true,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(35.r),
-              topRight: Radius.circular(35.r)),
+              topLeft: Radius.circular(35),
+              topRight: Radius.circular(35)),
         ),
         context: context,
         builder: sheetPage,),
@@ -38,13 +38,13 @@ class ReminderPickerCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  hint,
+                  title,
                   style: captionRegular,
                 ),
                 Text(
-                  title,
+                  hint,
                   style: bodyMedium,
-                )
+                ),
               ],
             ),
             const Icon(Icons.arrow_forward_ios , color: ColorManager.primary, size: AppSize.s20,)

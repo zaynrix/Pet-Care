@@ -1,12 +1,9 @@
-part of reminder_module;
-
-class ChooseTimeSheet extends StatelessWidget {
-  const ChooseTimeSheet({
-    required this.reminderController,
+part of pets_module;
+class EditAgeSheet extends StatelessWidget {
+  const EditAgeSheet({
     Key? key,
   }) : super(key: key);
 
-  final ReminderController reminderController;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +21,7 @@ class ChooseTimeSheet extends StatelessWidget {
                       bottom: BorderSide(
                           color: ColorManager.primaryWithTransparent10))),
               child: const Text(
-                AppStrings.chooseTime,
+                AppStrings.chooseYourPetAge,
                 style: titleBold,
               )),
           AppSize.s30.addVerticalSpace,
@@ -44,11 +41,11 @@ class ChooseTimeSheet extends StatelessWidget {
                             onValueChanged: (hour) {
                               debugPrint("minutes $hour");
 
-                              reminderController.selectHour(hour);
+                              // reminderController.selectHour(hour);
                             },
                             maxValue: 24,
                             minValue: 1,
-                            initValue: ReminderController.selectedHour,
+                            // initValue: ReminderController.selectedHour,
                             selectTextStyle: h2Bold,
                             unSelectTextStyle: h2Bold.copyWith(
                                 color: ColorManager.primaryWithTransparent30)),
@@ -61,12 +58,12 @@ class ChooseTimeSheet extends StatelessWidget {
                         width: 65.width,
                         child: WheelChooser.integer(
                             onValueChanged: (minute) {
-                              reminderController.selectMinute(minute);
+                              // reminderController.selectMinute(minute);
                               debugPrint("minutes $minute");
                             },
                             maxValue: 60,
                             minValue: 1,
-                            initValue: ReminderController.selectedMinute,
+                            // initValue: ReminderController.selectedMinute,
                             // itemSize: 70,
                             selectTextStyle: h2Bold,
                             unSelectTextStyle: h3Medium2),
@@ -83,9 +80,9 @@ class ChooseTimeSheet extends StatelessWidget {
                         begin: const Alignment(0, 1),
                         end: const Alignment(0.00, -1.00),
                         colors: [
-                      ColorManager.white.withOpacity(0),
-                      ColorManager.white
-                    ])),
+                          ColorManager.white.withOpacity(0),
+                          ColorManager.white
+                        ])),
               ),
             ],
           ),

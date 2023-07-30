@@ -109,6 +109,11 @@ class RoutsGenerate {
         );
       case RouteGenerator.reminderScreen:
         return MaterialPageRoute(builder: (_) => ReminderScreen());
+      case RouteGenerator.successAddPatScreen:
+        return MaterialPageRoute(builder: (_) => const SuccessAddPatScreen());
+      case RouteGenerator.editPetInfo:
+        return MaterialPageRoute(builder: (_) => const EditPetInfo());
+
 
       default:
         throw const FormatException("Route not found");

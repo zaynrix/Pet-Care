@@ -11,6 +11,7 @@ import 'package:pet_care/features/home/ui/screens/all_pet_product.dart';
 import 'package:pet_care/features/home/ui/screens/all_vets_doctor.dart';
 import 'package:pet_care/features/location/controller/address_provider.dart';
 import 'package:pet_care/features/location/location_module.dart';
+import 'package:pet_care/features/pets/pets_module.dart';
 import 'package:pet_care/features/profile/profile_module.dart';
 import 'package:pet_care/features/reminder/reminder_module.dart';
 import 'package:pet_care/features/shop/controllers/card_provider.dart';

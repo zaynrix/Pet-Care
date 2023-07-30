@@ -1,8 +1,26 @@
 part of add_pet_module;
 
-class MainAppPetScreen extends StatelessWidget {
+class MainAppPetScreen extends StatefulWidget {
    MainAppPetScreen({Key? key}) : super(key: key);
 
+  @override
+  State<MainAppPetScreen> createState() => _MainAppPetScreenState();
+}
+
+class _MainAppPetScreenState extends State<MainAppPetScreen> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    addPetController.onInit();
+  }
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    addPetController.pageController!.dispose();
+  }
    final AddPetController addPetController = Get.put(AddPetController(), permanent: true);
 
   final List<Widget> pages = [
@@ -80,8 +98,8 @@ class MainAppPetScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 height: AddPetController.currantPage < 6
-                    ? MediaQuery.of(context).size.height * 0.48
-                    : MediaQuery.of(context).size.height * 0.7,
+                    ? Get.height * 0.48
+                    : Get.height * 0.7,
                 // alignment: Alignment.center,
                 child: PageView.builder(
                     scrollDirection: Axis.horizontal,

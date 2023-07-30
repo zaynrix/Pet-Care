@@ -9,7 +9,7 @@ class AddPhotoForPetScreen extends StatelessWidget implements PageWidget {
   void onPressedFunction() {
     debugPrint('Page AddPhotoForPetScreen action');
 
-    // Add your custom functionality for Page 1 here
+    addPetController.selectPitImage();
   }
 
   @override

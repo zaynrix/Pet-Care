@@ -20,4 +20,4 @@ import 'package:provider/provider.dart';
 part 'controller/location_controller.dart';
 part 'ui/screens/add_address_manually.dart';
 part 'ui/screens/add_new_address_screen.dart';
-part 'ui/widgets/select_location_type_widget.dart';
+part 'ui/widgets/select_location_type.dart';
