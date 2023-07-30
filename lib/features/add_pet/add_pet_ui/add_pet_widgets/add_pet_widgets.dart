@@ -17,4 +17,3 @@ part 'gender_card.dart';
 part 'gradient_circle_line.dart';
 part 'is_pet_neuter_widget.dart';
 part 'linear_progress_status_bar.dart';
-part '../../../../common_widgets/selection_type_card.dart';

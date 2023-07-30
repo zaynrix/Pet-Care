@@ -1,14 +1,13 @@
 part of add_pet_widgets;
 
 class GenderCard extends StatelessWidget {
-  GenderCard({
+ const GenderCard({
     Key? key,
     required this.onTap,
     required this.isSelected,
     required this.iconPath,
   }) : super(key: key);
 
-  final SizeConfig sizeConfig = sl<SizeConfig>();
   final bool isSelected;
   final void Function()? onTap;
   final String iconPath;
@@ -34,11 +33,11 @@ class GenderCard extends StatelessWidget {
           duration: const Duration(milliseconds: 200),
           // padding: isSelected ? const EdgeInsets.all(AppSize.s8) : const EdgeInsets.all(0),
           width: isSelected
-              ? sizeConfig.getScreenWidth(AppSize.s86)
-              : sizeConfig.getScreenWidth(AppSize.s80),
+              ? AppSize.s86.width
+              : AppSize.s80.width,
           height: isSelected
-              ? sizeConfig.getScreenWidth(AppSize.s86)
-              : sizeConfig.getScreenWidth(AppSize.s80),
+              ? AppSize.s86.height
+              : AppSize.s80.height,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: isSelected
@@ -49,8 +48,8 @@ class GenderCard extends StatelessWidget {
             padding: const EdgeInsets.all(20),
             child: SvgPicture.asset(
               iconPath,
-              height: sizeConfig.getScreenHeight(AppSize.s40),
-              width: sizeConfig.getScreenWidth(AppSize.s40),
+              height: AppSize.s40.height,
+              width: AppSize.s40.width,
             ),
           ),
         ),

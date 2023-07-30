@@ -33,4 +33,5 @@ class RouteGenerator {
   static const String allVetsDoctorScreen = 'allVetsDoctorScreen';
   static const String mainScreenApp = 'mainScreenApp';
   static const String successAddPatScreen = 'successAddPatScreen';
+  static const String editPetInfo = 'editPetInfo';
 }
