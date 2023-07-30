@@ -25,4 +25,12 @@ class PetsController extends GetxController{
     super.onClose();
   }
 
+  //-------------------------------editPet--------------------------------------
+
+  final TextEditingController editNamePetController = TextEditingController();
+  final TextEditingController editBreedPetController = TextEditingController();
+  initEditPet(){
+
+  }
+
 }

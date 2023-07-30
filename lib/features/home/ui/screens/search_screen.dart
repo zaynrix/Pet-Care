@@ -25,10 +25,8 @@ class _SearchScreenState extends State<SearchScreen> {
       builder: (context, instance, child) => Scaffold(
         backgroundColor: ColorManager.soft,
         appBar: AppBar(
-          centerTitle: true,
           title: const Text(
             AppStrings.search,
-            style: titleBold,
           ),
           bottom: PreferredSize(
             preferredSize: const Size.fromHeight(50),

@@ -119,7 +119,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             scrollDirection: Axis.horizontal,
                             itemBuilder: (BuildContext context, int index) {
                               final petIndex = index - 1;
-
                               return index == 0
                                   ? Padding(
                                       padding: const EdgeInsets.only(right: 2),
@@ -131,34 +130,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                         ),
                                       ),
                                     )
-                                  : GestureDetector(
+                                  : SelectionPetCard(
+                                      petIndex: petIndex,
                                       onTap: () {
                                         value.selectPet(petIndex);
                                       },
-                                      child: Padding(
-                                        padding:
-                                            const EdgeInsets.only(right: 2),
-                                        child: Container(
-                                          padding: const EdgeInsets.all(3),
-                                          decoration: BoxDecoration(
-                                            border: Border.all(
-                                              color: value.petsModel!
-                                                      .pets![petIndex].selected!
-                                                  ? ColorManager.secondary
-                                                  : Colors.transparent,
-                                            ),
-                                            shape: BoxShape.circle,
-                                          ),
-                                          child: CircleAvatar(
-                                            radius: 30,
-                                            backgroundImage:
-                                                CachedNetworkImageProvider(
-                                              value.petsModel!.pets![petIndex]
-                                                  .image!,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
+                                      imagePath: value
+                                          .petsModel!.pets![petIndex].image!,
+                                      isSelected: value
+                                          .petsModel!.pets![petIndex].selected!,
                                     );
                             },
                           ),
