@@ -24,4 +24,5 @@ class PetsController extends GetxController{
     pageController.dispose();
     super.onClose();
   }
+
 }

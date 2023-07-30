@@ -50,11 +50,16 @@ class PetCard extends StatelessWidget {
                         name,
                         style: h1Bold.copyWith(color: ColorManager.white),
                       ),
-                      CustomIconButton(onTap: () {}, iconPath: IconAssets.edit)
+                      CustomIconButton(
+                          onTap: () {
+                            RouteService.serviceNavi
+                                .pushNamedWidget(RouteGenerator.editPetInfo);
+                          },
+                          iconPath: IconAssets.edit)
                     ],
                   ),
                   Text(
-                    age,
+                    "$age years",
                     style: h3Medium.copyWith(color: ColorManager.white),
                   )
                 ],

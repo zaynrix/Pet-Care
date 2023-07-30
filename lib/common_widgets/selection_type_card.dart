@@ -1,4 +1,4 @@
-part of add_pet_widgets;
+part of common_widgets;
 
 class SelectionTypeCard extends StatelessWidget {
   SelectionTypeCard({

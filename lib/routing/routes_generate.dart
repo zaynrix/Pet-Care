@@ -98,6 +98,8 @@ class RoutsGenerate {
         return MaterialPageRoute(builder: (_) => ReminderScreen());
       case RouteGenerator.successAddPatScreen:
         return MaterialPageRoute(builder: (_) => const SuccessAddPatScreen());
+      case RouteGenerator.editPetInfo:
+        return MaterialPageRoute(builder: (_) => const EditPetInfo());
 
 
       default:

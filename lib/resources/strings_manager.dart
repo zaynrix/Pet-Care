@@ -24,6 +24,7 @@ class AppStrings {
   static const change = 'Change';
   static const iDoNotKnow = 'I don’t know';
   static const finish = 'Finish';
+  static const done = 'Done';
   static const getStarted = 'Get started';
   static const apointments = 'Apointments';
   static const orderPlacedSuccessfully = 'Order placed successfully';
@@ -42,6 +43,9 @@ class AppStrings {
   static const save = 'Save';
   static const discover = 'Discover';
   static const typeProblems = 'Type problems...';
+  static const chooseYourPetAge = 'Choose Your Pet Age';
+  static const chooseYourPetSpecies = 'Choose Your Pet Species';
+  static const chooseYourPetGender = 'Choose Your Pet Gender';
   static const orderPlacedSuccessfullySub =
       'You placed the order successfully. Thanks for using our services.';
 }
