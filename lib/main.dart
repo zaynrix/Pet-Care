@@ -9,6 +9,7 @@ import 'package:pet_care/features/shop/controllers/product_provider.dart';
 import 'package:pet_care/locator.dart';
 import 'package:pet_care/resources/theme_manager.dart';
 import 'package:pet_care/routing/routing_module.dart';
+import 'package:pet_care/utils/app_config.dart';
 import 'package:pet_care/utils/helper.dart';
 import 'package:provider/provider.dart';
 
@@ -22,6 +23,8 @@ Future<void> main() async {
   // HiveService.initHive();
   await ScreenUtil.ensureScreenSize();
   await init();
+  sl<AppConfig>().loadData();
+
   runApp(const MyApp());
 }
 
@@ -45,7 +48,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeManager.lightTheme,
           scaffoldMessengerKey: Helpers.scaffoldKey,
           // home: const MainAuthScreen(),
-          initialRoute: RouteGenerator.mainScreenApp,
+          initialRoute: RouteGenerator.splashScreen,
           navigatorKey: RouteService.serviceNavi.navKey,
           onGenerateRoute: RoutsGenerate.generateRoute,
         ),
@@ -53,3 +56,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// yahya@gmail.com
+// mM123456789$

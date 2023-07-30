@@ -13,8 +13,9 @@ class ProfileScreen extends StatelessWidget {
         title: const Text(AppStrings.profile),
         actions: [
           CustomIconButton(
-            onTap: (){
-              RouteService.serviceNavi.pushNamedWidget(RouteGenerator.editProfileScreen);
+            onTap: () {
+              RouteService.serviceNavi
+                  .pushNamedWidget(RouteGenerator.editProfileScreen);
             },
             iconPath: IconAssets.edit,
           ),
@@ -38,8 +39,7 @@ class ProfileScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     ProfileTile(
-                      onTap: (){
-                      },
+                      onTap: () {},
                       iconPath: IconAssets.unSelectedProfile,
                       title: "Ace Ventura",
                       iconColor: ColorManager.primaryWithTransparent10,
@@ -81,33 +81,37 @@ class ProfileScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                     ProfileTile(
-                      onTap: (){
-                        RouteService.serviceNavi.pushNamedWidget(RouteGenerator.paymentMethodScreen);
+                    ProfileTile(
+                      onTap: () {
+                        RouteService.serviceNavi.pushNamedWidget(
+                            RouteGenerator.paymentMethodScreen);
                       },
                       iconPath: IconAssets.payment,
                       title: AppStrings.paymentMethod,
                       iconColor: ColorManager.secondaryLight,
                     ),
                     ProfileTile(
-                      onTap: (){
-                        RouteService.serviceNavi.pushNamedWidget(RouteGenerator.addressScreen);
+                      onTap: () {
+                        RouteService.serviceNavi
+                            .pushNamedWidget(RouteGenerator.addressScreen);
                       },
                       iconPath: IconAssets.unSelectedHome,
                       title: AppStrings.addresses,
                       iconColor: ColorManager.tertiary,
                     ),
                     ProfileTile(
-                      onTap: (){
-                        RouteService.serviceNavi.pushNamedWidget(RouteGenerator.ordersScreen);
+                      onTap: () {
+                        RouteService.serviceNavi
+                            .pushNamedWidget(RouteGenerator.ordersScreen);
                       },
                       iconPath: IconAssets.unSelectedCart,
                       title: AppStrings.orders,
                       iconColor: ColorManager.quaternary,
                     ),
                     ProfileTile(
-                      onTap: (){
-                        RouteService.serviceNavi.pushNamedWidget(RouteGenerator.appointmentsScreen);
+                      onTap: () {
+                        RouteService.serviceNavi
+                            .pushNamedWidget(RouteGenerator.appointmentsScreen);
                       },
                       iconPath: IconAssets.calendar,
                       title: AppStrings.apointments,
@@ -115,7 +119,11 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     AppSize.s16.addVerticalSpace,
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          RouteService.serviceNavi.pushNamedAndRemoveUtils(
+                              RouteGenerator.mainAuthScreen);
+                          sl<StorageService>().removeUser();
+                        },
                         child: Text(
                           AppStrings.logOut,
                           style: bodyRegular(color: ColorManager.error),

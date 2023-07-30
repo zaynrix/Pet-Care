@@ -19,6 +19,7 @@ import 'package:pet_care/features/shop/controllers/order_Inforamtion_provider.da
 import 'package:pet_care/features/shop/controllers/product_provider.dart';
 import 'package:pet_care/features/shop/repositories/product_repository.dart';
 import 'package:pet_care/resources/size_config.dart';
+import 'package:pet_care/utils/app_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'data/remote-data/interceptors/dio_interceptor.dart';
@@ -58,5 +59,6 @@ Future<void> init() async {
 
   sl.registerLazySingleton(() => OrderInformationProvide());
   sl.registerLazySingleton(() => PetRepo());
+  sl.registerLazySingleton(() => AppConfig());
   sl.registerLazySingleton(() => PetsController(petRepo: sl<PetRepo>()));
 }

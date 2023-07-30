@@ -94,6 +94,19 @@ class RoutsGenerate {
           },
         );
 
+      case RouteGenerator.splashScreen:
+        return MaterialPageRoute(
+          builder: (_) {
+            return SplashScreen();
+          },
+        );
+
+      case RouteGenerator.loginScreen:
+        return MaterialPageRoute(
+          builder: (_) {
+            return LoginScreen();
+          },
+        );
       case RouteGenerator.reminderScreen:
         return MaterialPageRoute(builder: (_) => ReminderScreen());
       case RouteGenerator.successAddPatScreen:
