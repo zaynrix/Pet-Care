@@ -43,6 +43,7 @@ class AppStrings {
   static const save = 'Save';
   static const discover = 'Discover';
   static const typeProblems = 'Type problems...';
+  static const typeYourProblems = 'Type your problems';
   static const chooseYourPetAge = 'Choose Your Pet Age';
   static const chooseYourPetSpecies = 'Choose Your Pet Species';
   static const chooseYourPetGender = 'Choose Your Pet Gender';

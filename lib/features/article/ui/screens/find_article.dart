@@ -7,7 +7,7 @@ class FindArticle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("12 results for “sick”"),
+        title: const Text(AppStrings.typeYourProblems),
       ),
       body: Padding(
         padding: AppPadding.p24.paddingHorizontal,
