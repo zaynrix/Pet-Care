@@ -1,6 +1,6 @@
 part of home_ui_module;
 
-class MainScreenApp extends StatelessWidget {
+class MainScreenApp extends StatefulWidget {
   const MainScreenApp({Key? key}) : super(key: key);
 
   static final List<Widget> _pages = <Widget>[
@@ -10,6 +10,16 @@ class MainScreenApp extends StatelessWidget {
     ReminderScreen(),
     ProfileScreen(),
   ];
+
+  @override
+  State<MainScreenApp> createState() => _MainScreenAppState();
+}
+
+class _MainScreenAppState extends State<MainScreenApp> {
+  @override
+  void initState() {
+    sl<HomeProvider>().getPetsProvider();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +62,7 @@ class MainScreenApp extends StatelessWidget {
                     : IconAssets.unSelectedProfile)),
           ],
         ),
-        body: _pages.elementAt(controller.selectedScreen),
+        body: MainScreenApp._pages.elementAt(controller.selectedScreen),
       ),
     );
   }
