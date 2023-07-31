@@ -122,11 +122,18 @@ class _HomeScreenState extends State<HomeScreen> {
                               return index == 0
                                   ? Padding(
                                       padding: const EdgeInsets.only(right: 2),
-                                      child: CircleAvatar(
-                                        radius: 30,
-                                        child: SvgPicture.asset(
-                                          IconAssets.incrementButton,
-                                          fit: BoxFit.contain,
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          RouteService.serviceNavi
+                                              .pushNamedWidget(RouteGenerator
+                                                  .mainAddPetScreen);
+                                        },
+                                        child: CircleAvatar(
+                                          radius: 30,
+                                          child: SvgPicture.asset(
+                                            IconAssets.incrementButton,
+                                            fit: BoxFit.contain,
+                                          ),
                                         ),
                                       ),
                                     )
