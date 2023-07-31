@@ -4,7 +4,7 @@ class ProfileScreen extends StatelessWidget {
   ProfileScreen({Key? key}) : super(key: key);
 
   final SizeConfig sizeConfig = sl<SizeConfig>();
-
+  final profileData = sl<StorageService>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +41,7 @@ class ProfileScreen extends StatelessWidget {
                     ProfileTile(
                       onTap: () {},
                       iconPath: IconAssets.unSelectedProfile,
-                      title: "Ace Ventura",
+                      title: profileData.getUser().name.toCapitalized(),
                       iconColor: ColorManager.primaryWithTransparent10,
                     ),
                     Row(
@@ -50,7 +50,7 @@ class ProfileScreen extends StatelessWidget {
                         SvgPicture.asset(IconAssets.email),
                         AppSize.s24.addHorizontalSpace,
                         Text(
-                          "acevent@mail.com",
+                          profileData.getUser().email,
                           style: bodyRegular(color: ColorManager.primary),
                         )
                       ],
@@ -62,7 +62,7 @@ class ProfileScreen extends StatelessWidget {
                         SvgPicture.asset(IconAssets.mobile),
                         AppSize.s24.addHorizontalSpace,
                         Text(
-                          "434-1234567",
+                          profileData.getUser().phoneNumber,
                           style: bodyRegular(color: ColorManager.primary),
                         )
                       ],
