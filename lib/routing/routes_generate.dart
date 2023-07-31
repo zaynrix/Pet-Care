@@ -97,7 +97,7 @@ class RoutsGenerate {
       case RouteGenerator.splashScreen:
         return MaterialPageRoute(
           builder: (_) {
-            return SplashScreen();
+            return const SplashScreen();
           },
         );
 
@@ -113,7 +113,10 @@ class RoutsGenerate {
         return MaterialPageRoute(builder: (_) => const SuccessAddPatScreen());
       case RouteGenerator.editPetInfo:
         return MaterialPageRoute(builder: (_) => const EditPetInfo());
-
+      case RouteGenerator.findArticle:
+        return MaterialPageRoute(
+            builder: (_) => ChangeNotifierProvider.value(
+                value: sl<ArticleController>(), child: const FindArticle()));
 
       default:
         throw const FormatException("Route not found");
