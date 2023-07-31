@@ -116,12 +116,12 @@ class _MainShopScreenState extends State<MainShopScreen> {
               ),
             ),
           ),
-          body: TabBarView(
+          body: const TabBarView(
             children: [
-              const PharmacyShopScreen(),
-              SignUpScreen(),
-              SignUpScreen(),
-              LoginScreen(),
+              PharmacyShopScreen(),
+              PetFoodShop(),
+              AccessoriesShop(),
+              FurnitureShop(),
             ],
           ),
         ),
