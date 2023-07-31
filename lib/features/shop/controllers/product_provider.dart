@@ -139,11 +139,20 @@ class ProductProvider extends ChangeNotifier {
     }
   }
 
+  // incrementProduct(SingleProduct item) {
+  //   final index = cartList.indexOf(item);
+  //   if (index != -1) {
+  //     cartList[index] =
+  //         SingleProduct(name: item.name, cartQuantity: item.cartQuantity! + 1);
+  //     notifyListeners();
+  //   }
+  // }
   incrementProduct(SingleProduct item) {
     final index = cartList.indexOf(item);
     if (index != -1) {
+      final newCartQuantity = (item.cartQuantity ?? 0) + 1;
       cartList[index] =
-          SingleProduct(name: item.name, cartQuantity: item.cartQuantity! + 1);
+          SingleProduct(name: item.name, cartQuantity: newCartQuantity);
       notifyListeners();
     }
   }

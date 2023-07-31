@@ -1,7 +1,7 @@
 part of profile_module;
 
 class EditProfileScreen extends StatefulWidget {
-  EditProfileScreen({Key? key}) : super(key: key);
+  const EditProfileScreen({Key? key}) : super(key: key);
 
   @override
   State<EditProfileScreen> createState() => _EditProfileScreenState();
@@ -9,11 +9,9 @@ class EditProfileScreen extends StatefulWidget {
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
   final TextEditingController nameController = TextEditingController();
-
   final TextEditingController emailController = TextEditingController();
-
   final TextEditingController phoneController = TextEditingController();
-  final profileData = sl<StorageService>().getUser();
+  final UserModel profileData = sl<StorageService>().getUser();
 
   final GlobalKey<FormState> formKye = GlobalKey<FormState>();
   @override

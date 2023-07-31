@@ -7,6 +7,7 @@ import 'package:grouped_list/grouped_list.dart';
 import 'package:intl/intl.dart';
 import 'package:pet_care/common_widgets/common_widgets.dart';
 import 'package:pet_care/data/local_data/storage_service.dart';
+import 'package:pet_care/features/auth/auth_model/user_model.dart';
 import 'package:pet_care/locator.dart';
 import 'package:pet_care/resources/assets_manager.dart';
 import 'package:pet_care/resources/colors_manager.dart';
