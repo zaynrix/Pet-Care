@@ -1,13 +1,26 @@
 part of profile_module;
 
-class EditProfileScreen extends StatelessWidget {
-  EditProfileScreen({Key? key}) : super(key: key);
+class EditProfileScreen extends StatefulWidget {
+  const EditProfileScreen({Key? key}) : super(key: key);
 
+  @override
+  State<EditProfileScreen> createState() => _EditProfileScreenState();
+}
+
+class _EditProfileScreenState extends State<EditProfileScreen> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
+  final UserModel profileData = sl<StorageService>().getUser();
 
   final GlobalKey<FormState> formKye = GlobalKey<FormState>();
+  @override
+  initState() {
+    super.initState();
+    nameController.text = profileData.name;
+    emailController.text = profileData.email;
+    phoneController.text = profileData.phoneNumber;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +34,7 @@ class EditProfileScreen extends StatelessWidget {
         title: const Text(AppStrings.profile),
         actions: [
           CustomIconButton(
-            onTap: (){
+            onTap: () {
               RouteService.serviceNavi.pop();
             },
             iconPath: IconAssets.cancel,
