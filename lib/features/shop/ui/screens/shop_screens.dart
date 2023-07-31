@@ -32,10 +32,13 @@ import 'package:provider/provider.dart';
 
 import '../../../../resources/strings_manager.dart';
 
+part 'accesso_shop_screen.dart';
 part 'add_new_card.dart';
 part 'cart_screen.dart';
+part 'furniture_shop.dart';
 part 'main_shop_screen.dart';
 part 'order_information.dart';
 part 'order_success.dart';
+part 'pet_food_shop.dart';
 part 'pharmacy_shop_screen.dart';
 part 'product_details.dart';
