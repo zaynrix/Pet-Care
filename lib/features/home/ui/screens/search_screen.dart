@@ -68,13 +68,13 @@ class _SearchScreenState extends State<SearchScreen> {
                       Padding(
                         padding: 24.paddingLeft,
                         child: ListView.separated(
-                          physics: const NeverScrollableScrollPhysics(),
+                          physics: NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
-                          itemCount: 4,
+                          itemCount: instance.discoverList.length,
                           separatorBuilder: (context, index) => const Divider(),
                           itemBuilder: (context, index) {
                             return Text(
-                              "One",
+                              instance.discoverList[index],
                               style: bodyRegular(color: ColorManager.primary),
                             );
                           },

@@ -32,4 +32,11 @@ class SearchProvider extends ChangeNotifier {
       notifyListeners();
     }
   }
+
+  final List<String> discoverList = [
+    "Pamper your dog with purple grooming supplies.",
+    "Purple dog toys for canine fun.",
+    "Dog-friendly purple accessories for stylish pets.",
+    "My dog loves purple chew toys.",
+  ];
 }
