@@ -54,10 +54,17 @@ class CartScreen extends StatelessWidget {
                             children: [
                               Row(
                                 children: [
-                                  Image.network(
-                                    value.cartList[index].coverImage!,
-                                    width: Get.width * 0.25,
-                                  ),
+                                  value.cartList[index].coverImage != null
+                                      ? Image.network(
+                                          value.cartList[index].coverImage!,
+                                          width: Get.width * 0.25,
+                                        )
+                                      : SizedBox(
+                                          width: Get.width * 0.25, height: 0),
+                                  // Image.network(
+                                  //   value.cartList[index].coverImage!,
+                                  //   width: Get.width * 0.25,
+                                  // ),
                                   Expanded(
                                     child: Column(
                                       mainAxisAlignment:
@@ -79,12 +86,12 @@ class CartScreen extends StatelessWidget {
                                         Row(
                                           children: [
                                             Text(
-                                              '\$${value.cartList[index].price?.toStringAsFixed(2)}',
+                                              '\$${(value.cartList[index].price ?? 0).toStringAsFixed(2)}',
                                               style: bodyBoldPrimary,
                                             ),
                                             5.horizontalSpace,
                                             Text(
-                                              '\$${(value.cartList[index].originalPrice! - value.cartList[index].price!).toStringAsFixed(2)}',
+                                              '\$${((value.cartList[index].originalPrice ?? 0) - (value.cartList[index].price ?? 0)).toStringAsFixed(2)}',
                                               style: captionRegularLine,
                                             ),
                                           ],
@@ -179,10 +186,27 @@ class CartScreen extends StatelessWidget {
     );
   }
 
-  double calculateSubtotal(cartList) {
+  // double calculateSubtotal(cartList) {
+  //   double subtotal = 0.0;
+  //   for (var product in cartList) {
+  //     subtotal += product.price ?? 0 * product.cartQuantity ?? 0;
+  //   }
+  //   return subtotal;
+  // }
+  // double calculateSubtotal(cartList) {
+  //   double subtotal = 0.0;
+  //   for (var product in cartList) {
+  //     subtotal += (product.price ?? 0) * (product.cartQuantity ?? 0);
+  //   }
+  //   return subtotal;
+  // }
+
+  double calculateSubtotal(List<SingleProduct> cartList) {
     double subtotal = 0.0;
     for (var product in cartList) {
-      subtotal += product.price ?? 0 * product.cartQuantity ?? 0;
+      double price = product.price ?? 0;
+      int cartQuantity = product.cartQuantity ?? 0;
+      subtotal += price * cartQuantity;
     }
     return subtotal;
   }
