@@ -6,6 +6,7 @@ import 'package:pet_care/data/remote-data/base_client.dart';
 import 'package:pet_care/data/remote-data/end_point.dart';
 import 'package:pet_care/data/remote-data/interceptors/logger_interceptor.dart';
 import 'package:pet_care/features/add_pet/add_pet_controller/add_pet_controller.dart';
+import 'package:pet_care/features/article/article_module.dart';
 import 'package:pet_care/features/auth/auth_contoller/auth_provider.dart';
 import 'package:pet_care/features/auth/auth_repo/auth_repo.dart';
 import 'package:pet_care/features/home/controllers/home_provider.dart';
@@ -61,4 +62,6 @@ Future<void> init() async {
   sl.registerLazySingleton(() => PetRepo());
   sl.registerLazySingleton(() => AppConfig());
   sl.registerLazySingleton(() => PetsController(petRepo: sl<PetRepo>()));
+  sl.registerLazySingleton(() => ArticleRepo());
+  sl.registerLazySingleton(() => ArticleController());
 }

@@ -2,6 +2,7 @@ library routing_module;
 
 import 'package:flutter/material.dart';
 import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_screens/add_pet_screens.dart';
+import 'package:pet_care/features/article/article_module.dart';
 import 'package:pet_care/features/auth/auth_ui/screens/auth_module.dart';
 import 'package:pet_care/features/auth/auth_ui/screens/splash_screen.dart';
 import 'package:pet_care/features/home/controllers/home_provider.dart';
