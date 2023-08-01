@@ -53,7 +53,7 @@ class ReminderController extends GetxController {
 
   String selectedReminderType = reminderTypes.first.type;
 
-  selectPetType({required String type}) {
+  selectReminderType({required String type}) {
     for (var item in reminderTypes) {
       item.isSelected = false;
     }
@@ -64,6 +64,7 @@ class ReminderController extends GetxController {
   }
 
   //---------------------------- Pickup Date -----------------------------------
+
   selectDate(DateTime date) {
     currantDateString = date.toString().convertToFullDate()!;
     currantDate = date;
@@ -139,5 +140,21 @@ class ReminderController extends GetxController {
   deleteReminder(int index) {
     reminderBox!.deleteAt(index);
     update();
+  }
+
+  Color decideColorSide({required String reminderType}){
+    switch (reminderType) {
+      case "Medicine":
+        return ColorManager.secondaryLight;
+      case "Vaccine":
+       return ColorManager.quaternary;
+      case "Exercise":
+       return ColorManager.greenLight;
+      case "Liquid":
+        return ColorManager.tertiary;
+      default:
+        return ColorManager.secondaryLight;
+    }
+
   }
 }
