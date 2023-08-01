@@ -40,7 +40,7 @@ class _AddReminderScreenState extends State<AddReminderScreen> {
                         backgroundColor: reminderType.color,
                         isSelected: reminderType.isSelected,
                         onTap: () {
-                          reminderController.selectPetType(
+                          reminderController.selectReminderType(
                               type: reminderType.type);
                         },
                       );

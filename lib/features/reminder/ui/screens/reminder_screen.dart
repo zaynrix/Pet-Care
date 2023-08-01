@@ -75,6 +75,7 @@ class ReminderScreen extends StatelessWidget {
                             .toString()
                             .convertToTime12()!,
                         description: reminder.description,
+                        colorSide: reminderController.decideColorSide(reminderType: reminder.type),
                       );
                     }),
                 // const ReminderCard()
