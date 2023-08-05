@@ -43,7 +43,21 @@ class _FindArticleState extends State<FindArticle> {
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
                         itemCount: controller.articles.length,
-                        itemBuilder: (context, index) => const ArticleCard()),
+                        itemBuilder: (context, index) {
+                          final ArticleModel article =
+                              controller.articles[index];
+                          return ArticleCard(
+                            title: article.title,
+                            description: article.description,
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ArticleDetail(article: article,),
+                                  ));
+                            },
+                          );
+                        }),
                 // const ArticleCard()
               ],
             ),

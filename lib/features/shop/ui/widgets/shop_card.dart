@@ -15,7 +15,7 @@ class ShodCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsetsDirectional.only(
-        start: sizeConfig.getScreenWidth(AppSize.s16),
+        start: sizeConfig.getScreenWidth(AppSize.s8),
       ),
       decoration: BoxDecoration(
         boxShadow: [customShadow()],

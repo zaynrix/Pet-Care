@@ -66,7 +66,9 @@ class AddNewAddressScreen extends StatelessWidget {
                       child: Text(locationController.currantAddress , style: footNoteBold,maxLines: 2, textAlign: TextAlign.center,),
                     ),
                     AppSize.s16.addVerticalSpace,
-                    ElevatedButton(onPressed: (){},
+                    ElevatedButton(onPressed: (){
+                      RouteService.serviceNavi.pushNamedWidget(RouteGenerator.mainAddPetScreen);
+                    },
                         child: const Text("Use this address")),
                     TextButton(onPressed: (){
                       RouteService.serviceNavi.pushNamedWidget(RouteGenerator.addNewLocationManual);

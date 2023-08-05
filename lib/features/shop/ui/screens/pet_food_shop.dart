@@ -41,7 +41,7 @@ class _PetFoodShopState extends State<PetFoodShop> {
             ),
             const RVerticalSpace(height: AppSize.s32),
             DividerShopCard(
-              title: 'Best Pet',
+              title: 'Best Food',
               textButton: "See all",
               onPressed: () {},
             ),

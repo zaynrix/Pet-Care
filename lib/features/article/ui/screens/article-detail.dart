@@ -1,8 +1,10 @@
 part of article_module;
 
 class ArticleDetail extends StatelessWidget {
-  const ArticleDetail({Key? key}) : super(key: key);
-
+  const ArticleDetail({
+    required this.article,
+    Key? key}) : super(key: key);
+  final ArticleModel article;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,8 +28,8 @@ class ArticleDetail extends StatelessWidget {
                 children: [
                   SizedBox(
                       width: Get.width * 0.6,
-                      child: const Text(
-                        "Top 10 signs your dogmay be sick",
+                      child: Text(
+                        article.title,
                         style: h3Bold,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
@@ -46,37 +48,37 @@ class ArticleDetail extends StatelessWidget {
                   ),
                   AppSize.s20.addVerticalSpace,
                   Text(
-                      "As is the case with people, a dog’s health changes with age. Unfortunately, our pets age much faster than we do." , style: bodyRegular(color: ColorManager.primary),
+                      article.description , style: bodyRegular(color: ColorManager.primary),
                   maxLines: 3, overflow: TextOverflow.ellipsis,),
                   AppSize.s20.addVerticalSpace,
                   const Text(
-                    "Symptoms",
+                    "Start:",
                     style: titleBold,
                   ),
                   AppSize.s20.addVerticalSpace,
                   Text(
-                    "As is the case with people, a dog’s health changes with age. Unfortunately, our pets age much faster than we do." , style: bodyRegular(color: ColorManager.primary),
+                    article.content , style: bodyRegular(color: ColorManager.primary),
                     maxLines: 3, overflow: TextOverflow.ellipsis,),
                 ],
               ),
             ),
           ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Container(
-              width: 375.width,
-              height: 200.height,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: const Alignment(0.00, -1.00),
-                  end: const Alignment(0, 1),
-                  colors: [Colors.white.withOpacity(0), Colors.white],
-                ),
-              ),
-            ),
-          ),
+          // Positioned(
+          //   bottom: 0,
+          //   left: 0,
+          //   right: 0,
+          //   child: Container(
+          //     width: 375.width,
+          //     height: 200.height,
+          //     decoration: BoxDecoration(
+          //       gradient: LinearGradient(
+          //         begin: const Alignment(0.00, -1.00),
+          //         end: const Alignment(0, 1),
+          //         colors: [Colors.white.withOpacity(0), Colors.white],
+          //       ),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );
