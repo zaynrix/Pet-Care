@@ -1,7 +1,7 @@
 part of common_widgets;
 
 class SelectionPetCard extends StatelessWidget {
-  const SelectionPetCard({
+  const   SelectionPetCard({
     required this.onTap,
     super.key,
     required this.petIndex,

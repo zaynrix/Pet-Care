@@ -8,6 +8,7 @@ import 'package:pet_care/utils/helper.dart';
 
 class AuthProvider extends ChangeNotifier {
   final repo = sl<AuthRepo>();
+  var shared = sl<StorageService>();
   int currantAuthTap = 0;
   bool isLoading = false;
 
@@ -30,12 +31,12 @@ class AuthProvider extends ChangeNotifier {
       isLoading = true;
       notifyListeners();
       final user = await repo.loginRepo(email: email, password: password);
-      sl<StorageService>().saveUserDetail(user);
+      shared.saveUserDetail(user);
       debugPrint("This is accessToken ${sl<StorageService>().accessToken}");
       isLoading = false;
       notifyListeners();
       RouteService.serviceNavi
-          .pushNamedReplacement(RouteGenerator.mainScreenApp);
+          .pushNamedReplacement(RouteGenerator.addNewLocation);
     } catch (e) {
       debugPrint("This is the error $e");
       isLoading = false;

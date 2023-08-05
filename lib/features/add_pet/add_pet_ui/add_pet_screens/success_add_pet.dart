@@ -28,7 +28,7 @@ class SuccessAddPatScreen extends StatelessWidget {
             const RVerticalSpace(height: AppSize.s20),
             TextButton(
                 onPressed: () {
-                  RouteService.serviceNavi.pushNamedWidget(RouteGenerator.mainScreenApp);
+                  RouteService.serviceNavi.pushNamedReplacement(RouteGenerator.mainScreenApp);
                 },
                 child: Text(
                   "Go to home page",

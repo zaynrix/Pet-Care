@@ -1,5 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
 import 'package:pet_care/data/local_data/storage_service.dart';
 import 'package:pet_care/data/remote-data/base_client.dart';
@@ -28,6 +31,12 @@ import 'data/remote-data/interceptors/dio_interceptor.dart';
 final sl = GetIt.instance;
 
 Future<void> init() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+  await ScreenUtil.ensureScreenSize();
   //---------------------------- Setup Dio Instance --------------------------------
   final client = Dio()
     ..options.baseUrl = Endpoints.baseUrl
@@ -64,4 +73,5 @@ Future<void> init() async {
   sl.registerLazySingleton(() => PetsController(petRepo: sl<PetRepo>()));
   sl.registerLazySingleton(() => ArticleRepo());
   sl.registerLazySingleton(() => ArticleController());
+  // sl.unregister<ArticleController>();
 }

@@ -29,7 +29,7 @@ class RoutsGenerate {
       case RouteGenerator.orderSuccess:
         return MaterialPageRoute(builder: (_) => const OrderSuccess());
       case RouteGenerator.editProfileScreen:
-        return MaterialPageRoute(builder: (_) => EditProfileScreen());
+        return MaterialPageRoute(builder: (_) => const EditProfileScreen());
       case RouteGenerator.paymentMethodScreen:
         return MaterialPageRoute(builder: (_) => PaymentMethodsScreen());
       case RouteGenerator.addressScreen:
@@ -117,7 +117,8 @@ class RoutsGenerate {
         return MaterialPageRoute(
             builder: (_) => ChangeNotifierProvider.value(
                 value: sl<ArticleController>(), child: const FindArticle()));
-
+      case RouteGenerator.addNewLocation:
+        return MaterialPageRoute(builder: (_) => AddNewAddressScreen());
       default:
         throw const FormatException("Route not found");
     }

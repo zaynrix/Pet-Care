@@ -6,19 +6,19 @@ part of routing_module;
   static RouteService serviceNavi = RouteService._();
   GlobalKey<NavigatorState> navKey = GlobalKey<NavigatorState>();
 
-  pushNamedWidget(String name, {String? string, Object? object}) {
-    navKey.currentState?.pushNamed(name, arguments: [object, string]);
+  pushNamedWidget(String routeName, { Object? argument}) {
+    navKey.currentState?.pushNamed(routeName, arguments: argument);
   }
 
-  pushNamedReplacement(String name) {
-    navKey.currentState?.pushReplacementNamed(name);
+  pushNamedReplacement(String routeName) {
+    navKey.currentState?.pushReplacementNamed(routeName);
   }
 
   pop() {
     navKey.currentState?.pop();
   }
 
-  pushNamedAndRemoveUtils(String name) {
-    navKey.currentState?.pushNamedAndRemoveUntil(name, (route) => false);
+  pushNamedAndRemoveUtils(String routeName) {
+    navKey.currentState?.pushNamedAndRemoveUntil(routeName, (route) => false);
   }
 }
