@@ -19,6 +19,7 @@ import 'package:pet_care/features/shop/controllers/card_provider.dart';
 import 'package:pet_care/features/shop/controllers/order_Inforamtion_provider.dart';
 import 'package:pet_care/features/shop/controllers/product_provider.dart';
 import 'package:pet_care/features/shop/ui/screens/shop_screens.dart';
+import 'package:pet_care/features/vets/vets_module.dart';
 import 'package:pet_care/locator.dart';
 import 'package:provider/provider.dart';
 

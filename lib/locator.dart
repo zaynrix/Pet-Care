@@ -22,6 +22,7 @@ import 'package:pet_care/features/shop/controllers/card_provider.dart';
 import 'package:pet_care/features/shop/controllers/order_Inforamtion_provider.dart';
 import 'package:pet_care/features/shop/controllers/product_provider.dart';
 import 'package:pet_care/features/shop/repositories/product_repository.dart';
+import 'package:pet_care/features/vets/vets_module.dart';
 import 'package:pet_care/resources/size_config.dart';
 import 'package:pet_care/utils/app_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -73,5 +74,11 @@ Future<void> init() async {
   sl.registerLazySingleton(() => PetsController(petRepo: sl<PetRepo>()));
   sl.registerLazySingleton(() => ArticleRepo());
   sl.registerLazySingleton(() => ArticleController());
+  // sl.registerLazySingleton(() => VetsRepo());
   // sl.unregister<ArticleController>();
+
+  initVets(){
+    sl.registerLazySingleton(() => VetsRepo());
+    sl.registerLazySingleton(() => VetsController());
+  }
 }

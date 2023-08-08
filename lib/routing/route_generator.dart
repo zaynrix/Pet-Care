@@ -39,4 +39,5 @@ class RouteGenerator {
   static const String splashScreen = 'splashScreen';
   static const String loginScreen = 'loginScreen';
   static const String findArticle = 'findArticle';
+  static const String findVet = 'findVet';
 }

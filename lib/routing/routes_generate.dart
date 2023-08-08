@@ -119,6 +119,8 @@ class RoutsGenerate {
                 value: sl<ArticleController>(), child: const FindArticle()));
       case RouteGenerator.addNewLocation:
         return MaterialPageRoute(builder: (_) => AddNewAddressScreen());
+      case RouteGenerator.findVet:
+        return MaterialPageRoute(builder: (_) => const VetsScreen());
       default:
         throw const FormatException("Route not found");
     }
