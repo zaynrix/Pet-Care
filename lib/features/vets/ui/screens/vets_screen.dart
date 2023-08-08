@@ -27,7 +27,6 @@ class VetsScreen extends StatelessWidget {
                     radius: 40,
                     backgroundImage:
                     CachedNetworkImageProvider(
-                      // scale: 1,
                         "https://media.glamour.com/photos/569669a9eaefd309768dd95e/master/w_1600%2Cc_limit/health-fitness-blogs-vitamin-g-0708-concierge-doctor_vg.jpg"
                     ),
                   ),
