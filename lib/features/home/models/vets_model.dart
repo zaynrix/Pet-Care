@@ -7,15 +7,15 @@ class VetsModel {
     if (json['vets'] != null) {
       vets = <Vets>[];
       json['vets'].forEach((v) {
-        vets!.add(new Vets.fromJson(v));
+        vets!.add(Vets.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.vets != null) {
-      data['vets'] = this.vets!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (vets != null) {
+      data['vets'] = vets!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -37,11 +37,11 @@ class Vets {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['id'] = this.id;
-    data['review'] = this.review;
-    data['image'] = this.image;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['name'] = name;
+    data['id'] = id;
+    data['review'] = review;
+    data['image'] = image;
     return data;
   }
 }

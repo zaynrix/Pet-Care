@@ -12,6 +12,7 @@ import 'package:pet_care/resources/colors_manager.dart';
 import 'package:pet_care/resources/strings_manager.dart';
 import 'package:pet_care/resources/styles_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
+import 'package:pet_care/routing/routing_module.dart';
 import 'package:pet_care/utils/enums.dart';
 import 'package:pet_care/utils/extension/responsive_extension.dart';
 import 'package:provider/provider.dart';

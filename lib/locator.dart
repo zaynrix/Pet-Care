@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
 import 'package:pet_care/data/local_data/storage_service.dart';
 import 'package:pet_care/data/remote-data/base_client.dart';
@@ -22,6 +23,7 @@ import 'package:pet_care/features/shop/controllers/card_provider.dart';
 import 'package:pet_care/features/shop/controllers/order_Inforamtion_provider.dart';
 import 'package:pet_care/features/shop/controllers/product_provider.dart';
 import 'package:pet_care/features/shop/repositories/product_repository.dart';
+import 'package:pet_care/features/vets/vets_module.dart';
 import 'package:pet_care/resources/size_config.dart';
 import 'package:pet_care/utils/app_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -71,7 +73,47 @@ Future<void> init() async {
   sl.registerLazySingleton(() => PetRepo());
   sl.registerLazySingleton(() => AppConfig());
   sl.registerLazySingleton(() => PetsController(petRepo: sl<PetRepo>()));
-  sl.registerLazySingleton(() => ArticleRepo());
-  sl.registerLazySingleton(() => ArticleController());
+  // sl.registerLazySingleton(() => VetsRepo());
   // sl.unregister<ArticleController>();
+}
+
+initPets(){
+  if (!sl.isRegistered<ArticleRepo>()) {
+    sl.registerLazySingleton(() => PetRepo());
+  }
+  if (!Get.isRegistered<ArticleController>()) {
+    sl.registerLazySingleton(() => ArticleController());
+  }
+}
+initArticle() {
+  if (!sl.isRegistered<ArticleRepo>()) {
+    sl.registerLazySingleton(() => ArticleRepo());
+  }
+  if (!sl.isRegistered<ArticleController>()) {
+    sl.registerLazySingleton(() => ArticleController());
+  }
+}
+
+disposeArticle() {
+  if (sl.isRegistered<ArticleRepo>()) {
+    sl.unregister<ArticleRepo>();
+  }
+ if (sl.isRegistered<ArticleController>()) {
+   sl.unregister<ArticleController>();
+ }
+}
+
+initVets() {
+  disposeArticle();
+  if (!sl.isRegistered<VetsRepo>()) {
+    sl.registerLazySingleton(() => VetsRepo());
+  }
+  if (!Get.isRegistered<VetsController>()) {
+    Get.put(VetsController(repo: sl<VetsRepo>()), permanent: true);
+  }
+}
+
+disposeVets() {
+  Get.delete<VetsController>();
+  sl.unregister<VetsRepo>();
 }
