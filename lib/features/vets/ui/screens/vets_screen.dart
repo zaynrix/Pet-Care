@@ -19,20 +19,24 @@ class VetsScreen extends StatelessWidget {
                   borderRadius: AppSize.s16.circularRadius,
                   boxShadow: [customShadow()]),
               padding: EdgeInsets.symmetric(
-                  horizontal: AppSize.s24.width, vertical: AppSize.s16.height),
+                  horizontal: AppSize.s24.width, vertical: 17.height),
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const CircleAvatar(
                     radius: 40,
                     backgroundImage:
                     CachedNetworkImageProvider(
-                        ""
+                      // scale: 1,
+                        "https://media.glamour.com/photos/569669a9eaefd309768dd95e/master/w_1600%2Cc_limit/health-fitness-blogs-vitamin-g-0708-concierge-doctor_vg.jpg"
                     ),
                   ),
                   AppSize.s18.addHorizontalSpace,
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text("Abram Curtis", style: bodyBoldPrimary,),
+                      AppSize.s5.addVerticalSpace,
                       Text("Veterinary" , style: footNoteRegular(color: ColorManager.gray),),
                       AppSize.s8.addHorizontalSpace,
                       Row(
@@ -47,12 +51,7 @@ class VetsScreen extends StatelessWidget {
                         width: 184.width,
                           height: 35.height,
                           child: ElevatedButton(onPressed: (){},
-                              child: Row(
-                                children: [
-                                  Text("Start consult | ", style: footNoteRegular(color: ColorManager.white),),
-                                  Text("\$12.99" , ),
-                                ],
-                              )))
+                              child: Text("Start consult | \$12.99", style: footNoteRegular(color: ColorManager.white),)))
                     ],
                   )
                 ],
