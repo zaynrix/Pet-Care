@@ -1,9 +1,11 @@
 part of vets_module;
 
-class VetsRepo{
-
+class VetsRepo {
   Future<List<MainVetsModel>> getVetsRepo() async {
-    const response = '''[
+    const response = '''
+    {
+    "vets":
+    [
   {
     "name": "Vet 1",
     "id": "1",
@@ -12,7 +14,7 @@ class VetsRepo{
     "experienceYears": 5,
     "image": "https://previews.123rf.com/images/edhar/edhar1112/edhar111200367/11480871-senior-handsome-man-doctor.jpg",
     "pio": "Lorem ipsum dolor sit amet",
-    "rating" : 3.5",
+    "rating" : 3.5,
      "countRating" : 32,
     "reviews": [
       {
@@ -37,7 +39,7 @@ class VetsRepo{
     "experienceYears": 8,
     "image": "https://previews.123rf.com/images/edhar/edhar1112/edhar111200367/11480871-senior-handsome-man-doctor.jpg",
     "pio": "Consectetur adipiscing elit",
-    "rating" : 4.5",
+    "rating" : 4.5,
     "countRating" : 20,
     "reviews": [
       {
@@ -55,11 +57,13 @@ class VetsRepo{
     ]
   }
 ]
+}
 ''';
 
     Map<String, dynamic> jsonResponse = jsonDecode(response);
-    List jsonItems = jsonResponse["articles"];
-    List<MainVetsModel> vets = jsonItems.map((e) => MainVetsModel.fromJson(e)).toList();
+    List jsonItems = jsonResponse["vets"];
+    List<MainVetsModel> vets =
+        jsonItems.map((e) => MainVetsModel.fromJson(e)).toList();
     return vets;
   }
 }

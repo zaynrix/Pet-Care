@@ -12,7 +12,11 @@ class VetsScreen extends StatelessWidget {
       body: Padding(
           padding: AppPadding.p24.paddingHorizontal,
           child: GetBuilder<VetsController>(
-            builder: (VetsController controller) => ListView.builder(
+            builder: (VetsController controller) =>
+                controller.isLoading == true ? const Center(
+                    child: LoadingStatusWidget(loadingStatus: LoadingStatusOption.loading,)
+                ) :
+                ListView.builder(
               shrinkWrap: true,
                 itemCount: controller.vets.length,
                 itemBuilder: (context, index) {

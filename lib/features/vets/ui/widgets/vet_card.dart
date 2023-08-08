@@ -11,6 +11,7 @@ class VetCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: AppSize.s16.marginBottom,
       decoration: BoxDecoration(
           color: ColorManager.white,
           borderRadius: AppSize.s16.circularRadius,

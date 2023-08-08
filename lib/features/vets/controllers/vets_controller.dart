@@ -1,6 +1,7 @@
 part of vets_module;
 class VetsController extends GetxController{
-  final VetsRepo repo = sl<VetsRepo>();
+ VetsController({required this.repo});
+  final VetsRepo repo ;
   List<MainVetsModel> vets = [];
   bool isLoading = false;
 
@@ -10,11 +11,12 @@ class VetsController extends GetxController{
       update();
       Future.delayed(const Duration(seconds: 2), () async {
         vets = await repo.getVetsRepo();
+        isLoading = false;
         update();
       }) ;
   } catch (e) {
       isLoading = false;
-      debugPrint("$e");
+      debugPrint("This is inside catch $e");
       update();
     }
   }

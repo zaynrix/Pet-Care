@@ -112,15 +112,22 @@ class RoutsGenerate {
       case RouteGenerator.successAddPatScreen:
         return MaterialPageRoute(builder: (_) => const SuccessAddPatScreen());
       case RouteGenerator.editPetInfo:
-        return MaterialPageRoute(builder: (_) => const EditPetInfo());
+        return MaterialPageRoute(builder: (_) {
+          return const EditPetInfo();
+        });
       case RouteGenerator.findArticle:
         return MaterialPageRoute(
-            builder: (_) => ChangeNotifierProvider.value(
-                value: sl<ArticleController>(), child: const FindArticle()));
+            builder: (_) {
+              initArticle();
+              return ChangeNotifierProvider.value(
+                value: sl<ArticleController>(), child: const FindArticle());});
       case RouteGenerator.addNewLocation:
         return MaterialPageRoute(builder: (_) => AddNewAddressScreen());
       case RouteGenerator.findVet:
-        return MaterialPageRoute(builder: (_) => const VetsScreen());
+        return MaterialPageRoute(builder: (_) {
+          initVets();
+          return const VetsScreen();
+        });
       default:
         throw const FormatException("Route not found");
     }
