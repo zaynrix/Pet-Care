@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pet_care/features/auth/auth_contoller/auth_provider.dart';
 import 'package:pet_care/features/home/controllers/home_provider.dart';
+import 'package:pet_care/features/notification/provider/notification_provider.dart';
 import 'package:pet_care/features/onboarding/core/on_boarding_provider.dart';
 import 'package:pet_care/features/shop/controllers/product_provider.dart';
 import 'package:pet_care/locator.dart';
@@ -23,6 +24,7 @@ Future<void> main() async {
   // HiveService.initHive();
   await ScreenUtil.ensureScreenSize();
   await init();
+  sl<NotificationProvider>().initNotification();
   sl<AppConfig>().loadData();
 
   runApp(const MyApp());
@@ -39,6 +41,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider.value(value: sl<ProductProvider>()),
         ChangeNotifierProvider.value(value: sl<AuthProvider>()),
         ChangeNotifierProvider.value(value: sl<HomeProvider>()),
+        ChangeNotifierProvider.value(value: sl<NotificationProvider>()),
       ],
       child: ScreenUtilInit(
         designSize: const Size(375, 815),

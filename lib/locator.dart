@@ -13,6 +13,7 @@ import 'package:pet_care/features/home/controllers/search_provider.dart';
 import 'package:pet_care/features/home/repositories/home_repo.dart';
 import 'package:pet_care/features/location/controller/address_provider.dart';
 import 'package:pet_care/features/location/repositories/address_repositories.dart';
+import 'package:pet_care/features/notification/provider/notification_provider.dart';
 import 'package:pet_care/features/pets/pets_module.dart';
 import 'package:pet_care/features/shop/controllers/card_provider.dart';
 import 'package:pet_care/features/shop/controllers/order_Inforamtion_provider.dart';
@@ -48,7 +49,9 @@ Future<void> init() async {
   sl.registerLazySingleton(() => AuthRepo(client: sl<DioClient>()));
   sl.registerLazySingleton(() => ProductProvider());
   sl.registerLazySingleton(() => ProductRepository());
-  sl.registerLazySingleton(() => HomeProvider());
+  sl.registerLazySingleton(
+    () => HomeProvider(),
+  );
   sl.registerLazySingleton(() => HomeRepository());
   sl.registerLazySingleton(() => SearchProvider());
   sl.registerLazySingleton(() => AddressProvider());
@@ -61,4 +64,6 @@ Future<void> init() async {
   sl.registerLazySingleton(() => PetRepo());
   sl.registerLazySingleton(() => AppConfig());
   sl.registerLazySingleton(() => PetsController(petRepo: sl<PetRepo>()));
+
+  sl.registerLazySingleton(() => NotificationProvider());
 }

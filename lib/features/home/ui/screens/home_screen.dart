@@ -9,11 +9,17 @@ class HomeScreen extends StatefulWidget {
 
 // PR request
 class _HomeScreenState extends State<HomeScreen> {
+  var dataaa = sl<HomeProvider>();
+
   @override
   void initState() {
+    super.initState();
+    print(" Befor sl HomeProvider/HomeScreen ${dataaa.hashCode}");
+
     sl<HomeProvider>().getPetsProvider();
     sl<HomeProvider>().getVetsProvider();
     sl<ProductProvider>().getPetShopProvider();
+    print("After  sl HomeProvider/HomeScreen ${dataaa.hashCode}");
   }
 
   final reminderController = Get.put(ReminderController(), permanent: true);

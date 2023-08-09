@@ -16,13 +16,27 @@ class MainScreenApp extends StatefulWidget {
 }
 
 class _MainScreenAppState extends State<MainScreenApp> {
+  var dataaa = sl<HomeProvider>();
+
   @override
   void initState() {
+    super.initState();
+    sl<NotificationProvider>().allowNotificationsWidget();
+    print("initState sl HomeProvider/MainScreenApp ${dataaa.hashCode}");
     sl<HomeProvider>().getPetsProvider();
+    sl.resetLazySingleton(instance: dataaa);
+    // sl.reset(dispose: true);
+  }
+
+  @override
+  void dispose() {
+    sl<NotificationProvider>().disposeNotifications();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    print("sl HomeProvider/MainScreenApp/build ${dataaa.hashCode}");
     return Consumer<HomeProvider>(
       builder: (context, controller, child) => Scaffold(
         bottomNavigationBar: BottomNavigationBar(
@@ -46,11 +60,10 @@ class _MainScreenAppState extends State<MainScreenApp> {
                     ? IconAssets.shopSelected
                     : IconAssets.unSelectedCart)),
             BottomNavigationBarItem(
-
-              label:"pets",
-              icon: SvgPicture.asset(controller.selectedScreen == 2 ? IconAssets.petsSelected : IconAssets.unSelectedPets)
-            ),
-
+                label: "pets",
+                icon: SvgPicture.asset(controller.selectedScreen == 2
+                    ? IconAssets.petsSelected
+                    : IconAssets.unSelectedPets)),
             BottomNavigationBarItem(
                 label: "reminder",
                 icon: SvgPicture.asset(controller.selectedScreen == 3
