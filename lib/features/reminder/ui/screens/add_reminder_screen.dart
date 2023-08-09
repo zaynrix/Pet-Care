@@ -81,15 +81,7 @@ class _AddReminderScreenState extends State<AddReminderScreen> {
                       ElevatedButton(
                           onPressed: () async {
                             if (formKye.currentState!.validate()) {
-                              reminderController.createReminder();
-                              NotificationWeekAndTime? pickedSchedule =
-                                  await pickSchedule(context);
-
-                              if (pickedSchedule != null) {
-                                sl<NotificationProvider>()
-                                    .createWaterReminderNotification(
-                                        pickedSchedule);
-                              }
+                              reminderController.createReminder(context);
                             }
                           },
                           child: const Text("Save"))

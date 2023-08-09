@@ -46,8 +46,8 @@ class ChooseTimeSheet extends StatelessWidget {
 
                               reminderController.selectHour(hour);
                             },
-                            maxValue: 24,
-                            minValue: 1,
+                            maxValue: 23,
+                            minValue: 0,
                             initValue: ReminderController.selectedHour,
                             selectTextStyle: h2Bold,
                             unSelectTextStyle: h2Bold.copyWith(

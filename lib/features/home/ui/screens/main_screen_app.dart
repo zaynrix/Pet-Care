@@ -21,7 +21,70 @@ class _MainScreenAppState extends State<MainScreenApp> {
   @override
   void initState() {
     super.initState();
-    sl<NotificationProvider>().allowNotificationsWidget();
+    AwesomeNotifications().isNotificationAllowed().then((isAllowed) {
+      if (!isAllowed) {
+        showDialog(
+          context: RouteService.serviceNavi.navKey.currentContext!,
+          builder: (context) => AlertDialog(
+            title: const Text('Allow Notifications'),
+            content: const Text('Our app would like to send you notifications'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text(
+                  'Don\'t Allow',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+              TextButton(
+                  onPressed: () => AwesomeNotifications()
+                      .requestPermissionToSendNotifications()
+                      .then((_) => Navigator.pop(context)),
+                  child: const Text(
+                    'Allow',
+                    style: TextStyle(
+                      color: Colors.teal,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ))
+            ],
+          ),
+        );
+      }
+    });
+
+    AwesomeNotifications().createdStream.listen((notification) {
+      ScaffoldMessenger.of(RouteService.serviceNavi.navKey.currentContext!)
+          .showSnackBar(SnackBar(
+        content: Text(
+          'Notification Created on ${notification.channelKey}',
+        ),
+      ));
+    });
+
+    AwesomeNotifications().actionStream.listen((notification) {
+      if (notification.channelKey == 'basic_channel' && Platform.isIOS) {
+        AwesomeNotifications().getGlobalBadgeCounter().then(
+              (value) =>
+                  AwesomeNotifications().setGlobalBadgeCounter(value - 1),
+            );
+      }
+
+      // Navigator.pushAndRemoveUntil(
+      //   context,
+      //   MaterialPageRoute(
+      //     builder: (_) => const PlantStatsPage(),
+      //   ),
+      //   (route) => route.isFirst,
+      // );
+    });
+    // sl<NotificationProvider>().allowNotificationsWidget();
     print("initState sl HomeProvider/MainScreenApp ${dataaa.hashCode}");
     sl<HomeProvider>().getPetsProvider();
     sl.resetLazySingleton(instance: dataaa);

@@ -1,3 +1,4 @@
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,6 +26,28 @@ Future<void> main() async {
   await ScreenUtil.ensureScreenSize();
   await init();
   sl<NotificationProvider>().initNotification();
+  AwesomeNotifications().initialize(
+    'resource://drawable/ic_launcher',
+    [
+      NotificationChannel(
+        channelKey: 'basic_channel',
+        channelName: 'Basic Notifications',
+        defaultColor: Colors.teal,
+        importance: NotificationImportance.High,
+        channelShowBadge: true,
+        channelDescription: '',
+      ),
+      NotificationChannel(
+        channelKey: 'scheduled_channel',
+        channelName: 'Scheduled Notifications',
+        defaultColor: Colors.teal,
+        locked: true,
+        importance: NotificationImportance.High,
+        // soundSource: 'resource://raw/ic_launcher',
+        channelDescription: '',
+      ),
+    ],
+  );
   sl<AppConfig>().loadData();
 
   runApp(const MyApp());

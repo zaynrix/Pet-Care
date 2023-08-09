@@ -65,5 +65,5 @@ Future<void> init() async {
   sl.registerLazySingleton(() => AppConfig());
   sl.registerLazySingleton(() => PetsController(petRepo: sl<PetRepo>()));
 
-  sl.registerLazySingleton(() => NotificationProvider());
+  sl.registerLazySingleton(() => NotificationProvider()..initNotification());
 }
