@@ -4,7 +4,6 @@ import 'package:pet_care/data/local_data/storage_service.dart';
 import 'package:pet_care/locator.dart';
 import 'package:pet_care/utils/enums.dart';
 import 'package:pet_care/utils/helper.dart';
-import 'package:connectivity/connectivity.dart';
 
 class DioInterceptor extends Interceptor {
   @override
@@ -16,11 +15,6 @@ class DioInterceptor extends Interceptor {
     super.onRequest(options, handler);
   }
 
-  @override
-  void onResponse(Response response, ResponseInterceptorHandler handler) {
-    // TODO: implement onResponse
-    super.onResponse(response, handler);
-  }
 
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {

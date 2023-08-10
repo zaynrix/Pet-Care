@@ -5,7 +5,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:hive/hive.dart';
 import 'package:pet_care/common_widgets/common_widgets.dart';
 import 'package:pet_care/features/add_pet/add_pet_ui/add_pet_widgets/add_pet_widgets.dart';
 import 'package:pet_care/locator.dart';

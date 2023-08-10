@@ -13,8 +13,8 @@ import 'package:pet_care/resources/styles_manager.dart';
 import 'package:pet_care/resources/values_manager.dart';
 import 'package:pet_care/utils/enums.dart';
 import 'package:pet_care/utils/extension/responsive_extension.dart';
-
 part 'ui/screens/vets_screen.dart';
 part 'repositories/vets_repo.dart';
 part 'ui/widgets/vet_card.dart';
 part 'controllers/vets_controller.dart';
+part 'ui/screens/vet_details.dart';

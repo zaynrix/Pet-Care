@@ -1,7 +1,7 @@
 part of add_pet_module;
 
 class MainAppPetScreen extends StatefulWidget {
-   MainAppPetScreen({Key? key}) : super(key: key);
+   const MainAppPetScreen({Key? key}) : super(key: key);
 
   @override
   State<MainAppPetScreen> createState() => _MainAppPetScreenState();

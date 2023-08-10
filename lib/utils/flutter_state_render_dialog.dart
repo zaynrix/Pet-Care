@@ -1,4 +1,3 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -24,11 +23,11 @@ void showCustomDialog() {
   _overlayEntry = OverlayEntry(
     builder: (BuildContext context) {
       return AlertDialog(
-        title: Text('My Dialog'),
-        content: Text('This is a custom dialog.'),
+        title: const Text('My Dialog'),
+        content: const Text('This is a custom dialog.'),
         actions: [
           ElevatedButton(
-            child: Text('Close'),
+            child: const Text('Close'),
             onPressed: () {
               _overlayEntry?.remove();
             },
@@ -37,7 +36,7 @@ void showCustomDialog() {
       );
     },
   );
-  overlayState?.insert(_overlayEntry!);
+  overlayState.insert(_overlayEntry!);
 }
 
 // void showCustomDialog() {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pet_care/features/auth/auth_contoller/auth_provider.dart';
@@ -15,16 +14,8 @@ import 'package:provider/provider.dart';
 
 // Commit PR
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
-  // HiveService.initHive();
-  await ScreenUtil.ensureScreenSize();
   await init();
   sl<AppConfig>().loadData();
-
   runApp(const MyApp());
 }
 
@@ -47,6 +38,7 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           theme: ThemeManager.lightTheme,
           scaffoldMessengerKey: Helpers.scaffoldKey,
+          // home: const VetsScreen(),
           initialRoute: RouteGenerator.splashScreen,
           navigatorKey: RouteService.serviceNavi.navKey,
           onGenerateRoute: RoutsGenerate.generateRoute,
@@ -55,6 +47,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-// yahya@gmail.com
-// mM123456789$

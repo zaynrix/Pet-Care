@@ -68,7 +68,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       Padding(
                         padding: 24.paddingLeft,
                         child: ListView.separated(
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: instance.discoverList.length,
                           separatorBuilder: (context, index) => const Divider(),

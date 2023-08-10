@@ -85,6 +85,7 @@ initPets(){
     sl.registerLazySingleton(() => ArticleController());
   }
 }
+
 initArticle() {
   if (!sl.isRegistered<ArticleRepo>()) {
     sl.registerLazySingleton(() => ArticleRepo());

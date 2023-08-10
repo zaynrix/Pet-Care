@@ -12,7 +12,6 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pet_care/common_widgets/common_widgets.dart';
 import 'package:pet_care/common_widgets/custom_circularProgressIndicator.dart';
-import 'package:pet_care/features/auth/auth_ui/screens/auth_module.dart';
 import 'package:pet_care/features/shop/controllers/card_provider.dart';
 import 'package:pet_care/features/shop/controllers/order_Inforamtion_provider.dart';
 import 'package:pet_care/features/shop/controllers/product_provider.dart';

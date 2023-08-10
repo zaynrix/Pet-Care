@@ -1,7 +1,7 @@
 part of profile_module;
 
 class AppointmentsScreen extends StatefulWidget {
-   AppointmentsScreen({Key? key}) : super(key: key);
+   const AppointmentsScreen({Key? key}) : super(key: key);
 
   @override
   State<AppointmentsScreen> createState() => _AppointmentsScreenState();

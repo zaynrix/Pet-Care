@@ -6,7 +6,7 @@ class MainScreenApp extends StatefulWidget {
   static final List<Widget> _pages = <Widget>[
     const HomeScreen(),
     const MainShopScreen(),
-    PetsScreen(),
+    const PetsScreen(),
     ReminderScreen(),
     ProfileScreen(),
   ];
@@ -18,6 +18,7 @@ class MainScreenApp extends StatefulWidget {
 class _MainScreenAppState extends State<MainScreenApp> {
   @override
   void initState() {
+    super.initState();
     sl<HomeProvider>().getPetsProvider();
   }
 
