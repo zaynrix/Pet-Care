@@ -1,11 +1,16 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
 import 'package:pet_care/data/local_data/storage_service.dart';
 import 'package:pet_care/data/remote-data/base_client.dart';
 import 'package:pet_care/data/remote-data/end_point.dart';
 import 'package:pet_care/data/remote-data/interceptors/logger_interceptor.dart';
 import 'package:pet_care/features/add_pet/add_pet_controller/add_pet_controller.dart';
+import 'package:pet_care/features/article/article_module.dart';
 import 'package:pet_care/features/auth/auth_contoller/auth_provider.dart';
 import 'package:pet_care/features/auth/auth_repo/auth_repo.dart';
 import 'package:pet_care/features/home/controllers/home_provider.dart';
@@ -13,21 +18,16 @@ import 'package:pet_care/features/home/controllers/search_provider.dart';
 import 'package:pet_care/features/home/repositories/home_repo.dart';
 import 'package:pet_care/features/location/controller/address_provider.dart';
 import 'package:pet_care/features/location/repositories/address_repositories.dart';
+import 'package:pet_care/features/notification/provider/notification_provider.dart';
 import 'package:pet_care/features/pets/pets_module.dart';
 import 'package:pet_care/features/shop/controllers/card_provider.dart';
 import 'package:pet_care/features/shop/controllers/order_Inforamtion_provider.dart';
 import 'package:pet_care/features/shop/controllers/product_provider.dart';
 import 'package:pet_care/features/shop/repositories/product_repository.dart';
+import 'package:pet_care/features/vets/vets_module.dart';
 import 'package:pet_care/resources/size_config.dart';
 import 'package:pet_care/utils/app_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:pet_care/features/notification/provider/notification_provider.dart';
-import 'package:pet_care/features/article/article_module.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-import 'package:pet_care/features/vets/vets_module.dart';
 
 import 'data/remote-data/interceptors/dio_interceptor.dart';
 
@@ -80,7 +80,7 @@ Future<void> init() async {
   // sl.unregister<ArticleController>();
 }
 
-initPets(){
+initPets() {
   if (!sl.isRegistered<ArticleRepo>()) {
     sl.registerLazySingleton(() => PetRepo());
   }
@@ -88,6 +88,7 @@ initPets(){
     sl.registerLazySingleton(() => ArticleController());
   }
 }
+
 initArticle() {
   if (!sl.isRegistered<ArticleRepo>()) {
     sl.registerLazySingleton(() => ArticleRepo());
