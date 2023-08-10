@@ -75,8 +75,8 @@ class NotificationProvider extends ChangeNotifier {
     );
   }
 
-  void allowNotificationsWidget() {
-    sl<AwesomeNotifications>().isNotificationAllowed().then((isAllowed) {
+  Future allowNotificationsWidget() async {
+    await sl<AwesomeNotifications>().isNotificationAllowed().then((isAllowed) {
       if (!isAllowed) {
         showDialog(
           context: RouteService.serviceNavi.navKey.currentContext!,
@@ -114,7 +114,7 @@ class NotificationProvider extends ChangeNotifier {
       }
     });
 
-    sl<AwesomeNotifications>().actionStream.listen((notification) {
+    await sl<AwesomeNotifications>().actionStream.listen((notification) {
       if (notification.channelKey == 'basic_channel' && Platform.isIOS) {
         sl<AwesomeNotifications>().getGlobalBadgeCounter().then(
               (value) =>

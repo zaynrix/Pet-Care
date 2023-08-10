@@ -65,9 +65,8 @@ class ChooseTimeSheet extends StatelessWidget {
                               debugPrint("minutes $minute");
                             },
                             maxValue: 60,
-                            minValue: 1,
+                            minValue: 0,
                             initValue: ReminderController.selectedMinute,
-                            // itemSize: 70,
                             selectTextStyle: h2Bold,
                             unSelectTextStyle: h3Medium2),
                       ),
@@ -79,13 +78,15 @@ class ChooseTimeSheet extends StatelessWidget {
                 width: Get.width * 1,
                 height: Get.height * 0.09,
                 decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: const Alignment(0, 1),
-                        end: const Alignment(0.00, -1.00),
-                        colors: [
+                  gradient: LinearGradient(
+                    begin: const Alignment(0, 1),
+                    end: const Alignment(0.00, -1.00),
+                    colors: [
                       ColorManager.white.withOpacity(0),
                       ColorManager.white
-                    ])),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),
