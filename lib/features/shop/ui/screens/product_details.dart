@@ -154,12 +154,12 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                 decorator: DotsDecorator(
                                   activeColor: ColorManager.primary,
                                   color: ColorManager.gray,
-                                  activeSize: Size(12.0, 12.0),
+                                  activeSize: const Size(12.0, 12.0),
                                   activeShape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(6.0),
                                   ),
-                                  size: Size(8.0, 8.0),
-                                  spacing: EdgeInsets.all(4.0),
+                                  size: const Size(8.0, 8.0),
+                                  spacing: const EdgeInsets.all(4.0),
                                 ),
                               ),
                             ),

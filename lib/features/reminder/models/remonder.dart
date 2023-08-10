@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:pet_care/utils/helper.dart';
 part 'remonder.g.dart';
 
 @HiveType(typeId: 1)

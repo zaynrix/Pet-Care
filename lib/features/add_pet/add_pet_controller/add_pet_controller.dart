@@ -160,11 +160,6 @@ Future<dynamic> pickImage() async {
 
   }
 
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-  }
 
   disposeData(){
     currantPage = 0;
