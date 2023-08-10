@@ -1,3 +1,4 @@
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -53,7 +54,10 @@ Future<void> init() async {
   //--------------------------- Setup Secure Storage -------------------------------
 
   final sharedPreferences = await SharedPreferences.getInstance();
+  final awesomeNotifications = AwesomeNotifications();
+  ;
   sl.registerLazySingleton(() => StorageService(sharedPreferences));
+  sl.registerLazySingleton(() => awesomeNotifications);
 
   sl.registerLazySingleton(() => DioClient(client: client));
   sl.registerLazySingleton(() => SizeConfig());
