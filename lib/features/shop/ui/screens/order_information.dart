@@ -1,7 +1,7 @@
 part of shop_screens;
 
 class OrderInformationScreen extends StatefulWidget {
-  OrderInformationScreen({super.key});
+  const OrderInformationScreen({super.key});
 
   @override
   State<OrderInformationScreen> createState() => _OrderInformationScreenState();

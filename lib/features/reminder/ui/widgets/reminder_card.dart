@@ -1,6 +1,6 @@
 part of reminder_module;
 class ReminderCard extends StatelessWidget {
-  ReminderCard({
+  const ReminderCard({
     required this.date,
     required this.deleteReminder,
     required this.title,
@@ -142,13 +142,13 @@ class ReminderCardSub extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        title + "wwwwwwwwwwwwwdwdw",
+                        "${title}wwwwwwwwwwwwwdwdw",
                         style: bodyMedium,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
                       Text(
-                        description + "wwwwwwwwwwwwwdwdw",
+                        "${description}wwwwwwwwwwwwwdwdw",
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: footNoteRegular(

@@ -5,7 +5,7 @@ class RatingStars extends StatelessWidget {
   final double rating;
   final double size;
 
-  RatingStars({required this.rating, this.size = 14});
+  const RatingStars({required this.rating, this.size = 14});
 
   @override
   Widget build(BuildContext context) {

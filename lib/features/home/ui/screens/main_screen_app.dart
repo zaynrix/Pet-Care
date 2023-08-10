@@ -6,7 +6,7 @@ class MainScreenApp extends StatefulWidget {
   static final List<Widget> _pages = <Widget>[
     const HomeScreen(),
     const MainShopScreen(),
-    PetsScreen(),
+    const PetsScreen(),
     ReminderScreen(),
     ProfileScreen(),
   ];
@@ -21,6 +21,7 @@ class _MainScreenAppState extends State<MainScreenApp> {
   @override
   void initState() {
     super.initState();
+
     AwesomeNotifications().isNotificationAllowed().then((isAllowed) {
       if (!isAllowed) {
         showDialog(
@@ -86,6 +87,7 @@ class _MainScreenAppState extends State<MainScreenApp> {
     });
     // sl<NotificationProvider>().allowNotificationsWidget();
     print("initState sl HomeProvider/MainScreenApp ${dataaa.hashCode}");
+    
     sl<HomeProvider>().getPetsProvider();
     sl.resetLazySingleton(instance: dataaa);
     // sl.reset(dispose: true);

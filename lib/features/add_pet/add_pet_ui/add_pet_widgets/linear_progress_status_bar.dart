@@ -13,7 +13,7 @@ class LinearProgressStatusBar extends StatelessWidget {
           height: 6,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
-              color: const Color(0xFF3232321A),
+              color: const Color(0xff3232321a),
               borderRadius: BorderRadius.circular(AppSize.s50)),
         ),
         GetBuilder<AddPetController>(
