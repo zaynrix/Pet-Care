@@ -38,10 +38,9 @@ class MyApp extends StatelessWidget {
         designSize: const Size(375, 815),
         builder: (BuildContext context, Widget? child) => GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
+          title: 'Pet Care',
           theme: ThemeManager.lightTheme,
           scaffoldMessengerKey: Helpers.scaffoldKey,
-          // home: const VetsScreen(),
           initialRoute: RouteGenerator.splashScreen,
           navigatorKey: RouteService.serviceNavi.navKey,
           onGenerateRoute: RoutsGenerate.generateRoute,
