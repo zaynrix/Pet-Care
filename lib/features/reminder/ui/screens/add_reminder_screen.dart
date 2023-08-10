@@ -79,9 +79,9 @@ class _AddReminderScreenState extends State<AddReminderScreen> {
                       ),
                       (Get.width * 0.2).addVerticalSpace,
                       ElevatedButton(
-                          onPressed: () {
+                          onPressed: () async {
                             if (formKye.currentState!.validate()) {
-                              reminderController.createReminder();
+                              reminderController.createReminder(context);
                             }
                           },
                           child: const Text("Save"))

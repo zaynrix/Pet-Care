@@ -16,13 +16,90 @@ class MainScreenApp extends StatefulWidget {
 }
 
 class _MainScreenAppState extends State<MainScreenApp> {
+  var dataaa = sl<HomeProvider>();
+
   @override
   void initState() {
+    super.initState();
+    AwesomeNotifications().isNotificationAllowed().then((isAllowed) {
+      if (!isAllowed) {
+        showDialog(
+          context: RouteService.serviceNavi.navKey.currentContext!,
+          builder: (context) => AlertDialog(
+            title: const Text('Allow Notifications'),
+            content: const Text('Our app would like to send you notifications'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text(
+                  'Don\'t Allow',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+              TextButton(
+                  onPressed: () => AwesomeNotifications()
+                      .requestPermissionToSendNotifications()
+                      .then((_) => Navigator.pop(context)),
+                  child: const Text(
+                    'Allow',
+                    style: TextStyle(
+                      color: Colors.teal,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ))
+            ],
+          ),
+        );
+      }
+    });
+// pr
+    AwesomeNotifications().createdStream.listen((notification) {
+      ScaffoldMessenger.of(RouteService.serviceNavi.navKey.currentContext!)
+          .showSnackBar(SnackBar(
+        content: Text(
+          'Notification Created on ${notification.channelKey}',
+        ),
+      ));
+    });
+
+    AwesomeNotifications().actionStream.listen((notification) {
+      if (notification.channelKey == 'basic_channel' && Platform.isIOS) {
+        AwesomeNotifications().getGlobalBadgeCounter().then(
+              (value) =>
+                  AwesomeNotifications().setGlobalBadgeCounter(value - 1),
+            );
+      }
+
+      // Navigator.pushAndRemoveUntil(
+      //   context,
+      //   MaterialPageRoute(
+      //     builder: (_) => const PlantStatsPage(),
+      //   ),
+      //   (route) => route.isFirst,
+      // );
+    });
+    // sl<NotificationProvider>().allowNotificationsWidget();
+    print("initState sl HomeProvider/MainScreenApp ${dataaa.hashCode}");
     sl<HomeProvider>().getPetsProvider();
+    sl.resetLazySingleton(instance: dataaa);
+    // sl.reset(dispose: true);
+  }
+
+  @override
+  void dispose() {
+    sl<NotificationProvider>().disposeNotifications();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    print("sl HomeProvider/MainScreenApp/build ${dataaa.hashCode}");
     return Consumer<HomeProvider>(
       builder: (context, controller, child) => Scaffold(
         bottomNavigationBar: BottomNavigationBar(
@@ -46,11 +123,10 @@ class _MainScreenAppState extends State<MainScreenApp> {
                     ? IconAssets.shopSelected
                     : IconAssets.unSelectedCart)),
             BottomNavigationBarItem(
-
-              label:"pets",
-              icon: SvgPicture.asset(controller.selectedScreen == 2 ? IconAssets.petsSelected : IconAssets.unSelectedPets)
-            ),
-
+                label: "pets",
+                icon: SvgPicture.asset(controller.selectedScreen == 2
+                    ? IconAssets.petsSelected
+                    : IconAssets.unSelectedPets)),
             BottomNavigationBarItem(
                 label: "reminder",
                 icon: SvgPicture.asset(controller.selectedScreen == 3

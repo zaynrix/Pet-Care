@@ -73,13 +73,22 @@ dependencies:
   connectivity: ^3.0.6
   shared_preferences: ^2.2.0
   cached_network_image: ^3.2.3
+  awesome_notifications: ^0.6.19
 #  flutter_state_render_dialog: ^1.0.3
-
+  flutter_local_notifications:
+  rename: ^2.1.1
+  flutter_launcher_icons: ^0.13.1
 dev_dependencies:
   integration_test:
     sdk: flutter
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/app_icon.jpeg"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

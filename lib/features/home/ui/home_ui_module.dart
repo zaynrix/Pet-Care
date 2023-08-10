@@ -1,6 +1,8 @@
 library home_ui_module;
 
-import 'package:cached_network_image/cached_network_image.dart';
+import 'dart:io';
+
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,6 +16,7 @@ import 'package:pet_care/features/home/models/vets_model.dart';
 import 'package:pet_care/features/home/widgets/article_card.dart';
 import 'package:pet_care/features/home/widgets/star_rating_widget.dart';
 import 'package:pet_care/features/home/widgets/vet_card.dart';
+import 'package:pet_care/features/notification/provider/notification_provider.dart';
 import 'package:pet_care/features/profile/profile_module.dart';
 import 'package:pet_care/features/reminder/reminder_module.dart';
 import 'package:pet_care/features/shop/controllers/product_provider.dart';
