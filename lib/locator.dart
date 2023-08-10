@@ -18,6 +18,7 @@ import 'package:pet_care/features/home/controllers/search_provider.dart';
 import 'package:pet_care/features/home/repositories/home_repo.dart';
 import 'package:pet_care/features/location/controller/address_provider.dart';
 import 'package:pet_care/features/location/repositories/address_repositories.dart';
+import 'package:pet_care/features/notification/provider/notification_provider.dart';
 import 'package:pet_care/features/pets/pets_module.dart';
 import 'package:pet_care/features/shop/controllers/card_provider.dart';
 import 'package:pet_care/features/shop/controllers/order_Inforamtion_provider.dart';
@@ -73,11 +74,13 @@ Future<void> init() async {
   sl.registerLazySingleton(() => PetRepo());
   sl.registerLazySingleton(() => AppConfig());
   sl.registerLazySingleton(() => PetsController(petRepo: sl<PetRepo>()));
+  sl.registerLazySingleton(() => NotificationProvider()..initNotification());
+
   // sl.registerLazySingleton(() => VetsRepo());
   // sl.unregister<ArticleController>();
 }
 
-initPets(){
+initPets() {
   if (!sl.isRegistered<ArticleRepo>()) {
     sl.registerLazySingleton(() => PetRepo());
   }
@@ -99,9 +102,9 @@ disposeArticle() {
   if (sl.isRegistered<ArticleRepo>()) {
     sl.unregister<ArticleRepo>();
   }
- if (sl.isRegistered<ArticleController>()) {
-   sl.unregister<ArticleController>();
- }
+  if (sl.isRegistered<ArticleController>()) {
+    sl.unregister<ArticleController>();
+  }
 }
 
 initVets() {

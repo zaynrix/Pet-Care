@@ -116,23 +116,37 @@ class ReminderController extends GetxController {
     debugPrint(currentTimeFormat);
   }
 
-  
-
 //----------------------------- Create New Reminder ----------------------------------
 
-  createReminder() {
-    reminderBox!.add(ReminderModel(
-        title: titleController.text,
-        id: createUniqueId(),
-        createdAtDate: currantDate,
-        createdAtTime: convertToDateTime(currentTimeFormat),
-        isDone: false,
-        type: selectedReminderType,
-        description: descriptionController.text));
+  createReminder(context) {
+    final reminder = ReminderModel(
+      title: titleController.text,
+      id: createUniqueId(),
+      createdAtDate: currantDate,
+      createdAtTime: convertToDateTime(currentTimeFormat),
+      isDone: false,
+      type: selectedReminderType,
+      description: descriptionController.text,
+    );
+    reminderBox!.add(reminder);
+
+    createNotification(context, reminder);
     update();
     RouteService.serviceNavi.pop();
     titleController.clear();
     descriptionController.clear();
+  }
+
+  createNotification(context, ReminderModel reminderModel) async {
+    final notificationSchedule = NotificationWeekAndTime(
+      dayOfTheWeek: 1 | 2 | 3 | 4 | 5 | 6 | 7,
+      timeOfDay: TimeOfDay(hour: selectedHour, minute: selectedMinute),
+    );
+
+    await sl<NotificationProvider>().createWaterReminderNotification(
+      notificationSchedule,
+      reminderModel,
+    );
   }
 
   //----------------------------- Delete Reminder ----------------------------------
