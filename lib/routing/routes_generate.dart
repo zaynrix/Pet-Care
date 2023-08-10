@@ -29,7 +29,7 @@ class RoutsGenerate {
       case RouteGenerator.orderSuccess:
         return MaterialPageRoute(builder: (_) => const OrderSuccess());
       case RouteGenerator.editProfileScreen:
-        return MaterialPageRoute(builder: (_) => EditProfileScreen());
+        return MaterialPageRoute(builder: (_) => const EditProfileScreen());
       case RouteGenerator.paymentMethodScreen:
         return MaterialPageRoute(builder: (_) => PaymentMethodsScreen());
       case RouteGenerator.addressScreen:
@@ -97,7 +97,7 @@ class RoutsGenerate {
       case RouteGenerator.splashScreen:
         return MaterialPageRoute(
           builder: (_) {
-            return SplashScreen();
+            return const SplashScreen();
           },
         );
 
@@ -112,9 +112,22 @@ class RoutsGenerate {
       case RouteGenerator.successAddPatScreen:
         return MaterialPageRoute(builder: (_) => const SuccessAddPatScreen());
       case RouteGenerator.editPetInfo:
-        return MaterialPageRoute(builder: (_) => const EditPetInfo());
-
-
+        return MaterialPageRoute(builder: (_) {
+          return const EditPetInfo();
+        });
+      case RouteGenerator.findArticle:
+        return MaterialPageRoute(
+            builder: (_) {
+              initArticle();
+              return ChangeNotifierProvider.value(
+                value: sl<ArticleController>(), child: const FindArticle());});
+      case RouteGenerator.addNewLocation:
+        return MaterialPageRoute(builder: (_) => AddNewAddressScreen());
+      case RouteGenerator.findVet:
+        return MaterialPageRoute(builder: (_) {
+          initVets();
+          return const VetsScreen();
+        });
       default:
         throw const FormatException("Route not found");
     }

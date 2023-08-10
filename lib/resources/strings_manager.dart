@@ -49,4 +49,5 @@ class AppStrings {
   static const chooseYourPetGender = 'Choose Your Pet Gender';
   static const orderPlacedSuccessfullySub =
       'You placed the order successfully. Thanks for using our services.';
+  static const findVets = "Find vets";
 }

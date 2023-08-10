@@ -3,7 +3,7 @@ part of pets_module;
 
 class PetRepo {
   Future<List<PetModel>> getPetsRepo() async {
-    final String response = ''' 
+    const String response = ''' 
     {
     "pets": [
   {

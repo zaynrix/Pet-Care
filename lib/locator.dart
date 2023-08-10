@@ -13,7 +13,6 @@ import 'package:pet_care/features/home/controllers/search_provider.dart';
 import 'package:pet_care/features/home/repositories/home_repo.dart';
 import 'package:pet_care/features/location/controller/address_provider.dart';
 import 'package:pet_care/features/location/repositories/address_repositories.dart';
-import 'package:pet_care/features/notification/provider/notification_provider.dart';
 import 'package:pet_care/features/pets/pets_module.dart';
 import 'package:pet_care/features/shop/controllers/card_provider.dart';
 import 'package:pet_care/features/shop/controllers/order_Inforamtion_provider.dart';
@@ -22,12 +21,25 @@ import 'package:pet_care/features/shop/repositories/product_repository.dart';
 import 'package:pet_care/resources/size_config.dart';
 import 'package:pet_care/utils/app_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:pet_care/features/notification/provider/notification_provider.dart';
+import 'package:pet_care/features/article/article_module.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:pet_care/features/vets/vets_module.dart';
 
 import 'data/remote-data/interceptors/dio_interceptor.dart';
 
 final sl = GetIt.instance;
 
 Future<void> init() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+  await ScreenUtil.ensureScreenSize();
   //---------------------------- Setup Dio Instance --------------------------------
   final client = Dio()
     ..options.baseUrl = Endpoints.baseUrl
@@ -49,9 +61,7 @@ Future<void> init() async {
   sl.registerLazySingleton(() => AuthRepo(client: sl<DioClient>()));
   sl.registerLazySingleton(() => ProductProvider());
   sl.registerLazySingleton(() => ProductRepository());
-  sl.registerLazySingleton(
-    () => HomeProvider(),
-  );
+  sl.registerLazySingleton(() => HomeProvider());
   sl.registerLazySingleton(() => HomeRepository());
   sl.registerLazySingleton(() => SearchProvider());
   sl.registerLazySingleton(() => AddressProvider());
@@ -64,6 +74,49 @@ Future<void> init() async {
   sl.registerLazySingleton(() => PetRepo());
   sl.registerLazySingleton(() => AppConfig());
   sl.registerLazySingleton(() => PetsController(petRepo: sl<PetRepo>()));
-
   sl.registerLazySingleton(() => NotificationProvider()..initNotification());
+
+  // sl.registerLazySingleton(() => VetsRepo());
+  // sl.unregister<ArticleController>();
+}
+
+initPets(){
+  if (!sl.isRegistered<ArticleRepo>()) {
+    sl.registerLazySingleton(() => PetRepo());
+  }
+  if (!Get.isRegistered<ArticleController>()) {
+    sl.registerLazySingleton(() => ArticleController());
+  }
+}
+initArticle() {
+  if (!sl.isRegistered<ArticleRepo>()) {
+    sl.registerLazySingleton(() => ArticleRepo());
+  }
+  if (!sl.isRegistered<ArticleController>()) {
+    sl.registerLazySingleton(() => ArticleController());
+  }
+}
+
+disposeArticle() {
+  if (sl.isRegistered<ArticleRepo>()) {
+    sl.unregister<ArticleRepo>();
+  }
+  if (sl.isRegistered<ArticleController>()) {
+    sl.unregister<ArticleController>();
+  }
+}
+
+initVets() {
+  disposeArticle();
+  if (!sl.isRegistered<VetsRepo>()) {
+    sl.registerLazySingleton(() => VetsRepo());
+  }
+  if (!Get.isRegistered<VetsController>()) {
+    Get.put(VetsController(repo: sl<VetsRepo>()), permanent: true);
+  }
+}
+
+disposeVets() {
+  Get.delete<VetsController>();
+  sl.unregister<VetsRepo>();
 }

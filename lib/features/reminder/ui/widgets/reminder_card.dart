@@ -7,6 +7,7 @@ class ReminderCard extends StatelessWidget {
     required this.createdAt,
     required this.iconPath,
     required this.description,
+    required this.colorSide,
     Key? key,
   }) : super(key: key);
 
@@ -16,6 +17,7 @@ class ReminderCard extends StatelessWidget {
   final String iconPath;
   final void Function(BuildContext)? deleteReminder;
   final String description;
+  final Color colorSide;
 
   @override
   Widget build(BuildContext context) {
@@ -51,10 +53,10 @@ class ReminderCard extends StatelessWidget {
               children: [
                 Container(
                   padding: AppSize.s7.paddingAll,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                       border: Border(
                           left: BorderSide(
-                              color: ColorManager.secondaryLight, width: 2))),
+                              color: colorSide, width: 2))),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -177,3 +179,5 @@ class ReminderCardSub extends StatelessWidget {
     );
   }
 }
+
+

@@ -24,6 +24,7 @@ class RouteGenerator {
 
   static const String mainShopScreen = 'mainShopScreen';
   static const String addNewLocationManual = 'addNewLocationManual';
+  static const String addNewLocation = 'addNewLocation';
   static const String reminderScreen = 'reminderScreen';
   static const String addReminderScreen = 'addReminderScreen';
   static const String homeScreen = 'homeScreen';
@@ -37,4 +38,6 @@ class RouteGenerator {
 
   static const String splashScreen = 'splashScreen';
   static const String loginScreen = 'loginScreen';
+  static const String findArticle = 'findArticle';
+  static const String findVet = 'findVet';
 }
