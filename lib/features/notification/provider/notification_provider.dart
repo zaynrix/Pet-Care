@@ -1,11 +1,16 @@
+import 'dart:io';
+
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:pet_care/features/notification/notification_helper.dart';
 import 'package:pet_care/features/reminder/models/remonder.dart';
+import 'package:pet_care/locator.dart';
+
+import '../../../routing/routing_module.dart';
 
 class NotificationProvider extends ChangeNotifier {
   Future<void> createPlantFoodNotification() async {
-    await AwesomeNotifications().createNotification(
+    await sl<AwesomeNotifications>().createNotification(
       content: NotificationContent(
         id: createUniqueId(),
         channelKey: 'basic_channel',
@@ -21,23 +26,19 @@ class NotificationProvider extends ChangeNotifier {
   Future<void> createWaterReminderNotification(
       NotificationWeekAndTime notificationSchedule,
       ReminderModel reminder) async {
-    await AwesomeNotifications().createNotification(
+    print("${reminder.createdAtTime}");
+    await sl<AwesomeNotifications>().createNotification(
       content: NotificationContent(
-        id: reminder.id, // Use the reminder ID for uniqueness
+        id: reminder.id,
         channelKey: 'scheduled_channel',
-        title:
-            '${Emojis.wheater_droplet} ${reminder.title}', // Use the reminder title
-        body: reminder.description, // Use the reminder description
+        title: '${reminder.title}',
+        body: reminder.description,
         notificationLayout: NotificationLayout.Default,
       ),
-      actionButtons: [
-        NotificationActionButton(
-          key: 'MARK_DONE',
-          label: 'Mark Done',
-        ),
-      ],
       schedule: NotificationCalendar(
-        weekday: notificationSchedule.dayOfTheWeek,
+        year: notificationSchedule.dayOfTheWeek.year,
+        month: notificationSchedule.dayOfTheWeek.month,
+        day: notificationSchedule.dayOfTheWeek.day,
         hour: notificationSchedule.timeOfDay.hour,
         minute: notificationSchedule.timeOfDay.minute,
         second: 0,
@@ -48,81 +49,85 @@ class NotificationProvider extends ChangeNotifier {
   }
 
   Future<void> cancelScheduledNotifications() async {
-    await AwesomeNotifications().cancelAllSchedules();
+    await sl<AwesomeNotifications>().cancelAllSchedules();
   }
 
   void initNotification() {
-    print("initNotification");
+    sl<AwesomeNotifications>().initialize(
+      'resource://drawable/launcher_icon',
+      [
+        NotificationChannel(
+          channelKey: 'basic_channel',
+          channelName: 'Basic Notifications',
+          // defaultColor: Colors.teal,
+          importance: NotificationImportance.High,
+          channelShowBadge: true,
+          channelDescription: '',
+        ),
+        NotificationChannel(
+          channelKey: 'scheduled_channel',
+          channelName: 'Scheduled Notifications',
+          locked: true,
+          importance: NotificationImportance.High,
+          channelDescription: '',
+        ),
+      ],
+    );
   }
 
-  // void allowNotificationsWidget() {
-  //   AwesomeNotifications().isNotificationAllowed().then((isAllowed) {
-  //     if (!isAllowed) {
-  //       showDialog(
-  //         context: RouteService.serviceNavi.navKey.currentContext!,
-  //         builder: (context) => AlertDialog(
-  //           title: const Text('Allow Notifications'),
-  //           content: const Text('Our app would like to send you notifications'),
-  //           actions: [
-  //             TextButton(
-  //               onPressed: () {
-  //                 Navigator.pop(context);
-  //               },
-  //               child: const Text(
-  //                 'Don\'t Allow',
-  //                 style: TextStyle(
-  //                   color: Colors.grey,
-  //                   fontSize: 18,
-  //                 ),
-  //               ),
-  //             ),
-  //             TextButton(
-  //                 onPressed: () => AwesomeNotifications()
-  //                     .requestPermissionToSendNotifications()
-  //                     .then((_) => Navigator.pop(context)),
-  //                 child: const Text(
-  //                   'Allow',
-  //                   style: TextStyle(
-  //                     color: Colors.teal,
-  //                     fontSize: 18,
-  //                     fontWeight: FontWeight.bold,
-  //                   ),
-  //                 ))
-  //           ],
-  //         ),
-  //       );
-  //     }
-  //   });
-  //
-  //   AwesomeNotifications().createdStream.listen((notification) {
-  //     ScaffoldMessenger.of(RouteService.serviceNavi.navKey.currentContext!)
-  //         .showSnackBar(SnackBar(
-  //       content: Text(
-  //         'Notification Created on ${notification.channelKey}',
-  //       ),
-  //     ));
-  //   });
-  //
-  //   AwesomeNotifications().actionStream.listen((notification) {
-  //     if (notification.channelKey == 'basic_channel' && Platform.isIOS) {
-  //       AwesomeNotifications().getGlobalBadgeCounter().then(
-  //             (value) =>
-  //                 AwesomeNotifications().setGlobalBadgeCounter(value - 1),
-  //           );
-  //     }
-  //
-  //     // Navigator.pushAndRemoveUntil(
-  //     //   context,
-  //     //   MaterialPageRoute(
-  //     //     builder: (_) => const PlantStatsPage(),
-  //     //   ),
-  //     //   (route) => route.isFirst,
-  //     // );
-  //   });
-  // }
+  void allowNotificationsWidget() {
+    sl<AwesomeNotifications>().isNotificationAllowed().then((isAllowed) {
+      if (!isAllowed) {
+        showDialog(
+          context: RouteService.serviceNavi.navKey.currentContext!,
+          builder: (context) => AlertDialog(
+            title: const Text('Allow Notifications'),
+            content: const Text('Our app would like to send you notifications'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text(
+                  'Don\'t Allow',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+              TextButton(
+                  onPressed: () => sl<AwesomeNotifications>()
+                      .requestPermissionToSendNotifications()
+                      .then((_) => Navigator.pop(context)),
+                  child: const Text(
+                    'Allow',
+                    style: TextStyle(
+                      color: Colors.teal,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ))
+            ],
+          ),
+        );
+      }
+    });
+
+    sl<AwesomeNotifications>().actionStream.listen((notification) {
+      if (notification.channelKey == 'basic_channel' && Platform.isIOS) {
+        sl<AwesomeNotifications>().getGlobalBadgeCounter().then(
+              (value) =>
+                  sl<AwesomeNotifications>().setGlobalBadgeCounter(value - 1),
+            );
+      }
+      RouteService.serviceNavi
+          .pushNamedAndRemoveUtils(RouteGenerator.mainScreenApp);
+    });
+  }
 
   void disposeNotifications() {
-    AwesomeNotifications().actionSink.close();
-    AwesomeNotifications().createdSink.close();
+    sl<AwesomeNotifications>().actionSink.close();
+    sl<AwesomeNotifications>().createdSink.close();
   }
 }
