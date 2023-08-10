@@ -1,5 +1,6 @@
 library reminder_module;
 
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:date_picker_timeline/date_picker_timeline.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
