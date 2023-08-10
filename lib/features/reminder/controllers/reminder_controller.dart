@@ -130,16 +130,17 @@ class ReminderController extends GetxController {
     );
     reminderBox!.add(reminder);
 
-    createNotification(context, reminder);
+    createNotification(context, reminder, currentTimeFormat);
     update();
+
     RouteService.serviceNavi.pop();
     titleController.clear();
     descriptionController.clear();
   }
 
-  createNotification(context, ReminderModel reminderModel) async {
+  createNotification(context, ReminderModel reminderModel, dateString) async {
     final notificationSchedule = NotificationWeekAndTime(
-      dayOfTheWeek: 1 | 2 | 3 | 4 | 5 | 6 | 7,
+      dayOfTheWeek: reminderModel.createdAtTime,
       timeOfDay: TimeOfDay(hour: selectedHour, minute: selectedMinute),
     );
 
@@ -153,22 +154,22 @@ class ReminderController extends GetxController {
 
   deleteReminder(int index) {
     reminderBox!.deleteAt(index);
+    sl<NotificationProvider>().cancelScheduledNotifications();
     update();
   }
 
-  Color decideColorSide({required String reminderType}){
+  Color decideColorSide({required String reminderType}) {
     switch (reminderType) {
       case "Medicine":
         return ColorManager.secondaryLight;
       case "Vaccine":
-       return ColorManager.quaternary;
+        return ColorManager.quaternary;
       case "Exercise":
-       return ColorManager.greenLight;
+        return ColorManager.greenLight;
       case "Liquid":
         return ColorManager.tertiary;
       default:
         return ColorManager.secondaryLight;
     }
-
   }
 }
