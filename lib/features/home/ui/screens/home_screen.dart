@@ -248,7 +248,7 @@ class _HomeScreenState extends State<HomeScreen> {
               AppSize.s56.addVerticalSpace,
               DividerShopCard(
                 title: AppStrings.reminders,
-                textButton: AppStrings.seeAll,
+                textButton: "",
                 onPressed: () {},
               ),
               const RVerticalSpace(height: AppSize.s12),
