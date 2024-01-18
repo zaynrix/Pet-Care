@@ -15,29 +15,29 @@ class UserModel {
   final bool isDeleted;
 
   factory UserModel.fakeData() => UserModel._(
-      email: "",
-      id: 000000000,
-      name: "",
+      email: "test@gmail.com",
+      id: 1111,
+      name: "yahya",
       isDeleted: false,
       isVerified: false,
-      phoneNumber: "");
+      phoneNumber: "0592487533");
 
-factory UserModel.fromJson(Map<String, dynamic> json) =>UserModel._(
-    email: json["email"],
-    id: json["id"],
-    name: json["name"],
-    isDeleted: json["isDeleted"],
-    isVerified: json["isVerified"],
-    phoneNumber: json["phoneNumber"]);
+  factory UserModel.fromJson(Map<String, dynamic> json) => UserModel._(
+      email: json["email"] ?? "test@gmail.com",
+      id: json["id"] ?? "1111",
+      name: json["name"] ?? "yahya",
+      isDeleted: json["isDeleted"] ?? false,
+      isVerified: json["isVerified"] ?? false,
+      phoneNumber: json["phoneNumber"] ?? "0592487533");
 
-Map<String , dynamic> toJson() {
-  final Map<String, dynamic> data = <String, dynamic>{};
-  data["id"] = id;
-  data["name"] = name;
-  data["email"] = email;
-  data["isVerified"] = isVerified;
-  data["phoneNumber"] = phoneNumber;
-  data["isDeleted"] = isDeleted;
-  return data;
-}
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["name"] = name;
+    data["email"] = email;
+    data["isVerified"] = isVerified;
+    data["phoneNumber"] = phoneNumber;
+    data["isDeleted"] = isDeleted;
+    return data;
+  }
 }
