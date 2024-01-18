@@ -9,10 +9,6 @@ class AuthRepo {
 
   Future<UserModel> loginRepo(
       {required String email, required String password}) async {
-    // final response = await client
-    //     .post(Endpoints.login, data: {"email": email, "password": password});
-    // sl<StorageService>()
-    //     .saveAccessToken(token: response.data["tokens"]["access_token"]);
     final user = UserModel.fakeData();
     return user;
   }
