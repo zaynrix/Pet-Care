@@ -3,8 +3,10 @@ part of auth_module;
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
 
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController emailController =
+      TextEditingController(text: "test@gmail.com");
+  final TextEditingController passwordController =
+      TextEditingController(text: "mmMM112233@@");
   final GlobalKey<FormState> formKye = GlobalKey<FormState>();
   final SizeConfig sizeConfig = sl<SizeConfig>();
 
@@ -23,6 +25,9 @@ class LoginScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const RVerticalSpace(height: AppSize.s115),
+                  Text("Test Email : test@gmail.com"),
+                  Text("Test Password : mmMM112233@@"),
+                  const RVerticalSpace(height: AppSize.s15),
                   Text(
                     "Welcome back",
                     style: h2Regular(color: ColorManager.primary),
@@ -35,7 +40,7 @@ class LoginScreen extends StatelessWidget {
                   CustomTextFormField(
                     textInputAction: TextInputAction.next,
                     focus: (_) => FocusScope.of(context).nearestScope,
-                    hintText: AppStrings.eMail,
+                    hintText: "test@gmail.com",
                     controller: emailController,
                     validator: (String? value) => value!.validateEmail(),
                     keyBoardType: TextInputType.emailAddress,
@@ -43,7 +48,7 @@ class LoginScreen extends StatelessWidget {
                   const RVerticalSpace(height: AppSize.s20),
                   CustomTextFormField(
                     focus: (_) => FocusScope.of(context).nearestScope,
-                    hintText: AppStrings.password,
+                    hintText: "mmMM112233@@",
                     controller: passwordController,
                     validator: (String? value) => value!.validatePassword(),
                     keyBoardType: TextInputType.visiblePassword,
